@@ -15,7 +15,7 @@ const ResearchSymposium = () => {
                 data-aos-easing='linear'
                 data-aos-duration='800'
             > 
-                <p className="font-bold text-2xl xl:text-4xl pb-8">RESEARCH SYMPOSIUM / TECHNOLOGY SHOWCASE</p>
+                <p className="font-bold text-2xl xl:text-4xl pb-8">INNOVATION EXPO</p>
                 <div className="text-sm">
                     <p className="pb-5">
                         Calling All Innovators!<br />
@@ -26,7 +26,7 @@ const ResearchSymposium = () => {
                     </p>
                 </div>
                 <div className="flex gap-3 items-center mt-4">
-                    {/* <button className='px-8 py-2 bg-[#FC711B] rounded-3xl text-xs font-semibold whitespace-nowrap text-white border border-[#FC711B]'>Learn More</button> */}
+                    <button className='px-8 py-2 bg-[#FC711B] rounded-3xl text-xs font-semibold whitespace-nowrap text-white border border-[#FC711B]'>Click for More Details</button>
                     <a href={'https://form.jotform.com/240748563822058'} target="_blank" rel="noopener noreferrer" className='py-2 px-7 border border-white rounded-3xl text-xs whitespace-nowrap'>Interest Form</a>
                 </div>
             </div>

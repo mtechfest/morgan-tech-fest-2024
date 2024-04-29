@@ -8,7 +8,7 @@ const BecomeaSponsor = () => {
           data-aos='fade-left'
           data-aos-easing='linear'
           data-aos-duration='1000'
-        >SPONSORS</p>
+        >2023 SPONSORS</p>
         <p 
           className="text-sm pt-3"
           data-aos='fade-left'
