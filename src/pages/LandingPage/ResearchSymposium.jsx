@@ -3,8 +3,9 @@ import ImageSlider from "../../components/ImageSlider"
 import s1 from "../../assets/s1.png"
 import s2 from "../../assets/s2.png"
 import s3 from "../../assets/s3.png"
+import s4 from "../../assets/s4.png"
 
- const images = [s1, s2, s3]
+ const images = [s1, s2, s3, s4]
 
 const ResearchSymposium = () => {
   return (
@@ -20,9 +21,9 @@ const ResearchSymposium = () => {
                     <p className="pb-5">
                         Calling All Innovators!<br />
                         Are you ready to revolutionize the tech world?<br />
-                        It&apos;s time to turn your ideas into reality and showcase your brilliance at our Research Symposium and Tech Showcase! Whether you&apos;re passionate about coding, engineering, or creating the next big thing, this is your chance to shine. <br />
-                        Start crafting your projects, conducting groundbreaking research, and preparing to blow minds! We are excited to see your work and celebrate you! Lots of cash and prizes to be won. <br />
-                        Click below to learn more and join us on this exciting journey!.
+                        It&apos;s time to turn your ideas into reality and showcase your brilliance at our Innovation Expo! Whether you&apos;re passionate about coding, engineering, or conducting groundbreaking research, this is your chance to shine. <br />
+                        Start building your projects, conducting research, and preparing to blow minds! We are excited to see your work and celebrate you! Cash and prizes to be won. <br />
+                        If you are interested, let us know by filling out the interest form below.
                     </p>
                 </div>
                 <div className="flex gap-3 items-center mt-4">

@@ -45,7 +45,7 @@ function Navbar() {
         <div className=' hidden lg:flex gap-8 lg:gap-4 xl:gap-8 items-center text-white uppercase text-sm font-semibold'>
             <SmoothLink to={'hero'} smooth='true' duration={500} className='cursor-pointer'>Home</SmoothLink>
             <SmoothLink to={'aboutUs'} smooth='true' duration={500} className='cursor-pointer'>About Us</SmoothLink>
-            <SmoothLink to={'symposium'} smooth='true' duration={500} className='cursor-pointer'>Symposium</SmoothLink>
+            <SmoothLink to={'symposium'} smooth='true' duration={500} className='cursor-pointer'>Expo</SmoothLink>
             <SmoothLink to={'schedule'} smooth='true' duration={500} className='cursor-pointer'>Schedule</SmoothLink>
             <SmoothLink to={'speakers'} smooth='true' duration={500} className='cursor-pointer'>Speakers</SmoothLink>
             <SmoothLink to={'sponsors'} smooth='true' duration={500} className='cursor-pointer'>Sponsors</SmoothLink>

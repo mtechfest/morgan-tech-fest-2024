@@ -63,7 +63,7 @@ const Countdown = () => {
                   data-aos-easing='linear'
                   data-aos-duration='1000'
                   className="font-semibold text-center text-2xl md:text-4xl"
-                >The Future of Technology Conference</p>
+                >A  World of Innovation</p>
                 <div className="flex items-center gap-5 md:gap-20 p-3 font-semibold my-7 md:mt-16 md:mb-12">
                     <div className="flex flex-col items-center gap-5 leading-7">
                         <p className="text-[#FC711B] text-5xl ">{timeLeft.days}</p>

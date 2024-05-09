@@ -13,7 +13,7 @@ const About = () => {
                 <p className="font-bold text-4xl pb-8">WHO WE ARE</p>
                 <div className="text-sm">
                     <p className="pb-5">Morgan TechFest is a student-led tech conference powered by the computer science department at Morgan State University.</p>
-                    <p>Morgan TechFest focuses on educating students about the influence of technology on their career paths, facilitating networking with tech experts, enabling job opportunities in the tech industry, and recognizing outstanding tech-innovative research through poster showcases and awards.</p>
+                    <p>Morgan TechFest focuses on educating students about the influence of technology on their career paths, facilitating networking with tech experts, enabling job opportunities in the tech industry, and celebrating outstanding innovative research and technology projects through showcases and awards.</p>
                 </div>
                 {/* <button className='mt-4 px-8 py-1 bg-[#FC711B] rounded-3xl text-xs font-semibold text-white'>CONTACT</button> */}
             </div>

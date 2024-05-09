@@ -23,13 +23,13 @@ const Faq = () => {
         "University students (undergraduate, graduate, & postgraduate)",
     },
     {
-      question: "Which specific domain of research does Morgan TechFest emphasize?",
+      question: "What domain of projects does the Innovation Expo emphasize?",
       answer:
-        "All tech-related research (AI, VR, Blockchain, Software Development, Robotics etc.)",
+        "All tech-related projects including research (AI, VR, Blockchain, Software Development, Robotics etc.)",
     },
     {
       question: "Are there any accolades presented for exceptional contributions during the Innovation Expo?",
-      answer: "Yes. We award the best 3 projects.",
+      answer: "Yes, we award the best 3 projects.",
     },
     {
       question: "Is Morgan TechFest accessible to all university students?",
@@ -54,7 +54,7 @@ const Faq = () => {
     {
       question: "When is Morgan TechFest?",
       answer:
-        "It is a one-day event on September 28, 2024 from 8am-6pm",
+        "It is a one-day event on Saturday September 28, 2024 from 9am-6pm",
     },
     {
       question: "Are provisions like breakfast, lunch, and dinner included?",
@@ -64,7 +64,7 @@ const Faq = () => {
     {
       question: "How do I get there?",
       answer:
-        "We may provide transportation support through your university, department, and student organization.",
+        "We may provide transportation support through your university, department, or student organization.",
     },
     {
       question: "Is Morgan TechFest free?",
@@ -79,7 +79,7 @@ const Faq = () => {
     {
       question: "Location?",
       answer:
-        "Morgan Business Center - Graves School of Business and Management 4100 Hillen Rd. Baltimore, MD 21218.",
+        "Morgan State University - Graves School of Business and Management 4100 Hillen Rd. Baltimore, MD 21218.",
     },
     {
       question: "Is it specific to any department?",
@@ -89,7 +89,7 @@ const Faq = () => {
     {
       question: "Any other opportunities?",
       answer:
-        "Certainly! There are numerous additional opportunities beyond that. You have the chance to engage in networking sessions with seasoned tech professionals, explore job openings within the tech industry, receive recognition for your groundbreaking tech-driven research and innovative techology projects, and connect with a vibrant community of fellow students, developers, and researchers.",
+        "Certainly! There are numerous additional opportunities beyond that. You have the chance to engage in networking sessions with seasoned tech professionals, explore job openings within the tech industry, receive recognition for your groundbreaking tech-driven research and technology projects, and connect with a vibrant community of fellow students, developers, and researchers.",
     },
   ];
 
