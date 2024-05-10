@@ -18,7 +18,7 @@ const Hero = () => {
               <p>SAT SEP 28, 2024</p>
               <p>9AM - 6PM</p>
             </div>
-            <p className="font-semibold text-2xl">Morgan State University | Graves School Of<br/> Business and Management</p>
+            <p className="font-semibold text-lg md:text-2xl">Morgan State University | Graves School Of<br/> Business and Management</p>
             <p className="!inline-block"><a href={'https://form.jotform.com/240678505118054'} target="_blank" rel="noopener noreferrer" className='py-2 px-7 border border-white rounded-3xl text-xs'>REGISTER</a></p>
           </div>
           <div className="flex items-center gap-4">
