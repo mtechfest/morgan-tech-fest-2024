@@ -2,7 +2,7 @@
 const SpeakerImage = ({img, name}) => {
   return (
     <div className="relative" 
-      data-aos='fade-left'
+      data-aos='fade-up'
       data-aos-easing='linear'
       data-aos-duration='1000'
     >

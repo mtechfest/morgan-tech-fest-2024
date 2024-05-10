@@ -72,7 +72,7 @@ function Navbar() {
             </div>
         </div>
         <div
-            className={`lg:hidden flex flex-col justify-between absolute top-[100%] left-5 right-5 bg-[#FC711B] overflow-hidden ${
+            className={`lg:hidden flex flex-col justify-between absolute top-[100%] left-0 right-0 bg-[#FC711B] overflow-hidden ${
             !flip ? "h-0" : "h-[456px]"
             }  ease-in-out duration-500`}
         >

@@ -15,9 +15,9 @@ const SponsorLevel = () => {
                 <img 
                     src={gold} 
                     alt=""
-                    data-aos='fade-right'
-                    data-aos-easing='linear'
-                    data-aos-duration='1000'
+                    // data-aos='fade-right'
+                    // data-aos-easing='linear'
+                    // data-aos-duration='1000'
                 />
             </div>
             <div className="col-span-2 md:col-span-3">
@@ -26,9 +26,9 @@ const SponsorLevel = () => {
                         src={bloomberg} 
                         alt="" 
                         className='w-[320px] object-cover' 
-                        data-aos='fade-right'
-                        data-aos-easing='linear'
-                        data-aos-duration='1000'
+                        // data-aos='fade-right'
+                        // data-aos-easing='linear'
+                        // data-aos-duration='1000'
                     />
                 </div>
             </div>
@@ -50,41 +50,41 @@ const SponsorLevel = () => {
                         src={google} 
                         alt="" 
                         className='w-[320px] object-cover'
-                        data-aos='fade-right'
-                        data-aos-easing='linear'
-                        data-aos-duration='1000'
+                        // data-aos='fade-right'
+                        // data-aos-easing='linear'
+                        // data-aos-duration='1000'
                     />
                     <img 
                         src={capitalOne} 
                         alt="" 
                         className='w-[320px] object-cover'
-                        data-aos='fade-right'
-                        data-aos-easing='linear'
-                        data-aos-duration='1000'
+                        // data-aos='fade-right'
+                        // data-aos-easing='linear'
+                        // data-aos-duration='1000'
                     />
                     <img 
                         src={mandt} 
                         alt="" 
                         className='w-[320px] object-cover'
-                        data-aos='fade-right'
-                        data-aos-easing='linear'
-                        data-aos-duration='1000'
+                        // data-aos='fade-right'
+                        // data-aos-easing='linear'
+                        // data-aos-duration='1000'
                     />
                     <img 
                         src={kyndryl} 
                         alt="" 
                         className='w-[320px] object-cover'
-                        data-aos='fade-right'
-                        data-aos-easing='linear'
-                        data-aos-duration='1000'
+                        // data-aos='fade-right'
+                        // data-aos-easing='linear'
+                        // data-aos-duration='1000'
                     />
                     <img 
                         src={microsoft} 
                         alt="" 
                         className='w-[320px] object-cover'
-                        data-aos='fade-right'
-                        data-aos-easing='linear'
-                        data-aos-duration='1000' 
+                        // data-aos='fade-right'
+                        // data-aos-easing='linear'
+                        // data-aos-duration='1000' 
                     />
                 </div>
             </div>
