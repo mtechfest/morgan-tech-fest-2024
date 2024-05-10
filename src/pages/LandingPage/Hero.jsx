@@ -15,17 +15,17 @@ const Hero = () => {
         <div className="flex justify-between items-end pt-12">
           <div className="flex flex-col gap-6">
             <div className="flex gap-10 items-center text-xl font-bold">
-              <p>28 SEP 2024</p>
-              <p>8AM - 6PM</p>
+              <p>SAT SEP 28, 2024</p>
+              <p>9AM - 6PM</p>
             </div>
-            <p className="font-semibold text-2xl">Graves School Of Business <br /> and Management</p>
+            <p className="font-semibold text-2xl">Morgan State University | Graves School Of<br/> Business and Management</p>
             <p className="!inline-block"><a href={'https://form.jotform.com/240678505118054'} target="_blank" rel="noopener noreferrer" className='py-2 px-7 border border-white rounded-3xl text-xs'>REGISTER</a></p>
           </div>
           <div className="flex items-center gap-4">
-            <FaFacebookF className="cursor-pointer hover:text-[#FC711B]" size={18} />
-            <FaXTwitter className="cursor-pointer hover:text-[#FC711B]" size={18} />
-            <FaLinkedinIn className="cursor-pointer hover:text-[#FC711B]" size={18} />
-            <RiInstagramFill className="cursor-pointer hover:text-[#FC711B]" size={18} />
+            {/* <FaFacebookF className="cursor-pointer hover:text-[#FC711B]" size={18} />
+            <FaXTwitter className="cursor-pointer hover:text-[#FC711B]" size={18} /> */}
+            <a href="https://www.linkedin.com/company/morgan-techfest/" target="_blank"><FaLinkedinIn className="cursor-pointer hover:text-[#FC711B]" size={18} /></a>
+            <a href="https://www.instagram.com/morgantechfest?igsh=MTFkNm8yMXdxeHRseQ==" target="_blank"><RiInstagramFill className="cursor-pointer hover:text-[#FC711B]" size={18} /></a>
           </div>
         </div>
       </div>

@@ -30,14 +30,14 @@ const Speakers = () => {
         name='speakers'
     >
         <Container>
-            <p className="font-semibold">SPEAKERS</p>
+            <p className="font-semibold">2023 SPEAKERS</p>
             <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-10 pt-8">
                 <SpeakerImage img={speakerOne} name={'PROV. DR. HONGTAO YU'} />
                 <SpeakerImage img={speakerTwo} name={'PATRICE BARNES'} />
             </div>
             <div className="py-16">
                 <div className="flex items-center gap-3">
-                    <p className="font-semibold whitespace-nowrap">PANELIST / JUDGES</p>
+                    <p className="font-semibold whitespace-nowrap">2023 PANELIST / JUDGES</p>
                     <hr className="border-t border-white w-full" />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-10 pt-8">
@@ -60,7 +60,7 @@ const Speakers = () => {
             </div>
             <div>
                 <div className="flex items-center gap-3">
-                    <p className="font-semibold whitespace-nowrap">RECRUITER&apos;S PANEL</p>
+                    <p className="font-semibold whitespace-nowrap">2023 RECRUITER&apos;S PANEL</p>
                     <hr className="border-t border-white w-full" />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-10 pt-8">

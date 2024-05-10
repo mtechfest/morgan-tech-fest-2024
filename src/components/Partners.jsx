@@ -14,7 +14,7 @@ const Partners = () => {
           data-aos-easing='linear'
           data-aos-duration='1000'
         >
-            <p className="font-semibold whitespace-nowrap">2024 PARTNERS</p>
+            <p className="font-semibold whitespace-nowrap">2023 PARTNERS</p>
             <hr className="border-t border-black w-full ml-4" />
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-16 py-6">

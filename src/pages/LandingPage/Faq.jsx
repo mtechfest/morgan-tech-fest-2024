@@ -13,7 +13,7 @@ const Faq = () => {
 
   const faqData = [
     {
-      question: "What exactly is Morgan TechFest?",
+      question: "What is Morgan TechFest?",
       answer:
         "Morgan TechFest is a one-day in-person student-led tech conference that brings together developers, researchers, and tech enthusiasts across universities in the US.",
     },
@@ -23,13 +23,13 @@ const Faq = () => {
         "University students (undergraduate, graduate, & postgraduate)",
     },
     {
-      question: "Which specific domain of research does Morgan TechFest emphasize?",
+      question: "What domain of projects does the Innovation Expo emphasize?",
       answer:
-        "All tech-related research (AI, VR, Blockchain, Software Development, Robotics etc.)",
+        "All tech-related projects including research (AI, VR, Blockchain, Software Development, Robotics etc.)",
     },
     {
-      question: "Are there any accolades presented for exceptional contributions during the Symposium?",
-      answer: "Yes. We award the best 3 projects.",
+      question: "Are there any accolades presented for exceptional contributions during the Innovation Expo?",
+      answer: "Yes, we award the best 3 projects.",
     },
     {
       question: "Is Morgan TechFest accessible to all university students?",
@@ -37,7 +37,7 @@ const Faq = () => {
         "Yes! We invite all students to join us at the National Treasure, Morgan State University",
     },
     {
-      question: "How do I go about registering for Morgan TechFest?",
+      question: "How do I register for Morgan TechFest?",
       answer:
         "Just click on the registration button on this page and fill out the form.",
     },
@@ -52,19 +52,19 @@ const Faq = () => {
         "Yes! Morgan TechFest is open to anyone interested in developing a career or business in the tech space. We have put together robust educational programs to help anyone interested in starting a career or business in the field.",
     },
     {
-      question: "Morgan TechFest is when?",
+      question: "When is Morgan TechFest?",
       answer:
-        "It is a two-day event, specific dates coming soon...",
+        "It is a one-day event on Saturday September 28, 2024 from 9am-6pm",
     },
     {
       question: "Are provisions like breakfast, lunch, and dinner included?",
       answer:
-        "Yes! Food and drinks are available, and we also do our best to accommodate all kinds of dietary",
+        "Yes! Food and drinks are available, and we also do our best to accommodate all kinds of dietary restrictions",
     },
     {
       question: "How do I get there?",
       answer:
-        "We provide transportation support through your university, department, and student organization.",
+        "We may provide transportation support through your university, department, or student organization.",
     },
     {
       question: "Is Morgan TechFest free?",
@@ -79,7 +79,7 @@ const Faq = () => {
     {
       question: "Location?",
       answer:
-        "Morgan Business Center - Graves School of Business and Management 4100 Hillen Rd. Baltimore, MD 21218.",
+        "Morgan State University - Graves School of Business and Management 4100 Hillen Rd. Baltimore, MD 21218.",
     },
     {
       question: "Is it specific to any department?",
@@ -89,7 +89,7 @@ const Faq = () => {
     {
       question: "Any other opportunities?",
       answer:
-        "Certainly! There are numerous additional opportunities beyond that. You have the chance to engage in networking sessions with seasoned tech professionals, explore job openings within the tech industry, receive recognition for your groundbreaking tech-driven research and innovative projects, and connect with a vibrant community of fellow students, developers, and researchers.",
+        "Certainly! There are numerous additional opportunities beyond that. You have the chance to engage in networking sessions with seasoned tech professionals, explore job openings within the tech industry, receive recognition for your groundbreaking tech-driven research and technology projects, and connect with a vibrant community of fellow students, developers, and researchers.",
     },
   ];
 
@@ -101,7 +101,7 @@ const Faq = () => {
     data-aos-duration='1000'
     >
         <div className={'py-20 w-[90%] lg:w-[80%] xl:w-[60%] 2xl:w-[50%] mx-auto'} >
-        <h2 className="text-[#FC711B] text-5xl font-medium text-center pb-12">Get Answers to Your Eventify Questions with Our FAQs</h2>
+        <h2 className="text-[#FC711B] text-5xl font-medium text-center pb-12">FAQs</h2>
         {faqData.map((faq, index) => (
             <div key={index} className="mb-10">
             <div className="flex items-center justify-between gap-9 md:gap-4 mb-2 text-[#122644]">

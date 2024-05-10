@@ -1,5 +1,5 @@
 import Container from "../../components/Container"
-import judge from "../../assets/judge.png"
+import judge from "../../assets/JudgingCriteria.png"
 import { IoIosArrowForward } from "react-icons/io";
 import doc  from "../../assets/Judging Document.pdf";
 
@@ -12,7 +12,7 @@ const JudgingCriteria = () => {
                 data-aos-easing='linear'
                 data-aos-duration='800'
             >
-                <p className="font-semibold text-3xl lg:text-5xl lg:leading-[60px]">Download the Judging Criteria Here</p>
+                <p className="font-semibold text-3xl lg:text-5xl lg:leading-[60px]">View the Judging Criteria Here</p>
                 <a href={doc} target="_blank" rel="noopener noreferrer" className='  mt-5 md:mt-10 px-6 py-2 lg:py-3 bg-[#FC711B] rounded-3xl text-xs font-medium text-white inline-block'>
                     <p className="flex items-center gap-2">
                         <IoIosArrowForward />
