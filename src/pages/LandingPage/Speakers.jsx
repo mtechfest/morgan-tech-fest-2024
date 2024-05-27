@@ -21,6 +21,7 @@ import panelist15 from "../../assets/Zaveri.jpg";
 import recruiter1 from "../../assets/Julian.jpg";
 import recruiter2 from "../../assets/Hoggard.png";
 import recruiter3 from "../../assets/Taofeek.png";
+import PanelistImage from "../../components/PanelistImage";
 
 const Speakers = () => {
   return (
@@ -41,21 +42,21 @@ const Speakers = () => {
                     <hr className="border-t border-white w-full" />
                 </div>
                 <div className="flex md:grid md:grid-cols-3 xl:grid-cols-4 gap-10 pt-8 overflow-x-scroll md:overflow-hidden ">
-                    <SpeakerImage img={panelist1} name={'DR. OLUDARE OWOLABI'}/>
-                    <SpeakerImage img={panelist2} name={'GABRIELLA WATERS'} />
-                    <SpeakerImage img={panelist3} name={'DR. JAMELL DACON'}/>
-                    <SpeakerImage img={panelist4} name={'DR. ADEDAYO ARIYBI'} />
-                    <SpeakerImage img={panelist5} name={'DR. GEORGE MICHENI'} />
-                    <SpeakerImage img={panelist6} name={'DR. BLESSING OJEME'}/>
-                    <SpeakerImage img={panelist7} name={'DR. FAHMI KHALIFA'} />
-                    <SpeakerImage img={panelist8} name={'DR. RADHOUANE CHOUCHANE'}/>
-                    <SpeakerImage img={panelist9} name={'DR. OLUWATOBI BUSARI'} />
-                    <SpeakerImage img={panelist10} name={'TEMITOPE AJIBOLA'} />
-                    <SpeakerImage img={panelist11} name={'DR. ERIC SAKK'}/>
-                    <SpeakerImage img={panelist12} name={'DR. TIMOTHY OLADUNNI'} />
-                    <SpeakerImage img={panelist13} name={'DR. ADEOYE O. OLAOLUWA'}/>
-                    <SpeakerImage img={panelist14} name={'DR. NAJA A. MACK'} />
-                    <SpeakerImage img={panelist15} name={'DR. JIGISH ZAVERI'} />
+                    <PanelistImage img={panelist1} name={'DR. OLUDARE OWOLABI'}/>
+                    <PanelistImage img={panelist2} name={'GABRIELLA WATERS'} />
+                    <PanelistImage img={panelist3} name={'DR. JAMELL DACON'}/>
+                    <PanelistImage img={panelist4} name={'DR. ADEDAYO ARIYBI'} />
+                    <PanelistImage img={panelist5} name={'DR. GEORGE MICHENI'} />
+                    <PanelistImage img={panelist6} name={'DR. BLESSING OJEME'}/>
+                    <PanelistImage img={panelist7} name={'DR. FAHMI KHALIFA'} />
+                    <PanelistImage img={panelist8} name={'DR. RADHOUANE CHOUCHANE'}/>
+                    <PanelistImage img={panelist9} name={'DR. OLUWATOBI BUSARI'} />
+                    <PanelistImage img={panelist10} name={'TEMITOPE AJIBOLA'} />
+                    <PanelistImage img={panelist11} name={'DR. ERIC SAKK'}/>
+                    <PanelistImage img={panelist12} name={'DR. TIMOTHY OLADUNNI'} />
+                    <PanelistImage img={panelist13} name={'DR. ADEOYE O. OLAOLUWA'}/>
+                    <PanelistImage img={panelist14} name={'DR. NAJA A. MACK'} />
+                    <PanelistImage img={panelist15} name={'DR. JIGISH ZAVERI'} />
                 </div>
             </div>
             <div>
