@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import backgroundImage from "../../assets/hero1.png";
+import backgroundImage from "../../assets/cvs.png";
 import About from "./About";
 import Countdown from "./Countdown";
 import Faq from "./Faq";
@@ -12,17 +12,7 @@ import "aos/dist/aos.css";
 import JudgingCriteria from "./JudgingCriteria";
 import ResearchSymposium from "./ResearchSymposium";
 import TeamSection from "./TeamSection";
-// import femi from "../../assets/femi.png"
-// import seyi from "../../assets/seyi.png"
-// import beatrice from "../../assets/beatrice.png"
-// import kyla from "../../assets/kyla.png"
-// import terrell from "../../assets/terrell.png"
-// import damilola from "../../assets/damilola.png"
-// import tunmise from "../../assets/tunmise.png"
-// import jaunel from "../../assets/jaunel.png"
-// import ebun from "../../assets/ebun.png"
-// import abdulai from "../../assets/abdulai.png"
-// import SubmitProject from "./SubmitProject";
+
 
 const LandingPage = () => {
 
@@ -54,8 +44,9 @@ const LandingPage = () => {
   return (
     <div>
         <div
-            className='bg-cover bg-center h-[100vh] md:h-[70vh] lg:h-[100vh]'
-            style={{ backgroundImage: "url('https://res.cloudinary.com/dlzxduiks/image/upload/v1714432166/Hero/qj2r5u8xcrahphmmmmpr.png')" }}
+            className=' bg-cover bg-center h-[100vh] md:h-[70vh] lg:h-[100vh]'
+            // style={{ backgroundImage: "url('https://res.cloudinary.com/dlzxduiks/image/upload/v1714432166/Hero/qj2r5u8xcrahphmmmmpr.png')" }}
+            style={{ backgroundImage: `url(${backgroundImage})` }}
             name='hero'
         >
             <Hero />

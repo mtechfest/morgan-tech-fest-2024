@@ -1,7 +1,7 @@
 
 const SpeakerImage = ({img, name}) => {
   return (
-    <div className="relative" 
+    <div className="relative flex-shrink-0" 
       data-aos='fade-up'
       data-aos-easing='linear'
       data-aos-duration='1000'

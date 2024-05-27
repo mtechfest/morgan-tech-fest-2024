@@ -40,7 +40,7 @@ const Speakers = () => {
                     <p className="font-semibold whitespace-nowrap">2023 PANELIST / JUDGES</p>
                     <hr className="border-t border-white w-full" />
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-10 pt-8">
+                <div className="flex md:grid md:grid-cols-3 xl:grid-cols-4 gap-10 pt-8 overflow-x-scroll md:overflow-hidden scrollbar-hide">
                     <SpeakerImage img={panelist1} name={'DR. OLUDARE OWOLABI'}/>
                     <SpeakerImage img={panelist2} name={'GABRIELLA WATERS'} />
                     <SpeakerImage img={panelist3} name={'DR. JAMELL DACON'}/>
@@ -75,4 +75,4 @@ const Speakers = () => {
   )
 }
 
-export default Speakers
+export default Speakers;
