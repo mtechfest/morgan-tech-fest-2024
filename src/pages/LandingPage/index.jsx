@@ -39,6 +39,9 @@ const LandingPage = () => {
     { name: 'Ebun Oludemi', position: 'Transportation/Website', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413421/esudtq4exr7ijqswzeqp.png" },
     // { name: 'Kendell Crawford', position: 'Logistics (Catering) ', image: gallery12 },
     { name: 'Abdulai Hallowell', position: 'Creative Director', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413421/sdxnfrt3cejz7tbhbg1f.png" },
+    { name: 'Ayomide Ajibola', position: 'Finance Manager', image: "src/assets/Ajibola.jpeg" },
+    { name: 'Theophilus Akwemoh', position: 'Logistics (Event Planning)', image: "src/assets/theophilus.jpeg" },
+    { name: 'Oluwapemiisin Akingbola', position: 'Partnerships Manager', image: "src/assets/pemiisin.jpeg" },
     // Add more team members here
   ];
   return (
