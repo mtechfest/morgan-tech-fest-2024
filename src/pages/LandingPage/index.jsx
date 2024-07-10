@@ -39,9 +39,9 @@ const LandingPage = () => {
     { name: 'Ebun Oludemi', position: 'Transportation/Website', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413421/esudtq4exr7ijqswzeqp.png" },
     // { name: 'Kendell Crawford', position: 'Logistics (Catering) ', image: gallery12 },
     { name: 'Abdulai Hallowell', position: 'Creative Director', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413421/sdxnfrt3cejz7tbhbg1f.png" },
-    { name: 'Ayomide Ajibola', position: 'Finance Manager', image: "src/assets/Ajibola.jpeg" },
-    { name: 'Theophilus Akwemoh', position: 'Logistics (Event Planning)', image: "src/assets/theophilus.jpeg" },
-    { name: 'Oluwapemiisin Akingbola', position: 'Partnerships Manager', image: "src/assets/pemiisin.jpeg" },
+    { name: 'Ayomide Ajibola', position: 'Finance Manager', image: "https://res.cloudinary.com/djksz5job/image/upload/v1720650069/e5tbki6drsjs433covq8.jpg" },
+    { name: 'Theophilus Akwemoh', position: 'Logistics (Event Planning)', image: "https://res.cloudinary.com/djksz5job/image/upload/v1720650080/lbwq3qa9i4vstt5shrec.jpg" },
+    { name: 'Oluwapemiisin Akingbola', position: 'Partnerships Manager', image: "https://res.cloudinary.com/djksz5job/image/upload/v1720650077/t8i3uk8ix6rmip3xrobj.jpg" },
     // Add more team members here
   ];
   return (

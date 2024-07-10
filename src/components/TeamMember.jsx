@@ -1,4 +1,4 @@
-
+import that from "../assets/theophilus.jpeg"
 
 const TeamMember = ({ member }) => {
   return (
