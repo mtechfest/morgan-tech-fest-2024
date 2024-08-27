@@ -113,11 +113,12 @@ const Countdown = () => {
                         )
                     })}
                 </div>
-                {/* <button 
+                <button 
                   data-aos='fade-up'
                   data-aos-easing='linear'
                   data-aos-duration='1000'
-                className='px-4 py-2 bg-[#FC711B] rounded-3xl text-xs font-semibold text-white'>CHECK FULL SCHEDULE</button> */}
+                className='px-4 py-2 bg-[#FC711B] rounded-3xl text-xs font-semibold text-white'><a href="https://drive.google.com/file/d/1WloYcEPieANqLvxYHBQJ_lMNj6bGGJ05/view?usp=sharing" target="_blank">CHECK FULL SCHEDULE</a></button>
+                
             </Container>
         </div>
     </div>
