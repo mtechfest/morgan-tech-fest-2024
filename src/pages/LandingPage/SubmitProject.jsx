@@ -12,7 +12,7 @@ const SubmitProject = () => {
                 data-aos-easing='linear'
                 data-aos-duration='800'
             >
-                <p className="font-semibold text-3xl lg:text-5xl lg:leading-[60px]">Submit Your Project To Us Here</p>
+                <p className="font-semibold text-3xl lg:text-5xl lg:leading-[60px]">Submit Your Project Here!</p>
                 <a href={'https://form.jotform.com/240763913757162'} target="_blank" rel="noopener noreferrer" className='mt-5 md:mt-10 px-6 py-2 lg:py-3 bg-[#FC711B] rounded-3xl text-xs font-medium text-white inline-flex items-center gap-2'>
                     <IoIosArrowForward />
                     <span>Submit now</span>
