@@ -97,7 +97,7 @@ const Countdown = () => {
                       data-aos-duration='1000'
                     >
                         <FaMapMarkedAlt className="text-[1.5rem] md:text-base" />
-                        <p className="text-center md:text-start">Morgan Business Center - Graves School Of Business and Management</p>
+                        <p className="text-center md:text-start">Morgan State University Student Center - Calvin & Tina Tyler Ballroom</p>
                     </div>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 w-[95%] lg:w-[70%] xl:w-[65%] mx-auto my-10">

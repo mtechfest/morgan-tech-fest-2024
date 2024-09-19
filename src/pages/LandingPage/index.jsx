@@ -12,6 +12,7 @@ import "aos/dist/aos.css";
 import JudgingCriteria from "./JudgingCriteria";
 import ResearchSymposium from "./ResearchSymposium";
 import TeamSection from "./TeamSection";
+import SubmitProject from "./SubmitProject";
 
 
 const LandingPage = () => {
@@ -42,6 +43,8 @@ const LandingPage = () => {
     { name: 'Ayomide Ajibola', position: 'Finance Manager', image: "https://res.cloudinary.com/djksz5job/image/upload/v1720650069/e5tbki6drsjs433covq8.jpg" },
     { name: 'Theophilus Akwemoh', position: 'Logistics (Event Planning)', image: "https://res.cloudinary.com/djksz5job/image/upload/v1720650080/lbwq3qa9i4vstt5shrec.jpg" },
     { name: 'Oluwapemiisin Akingbola', position: 'Partnerships Manager', image: "https://res.cloudinary.com/djksz5job/image/upload/v1720650077/t8i3uk8ix6rmip3xrobj.jpg" },
+    { name: 'Marissa Savage', position: 'Logistics (Swag)', image: "https://res.cloudinary.com/djksz5job/image/upload/v1726594862/qctpjiyshv6rmegf1znq.png" },
+
     // Add more team members here
   ];
   return (
@@ -56,6 +59,7 @@ const LandingPage = () => {
         </div>
         <About />
         <ResearchSymposium />
+        <SubmitProject />
         <Countdown />
         <Speakers />
         <TeamSection teamData={teamData} />
