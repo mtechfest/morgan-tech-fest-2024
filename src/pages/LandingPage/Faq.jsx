@@ -79,7 +79,7 @@ const Faq = () => {
     {
       question: "Location?",
       answer:
-        "Morgan State University - Graves School of Business and Management 4100 Hillen Rd. Baltimore, MD 21218.",
+        "Morgan State University Student Center - Calvin & Tina Tyler Ballroom",
     },
     {
       question: "Is it specific to any department?",
