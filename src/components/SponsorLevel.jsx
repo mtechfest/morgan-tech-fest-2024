@@ -6,24 +6,34 @@ import capitalOne from '../assets/capitalOne.png'
 import mandt from '../assets/m&t.png'
 import kyndryl from '../assets/kyndryl.png'
 import microsoft from '../assets/microsoft.png'
+import lincoln from '../assets/lincoln.jpg'
+import cealms from '../assets/ceamls.png'
 
 const SponsorLevel = () => {
   return (
-    <div className='lg:pl-16 py-16'>
+    <div className='flex flex-col gap-10 lg:pl-16 py-16'>
         <div className="flex flex-col items-center md:grid grid-cols-4 gap-10 pb-10">
             <div className="col-span-1">
                 <img 
                     src={gold} 
                     alt=""
-                    // data-aos='fade-right'
-                    // data-aos-easing='linear'
-                    // data-aos-duration='1000'
+                    data-aos='fade-right'
+                    data-aos-easing='linear'
+                    data-aos-duration='1000'
                 />
             </div>
-            <div className="col-span-2 md:col-span-3">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div className="col-span-3 md:col-span-3">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     <img 
-                        src={bloomberg} 
+                        src={lincoln} 
+                        alt="" 
+                        className='w-[320px] object-cover' 
+                        // data-aos='fade-right'
+                        // data-aos-easing='linear'
+                        // data-aos-duration='1000'
+                    />
+                    <img 
+                        src={cealms} 
                         alt="" 
                         className='w-[320px] object-cover' 
                         // data-aos='fade-right'
@@ -49,12 +59,12 @@ const SponsorLevel = () => {
                     <img 
                         src={google} 
                         alt="" 
-                        className='w-[320px] object-cover'
+                        className='w-[150px] object-cover'
                         // data-aos='fade-right'
                         // data-aos-easing='linear'
                         // data-aos-duration='1000'
                     />
-                    <img 
+                    {/* <img 
                         src={capitalOne} 
                         alt="" 
                         className='w-[320px] object-cover'
@@ -85,7 +95,7 @@ const SponsorLevel = () => {
                         // data-aos='fade-right'
                         // data-aos-easing='linear'
                         // data-aos-duration='1000' 
-                    />
+                    /> */}
                 </div>
             </div>
         </div>

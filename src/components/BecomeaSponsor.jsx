@@ -4,10 +4,7 @@ const BecomeaSponsor = () => {
   return (
     <div className="lg:border-r border-black lg:pr-12 lg:py-4">
         <p 
-          // className="font-semibold"
-          // data-aos='fade-left'
-          // data-aos-easing='linear'
-          // data-aos-duration='1000'
+          className="font-semibold"
         >SPONSORS</p>
         <p 
           // className="text-sm pt-3"

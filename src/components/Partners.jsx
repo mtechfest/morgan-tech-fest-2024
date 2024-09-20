@@ -4,6 +4,10 @@ import oracle from '../assets/oracle.png';
 import scholarly from '../assets/scholarly.png';
 import timeless from '../assets/timeless.png';
 import msu from '../assets/msu.png';
+import altus from '../assets/AltusTech.png';
+import rtc from '../assets/RTC__Logo Orange.png';
+import mlh from '../assets/mlh-logo-color.png';
+
 
 const Partners = () => {
   return (
@@ -14,11 +18,35 @@ const Partners = () => {
           data-aos-easing='linear'
           data-aos-duration='1000'
         >
-            <p className="font-semibold whitespace-nowrap">2023 PARTNERS</p>
+            <p className="font-semibold whitespace-nowrap">2024 PARTNERS</p>
             <hr className="border-t border-black w-full ml-4" />
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-16 py-6">
             <img 
+              src={altus} 
+              alt="partner" 
+              className='w-[200px] h-[150px] object-contain' 
+              data-aos='fade-up'
+              data-aos-easing='linear'
+              data-aos-duration='1000'
+            />
+            <img 
+              src={rtc} 
+              alt="partner" 
+              className='w-[200px] h-[150px] object-contain' 
+              data-aos='fade-up'
+              data-aos-easing='linear'
+              data-aos-duration='1000'
+            />
+            <img 
+              src={mlh} 
+              alt="partner" 
+              className='w-[200px] h-[150px] object-contain' 
+              data-aos='fade-up'
+              data-aos-easing='linear'
+              data-aos-duration='1000'
+            />
+            {/* <img 
               src={jos} 
               alt="partner" 
               className='w-[200px] h-[150px] object-contain' 
@@ -65,7 +93,7 @@ const Partners = () => {
               data-aos='fade-up'
               data-aos-easing='linear'
               data-aos-duration='1000'
-            />
+            /> */}
         </div>
     </div>
   )

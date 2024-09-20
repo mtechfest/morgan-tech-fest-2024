@@ -54,7 +54,7 @@ const Faq = () => {
     {
       question: "When is Morgan TechFest?",
       answer:
-        "It is a one-day event on Saturday September 28, 2024 from 9am-6pm",
+        "It is a one-day event on Saturday September 28, 2024 from 10am-6pm",
     },
     {
       question: "Are provisions like breakfast, lunch, and dinner included?",
