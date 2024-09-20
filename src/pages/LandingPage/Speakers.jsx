@@ -43,7 +43,7 @@ const Speakers = () => {
             </div>
             <div className="py-16">
                 <div className="flex items-center gap-3">
-                    <p className="font-semibold whitespace-nowrap">2024 PANELIST / JUDGES</p>
+                    <p className="font-semibold whitespace-nowrap">2024 INNOVATORS INSIGHT PANEL</p>
                     <hr className="border-t border-white w-full" />
                 </div>
                 <div className="flex md:grid md:grid-cols-3 xl:grid-cols-4 gap-10 pt-8 overflow-x-scroll md:overflow-hidden ">
@@ -65,7 +65,7 @@ const Speakers = () => {
             </div>
             <div>
                 <div className="flex items-center gap-3">
-                    <p className="font-semibold whitespace-nowrap">2024 RECRUITER&apos;S PANEL</p>
+                    <p className="font-semibold whitespace-nowrap">2024 UNLOCKING OPPORTUNITIES PANEL</p>
                     <hr className="border-t border-white w-full" />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-10 pt-8">
