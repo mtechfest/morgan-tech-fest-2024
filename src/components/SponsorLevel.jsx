@@ -59,7 +59,7 @@ const SponsorLevel = () => {
                     <img 
                         src={google} 
                         alt="" 
-                        className='w-[150px] object-cover'
+                        className='w-[320px] object-cover'
                         // data-aos='fade-right'
                         // data-aos-easing='linear'
                         // data-aos-duration='1000'

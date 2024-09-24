@@ -1,5 +1,6 @@
 import BecomeaSponsor from "../../components/BecomeaSponsor"
 import  Container from "../../components/Container";
+import JobFair from "../../components/JobFair";
 import Partners from "../../components/Partners";
 import SponsorLevel from "../../components/SponsorLevel";
 
@@ -16,6 +17,7 @@ const Sponsors = () => {
       </Container>
       <Container className="mt-10">
         <Partners />
+        <JobFair />
       </Container>
     </div>
   )

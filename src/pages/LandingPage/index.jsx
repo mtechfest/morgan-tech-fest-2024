@@ -65,7 +65,6 @@ const LandingPage = () => {
         <TeamSection teamData={teamData} />
         <JudgingCriteria />
         <Sponsors />
-        {/* <SubmitProject /> */}
         <Gallery />
         <Faq />
     </div>
