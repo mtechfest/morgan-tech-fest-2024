@@ -7,6 +7,9 @@ import msu from '../assets/msu.png';
 import altus from '../assets/AltusTech.png';
 import rtc from '../assets/RTC__Logo Orange.png';
 import mlh from '../assets/mlh-logo-color.png';
+import y3k from '../assets/Y3K.jpg';
+
+
 
 
 const Partners = () => {
@@ -46,14 +49,15 @@ const Partners = () => {
               data-aos-easing='linear'
               data-aos-duration='1000'
             />
-            {/* <img 
-              src={jos} 
+            <img 
+              src={y3k} 
               alt="partner" 
-              className='w-[200px] h-[150px] object-contain' 
+              className='w-[130px] h-[150px] object-contain' 
               data-aos='fade-up'
               data-aos-easing='linear'
               data-aos-duration='1000'
             />
+            {/*
             <img 
               src={aws} 
               alt="partner" 
