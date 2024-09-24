@@ -25,7 +25,7 @@ const Partners = () => {
             <img 
               src={altus} 
               alt="partner" 
-              className='w-[200px] h-[150px] object-contain' 
+              className='w-[130px] h-[150px] object-contain' 
               data-aos='fade-up'
               data-aos-easing='linear'
               data-aos-duration='1000'
@@ -33,7 +33,7 @@ const Partners = () => {
             <img 
               src={rtc} 
               alt="partner" 
-              className='w-[200px] h-[150px] object-contain' 
+              className='w-[130px] h-[150px] object-contain' 
               data-aos='fade-up'
               data-aos-easing='linear'
               data-aos-duration='1000'
@@ -41,7 +41,7 @@ const Partners = () => {
             <img 
               src={mlh} 
               alt="partner" 
-              className='w-[200px] h-[150px] object-contain' 
+              className='w-[130px] h-[150px] object-contain' 
               data-aos='fade-up'
               data-aos-easing='linear'
               data-aos-duration='1000'
