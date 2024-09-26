@@ -3,6 +3,7 @@ import judge from "../../assets/JudgingCriteria.png"
 import { IoIosArrowForward } from "react-icons/io";
 import doc  from "../../assets/Judging Document.pdf";
 import judging from '../../assets/Judging Criteria.jpg'
+import judgepdf from '../../assets/Judging Criteria.pdf'
 
 const JudgingCriteria = () => {
   return (
@@ -14,7 +15,7 @@ const JudgingCriteria = () => {
                 data-aos-duration='800'
             >
                 <p className="font-semibold text-3xl lg:text-5xl lg:leading-[60px]">View the Judging Criteria Here</p>
-                <a href={doc} target="_blank" rel="noopener noreferrer" className='  mt-5 md:mt-10 px-6 py-2 lg:py-3 bg-[#FC711B] rounded-3xl text-xs font-medium text-white inline-block'>
+                <a href={judgepdf} target="_blank" rel="noopener noreferrer" className='  mt-5 md:mt-10 px-6 py-2 lg:py-3 bg-[#FC711B] rounded-3xl text-xs font-medium text-white inline-block'>
                     <p className="flex items-center gap-2">
                         <IoIosArrowForward />
                         <span>Download now</span>
@@ -27,7 +28,7 @@ const JudgingCriteria = () => {
                 data-aos-easing='linear'
                 data-aos-duration='800'
             >
-                <img src={judging} alt="judge" className="w-full object-cover rounded-sm" />
+                <img src={judging} alt="judge" className="w-full object-cover rounded-sm"/>
             </div>
         </Container>
     </div>
