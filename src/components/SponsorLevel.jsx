@@ -8,6 +8,7 @@ import kyndryl from '../assets/kyndryl.png'
 import microsoft from '../assets/microsoft.png'
 import lincoln from '../assets/lincoln.jpg'
 import cealms from '../assets/ceamls.png'
+import northrop from '../assets/northrop.png'
 
 const SponsorLevel = () => {
   return (
@@ -58,6 +59,14 @@ const SponsorLevel = () => {
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
                     <img 
                         src={google} 
+                        alt="" 
+                        className='w-[320px] object-cover'
+                        // data-aos='fade-right'
+                        // data-aos-easing='linear'
+                        // data-aos-duration='1000'
+                    />
+                    <img 
+                        src={northrop} 
                         alt="" 
                         className='w-[320px] object-cover'
                         // data-aos='fade-right'
