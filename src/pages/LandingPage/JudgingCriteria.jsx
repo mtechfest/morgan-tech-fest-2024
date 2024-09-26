@@ -2,6 +2,7 @@ import Container from "../../components/Container"
 import judge from "../../assets/JudgingCriteria.png"
 import { IoIosArrowForward } from "react-icons/io";
 import doc  from "../../assets/Judging Document.pdf";
+import judging from '../../assets/Judging Criteria.jpg'
 
 const JudgingCriteria = () => {
   return (
@@ -26,7 +27,7 @@ const JudgingCriteria = () => {
                 data-aos-easing='linear'
                 data-aos-duration='800'
             >
-                <img src={judge} alt="judge" className="w-full object-cover rounded-sm" />
+                <img src={judging} alt="judge" className="w-full object-cover rounded-sm" />
             </div>
         </Container>
     </div>
