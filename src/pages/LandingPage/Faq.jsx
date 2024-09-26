@@ -47,7 +47,7 @@ const Faq = () => {
         "Connect us with your university or department, and we will take it from there.",
     },
     {
-      question: "What if I am doing nothing related to technology? Can I come?",
+      question: "What if I am not doing anything related to technology? Can I come?",
       answer:
         "Yes! Morgan TechFest is open to anyone interested in developing a career or business in the tech space. We have put together robust educational programs to help anyone interested in starting a career or business in the field.",
     },
