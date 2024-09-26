@@ -79,7 +79,7 @@ const Faq = () => {
     {
       question: "Location?",
       answer:
-        "Morgan State University Student Center - Calvin & Tina Tyler Ballroom",
+        "Morgan State University Student Center - Calvin & Tina Tyler Ballroom. Parking is available in the Morgan Commons Garage",
     },
     {
       question: "Is it specific to any department?",
