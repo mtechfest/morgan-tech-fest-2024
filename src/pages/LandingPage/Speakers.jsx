@@ -38,7 +38,7 @@ const Speakers = () => {
         <Container>
             <p className="font-semibold">2024 SPEAKERS</p>
             <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-10 pt-8">
-                <SpeakerImage img={speakerOne} name={'PROV. DR. HONGTAO YU'} />
+                {/* <SpeakerImage img={speakerOne} name={'PROV. DR. HONGTAO YU'} /> */}
                 <SpeakerImage img={speakerTwo} name={'SCOTT ROTH'} />
             </div>
             <div className="py-16">
