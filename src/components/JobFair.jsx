@@ -8,6 +8,7 @@ import cealms from '../assets/ceamls.png';
 import kyndryl from '../assets/kyndryl.png';
 import aws from '../assets/aws.png';
 import js2t from '../assets/JS2T.png';
+import northrop from '../assets/northrop.png'
 
 
 
@@ -76,6 +77,14 @@ const JobFair = () => {
             />
             <img 
               src={js2t} 
+              alt="partner" 
+              className='w-[100px] h-[150px] object-contain'
+              data-aos='fade-up'
+              data-aos-easing='linear'
+              data-aos-duration='1000'
+            />
+            <img 
+              src={northrop} 
               alt="partner" 
               className='w-[100px] h-[150px] object-contain'
               data-aos='fade-up'
