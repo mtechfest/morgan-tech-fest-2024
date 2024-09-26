@@ -11,6 +11,7 @@ import panelist5 from "../../assets/SharodJenkins_HS.jpeg";
 import recruiter1 from "../../assets/Kayla.jpg";
 import recruiter2 from "../../assets/Arielle Headshot.jpeg";
 import recruiter3 from "../../assets/Rishi.jpg";
+import recruiter4 from "../../assets/vinod.jpg";
 // import panelist5 from "../../assets/IMG_6945.jpeg";
 // import panelist6 from "../../assets/Jamaal.jpg";
 // import panelist6 from "../../assets/SharodJenkins_HS.jpeg";
@@ -38,7 +39,7 @@ const Speakers = () => {
         <Container>
             <p className="font-semibold">2024 SPEAKER</p>
             <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-10 pt-8">
-                {/* <SpeakerImage img={speakerOne} name={'PROV. DR. HONGTAO YU'} /> */}
+                <SpeakerImage img={speakerOne} name={'PROV. DR. HONGTAO YU'} />
                 <SpeakerImage img={speakerTwo} name={'SCOTT ROTH'} />
             </div>
             <div className="py-16">
@@ -72,6 +73,7 @@ const Speakers = () => {
                     <SpeakerImage img={recruiter1} name={'KAYLA MCLAUGHLIN'} />
                     <SpeakerImage img={recruiter2} name={'ARIELLE WILLIAMS'}  />
                     <SpeakerImage img={recruiter3} name={'RISHI CHOPRA'} />
+                    <SpeakerImage img={recruiter4} name={'VINOD AKUNURI'} />
                 </div>
             </div>
         </Container>
