@@ -51,7 +51,7 @@ const Speakers = () => {
                     <PanelistImage img={panelist1} name={'AMEN MASHARIKI'}/>
                     <PanelistImage img={panelist2} name={'KENNETH KERR'} />
                     <PanelistImage img={panelist3} name={'DR. JAMELL DACON'}/>
-                    <PanelistImage img={panelist4} name={'DEANNA BAILEY'} />
+                    <PanelistImage img={panelist4} name={'DR. DEANNA BAILEY'} />
                     <PanelistImage img={panelist5} name={'SHAROD JENKINS'} />
                     {/* <PanelistImage img={panelist7} name={'DR. FAHMI KHALIFA'} />
                     <PanelistImage img={panelist8} name={'DR. RADHOUANE CHOUCHANE'}/>
