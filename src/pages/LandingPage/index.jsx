@@ -13,7 +13,7 @@ import JudgingCriteria from "./JudgingCriteria";
 import ResearchSymposium from "./ResearchSymposium";
 import TeamSection from "./TeamSection";
 import SubmitProject from "./SubmitProject";
-
+import NewsPage from "./news";
 
 const LandingPage = () => {
 
@@ -38,7 +38,6 @@ const LandingPage = () => {
     { name: 'Tunmise Eboda', position: 'Social Media Manager(LinkedIn)', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413420/haakgsbyhik4uhvkzcfm.png" },
     { name: 'Jaunel Panton', position: 'Registration manager', image: "https://res.cloudinary.com/djksz5job/image/upload/v1727485370/ughupzwc6rjzbiutou3w.jpg" },
     { name: 'Ebun Oludemi', position: 'Transportation/Website', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413421/esudtq4exr7ijqswzeqp.png" },
-    // { name: 'Kendell Crawford', position: 'Logistics (Catering) ', image: gallery12 },
     { name: 'Abdulai Hallowell', position: 'Creative Director', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413421/sdxnfrt3cejz7tbhbg1f.png" },
     { name: 'Ayomide Ajibola', position: 'Finance Manager', image: "https://res.cloudinary.com/djksz5job/image/upload/v1720650069/e5tbki6drsjs433covq8.jpg" },
     { name: 'Theophilus Akwemoh', position: 'Logistics (Event Planning)', image: "https://res.cloudinary.com/djksz5job/image/upload/v1720650080/lbwq3qa9i4vstt5shrec.jpg" },
@@ -64,11 +63,12 @@ const LandingPage = () => {
         <Speakers />
         <TeamSection teamData={teamData} />
         <JudgingCriteria />
+        <NewsPage />
         <Sponsors />
         <Gallery />
         <Faq />
     </div>
-  )
-}
+  );
+};
 
-export default LandingPage
+export default LandingPage;
