@@ -11,12 +11,13 @@ const NewsPage = () => {
           data-aos-easing='linear'
           data-aos-duration='800'
         >
-          <p className="font-semibold text-3xl lg:text-5xl lg:leading-[60px]">Latest News</p>
+          <p className="font-semibold text-3xl lg:text-5xl lg:leading-[60px]">Opeyemi Adeniran Honored at TechFest 2024</p>
           <p className="mt-4 text-base lg:text-lg">
-            Stay informed with the latest updates and happenings. Here’s a snapshot of what’s going on:
+           Opeyemi Adeniran dedicates the Founder Initiative Award, received at Morgan TechFest 2024, to God.
+            She also acknowledges the efforts of the dedicated departments and the 2022 and 2023 teams for their unwavering belief in the vision. 
           </p>
           <p className="mt-4 text-sm lg:text-base">
-            This image captures a significant moment from our recent event. Explore the details and join the conversation to stay ahead.
+            Reflecting on the journey since its inception on October 18, 2022, Opeyemi celebrated the remarkable milestones achieved through collective commitment and divine inspiration.
           </p>
           <a href="#" target="_blank" rel="noopener noreferrer" className='mt-5 md:mt-10 px-6 py-2 lg:py-3 bg-[#FC711B] rounded-3xl text-xs font-medium text-white inline-block'>
             <p className="flex items-center gap-2">
