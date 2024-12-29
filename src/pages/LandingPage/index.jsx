@@ -63,8 +63,8 @@ const LandingPage = () => {
         <Speakers />
         <TeamSection teamData={teamData} />
         <JudgingCriteria />
-        <NewsPage />
         <Sponsors />
+        <NewsPage />
         <Gallery />
         <Faq />
     </div>
