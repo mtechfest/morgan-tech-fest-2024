@@ -1,5 +1,5 @@
 import Container from "../../components/Container";
-import newsImage from "../../assets/Ajibola.png";
+import newsImage from "../../assets/opey.jpg";
 import { IoIosArrowForward } from "react-icons/io";
 
 const NewsPage = () => {
