@@ -114,7 +114,7 @@ const Gallery = () => {
                 />
             </div>
             <div className="flex justify-center">
-            <a href={'https://seethroughmylens.pixieset.com/morgantechfest/'} target="_blank" rel="noopener noreferrer" 
+            <a href={'https://drive.google.com/drive/folders/1-m8WPWPPjLZuv9BUEwkRIMI6z2F6DEgb?usp=sharing'} target="_blank" rel="noopener noreferrer" 
                 className='px-8 py-1 mt-7 bg-[#FC711B] rounded-3xl text-xs font-semibold text-white'
                 data-aos='fade-up'
                 data-aos-easing='linear'
