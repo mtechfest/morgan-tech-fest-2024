@@ -12,7 +12,7 @@ const NewsPage = () => {
           data-aos-duration="800"
         >
           <p className="font-semibold text-3xl lg:text-5xl lg:leading-[60px]">
-            Opeyemi Adeniran Honored at TechFest 2024
+            Appreciation at TechFest 2024
           </p>
           <p className="mt-4 text-base lg:text-lg">
             Opeyemi Adeniran dedicates the Founder Initiative Award, received at Morgan TechFest 2024, to God. She also acknowledges the efforts of the dedicated departments and the 2022 and 2023 teams for their unwavering belief in the vision.
