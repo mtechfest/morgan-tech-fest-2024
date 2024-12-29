@@ -49,7 +49,7 @@ function Navbar() {
             <SmoothLink to={'speakers'} smooth='true' duration={500} className='cursor-pointer'>Speakers</SmoothLink>
             <SmoothLink to={'sponsors'} smooth='true' duration={500} className='cursor-pointer'>Sponsors</SmoothLink>
             <SmoothLink to={'faqs'} smooth='true' duration={500} className='cursor-pointer'>FAQs</SmoothLink>
-            <Link to={'news'} className='cursor-pointer'>News</Link>
+            <SmoothLink to={'news'} smooth='true' duration={500} className='cursor-pointer'>News</SmoothLink>
             <a href={'https://form.jotform.com/240678505118054'} target="_blank" rel="noopener noreferrer" className='px-4 py-2 bg-gradient-to-r from-[#FC711B] to-[#FC4608] rounded-3xl text-sm'>REGISTER NOW</a>
         </div>
         <div className="burger-menu lg:hidden" onClick={handleBurger}>
