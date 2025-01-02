@@ -21,7 +21,7 @@ const NewsPage = () => {
             Reflecting on the journey since its inception on October 18, 2022, Opeyemi celebrated the remarkable milestones achieved through collective commitment and divine inspiration.
           </p>
           <a
-            href="https://drive.google.com/file/d/1m8LCXu8q_AWQfmJGe353EyO_6r1ihc-3/view?usp=sharing"
+            href="https://medium.com/@morgantechfest"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-5 md:mt-10 px-6 py-2 lg:py-3 bg-[#FC711B] rounded-3xl text-xs font-medium text-white inline-block"
