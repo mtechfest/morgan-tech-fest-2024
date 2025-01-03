@@ -1,5 +1,5 @@
 import Container from "../../components/Container";
-import newsImage from "../../assets/mgtf.jpg";
+import newsImage from "../../assets/src/assets/dji_mimo_20240928_122140_20240928122141_1727620192854_photo.jpg";
 import { IoIosArrowForward } from "react-icons/io";
 
 const NewsPage = () => {
