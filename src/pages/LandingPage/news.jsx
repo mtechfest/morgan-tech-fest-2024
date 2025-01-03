@@ -1,15 +1,15 @@
 import Container from "../../components/Container";
-import newsImage from "../../assets/src/assets/dji_mimo_20240928_122140_20240928122141_1727620192854_photo.jpg";
 import { IoIosArrowForward } from "react-icons/io";
 
 const NewsPage = () => {
   return (
     <div id="news" className="bg-[#122644] py-20">
-      <Container className="flex flex-col md:items-center gap-10 md:gap-3 lg:gap-10 md:flex-row justify-between text-white">
+      <Container className="flex flex-col items-center gap-10 text-white">
         <div
           data-aos="fade-up"
           data-aos-easing="linear"
           data-aos-duration="800"
+          className="max-w-4xl text-center"
         >
           <p className="font-semibold text-3xl lg:text-5xl lg:leading-[60px]">
             Recognizing Excellence at Morgan TechFest 2024: A Celebration of Collaboration and Innovation
@@ -28,14 +28,6 @@ const NewsPage = () => {
               <span>Read more</span>
             </span>
           </a>
-        </div>
-        <div
-          className="md:!w-[50%]"
-          data-aos="fade-up"
-          data-aos-easing="linear"
-          data-aos-duration="800"
-        >
-          <img src={newsImage} alt="News" className="w-full object-cover rounded-sm" />
         </div>
       </Container>
     </div>
