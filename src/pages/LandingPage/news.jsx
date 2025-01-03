@@ -15,17 +15,18 @@ const NewsPage = () => {
             Recognizing Excellence at Morgan TechFest 2024: A Celebration of Collaboration and Innovation
           </p>
           <p className="mt-4 text-base lg:text-lg">
-           With features in publications like Baltimore News and Technical.ly, the event's impact and growing influence continue to inspire.
+            With features in publications like Baltimore News and Technical.ly, the event's impact and growing influence continue to inspire.
+          </p>
           <a
             href="https://medium.com/@morgantechfest"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-5 md:mt-10 px-6 py-2 lg:py-3 bg-[#FC711B] rounded-3xl text-xs font-medium text-white inline-block"
           >
-            <p className="flex items-center gap-2">
+            <span className="flex items-center gap-2">
               <IoIosArrowForward />
-              <span> Read more</span>
-            </p>
+              <span>Read more</span>
+            </span>
           </a>
         </div>
         <div
