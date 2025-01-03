@@ -12,14 +12,10 @@ const NewsPage = () => {
           data-aos-duration="800"
         >
           <p className="font-semibold text-3xl lg:text-5xl lg:leading-[60px]">
-            Appreciation at TechFest 2024
+            Recognizing Excellence at Morgan TechFest 2024: A Celebration of Collaboration and Innovation
           </p>
           <p className="mt-4 text-base lg:text-lg">
-            Opeyemi Adeniran dedicates the Founder Initiative Award, received at Morgan TechFest 2024, to God. She also acknowledges the efforts of the dedicated departments and the 2022 and 2023 teams for their unwavering belief in the vision.
-          </p>
-          <p className="mt-4 text-sm lg:text-base">
-            Reflecting on the journey since its inception on October 18, 2022, Opeyemi celebrated the remarkable milestones achieved through collective commitment and divine inspiration.
-          </p>
+           With features in publications like Baltimore News and Technical.ly, the event's impact and growing influence continue to inspire.
           <a
             href="https://medium.com/@morgantechfest"
             target="_blank"
@@ -28,7 +24,7 @@ const NewsPage = () => {
           >
             <p className="flex items-center gap-2">
               <IoIosArrowForward />
-              <span>Learn More</span>
+              <span> Read more</span>
             </p>
           </a>
         </div>
