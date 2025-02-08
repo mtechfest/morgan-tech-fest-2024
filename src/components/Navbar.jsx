@@ -86,8 +86,8 @@ function Navbar() {
               <SmoothLink to={'faqs'} smooth='true' duration={500} className='cursor-pointer px-2 lg:px-3 xl:px-4 py-4 lg:py-0' onClick={() => setFlip(!flip)}>FAQs</SmoothLink>
               <SmoothLink to={'news'} smooth='true' duration={500} className='cursor-pointer px-2 lg:px-3 xl:px-4 py-4 lg:py-0' onClick={() => setFlip(!flip)}>News</SmoothLink>
             </ul>
-            <a href={'https://form.jotform.com/240678505118054'} target="_blank" rel="noopener noreferrer" className="text-[#FC711B] font-semibold bg-[#fff] px-4 py-4 whitespace-nowrap text-sm lg:text-sm">
-                REGISTER NOW
+            <a href={'https://form.jotform.com/250367598302158'} target="_blank" rel="noopener noreferrer" className="text-[#FC711B] font-semibold bg-[#fff] px-4 py-4 whitespace-nowrap text-sm lg:text-sm">
+                INTEREST FORM
             </a>
         </div>
       </Container>
