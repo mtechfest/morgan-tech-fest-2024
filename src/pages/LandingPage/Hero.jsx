@@ -19,7 +19,7 @@ const Hero = () => {
               <p>10AM - 6PM</p>
             </div>
             <p className="font-semibold text-lg md:text-2xl">Morgan State University | Student Center<br/>Calvin & Tina Tyler Ballroom</p>
-            <p className="!inline-block"><a href={'https://form.jotform.com/240678505118054'} target="_blank" rel="noopener noreferrer" className='py-2 px-7 border border-white rounded-3xl text-xs'>REGISTER</a></p>
+            <p className="!inline-block"><a href={'https://form.jotform.com/250367598302158'} target="_blank" rel="noopener noreferrer" className='py-2 px-7 border border-white rounded-3xl text-xs'>INTEREST FORM</a></p>
           </div>
           <div className="flex items-center gap-4">
             {/* <FaFacebookF className="cursor-pointer hover:text-[#FC711B]" size={18} />
