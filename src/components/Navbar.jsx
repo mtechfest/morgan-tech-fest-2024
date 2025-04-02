@@ -8,7 +8,6 @@ function Navbar() {
   const [scroll, setScroll] = useState(false);
   const [flip, setFlip] = useState(false);
 
-
   function handleBurger() {
     setFlip(!flip);
     // handleClick()
@@ -50,7 +49,8 @@ function Navbar() {
             <SmoothLink to={'speakers'} smooth='true' duration={500} className='cursor-pointer'>Speakers</SmoothLink>
             <SmoothLink to={'sponsors'} smooth='true' duration={500} className='cursor-pointer'>Sponsors</SmoothLink>
             <SmoothLink to={'faqs'} smooth='true' duration={500} className='cursor-pointer'>FAQs</SmoothLink>
-            <a href={'https://form.jotform.com/240678505118054'} target="_blank" rel="noopener noreferrer" className='px-4 py-2 bg-gradient-to-r from-[#FC711B] to-[#FC4608] rounded-3xl text-sm'>rEGISTER NOW</a>
+            <SmoothLink to={'news'} smooth='true' duration={500} className='cursor-pointer'>News</SmoothLink>
+            <a href={'https://form.jotform.com/250367598302158'} target="_blank" rel="noopener noreferrer" className='px-4 py-2 bg-gradient-to-r from-[#FC711B] to-[#FC4608] rounded-3xl text-sm'>INTEREST FORM</a>
         </div>
         <div className="burger-menu lg:hidden" onClick={handleBurger}>
             <div className="flex flex-col items-center justify-center w-[24px] h-[24px] cursor-pointer relative">
@@ -84,9 +84,10 @@ function Navbar() {
               <SmoothLink to={'speakers'} smooth='true' duration={500} className='cursor-pointer px-2 lg:px-3 xl:px-4 py-4 lg:py-0' onClick={() => setFlip(!flip)}>Speakers</SmoothLink>
               <SmoothLink to={'sponsors'} smooth='true' duration={500} className='cursor-pointer px-2 lg:px-3 xl:px-4 py-4 lg:py-0' onClick={() => setFlip(!flip)}>Sponsors</SmoothLink>
               <SmoothLink to={'faqs'} smooth='true' duration={500} className='cursor-pointer px-2 lg:px-3 xl:px-4 py-4 lg:py-0' onClick={() => setFlip(!flip)}>FAQs</SmoothLink>
+              <SmoothLink to={'news'} smooth='true' duration={500} className='cursor-pointer px-2 lg:px-3 xl:px-4 py-4 lg:py-0' onClick={() => setFlip(!flip)}>News</SmoothLink>
             </ul>
-            <a href={'https://form.jotform.com/240678505118054'} target="_blank" rel="noopener noreferrer" className="text-[#FC711B] font-semibold bg-[#fff] px-4 py-4 whitespace-nowrap text-sm lg:text-sm">
-                REGISTER NOW
+            <a href={'https://form.jotform.com/250367598302158'} target="_blank" rel="noopener noreferrer" className="text-[#FC711B] font-semibold bg-[#fff] px-4 py-4 whitespace-nowrap text-sm lg:text-sm">
+                INTEREST FORM
             </a>
         </div>
       </Container>
