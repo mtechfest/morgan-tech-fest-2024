@@ -15,7 +15,7 @@ const Hero = () => {
         <div className="flex justify-between items-end pt-12">
           <div className="flex flex-col gap-6">
             <div className="flex gap-10 items-center text-xl font-bold">
-              <p>SAT SEP 28, 2024</p>
+              <p>TBD</p>
               <p>10AM - 6PM</p>
             </div>
             <p className="font-semibold text-lg md:text-2xl">Morgan State University | Student Center<br/>Calvin & Tina Tyler Ballroom</p>
