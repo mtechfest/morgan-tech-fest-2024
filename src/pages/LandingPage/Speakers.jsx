@@ -66,7 +66,7 @@ const Speakers = () => {
             </div>
             <div>
                 <div className="flex items-center gap-3">
-                    <p className="font-semibold whitespace-nowrap">2025 UNLOCKING OPPORTUNITIES PANEL</p>
+                    <p className="font-semibold whitespace-nowrap">2024 UNLOCKING OPPORTUNITIES PANEL</p>
                     <hr className="border-t border-white w-full" />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-10 pt-8">
