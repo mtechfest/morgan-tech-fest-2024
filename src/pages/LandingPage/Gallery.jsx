@@ -8,6 +8,9 @@ import gallery9 from "../../assets/gallery9.png"
 import gallery10 from "../../assets/gallery10.png"
 import gallery11 from "../../assets/gallery11.png"
 import gallery12 from "../../assets/gallery12.png"
+import gallery13 from "../../assets/gallery13.png"
+import gallery14 from "../../assets/gallery14.png"
+import gallery15 from "../../assets/gallery15.png"
 
 
 const Gallery = () => {
@@ -106,6 +109,28 @@ const Gallery = () => {
                 />
                 <img 
                     src={gallery12} 
+                    alt="gallery" 
+                    className="md:w-[500px] md:h-[300px] object-cover md:object-contain" 
+                    data-aos='fade-up'
+                    data-aos-easing='linear'
+                    data-aos-duration='1000'
+                />
+                <img 
+                    src={gallery13} 
+                    alt="gallery" 
+                    className="md:w-[500px] md:h-[300px] object-cover md:object-contain" 
+                    data-aos='fade-up'
+                    data-aos-easing='linear'
+                    data-aos-duration='1000'
+                /><img 
+                    src={gallery14} 
+                    alt="gallery" 
+                    className="md:w-[500px] md:h-[300px] object-cover md:object-contain" 
+                    data-aos='fade-up'
+                    data-aos-easing='linear'
+                    data-aos-duration='1000'
+                /><img 
+                    src={gallery15} 
                     alt="gallery" 
                     className="md:w-[500px] md:h-[300px] object-cover md:object-contain" 
                     data-aos='fade-up'
