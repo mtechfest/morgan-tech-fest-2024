@@ -4,8 +4,18 @@ import s1 from "../../assets/s1.png"
 import s2 from "../../assets/s2.png"
 import s3 from "../../assets/s3.png"
 import s4 from "../../assets/s4.png"
+import s5 from "../../assets/s5.png"
+import s6 from "../../assets/s6.png"
+import s7 from "../../assets/s7.png"
+import s8 from "../../assets/s8.png"
+import s9 from "../../assets/s9.png"
+import s10 from "../../assets/s10.png"
+import s11 from "../../assets/s11.png"
 
- const images = [s1, s2, s3, s4]
+
+
+
+ const images = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11]
 
 const ResearchSymposium = () => {
   return (
