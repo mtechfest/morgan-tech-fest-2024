@@ -7,7 +7,7 @@ const Countdown = () => {
 
     const features = ["TECH TALK", "WORKSHOP", "JOB FAIR", "POSTER SESSION", "AWARD", "NETWORKING", "PANEL SESSION", "PROJECT"]
 
-    const eventDate = new Date("September 28, 2024 00:00:00 GMT+00:00");
+    const eventDate = new Date("September 27, 2025 00:00:00 GMT+00:00");
 
   const calculateTimeLeft = () => {
     const now = new Date();
@@ -89,7 +89,7 @@ const Countdown = () => {
                       data-aos-duration='1000'
                     >
                         <FaCalendarAlt />
-                        <p>September 28, 2024</p>
+                        <p>September 27, 2025</p>
                     </div>
                     <div className="flex items-center gap-3"
                       data-aos='zoom-out'
