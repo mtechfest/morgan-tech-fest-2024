@@ -64,13 +64,6 @@ const About = () => {
               <span className="text-orange-300 font-medium"> academia and industry</span>.
             </p>
           </div>
-
-          {/* Call to action or stats could go here */}
-          <div className="pt-4">
-            <button className="px-8 py-3 bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-medium rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300">
-              Learn More
-            </button>
-          </div>
         </div>
 
         {/* Right Video Section */}
