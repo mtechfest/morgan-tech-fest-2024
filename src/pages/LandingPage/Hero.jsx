@@ -39,12 +39,12 @@ const Hero = () => {
 
         <div className="w-full flex flex-col lg:flex-row items-center lg:items-center gap-8 lg:gap-12 relative z-10">
           {/* Left side - Robot Image */}
-          <div className="lg:w-[50%] xl:w-[45%] 2xl:w-[40%] flex justify-center lg:justify-start">
+          <div className="w-full lg:w-[45%] xl:w-[40%] 2xl:w-[35%] flex justify-center lg:justify-start">
             <div className="relative group">
               <img 
                 src={judgingImg}
                 alt="Robot" 
-                className="w-[800px] h-[800px] lg:w-[900px] lg:h-[900px] xl:w-[1000px] xl:h-[1000px] 2xl:w-[1100px] 2xl:h-[1100px] object-contain transform transition-all duration-700 hover:scale-110 hover:rotate-6 filter drop-shadow-2xl"
+                className="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px] xl:w-[450px] xl:h-[450px] 2xl:w-[500px] 2xl:h-[500px] object-contain transform transition-all duration-700 hover:scale-110 hover:rotate-6 filter drop-shadow-2xl max-w-full"
               />
               {/* Glowing effect behind image */}
               <div className="absolute inset-0 bg-gradient-to-r from-orange-400/30 to-blue-400/30 rounded-full blur-2xl transform scale-75 group-hover:scale-90 transition-transform duration-700 -z-10"></div>
@@ -52,11 +52,11 @@ const Hero = () => {
           </div>
           
           {/* Main content */}
-          <div className="lg:w-[50%] xl:w-[55%] 2xl:w-[60%] flex flex-col items-center lg:items-start text-center lg:text-left px-4 lg:px-0">
+          <div className="w-full lg:w-[55%] xl:w-[60%] 2xl:w-[65%] flex flex-col items-center lg:items-start text-center lg:text-left px-4 lg:px-0">
             
             {/* Main heading with enhanced animations */}
             <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[90px] xl:text-[120px] 2xl:text-[140px] font-bold flex flex-col gap-0 leading-[60px] sm:leading-[70px] md:leading-[80px] lg:leading-[85px] xl:leading-[110px] 2xl:leading-[130px]">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold flex flex-col gap-0 leading-tight">
                 <span className="hover:scale-105 hover:rotate-3 transition-transform duration-300 cursor-default inline-block">
                   Discover
                 </span>
@@ -70,13 +70,13 @@ const Hero = () => {
             </div>
 
             {/* Event details section */}
-            <div className={`w-full flex flex-col lg:flex-row lg:justify-between lg:items-end pt-8 lg:pt-12 gap-8 lg:gap-4 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <div className={`w-full flex flex-col lg:flex-row lg:justify-between lg:items-end pt-6 lg:pt-8 gap-6 lg:gap-4 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
               
               {/* Left side - Event info */}
-              <div className="flex flex-col gap-6 items-center lg:items-start">
+              <div className="flex flex-col gap-4 lg:gap-6 items-center lg:items-start">
                 
                 {/* Date and time */}
-                <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 lg:gap-10 items-center text-lg sm:text-xl font-bold">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 lg:gap-8 items-center text-base sm:text-lg lg:text-xl font-bold">
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
                     <p className="hover:text-blue-400 transition-colors duration-300">
