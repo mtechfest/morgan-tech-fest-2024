@@ -75,7 +75,6 @@ const LandingPage = () => {
         <ResearchSymposium />
         <SubmitProject />
         <Countdown />
-        <JudgingCriteria />
         <Speakers />
         <TeamSection teamData={teamData} />
         <Sponsors />
