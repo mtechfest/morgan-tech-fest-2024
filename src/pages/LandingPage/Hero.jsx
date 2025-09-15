@@ -44,7 +44,8 @@ const Hero = () => {
               <img 
                 src={judgingImg}
                 alt="Robot" 
-                className="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px] xl:w-[450px] xl:h-[450px] 2xl:w-[500px] 2xl:h-[500px] object-contain transform transition-all duration-700 hover:scale-110 hover:rotate-6 filter drop-shadow-2xl max-w-full"
+                className="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px] xl:w-[450px] xl:h-[450px] 2xl:w-[500px] 2xl:h-[500px] object-contain animate-spin filter drop-shadow-2xl max-w-full"
+                style={{ animationDuration: '8s' }}
               />
               {/* Glowing effect behind image */}
               <div className="absolute inset-0 bg-gradient-to-r from-orange-400/30 to-blue-400/30 rounded-full blur-2xl transform scale-75 group-hover:scale-90 transition-transform duration-700 -z-10"></div>
