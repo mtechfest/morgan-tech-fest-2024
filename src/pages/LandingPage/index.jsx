@@ -47,24 +47,24 @@ const LandingPage = () => {
   //   { name: 'Marissa Savage', position: 'Logistics (Swag)', image: "https://res.cloudinary.com/djksz5job/image/upload/v1726594862/qctpjiyshv6rmegf1znq.png" },
 
   //   // Add more team members here
-  // ];
-  const teamData = [
-    { name: 'Seyifunmi Williams', position: 'President', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413422/lapxnlymmypo0l0buzke.png" },
-    { name: 'Abiola Ajala', position: 'Co President', image: "https://res.cloudinary.com/dv4qabxvt/image/upload/v1745952743/Abiola_Ajala_Headshot_c1wbbw.jpg" },
-    { name: 'Beatrice Oshokoya', position: '_', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413421/idmjnp2xeediteyxjmlm.png" },
-    { name: 'Blessing Adeika', position: 'Website Manager', image: "https://res.cloudinary.com/dv4qabxvt/image/upload/v1745951778/BlessingAdeika_g678t6.jpg" },
-    { name: 'Collin', position: 'Finance Manager ', image: "https://res.cloudinary.com/dv4qabxvt/image/upload/v1745951778/CollinFinanceManager_qunlqi.jpg" },
-    { name: 'Program Manager', position: 'Program Manager', image: passportImage },
-    { name: 'Terell Reed', position: 'Communication manager', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413420/b1u1xpmxnqnma0ybnrlj.png" },
-    { name: 'Damilola Adegbuyi', position: 'Social Media Manager(Instagram)', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413422/uy9fk61mz2xia5rokzka.png" },    
-    { name: 'David Owolabi', position: 'Media / Creative Director', image: "https://res.cloudinary.com/dv4qabxvt/image/upload/v1745951778/DavidOwolabi_ymwctc.jpg" },
-    { name: 'Grace Balogun', position: 'Social Media Manager(LinkedIn)', image: "https://res.cloudinary.com/dv4qabxvt/image/upload/v1745951779/GraceBalogun_g3bnxr.jpg" },
-    { name: 'Jaunel Panton', position: 'Registration manager', image: "https://res.cloudinary.com/djksz5job/image/upload/v1727485370/ughupzwc6rjzbiutou3w.jpg" },
-    { name: 'Marissa Savage', position: 'Logistics (Swag)', image: "https://res.cloudinary.com/djksz5job/image/upload/v1726594862/qctpjiyshv6rmegf1znq.png" },
-    { name: 'Director', position: 'Director', image: opeyemiImage },
 
-    // Add more team members here
-  ];
+  // Instead of direct imports, use these URLs
+const teamData = [
+  { name: 'Seyifunmi Williams', position: 'President', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413422/lapxnlymmypo0l0buzke.png" },
+  { name: 'Abiola Ajala', position: 'Co President', image: "https://res.cloudinary.com/dv4qabxvt/image/upload/v1745952743/Abiola_Ajala_Headshot_c1wbbw.jpg" },
+  { name: 'Beatrice Oshokoya', position: '_', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413421/idmjnp2xeediteyxjmlm.png" },
+  { name: 'Blessing Adeika', position: 'Website Manager', image: "https://res.cloudinary.com/dv4qabxvt/image/upload/v1745951778/BlessingAdeika_g678t6.jpg" },
+  { name: 'Collin', position: 'Finance Manager ', image: "https://res.cloudinary.com/dv4qabxvt/image/upload/v1745951778/CollinFinanceManager_qunlqi.jpg" },
+  { name: 'Program Manager', position: 'Program Manager', image: "/src/assets/passport.JPG" },
+  { name: 'Terell Reed', position: 'Communication manager', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413420/b1u1xpmxnqnma0ybnrlj.png" },
+  { name: 'Damilola Adegbuyi', position: 'Social Media Manager(Instagram)', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413422/uy9fk61mz2xia5rokzka.png" },    
+  { name: 'David Owolabi', position: 'Media / Creative Director', image: "https://res.cloudinary.com/dv4qabxvt/image/upload/v1745951778/DavidOwolabi_ymwctc.jpg" },
+  { name: 'Grace Balogun', position: 'Social Media Manager(LinkedIn)', image: "https://res.cloudinary.com/dv4qabxvt/image/upload/v1745951779/GraceBalogun_g3bnxr.jpg" },
+  { name: 'Jaunel Panton', position: 'Registration manager', image: "https://res.cloudinary.com/djksz5job/image/upload/v1727485370/ughupzwc6rjzbiutou3w.jpg" },
+  { name: 'Marissa Savage', position: 'Logistics (Swag)', image: "https://res.cloudinary.com/djksz5job/image/upload/v1726594862/qctpjiyshv6rmegf1znq.png" },
+  { name: 'Director', position: 'Director', image: "/src/assets/Opeyemi-PIC.PNG" },
+];
+  
   return (
     <div>
         <div
