@@ -42,7 +42,7 @@ const Hero = () => {
           <div className="lg:w-[40%] xl:w-[35%] 2xl:w-[30%] flex justify-center lg:justify-start">
             <div className="relative group">
               <img 
-                src={rob}
+                src={judgingImg}
                 alt="Robot" 
                 className="w-64 h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain transform transition-all duration-700 hover:scale-110 hover:rotate-6 filter drop-shadow-2xl"
               />
