@@ -4,8 +4,8 @@ import judgingImg from '../../assets/jdg.png';
 
 const JudgingCriteria = () => {
   return (
-    <div className="bg-[#122644] py-20">
-        <Container className={'flex flex-col md:items-center gap-10 md:gap-3 lg:gap-10 md:flex-row justify-between text-white'}>
+    <div className="bg-white py-20">
+        <Container className={'flex flex-col md:items-center gap-10 md:gap-3 lg:gap-10 md:flex-row justify-between text-gray-800'}>
             <div
                 data-aos='fade-up'
                 data-aos-easing='linear'
