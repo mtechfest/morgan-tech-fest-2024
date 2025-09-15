@@ -37,8 +37,18 @@ const Hero = () => {
         </div>
 
         <div className="w-full flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-0 relative z-10">
-          {/* Left spacer for larger screens */}
-          <div className="hidden lg:block lg:w-[30%] xl:w-[35%] 2xl:w-[45%]"></div>
+          {/* Left side - Image */}
+          <div className="lg:w-[30%] xl:w-[35%] 2xl:w-[45%] flex justify-center lg:justify-end lg:pr-8">
+            <div className="relative group">
+              <img 
+                src="src/assets/rob.png" 
+                alt="Robot" 
+                className="w-64 h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain transform transition-all duration-700 hover:scale-110 hover:rotate-6 filter drop-shadow-2xl"
+              />
+              {/* Glowing effect behind image */}
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-400/30 to-blue-400/30 rounded-full blur-2xl transform scale-75 group-hover:scale-90 transition-transform duration-700 -z-10"></div>
+            </div>
+          </div>
           
           {/* Main content */}
           <div className="w-full lg:w-[70%] xl:w-[65%] 2xl:w-[55%] flex flex-col items-center lg:items-start text-center lg:text-left px-4 lg:px-0 lg:pl-8">
