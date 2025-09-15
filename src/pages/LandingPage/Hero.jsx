@@ -45,13 +45,13 @@ const Hero = () => {
           {/* Main heading with enhanced animations */}
           <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[90px] xl:text-[120px] 2xl:text-[140px] font-bold flex flex-col gap-0 leading-[60px] sm:leading-[70px] md:leading-[80px] lg:leading-[85px] xl:leading-[110px] 2xl:leading-[130px]">
-              <span className="hover:scale-105 transition-transform duration-300 cursor-default">
+              <span className="hover:scale-105 hover:rotate-3 transition-transform duration-300 cursor-default inline-block">
                 Discover
               </span>
-              <span className="bg-gradient-to-r from-[#FC711B] via-[#FC711B] to-[#FBFF4B] inline-block text-transparent bg-clip-text hover:scale-105 transition-transform duration-300 cursor-default">
+              <span className="bg-gradient-to-r from-[#FC711B] via-[#FC711B] to-[#FBFF4B] inline-block text-transparent bg-clip-text hover:scale-105 hover:rotate-2 transition-transform duration-300 cursor-default">
                 Network
               </span>
-              <span className="hover:scale-105 transition-transform duration-300 cursor-default">
+              <span className="hover:scale-105 hover:-rotate-2 transition-transform duration-300 cursor-default inline-block">
                 Innovate
               </span>
             </h1>
