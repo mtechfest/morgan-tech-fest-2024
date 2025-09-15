@@ -1,14 +1,24 @@
 import { useEffect, useState } from "react";
-import { FaCalendarAlt, FaMapMarkedAlt } from "react-icons/fa";
-
-// Mock background image component since we can't import actual images (no longer used)
-// const backgroundImage = "...";
 
 // Container component
 const Container = ({ children, className = "" }) => (
   <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
     {children}
   </div>
+);
+
+// Custom calendar icon
+const CalendarIcon = ({ className = "" }) => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.89-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.11-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+  </svg>
+);
+
+// Custom map marker icon
+const MapIcon = ({ className = "" }) => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+  </svg>
 );
 
 const Countdown = () => {
@@ -54,12 +64,10 @@ const Countdown = () => {
       clearInterval(timer);
     };
   }, []);
+  
   return (
     <div name='schedule' className="">
-        <div
-            className='bg-cover bg-center  bg-[#122644]/90 pt-10'
-            style={{ backgroundImage: `url(${backgroundImage})` }}
-        >
+        <div className='bg-white pt-10'>
             <Container className={'flex flex-col justify-center items-center text-[#122644] py-20'}>
                 <p 
                   className="font-semibold text-sm md:text-lg pb-5" 
@@ -96,7 +104,7 @@ const Countdown = () => {
                       data-aos-easing='linear'
                       data-aos-duration='1000'
                     >
-                        <FaCalendarAlt />
+                        <CalendarIcon />
                         <p>November 18, 2025</p>
                     </div>
                     <div className="flex items-center gap-3"
@@ -125,7 +133,7 @@ const Countdown = () => {
                   data-aos='fade-up'
                   data-aos-easing='linear'
                   data-aos-duration='1000'
-                className='px-4 py-2 bg-[#FC711B] rounded-3xl text-xs font-semibold text-white'><a href="https://drive.google.com/file/d/1WloYcEPieANqLvxYHBQJ_lMNj6bGGJ05/view?usp=sharing" target="_blank">CHECK FULL SCHEDULE</a></button>
+                className='px-4 py-2 bg-[#FC711B] rounded-3xl text-xs font-semibold text-white'>COMING SOON</button>
                 
             </Container>
         </div>
