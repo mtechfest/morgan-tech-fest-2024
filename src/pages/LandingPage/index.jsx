@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import backgroundImage from "../../assets/cvs.png";
+import backgroundImage from "../../assets/rob.png";
 import About from "./About";
 import Countdown from "./Countdown";
 import Faq from "./Faq";
