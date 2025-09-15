@@ -1,6 +1,6 @@
 import Container from "../../components/Container"
 import { IoIosArrowForward } from "react-icons/io";
-import judgingImg from '../../assets/Jdg.png';
+import judgingImg from '../../assets/jdg.png';
 
 const JudgingCriteria = () => {
   return (
