@@ -103,22 +103,6 @@ const About = () => {
                 <span className="text-orange-300 font-semibold"> academia and industry</span>.
               </p>
             </div>
-            
-            {/* Key Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-              {[
-                { icon: "🎓", text: "Educational Workshops" },
-                { icon: "🤝", text: "Industry Networking" },
-                { icon: "💡", text: "Innovation Showcase" },
-                { icon: "🚀", text: "Career Opportunities" }
-              ].map((item, index) => (
-                <div key={index} className={`flex items-center gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 transform hover:scale-105 border border-white/10 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
-                     style={{ transitionDelay: `${800 + index * 100}ms` }}>
-                  <span className="text-2xl">{item.icon}</span>
-                  <span className="font-medium text-gray-200">{item.text}</span>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
 
@@ -171,23 +155,6 @@ const About = () => {
             <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-r from-orange-400 to-yellow-300 rounded-full animate-bounce opacity-80 shadow-lg"></div>
             <div className="absolute -bottom-4 -left-4 w-8 h-8 border-2 border-orange-300 rounded-full animate-pulse opacity-60"></div>
             <div className="absolute top-1/2 -right-8 w-4 h-4 bg-yellow-400 rotate-45 animate-spin opacity-70" style={{ animationDuration: '3s' }}></div>
-          </div>
-
-          {/* Video Stats */}
-          <div className="mt-8 grid grid-cols-3 gap-4">
-            {[
-              { number: "500+", label: "Students" },
-              { number: "50+", label: "Speakers" },
-              { number: "20+", label: "Workshops" }
-            ].map((stat, index) => (
-              <div key={index} className={`text-center p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 border border-white/10 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
-                   style={{ transitionDelay: `${1200 + index * 100}ms` }}>
-                <div className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[#FC711B] to-[#FBFF4B] bg-clip-text text-transparent">
-                  {stat.number}
-                </div>
-                <div className="text-sm text-gray-300 font-medium">{stat.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </Container>
