@@ -85,13 +85,13 @@ const Hero = () => {
                 {/* Date and time */}
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 lg:gap-8 items-center text-base sm:text-lg lg:text-xl font-bold">
                   <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
+                    <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></span>
                     <p className="hover:text-blue-400 transition-colors duration-300">
                       Date: November 18, 2025
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
+                    <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
                     <p className="hover:text-cyan-400 transition-colors duration-300">
                       10AM - 6PM
                     </p>
@@ -150,10 +150,10 @@ const Hero = () => {
 
         {/* Floating elements */}
         <div className="absolute bottom-10 left-10 hidden xl:block">
-          <div className="w-3 h-3 bg-blue-400 rounded-full animate-bounce"></div>
+          <div className="w-3 h-3 bg-orange-400 rounded-full animate-bounce"></div>
         </div>
         <div className="absolute top-1/3 right-10 hidden xl:block">
-          <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce"></div>
+          <div className="w-2 h-2 bg-orange-500 rounded-full animate-bounce"></div>
         </div>
       </Container>
     </div>
