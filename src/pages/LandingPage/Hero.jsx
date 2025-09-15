@@ -39,12 +39,12 @@ const Hero = () => {
 
         <div className="w-full flex flex-col lg:flex-row items-center lg:items-center gap-8 lg:gap-12 relative z-10">
           {/* Left side - Robot Image */}
-          <div className="lg:w-[40%] xl:w-[35%] 2xl:w-[30%] flex justify-center lg:justify-start">
+          <div className="lg:w-[50%] xl:w-[45%] 2xl:w-[40%] flex justify-center lg:justify-start">
             <div className="relative group">
               <img 
                 src={judgingImg}
                 alt="Robot" 
-                className="w-96 h-96 lg:w-[450px] lg:h-[450px] xl:w-[550px] xl:h-[550px] 2xl:w-[600px] 2xl:h-[600px] object-contain transform transition-all duration-700 hover:scale-110 hover:rotate-6 filter drop-shadow-2xl"
+                className="w-[800px] h-[800px] lg:w-[900px] lg:h-[900px] xl:w-[1000px] xl:h-[1000px] 2xl:w-[1100px] 2xl:h-[1100px] object-contain transform transition-all duration-700 hover:scale-110 hover:rotate-6 filter drop-shadow-2xl"
               />
               {/* Glowing effect behind image */}
               <div className="absolute inset-0 bg-gradient-to-r from-orange-400/30 to-blue-400/30 rounded-full blur-2xl transform scale-75 group-hover:scale-90 transition-transform duration-700 -z-10"></div>
@@ -52,7 +52,7 @@ const Hero = () => {
           </div>
           
           {/* Main content */}
-          <div className="lg:w-[60%] xl:w-[65%] 2xl:w-[70%] flex flex-col items-center lg:items-start text-center lg:text-left px-4 lg:px-0">
+          <div className="lg:w-[50%] xl:w-[55%] 2xl:w-[60%] flex flex-col items-center lg:items-start text-center lg:text-left px-4 lg:px-0">
             
             {/* Main heading with enhanced animations */}
             <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
