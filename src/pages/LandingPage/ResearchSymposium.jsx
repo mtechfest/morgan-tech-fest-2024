@@ -37,7 +37,7 @@ const ResearchSymposium = () => {
                     </p>
                 </div>
                 <div className="flex gap-3 items-center mt-4">
-                    <a href="https://drive.google.com/file/d/1J428uCP_iUStcLGoHiZOm-k26Si0qAzd/view?usp=sharing" target="_blank" rel="noopener noreferrer"><button className='px-8 py-2 bg-[#FC711B] rounded-3xl text-xs font-semibold whitespace-nowrap text-white border border-[#FC711B]'>Click for More Details</button></a>
+                    <a href="https://drive.google.com/file/d/1i85SxFfURvMWuKPjkhxM8jEERtAPkUwa/view?usp=sharing" target="_blank" rel="noopener noreferrer"><button className='px-8 py-2 bg-[#FC711B] rounded-3xl text-xs font-semibold whitespace-nowrap text-white border border-[#FC711B]'>Click for More Details</button></a>
                     <a href={'https://form.jotform.com/233056575770057'} target="_blank" rel="noopener noreferrer" className='py-2 px-7 border border-white rounded-3xl text-xs whitespace-nowrap'>Registration Form</a>
                 </div>
             </div>
