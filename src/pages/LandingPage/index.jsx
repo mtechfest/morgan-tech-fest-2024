@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import backgroundImage from "../../assets/rob.png";
-import opeyemi from "../../assets/Opeyemi-PIC.PNG";
+import opeyemi from "../../assets/ope.PNG";
 import obi from "../../assets/passport.JPG";
 import About from "./About";
 import Countdown from "./Countdown";
