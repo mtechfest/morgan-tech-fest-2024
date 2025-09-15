@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import judgingImg from '../../assets/rob2.png';
+import judgingImg from '../../assets/rob3.png';
 
 // Container component
 const Container = ({ children, className = "" }) => (
