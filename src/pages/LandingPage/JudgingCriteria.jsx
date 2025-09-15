@@ -1,9 +1,8 @@
 import Container from "../../components/Container"
 import { IoIosArrowForward } from "react-icons/io";
 
-// Updated imports
-import judgingImg from '../../assets/Jdg.png'; 
-import judgepdf from '../../assets/Judging Criteria.pdf';
+// ✅ Use the same file for both image & download
+import judgingImg from '../../assets/Jdg.png';
 
 const JudgingCriteria = () => {
   return (
@@ -18,7 +17,7 @@ const JudgingCriteria = () => {
             View the Judging Criteria Here
           </p>
           <a
-            href={judgepdf}
+            href={judgingImg}   // ✅ Download now points to the same new link
             target="_blank"
             rel="noopener noreferrer"
             className="mt-5 md:mt-10 px-6 py-2 lg:py-3 bg-[#FC711B] rounded-3xl text-xs font-medium text-white inline-block"
@@ -36,6 +35,7 @@ const JudgingCriteria = () => {
           data-aos-easing="linear"
           data-aos-duration="800"
         >
+          {/* ✅ Image also comes from the same new file */}
           <img
             src={judgingImg}
             alt="Judging Criteria"
