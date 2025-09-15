@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { FaCalendarAlt, FaMapMarkedAlt } from "react-icons/fa";
 
-// Mock background image component since we can't import actual images
-const backgroundImage = "data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 20 0 L 0 0 0 20' fill='none' stroke='%23ffffff' stroke-width='0.5' opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='%23122644'/%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E";
+// Mock background image component since we can't import actual images (no longer used)
+// const backgroundImage = "...";
 
 // Container component
 const Container = ({ children, className = "" }) => (
@@ -104,7 +104,7 @@ const Countdown = () => {
                       data-aos-easing='linear'
                       data-aos-duration='1000'
                     >
-                        <FaMapMarkedAlt className="text-[1.5rem] md:text-base" />
+                        <MapIcon className="text-[1.5rem] md:text-base" />
                         <p className="text-center md:text-start">Morgan State University Student Center - Calvin & Tina Tyler Ballroom</p>
                     </div>
                 </div>
