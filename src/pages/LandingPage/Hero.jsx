@@ -28,115 +28,117 @@ const Hero = () => {
   }, []);
 
   return (
-    <Container className="flex items-center min-h-screen pt-20 lg:pt-24 xl:pt-28 2xl:pt-32 text-white relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-orange-500/20 to-yellow-400/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-l from-orange-500/10 to-yellow-400/10 rounded-full blur-3xl animate-pulse"></div>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-950">
+      <Container className="flex items-center min-h-screen pt-20 lg:pt-24 xl:pt-28 2xl:pt-32 text-white relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-l from-blue-500/10 to-cyan-300/10 rounded-full blur-3xl animate-pulse"></div>
+        </div>
 
-      <div className="w-full flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-0 relative z-10">
-        {/* Left spacer for larger screens */}
-        <div className="hidden lg:block lg:w-[30%] xl:w-[35%] 2xl:w-[45%]"></div>
-        
-        {/* Main content */}
-        <div className="w-full lg:w-[70%] xl:w-[65%] 2xl:w-[55%] flex flex-col items-center lg:items-start text-center lg:text-left px-4 lg:px-0 lg:pl-8">
+        <div className="w-full flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-0 relative z-10">
+          {/* Left spacer for larger screens */}
+          <div className="hidden lg:block lg:w-[30%] xl:w-[35%] 2xl:w-[45%]"></div>
           
-          {/* Main heading with enhanced animations */}
-          <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[90px] xl:text-[120px] 2xl:text-[140px] font-bold flex flex-col gap-0 leading-[60px] sm:leading-[70px] md:leading-[80px] lg:leading-[85px] xl:leading-[110px] 2xl:leading-[130px]">
-              <span className="hover:scale-105 hover:rotate-3 transition-transform duration-300 cursor-default inline-block">
-                Discover
-              </span>
-              <span className="bg-gradient-to-r from-[#FC711B] via-[#FC711B] to-[#FBFF4B] inline-block text-transparent bg-clip-text hover:scale-105 hover:rotate-2 transition-transform duration-300 cursor-default">
-                Network
-              </span>
-              <span className="hover:scale-105 hover:-rotate-2 transition-transform duration-300 cursor-default inline-block">
-                Innovate
-              </span>
-            </h1>
-          </div>
-
-          {/* Event details section */}
-          <div className={`w-full flex flex-col lg:flex-row lg:justify-between lg:items-end pt-8 lg:pt-12 gap-8 lg:gap-4 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          {/* Main content */}
+          <div className="w-full lg:w-[70%] xl:w-[65%] 2xl:w-[55%] flex flex-col items-center lg:items-start text-center lg:text-left px-4 lg:px-0 lg:pl-8">
             
-            {/* Left side - Event info */}
-            <div className="flex flex-col gap-6 items-center lg:items-start">
-              
-              {/* Date and time */}
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 lg:gap-10 items-center text-lg sm:text-xl font-bold">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-[#FC711B] rounded-full animate-pulse"></span>
-                  <p className="hover:text-[#FC711B] transition-colors duration-300">
-                    Date: November 18, 2025
-                  </p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-[#FBFF4B] rounded-full animate-pulse"></span>
-                  <p className="hover:text-[#FBFF4B] transition-colors duration-300">
-                    10AM - 6PM
-                  </p>
-                </div>
-              </div>
-              
-              {/* Location */}
-              <div className="text-center lg:text-left">
-                <p className="font-semibold text-lg md:text-xl lg:text-2xl leading-relaxed hover:text-[#FC711B] transition-colors duration-300">
-                  Morgan State University<br/>
-                  <span className="text-gray-300">Graves School of Business and Management</span>
-                </p>
-              </div>
-              
-              {/* Registration button */}
-              <div className="group">
-                <a 
-                  href="https://form.jotform.com/233056575770057" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-flex items-center gap-3 py-3 px-8 border-2 border-white rounded-full text-sm font-semibold uppercase tracking-wider hover:bg-white hover:text-gray-900 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-orange-500/50 group-hover:border-[#FC711B] relative overflow-hidden"
-                  aria-label="Register for Morgan TechFest 2025"
-                >
-                  <span className="relative z-10">Registration Form</span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-[#FC711B] to-[#FBFF4B] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
-                </a>
-              </div>
+            {/* Main heading with enhanced animations */}
+            <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[90px] xl:text-[120px] 2xl:text-[140px] font-bold flex flex-col gap-0 leading-[60px] sm:leading-[70px] md:leading-[80px] lg:leading-[85px] xl:leading-[110px] 2xl:leading-[130px]">
+                <span className="hover:scale-105 hover:rotate-3 transition-transform duration-300 cursor-default inline-block">
+                  Discover
+                </span>
+                <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-yellow-400 inline-block text-transparent bg-clip-text hover:scale-105 hover:rotate-2 transition-transform duration-300 cursor-default">
+                  Network
+                </span>
+                <span className="hover:scale-105 hover:-rotate-2 transition-transform duration-300 cursor-default inline-block">
+                  Innovate
+                </span>
+              </h1>
             </div>
 
-            {/* Right side - Social media */}
-            <div className="flex items-center justify-center lg:justify-end gap-6">
-              <div className="flex items-center gap-5 p-4 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
-                <a 
-                  href="https://www.linkedin.com/company/morgan-techfest/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="transform hover:scale-125 hover:rotate-12 transition-all duration-300 hover:text-blue-500 group"
-                  aria-label="Follow us on LinkedIn"
-                >
-                  <LinkedInIcon size={20} className="cursor-pointer transition-colors duration-300" />
-                </a>
-                <a 
-                  href="https://www.instagram.com/morgantechfest?igsh=MTFkNm8yMXdxeHRseQ==" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="transform hover:scale-125 hover:rotate-12 transition-all duration-300 hover:text-pink-500 group"
-                  aria-label="Follow us on Instagram"
-                >
-                  <InstagramIcon size={20} className="cursor-pointer transition-colors duration-300" />
-                </a>
+            {/* Event details section */}
+            <div className={`w-full flex flex-col lg:flex-row lg:justify-between lg:items-end pt-8 lg:pt-12 gap-8 lg:gap-4 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              
+              {/* Left side - Event info */}
+              <div className="flex flex-col gap-6 items-center lg:items-start">
+                
+                {/* Date and time */}
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 lg:gap-10 items-center text-lg sm:text-xl font-bold">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
+                    <p className="hover:text-blue-400 transition-colors duration-300">
+                      Date: November 18, 2025
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
+                    <p className="hover:text-cyan-400 transition-colors duration-300">
+                      10AM - 6PM
+                    </p>
+                  </div>
+                </div>
+                
+                {/* Location */}
+                <div className="text-center lg:text-left">
+                  <p className="font-semibold text-lg md:text-xl lg:text-2xl leading-relaxed hover:text-blue-400 transition-colors duration-300">
+                    Morgan State University<br/>
+                    <span className="text-blue-200">Graves School of Business and Management</span>
+                  </p>
+                </div>
+                
+                {/* Registration button */}
+                <div className="group">
+                  <a 
+                    href="https://form.jotform.com/233056575770057" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-flex items-center gap-3 py-3 px-8 border-2 border-white rounded-full text-sm font-semibold uppercase tracking-wider hover:bg-white hover:text-blue-900 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/50 group-hover:border-blue-400 relative overflow-hidden"
+                    aria-label="Register for Morgan TechFest 2025"
+                  >
+                    <span className="relative z-10">Registration Form</span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Right side - Social media */}
+              <div className="flex items-center justify-center lg:justify-end gap-6">
+                <div className="flex items-center gap-5 p-4 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
+                  <a 
+                    href="https://www.linkedin.com/company/morgan-techfest/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="transform hover:scale-125 hover:rotate-12 transition-all duration-300 hover:text-blue-400 group"
+                    aria-label="Follow us on LinkedIn"
+                  >
+                    <LinkedInIcon size={20} className="cursor-pointer transition-colors duration-300" />
+                  </a>
+                  <a 
+                    href="https://www.instagram.com/morgantechfest?igsh=MTFkNm8yMXdxeHRseQ==" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="transform hover:scale-125 hover:rotate-12 transition-all duration-300 hover:text-cyan-400 group"
+                    aria-label="Follow us on Instagram"
+                  >
+                    <InstagramIcon size={20} className="cursor-pointer transition-colors duration-300" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Floating elements */}
-      <div className="absolute bottom-10 left-10 hidden xl:block">
-        <div className="w-3 h-3 bg-[#FC711B] rounded-full animate-bounce"></div>
-      </div>
-      <div className="absolute top-1/3 right-10 hidden xl:block">
-        <div className="w-2 h-2 bg-[#FBFF4B] rounded-full animate-bounce"></div>
-      </div>
-    </Container>
+        {/* Floating elements */}
+        <div className="absolute bottom-10 left-10 hidden xl:block">
+          <div className="w-3 h-3 bg-blue-400 rounded-full animate-bounce"></div>
+        </div>
+        <div className="absolute top-1/3 right-10 hidden xl:block">
+          <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce"></div>
+        </div>
+      </Container>
+    </div>
   )
 }
 
