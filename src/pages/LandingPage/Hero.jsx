@@ -44,35 +44,16 @@ const Hero = () => {
           
           {/* Main heading with enhanced animations */}
           <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[90px] xl:text-[120px] 2xl:text-[140px] font-bold leading-[60px] sm:leading-[70px] md:leading-[80px] lg:leading-[85px] xl:leading-[110px] 2xl:leading-[130px] h-[180px] sm:h-[210px] md:h-[240px] lg:h-[255px] xl:h-[330px] 2xl:h-[390px] flex items-center justify-center lg:justify-start">
-              <div className="relative w-full">
-                {[
-                  { text: "Discover", gradient: false },
-                  { text: "Network", gradient: true },
-                  { text: "Innovate", gradient: false }
-                ].map((word, index) => {
-                  const isActive = index === currentWordIndex;
-                  const slideDirection = index === 0 ? '-translate-x-full' : index === 1 ? 'translate-x-full' : 'translate-y-full';
-                  const hoverRotation = index === 0 ? 'hover:rotate-3' : index === 1 ? 'hover:rotate-2' : 'hover:-rotate-2';
-                  
-                  return (
-                    <span
-                      key={word.text}
-                      className={`absolute inset-0 flex items-center justify-center lg:justify-start transition-all duration-700 ease-in-out transform cursor-default inline-block ${hoverRotation} hover:scale-105
-                        ${isActive 
-                          ? 'translate-x-0 translate-y-0 opacity-100' 
-                          : `${slideDirection} opacity-0`
-                        }
-                        ${word.gradient 
-                          ? 'bg-gradient-to-r from-[#FC711B] via-[#FC711B] to-[#FBFF4B] text-transparent bg-clip-text' 
-                          : 'text-white'
-                        }`}
-                    >
-                      {word.text}
-                    </span>
-                  );
-                })}
-              </div>
+            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[90px] xl:text-[120px] 2xl:text-[140px] font-bold flex flex-col gap-0 leading-[60px] sm:leading-[70px] md:leading-[80px] lg:leading-[85px] xl:leading-[110px] 2xl:leading-[130px]">
+              <span className="hover:scale-105 hover:rotate-3 transition-transform duration-300 cursor-default inline-block">
+                Discover
+              </span>
+              <span className="bg-gradient-to-r from-[#FC711B] via-[#FC711B] to-[#FBFF4B] inline-block text-transparent bg-clip-text hover:scale-105 hover:rotate-2 transition-transform duration-300 cursor-default">
+                Network
+              </span>
+              <span className="hover:scale-105 hover:-rotate-2 transition-transform duration-300 cursor-default inline-block">
+                Innovate
+              </span>
             </h1>
           </div>
 
