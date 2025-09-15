@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import backgroundImage from "../../assets/rob.png";
+import opeyemiImage from "../../assets/Opeyemi-PIC.PNG";
+import passportImage from "../../assets/passport.JPG";
 import About from "./About";
 import Countdown from "./Countdown";
 import Faq from "./Faq";
@@ -52,12 +54,14 @@ const LandingPage = () => {
     { name: 'Beatrice Oshokoya', position: '_', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413421/idmjnp2xeediteyxjmlm.png" },
     { name: 'Blessing Adeika', position: 'Website Manager', image: "https://res.cloudinary.com/dv4qabxvt/image/upload/v1745951778/BlessingAdeika_g678t6.jpg" },
     { name: 'Collin', position: 'Finance Manager ', image: "https://res.cloudinary.com/dv4qabxvt/image/upload/v1745951778/CollinFinanceManager_qunlqi.jpg" },
+    { name: 'Program Manager', position: 'Program Manager', image: passportImage },
     { name: 'Terell Reed', position: 'Communication manager', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413420/b1u1xpmxnqnma0ybnrlj.png" },
     { name: 'Damilola Adegbuyi', position: 'Social Media Manager(Instagram)', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413422/uy9fk61mz2xia5rokzka.png" },    
     { name: 'David Owolabi', position: 'Media / Creative Director', image: "https://res.cloudinary.com/dv4qabxvt/image/upload/v1745951778/DavidOwolabi_ymwctc.jpg" },
     { name: 'Grace Balogun', position: 'Social Media Manager(LinkedIn)', image: "https://res.cloudinary.com/dv4qabxvt/image/upload/v1745951779/GraceBalogun_g3bnxr.jpg" },
     { name: 'Jaunel Panton', position: 'Registration manager', image: "https://res.cloudinary.com/djksz5job/image/upload/v1727485370/ughupzwc6rjzbiutou3w.jpg" },
     { name: 'Marissa Savage', position: 'Logistics (Swag)', image: "https://res.cloudinary.com/djksz5job/image/upload/v1726594862/qctpjiyshv6rmegf1znq.png" },
+    { name: 'Director', position: 'Director', image: opeyemiImage },
 
     // Add more team members here
   ];
