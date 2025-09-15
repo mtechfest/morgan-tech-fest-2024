@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import rob from '../assets/rob.png';
 
 // Container component
 const Container = ({ children, className = "" }) => (
@@ -36,23 +37,22 @@ const Hero = () => {
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-l from-blue-500/10 to-cyan-300/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
-        <div className="w-full flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-0 relative z-10">
-          {/* Left side - Image */}
-          <div className="lg:w-[30%] xl:w-[35%] 2xl:w-[45%] flex justify-center lg:justify-end lg:pr-8">
+        <div className="w-full flex flex-col lg:flex-row items-center lg:items-center gap-8 lg:gap-12 relative z-10">
+          {/* Left side - Robot Image */}
+          <div className="lg:w-[40%] xl:w-[35%] 2xl:w-[30%] flex justify-center lg:justify-start">
             <div className="relative group">
-              {/* Robot Icon/Placeholder */}
-              <div className="w-64 h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 bg-gradient-to-br from-orange-400 to-blue-400 rounded-3xl flex items-center justify-center transform transition-all duration-700 hover:scale-110 hover:rotate-6 filter drop-shadow-2xl">
-                <svg className="w-32 h-32 lg:w-40 lg:h-40 xl:w-48 xl:h-48 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H9V3H14L19 8V9H21ZM3 9V7L9 1H15V3H10L5 8V9H3ZM12 8C14.21 8 16 9.79 16 12C16 14.21 14.21 16 12 16C9.79 16 8 14.21 8 12C8 9.79 9.79 8 12 8ZM12 10C10.9 10 10 10.9 10 12C10 13.1 10.9 14 12 14C13.1 14 14 13.1 14 12C14 10.9 13.1 10 12 10ZM7 18C7 16.9 7.9 16 9 16H15C16.1 16 17 16.9 17 18V20C17 21.1 16.1 22 15 22H9C7.9 22 7 21.1 7 20V18Z"/>
-                </svg>
-              </div>
+              <img 
+                src={rob}
+                alt="Robot" 
+                className="w-64 h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain transform transition-all duration-700 hover:scale-110 hover:rotate-6 filter drop-shadow-2xl"
+              />
               {/* Glowing effect behind image */}
               <div className="absolute inset-0 bg-gradient-to-r from-orange-400/30 to-blue-400/30 rounded-full blur-2xl transform scale-75 group-hover:scale-90 transition-transform duration-700 -z-10"></div>
             </div>
           </div>
           
           {/* Main content */}
-          <div className="w-full lg:w-[70%] xl:w-[65%] 2xl:w-[55%] flex flex-col items-center lg:items-start text-center lg:text-left px-4 lg:px-0 lg:pl-8">
+          <div className="lg:w-[60%] xl:w-[65%] 2xl:w-[70%] flex flex-col items-center lg:items-start text-center lg:text-left px-4 lg:px-0">
             
             {/* Main heading with enhanced animations */}
             <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
