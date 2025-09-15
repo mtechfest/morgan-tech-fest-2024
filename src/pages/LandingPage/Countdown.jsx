@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react";
-import backgroundImage from "../../assets/countdownBg.png";
-import Container from "../../components/Container";
 import { FaCalendarAlt, FaMapMarkedAlt } from "react-icons/fa";
+
+// Mock background image component since we can't import actual images
+const backgroundImage = "data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 20 0 L 0 0 0 20' fill='none' stroke='%23ffffff' stroke-width='0.5' opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='%23122644'/%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E";
+
+// Container component
+const Container = ({ children, className = "" }) => (
+  <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
+    {children}
+  </div>
+);
 
 const Countdown = () => {
 
     const features = ["TECH TALK", "WORKSHOP", "JOB FAIR", "POSTER SESSION", "AWARD", "NETWORKING", "PANEL SESSION", "PROJECT"]
 
-    const eventDate = new Date("September 27, 2025 00:00:00 GMT+00:00");
+    const eventDate = new Date("November 18, 2025 00:00:00 GMT+00:00");
 
   const calculateTimeLeft = () => {
     const now = new Date();
@@ -89,7 +97,7 @@ const Countdown = () => {
                       data-aos-duration='1000'
                     >
                         <FaCalendarAlt />
-                        <p>September 27, 2025</p>
+                        <p>November 18, 2025</p>
                     </div>
                     <div className="flex items-center gap-3"
                       data-aos='zoom-out'
