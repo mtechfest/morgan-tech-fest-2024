@@ -2,11 +2,18 @@ import { IoIosArrowForward } from "react-icons/io"
 import Container from "../../components/Container"
 import submit from "../../assets/submit.png"
 
-
 const SubmitProject = () => {
   return (
     <div className="bg-[#122644] py-20">
         <Container className={'flex flex-col md:items-center gap-10 md:gap-3 lg:gap-10 md:flex-row justify-between text-white'}>
+            <div 
+                className="md:!w-[50%]"
+                data-aos='fade-down'
+                data-aos-easing='linear'
+                data-aos-duration='800'
+            >
+                <img src={submit} alt="submit" className="w-full object-cover rounded-sm" />
+            </div>
             <div
                 data-aos='fade-down'
                 data-aos-easing='linear'
@@ -17,14 +24,6 @@ const SubmitProject = () => {
                     <IoIosArrowForward />
                     <span>Submit now</span>
                 </a>
-            </div>
-            <div 
-                className="md:!w-[50%]"
-                data-aos='fade-down'
-                data-aos-easing='linear'
-                data-aos-duration='800'
-            >
-                <img src={submit} alt="submit" className="w-full object-cover rounded-sm" />
             </div>
         </Container>
     </div>
