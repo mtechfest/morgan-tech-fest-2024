@@ -69,6 +69,13 @@ const Hero = () => {
               </h1>
             </div>
 
+            {/* Theme 2025 */}
+            <div className={`mt-4 lg:mt-6 transform transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-blue-200 hover:text-white transition-colors duration-300">
+                Revolutionizing Tech from Ideas to Impact
+              </p>
+            </div>
+
             {/* Event details section */}
             <div className={`w-full flex flex-col lg:flex-row lg:justify-between lg:items-end pt-6 lg:pt-8 gap-6 lg:gap-4 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
               
