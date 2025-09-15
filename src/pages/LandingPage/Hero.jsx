@@ -101,17 +101,17 @@ const Hero = () => {
           
           {/* Main heading with enhanced animations and effects */}
           <div className={`transform transition-all duration-1500 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'}`}>
-            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[90px] xl:text-[120px] 2xl:text-[140px] font-bold flex flex-col gap-0 leading-[60px] sm:leading-[70px] md:leading-[80px] lg:leading-[85px] xl:leading-[110px] 2xl:leading-[130px] relative">
+            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[90px] xl:text-[120px] 2xl:text-[140px] font-bold flex flex-wrap justify-center lg:justify-start items-center gap-4 lg:gap-6 xl:gap-8 leading-[60px] sm:leading-[70px] md:leading-[80px] lg:leading-[85px] xl:leading-[110px] 2xl:leading-[130px] relative">
               <span className="hover:scale-110 hover:rotate-2 transition-all duration-500 cursor-default inline-block transform-gpu hover:text-shadow-glow relative group">
-                Discover
+                <strong>Discover</strong>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-cyan-300/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
               </span>
               <span className="bg-gradient-to-r from-[#FC711B] via-[#FF8C42] to-[#FBFF4B] inline-block text-transparent bg-clip-text hover:scale-110 hover:rotate-1 transition-all duration-500 cursor-default transform-gpu relative group bg-300% animate-gradient-shift">
-                Network
+                <strong>Network</strong>
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-400/30 to-yellow-300/30 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
               </span>
               <span className="hover:scale-110 hover:-rotate-1 transition-all duration-500 cursor-default inline-block transform-gpu relative group">
-                Innovate
+                <strong>Innovate</strong>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 to-pink-300/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
               </span>
             </h1>
