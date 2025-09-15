@@ -15,10 +15,10 @@ const Hero = () => {
         <div className="flex justify-between items-end pt-12">
           <div className="flex flex-col gap-6">
             <div className="flex gap-10 items-center text-xl font-bold">
-              <p>Date: September 27th, 2025</p>
+              <p>Date: November 18, 2025</p>
               <p>10AM - 6PM</p>
             </div>
-            <p className="font-semibold text-lg md:text-2xl">Morgan State University | Student Center<br/>Calvin & Tina Tyler Ballroom</p>
+            <p className="font-semibold text-lg md:text-2xl">Morgan State University | Graves School <br/>of Business and Management</p>
             <p className="!inline-block"><a href={'https://form.jotform.com/233056575770057'} target="_blank" rel="noopener noreferrer" className='py-2 px-7 border border-white rounded-3xl text-xs'>REGISTRATION FORM</a></p>
           </div>
           <div className="flex items-center gap-4">
