@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import backgroundImage from "../../assets/rob.png";
-import opeyemi from "../../assets/ope.PNG";
-import obi from "../../assets/passport.JPG";
+import opeyemi from "../../assets/opeyemi-pic.png";
+import obi from "../../assets/passport.jpg";
 import About from "./About";
 import Countdown from "./Countdown";
 import Faq from "./Faq";
