@@ -57,7 +57,7 @@ const Hero = () => {
             
             {/* Main heading with enhanced animations */}
             <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[8rem] 3xl:text-[10rem] font-bold flex flex-col gap-0 leading-[0.8] lg:leading-[0.75]">
+              <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold flex flex-col gap-0 leading-tight">
                 <span className="hover:scale-105 hover:rotate-3 transition-transform duration-300 cursor-default inline-block">
                   Discover
                 </span>
@@ -71,8 +71,8 @@ const Hero = () => {
             </div>
 
             {/* Theme 2025 */}
-            <div className={`mt-4 sm:mt-6 lg:mt-8 xl:mt-10 transform transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-semibold text-blue-200 hover:text-white transition-colors duration-300 px-2 sm:px-0">
+            <div className={`mt-3 sm:mt-4 lg:mt-6 transform transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold text-blue-200 hover:text-white transition-colors duration-300 px-2 sm:px-0">
                 Revolutionizing Tech from Ideas to Impact
               </p>
             </div>
@@ -84,15 +84,15 @@ const Hero = () => {
               <div className="flex flex-col gap-3 sm:gap-4 lg:gap-6 items-center lg:items-start">
                 
                 {/* Date and time */}
-                <div className="flex flex-col xs:flex-row gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8 items-center text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold">
+                <div className="flex flex-col xs:flex-row gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8 items-center text-xs sm:text-sm md:text-base lg:text-lg font-bold">
                   <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 sm:w-3 sm:h-3 bg-orange-400 rounded-full animate-pulse flex-shrink-0"></span>
+                    <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse flex-shrink-0"></span>
                     <p className="hover:text-blue-400 transition-colors duration-300 whitespace-nowrap">
                       Date: November 15, 2025
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 sm:w-3 sm:h-3 bg-orange-500 rounded-full animate-pulse flex-shrink-0"></span>
+                    <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse flex-shrink-0"></span>
                     <p className="hover:text-cyan-400 transition-colors duration-300 whitespace-nowrap">
                       10AM - 6PM
                     </p>
@@ -101,9 +101,9 @@ const Hero = () => {
                 
                 {/* Location */}
                 <div className="text-center lg:text-left px-2 sm:px-0">
-                  <p className="font-semibold text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl leading-relaxed hover:text-blue-400 transition-colors duration-300">
+                  <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed hover:text-blue-400 transition-colors duration-300">
                     Morgan State University<br/>
-                    <span className="text-blue-200 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl">Graves School of Business and Management</span>
+                    <span className="text-blue-200 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">Graves School of Business and Management</span>
                   </p>
                 </div>
                 
@@ -113,7 +113,7 @@ const Hero = () => {
                     href="https://form.jotform.com/233056575770057" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="inline-flex items-center gap-2 sm:gap-3 py-3 sm:py-4 px-6 sm:px-8 md:px-10 lg:px-12 border-2 border-white rounded-full text-sm sm:text-base md:text-lg font-semibold uppercase tracking-wider hover:bg-white hover:text-blue-900 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/50 group-hover:border-blue-400 relative overflow-hidden"
+                    className="inline-flex items-center gap-2 sm:gap-3 py-2 sm:py-3 px-4 sm:px-6 md:px-8 border-2 border-white rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider hover:bg-white hover:text-blue-900 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/50 group-hover:border-blue-400 relative overflow-hidden"
                     aria-label="Register for Morgan TechFest 2025"
                   >
                     <span className="relative z-10">Registration Form</span>
@@ -124,7 +124,7 @@ const Hero = () => {
 
               {/* Right side - Social media */}
               <div className="flex items-center justify-center lg:justify-end gap-4 sm:gap-6 order-first lg:order-none">
-                <div className="flex items-center gap-3 sm:gap-4 md:gap-5 p-3 sm:p-4 md:p-5 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
+                <div className="flex items-center gap-3 sm:gap-4 md:gap-5 p-3 sm:p-4 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
                   <a 
                     href="https://www.linkedin.com/company/morgan-techfest/" 
                     target="_blank" 
@@ -132,7 +132,7 @@ const Hero = () => {
                     className="transform hover:scale-125 hover:rotate-12 transition-all duration-300 hover:text-blue-400 group"
                     aria-label="Follow us on LinkedIn"
                   >
-                    <LinkedInIcon size={20} className="cursor-pointer transition-colors duration-300 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-6 lg:h-6 xl:w-7 xl:h-7" />
+                    <LinkedInIcon size={16} className="cursor-pointer transition-colors duration-300 sm:w-5 sm:h-5 lg:w-4 lg:h-4 xl:w-5 xl:h-5" />
                   </a>
                   <a 
                     href="https://www.instagram.com/morgantechfest?igsh=MTFkNm8yMXdxeHRseQ==" 
@@ -141,7 +141,7 @@ const Hero = () => {
                     className="transform hover:scale-125 hover:rotate-12 transition-all duration-300 hover:text-cyan-400 group"
                     aria-label="Follow us on Instagram"
                   >
-                    <InstagramIcon size={20} className="cursor-pointer transition-colors duration-300 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-6 lg:h-6 xl:w-7 xl:h-7" />
+                    <InstagramIcon size={16} className="cursor-pointer transition-colors duration-300 sm:w-5 sm:h-5 lg:w-4 lg:h-4 xl:w-5 xl:h-5" />
                   </a>
                 </div>
               </div>
