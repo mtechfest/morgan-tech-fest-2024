@@ -88,7 +88,7 @@ const Hero = () => {
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></span>
                     <p className="hover:text-blue-400 transition-colors duration-300">
-                      Date: November 18, 2025
+                      Date: November 15, 2025
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
