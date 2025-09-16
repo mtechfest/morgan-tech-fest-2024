@@ -3,7 +3,7 @@ import judgingImg from '../../assets/rob2.png';
 
 // Container component
 const Container = ({ children, className = "" }) => (
-  <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
+  <div className={`max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 ${className}`}>
     {children}
   </div>
 );
@@ -30,21 +30,21 @@ const Hero = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-950">
-      <Container className="flex items-center min-h-screen pt-20 lg:pt-24 xl:pt-28 2xl:pt-32 text-white relative overflow-hidden">
+      <Container className="flex items-center min-h-screen py-16 sm:py-20 lg:py-24 xl:py-28 2xl:py-32 text-white relative overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-l from-blue-500/10 to-cyan-300/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-gradient-to-l from-blue-500/10 to-cyan-300/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
-        <div className="w-full flex flex-col lg:flex-row items-center lg:items-center gap-8 lg:gap-12 relative z-10">
+        <div className="w-full flex flex-col lg:flex-row items-center lg:items-center gap-6 sm:gap-8 lg:gap-12 xl:gap-16 relative z-10">
           {/* Left side - Robot Image */}
-          <div className="w-full lg:w-[45%] xl:w-[40%] 2xl:w-[35%] flex justify-center lg:justify-start">
+          <div className="w-full lg:w-[45%] xl:w-[40%] 2xl:w-[35%] flex justify-center lg:justify-start order-1 lg:order-none">
             <div className="relative group">
               <img 
                 src={judgingImg}
                 alt="Robot" 
-                className="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px] xl:w-[450px] xl:h-[450px] 2xl:w-[500px] 2xl:h-[500px] object-contain animate-spin filter drop-shadow-2xl max-w-full"
+                className="w-48 h-48 xs:w-56 xs:h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 2xl:w-[450px] 2xl:h-[450px] object-contain animate-spin filter drop-shadow-2xl max-w-full"
                 style={{ animationDuration: '8s' }}
               />
               {/* Glowing effect behind image */}
@@ -53,11 +53,11 @@ const Hero = () => {
           </div>
           
           {/* Main content */}
-          <div className="w-full lg:w-[55%] xl:w-[60%] 2xl:w-[65%] flex flex-col items-center lg:items-start text-center lg:text-left px-4 lg:px-0">
+          <div className="w-full lg:w-[55%] xl:w-[60%] 2xl:w-[65%] flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-none">
             
             {/* Main heading with enhanced animations */}
             <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold flex flex-col gap-0 leading-tight">
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl font-bold flex flex-col gap-0 leading-tight">
                 <span className="hover:scale-105 hover:rotate-3 transition-transform duration-300 cursor-default inline-block">
                   Discover
                 </span>
@@ -71,39 +71,39 @@ const Hero = () => {
             </div>
 
             {/* Theme 2025 */}
-            <div className={`mt-4 lg:mt-6 transform transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-blue-200 hover:text-white transition-colors duration-300">
+            <div className={`mt-3 sm:mt-4 lg:mt-6 transform transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-lg xl:text-xl 2xl:text-2xl font-semibold text-blue-200 hover:text-white transition-colors duration-300 px-2 sm:px-0">
                 Revolutionizing Tech from Ideas to Impact
               </p>
             </div>
 
             {/* Event details section */}
-            <div className={`w-full flex flex-col lg:flex-row lg:justify-between lg:items-end pt-6 lg:pt-8 gap-6 lg:gap-4 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <div className={`w-full flex flex-col lg:flex-row lg:justify-between lg:items-end pt-4 sm:pt-6 lg:pt-8 gap-4 sm:gap-6 lg:gap-4 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
               
               {/* Left side - Event info */}
-              <div className="flex flex-col gap-4 lg:gap-6 items-center lg:items-start">
+              <div className="flex flex-col gap-3 sm:gap-4 lg:gap-6 items-center lg:items-start">
                 
                 {/* Date and time */}
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 lg:gap-8 items-center text-base sm:text-lg lg:text-xl font-bold">
+                <div className="flex flex-col xs:flex-row gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8 items-center text-xs xs:text-sm sm:text-base lg:text-sm xl:text-base 2xl:text-lg font-bold">
                   <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></span>
-                    <p className="hover:text-blue-400 transition-colors duration-300">
-                      Date: November 15, 2025
+                    <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse flex-shrink-0"></span>
+                    <p className="hover:text-blue-400 transition-colors duration-300 whitespace-nowrap">
+                      Date: November 18, 2025
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
-                    <p className="hover:text-cyan-400 transition-colors duration-300">
+                    <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse flex-shrink-0"></span>
+                    <p className="hover:text-cyan-400 transition-colors duration-300 whitespace-nowrap">
                       10AM - 6PM
                     </p>
                   </div>
                 </div>
                 
                 {/* Location */}
-                <div className="text-center lg:text-left">
-                  <p className="font-semibold text-lg md:text-xl lg:text-2xl leading-relaxed hover:text-blue-400 transition-colors duration-300">
+                <div className="text-center lg:text-left px-2 sm:px-0">
+                  <p className="font-semibold text-sm xs:text-base sm:text-lg md:text-xl lg:text-lg xl:text-xl 2xl:text-2xl leading-relaxed hover:text-blue-400 transition-colors duration-300">
                     Morgan State University<br/>
-                    <span className="text-blue-200">Graves School of Business and Management</span>
+                    <span className="text-blue-200 text-xs xs:text-sm sm:text-base md:text-lg lg:text-base xl:text-lg 2xl:text-xl">Graves School of Business and Management</span>
                   </p>
                 </div>
                 
@@ -113,7 +113,7 @@ const Hero = () => {
                     href="https://form.jotform.com/233056575770057" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="inline-flex items-center gap-3 py-3 px-8 border-2 border-white rounded-full text-sm font-semibold uppercase tracking-wider hover:bg-white hover:text-blue-900 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/50 group-hover:border-blue-400 relative overflow-hidden"
+                    className="inline-flex items-center gap-2 sm:gap-3 py-2 sm:py-3 px-4 sm:px-6 md:px-8 border-2 border-white rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider hover:bg-white hover:text-blue-900 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/50 group-hover:border-blue-400 relative overflow-hidden"
                     aria-label="Register for Morgan TechFest 2025"
                   >
                     <span className="relative z-10">Registration Form</span>
@@ -123,8 +123,8 @@ const Hero = () => {
               </div>
 
               {/* Right side - Social media */}
-              <div className="flex items-center justify-center lg:justify-end gap-6">
-                <div className="flex items-center gap-5 p-4 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
+              <div className="flex items-center justify-center lg:justify-end gap-4 sm:gap-6 order-first lg:order-none">
+                <div className="flex items-center gap-3 sm:gap-4 md:gap-5 p-3 sm:p-4 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
                   <a 
                     href="https://www.linkedin.com/company/morgan-techfest/" 
                     target="_blank" 
@@ -132,7 +132,7 @@ const Hero = () => {
                     className="transform hover:scale-125 hover:rotate-12 transition-all duration-300 hover:text-blue-400 group"
                     aria-label="Follow us on LinkedIn"
                   >
-                    <LinkedInIcon size={20} className="cursor-pointer transition-colors duration-300" />
+                    <LinkedInIcon size={16} className="cursor-pointer transition-colors duration-300 sm:w-5 sm:h-5 lg:w-4 lg:h-4 xl:w-5 xl:h-5" />
                   </a>
                   <a 
                     href="https://www.instagram.com/morgantechfest?igsh=MTFkNm8yMXdxeHRseQ==" 
@@ -141,7 +141,7 @@ const Hero = () => {
                     className="transform hover:scale-125 hover:rotate-12 transition-all duration-300 hover:text-cyan-400 group"
                     aria-label="Follow us on Instagram"
                   >
-                    <InstagramIcon size={20} className="cursor-pointer transition-colors duration-300" />
+                    <InstagramIcon size={16} className="cursor-pointer transition-colors duration-300 sm:w-5 sm:h-5 lg:w-4 lg:h-4 xl:w-5 xl:h-5" />
                   </a>
                 </div>
               </div>
@@ -149,12 +149,12 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Floating elements */}
-        <div className="absolute bottom-10 left-10 hidden xl:block">
-          <div className="w-3 h-3 bg-orange-400 rounded-full animate-bounce"></div>
+        {/* Floating elements - hidden on smaller screens */}
+        <div className="absolute bottom-10 left-10 hidden lg:block xl:block">
+          <div className="w-2 h-2 lg:w-3 lg:h-3 bg-orange-400 rounded-full animate-bounce"></div>
         </div>
-        <div className="absolute top-1/3 right-10 hidden xl:block">
-          <div className="w-2 h-2 bg-orange-500 rounded-full animate-bounce"></div>
+        <div className="absolute top-1/3 right-10 hidden lg:block xl:block">
+          <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-orange-500 rounded-full animate-bounce"></div>
         </div>
       </Container>
     </div>
