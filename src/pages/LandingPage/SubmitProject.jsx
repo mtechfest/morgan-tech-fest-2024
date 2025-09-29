@@ -1,8 +1,8 @@
 import { IoIosArrowForward } from "react-icons/io"
 import Container from "../../components/Container"
 import submit from "../../assets/submit.png"
-import judgingImg from '../../assets/JudgingCriteria.jpg'
-import judgepdf from '../../assets/Judging Criteria.pdf' // ✅ Correct PDF import
+import judgingImg from '../../assets/Jdg-prj.png'
+import judgepdf from '../../assets/Jdg-prj.pdf' // ✅ Correct PDF import
 
 const ProjectSubmissionSection = () => {
   return (
