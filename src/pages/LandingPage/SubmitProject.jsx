@@ -1,7 +1,8 @@
 import { IoIosArrowForward } from "react-icons/io"
 import Container from "../../components/Container"
 import submit from "../../assets/submit.png"
-import judgingImg from '../../assets/jdg.png'
+import judgingImg from '../../assets/JudgingCriteria.jpg'
+import judgepdf from '../../assets/Judging Criteria.pdf' // ✅ Correct PDF import
 
 const ProjectSubmissionSection = () => {
   return (
@@ -90,16 +91,16 @@ const ProjectSubmissionSection = () => {
                 View the Judging Criteria
               </h2>
               <p className="text-white/80 mb-8 text-lg leading-relaxed">
-                Understand what our expert judges are looking for. Download the comprehensive judging criteria to maximize your project's potential.
+                Understand what our expert judges are looking for. Click below to view the full judging criteria document.
               </p>
               <a 
-                href={judgingImg} 
+                href={judgepdf}  // ✅ Correct PDF link
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className='group px-8 py-4 bg-gradient-to-r from-[#FC711B] to-[#ff8c42] hover:from-[#ff8c42] hover:to-[#FC711B] rounded-full text-sm font-semibold text-white inline-flex items-center gap-3 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105'
               >
                 <IoIosArrowForward className="group-hover:translate-x-1 transition-transform duration-300" />
-                <span>Download Now</span>
+                <span>Click for More Details</span> {/* ✅ Updated button text */}
               </a>
             </div>
           </div>
