@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import backgroundImage from "../../assets/rob.png";
+import backgroundImage from "../../assets/cvs.png";
 import opeyemi from "../../assets/opeyemi-pic.png";
 import obi from "../../assets/passport.jpg";
 import About from "./About";
