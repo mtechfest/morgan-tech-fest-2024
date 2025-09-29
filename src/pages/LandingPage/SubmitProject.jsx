@@ -1,8 +1,8 @@
 import { IoIosArrowForward } from "react-icons/io"
 import Container from "../../components/Container"
 import submit from "../../assets/submit.png"
-import judgingImg from '../../assets/Jdg-prj.png'
-import judgepdf from '../../assets/Jdg-prj.pdf' // ✅ Correct PDF import
+import judgingImg from '../../assets/Jdg-prj.png'   // ✅ Updated image
+import judgepdf from '../../assets/Jdg-prj.pdf'   // ✅ Updated PDF
 
 const ProjectSubmissionSection = () => {
   return (
@@ -94,16 +94,52 @@ const ProjectSubmissionSection = () => {
                 Understand what our expert judges are looking for. Click below to view the full judging criteria document.
               </p>
               <a 
-                href={judgepdf}  // ✅ Correct PDF link
+                href={judgepdf}   // ✅ PDF link
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className='group px-8 py-4 bg-gradient-to-r from-[#FC711B] to-[#ff8c42] hover:from-[#ff8c42] hover:to-[#FC711B] rounded-full text-sm font-semibold text-white inline-flex items-center gap-3 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105'
               >
                 <IoIosArrowForward className="group-hover:translate-x-1 transition-transform duration-300" />
-                <span>Click for More Details</span> {/* ✅ Updated button text */}
+                <span>Click for More Details</span>
               </a>
             </div>
           </div>
+        </Container>
+      </div>
+
+      {/* Separator */}
+      <div className="relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent h-px"></div>
+      </div>
+
+      {/* Morgan TechFest ProjectX Section */}
+      <div className="py-16 lg:py-20 bg-gradient-to-br from-[#122644] to-[#1a3354]">
+        <Container className="text-white flex flex-col items-center text-center max-w-4xl">
+          <h2 className="font-bold text-3xl lg:text-5xl lg:leading-[60px] mb-6">
+            Morgan TechFest ProjectX
+          </h2>
+          <h3 className="text-xl lg:text-2xl font-semibold text-[#ff8c42] mb-4">
+            Where Projects Power Careers
+          </h3>
+          <p className="text-white/80 mb-6 text-lg leading-relaxed">
+            ProjectX bridges the gap between academia and industry by empowering students with 
+            real-world, project-driven learning. Earn TechTalent Badges that showcase your skills, 
+            achievements, and problem-solving abilities while collaborating on hands-on projects.
+          </p>
+          <p className="text-white/80 mb-8 text-lg leading-relaxed">
+            With our AI-powered Career Navigator, learners from any background can transition into tech 
+            with personalized insights, curated resources, career tips, and interview prep—turning projects 
+            into pathways for future-proof careers.
+          </p>
+          <a 
+            href="https://careers.morgantechfest.com/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="group px-10 py-4 bg-gradient-to-r from-[#FC711B] to-[#ff8c42] hover:from-[#ff8c42] hover:to-[#FC711B] rounded-full text-base font-semibold text-white inline-flex items-center gap-3 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+          >
+            <IoIosArrowForward className="group-hover:translate-x-1 transition-transform duration-300" />
+            <span>Join ProjectX</span>
+          </a>
         </Container>
       </div>
     </div>
