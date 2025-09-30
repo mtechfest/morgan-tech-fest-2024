@@ -43,7 +43,7 @@ const LandingPage = () => {
     { name: 'Damilola Adegbuyi', position: 'Social Media Manager(Instagram)', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413422/uy9fk61mz2xia5rokzka.png" },    
     { name: 'David Owolabi', position: 'Media / Creative Director', image: "https://res.cloudinary.com/dv4qabxvt/image/upload/v1745951778/DavidOwolabi_ymwctc.jpg" },
     { name: 'Grace Balogun', position: 'Social Media Manager(LinkedIn)', image: "https://res.cloudinary.com/dv4qabxvt/image/upload/v1745951779/GraceBalogun_g3bnxr.jpg" },
-    { name: 'Opeyemi Adeniran', position: 'Director', image: opeyemi },
+    { name: 'Opeyemi Adeniran', position: 'Ai/Software Engineer', image: opeyemi },
   ];
 
   return (
