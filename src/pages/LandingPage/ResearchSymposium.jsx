@@ -15,12 +15,14 @@ import s10 from "../../assets/s10.png"
 import s11 from "../../assets/s11.png"
 import detailsImage from "../../assets/Jdg-Rsc.png"
 import projectCriteria from "../../assets/Jdg-prj.pdf"
+import posterFormat from "../../assets/MorganTechFest-InnovationXpo-Format.pptx.pdf"
 
 // Configuration constants
 const EXPO_CONFIG = {
   title: "INNOVATION EXPO",
   projectCriteriaUrl: projectCriteria,
   researchCriteriaUrl: detailsImage,
+  posterFormatUrl: posterFormat,
   registrationUrl: "https://form.jotform.com/233056575770057",
   images: [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11]
 }
@@ -91,6 +93,12 @@ const ExpoContent = () => (
       />
     </div>
 
+    <div className="bg-[#FC711B]/10 border border-[#FC711B]/30 rounded-lg p-4">
+      <p className="text-sm text-white/90">
+        <strong>Note:</strong> Both projects and research will be presented in poster format. Download the poster template below to get started!
+      </p>
+    </div>
+
     <p className="text-sm text-white/90">
       Cash prizes and recognition await! Fill out the interest form below to participate.
     </p>
@@ -131,6 +139,14 @@ const InnovationExpo = () => {
               aria-label="View Research Judging Criteria"
             >
               Research Judging Criteria
+            </ActionButton>
+            
+            <ActionButton 
+              href={EXPO_CONFIG.posterFormatUrl}
+              variant="primary"
+              aria-label="Download Poster Format Template"
+            >
+              Download Poster Format
             </ActionButton>
             
             <ActionButton 
