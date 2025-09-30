@@ -14,11 +14,13 @@ import s9 from "../../assets/s9.png"
 import s10 from "../../assets/s10.png"
 import s11 from "../../assets/s11.png"
 import detailsImage from "../../assets/Jdg-Rsc.png"
+import projectCriteria from "../../assets/Jdg-prj.pdf"
 
 // Configuration constants
 const EXPO_CONFIG = {
   title: "INNOVATION EXPO",
-  detailsUrl: detailsImage,
+  projectCriteriaUrl: projectCriteria,
+  researchCriteriaUrl: detailsImage,
   registrationUrl: "https://form.jotform.com/233056575770057",
   images: [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11]
 }
@@ -114,13 +116,21 @@ const InnovationExpo = () => {
           
           <ExpoContent />
           
-          <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center mt-8">
+          <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center mt-8 flex-wrap">
             <ActionButton 
-              href={EXPO_CONFIG.detailsUrl}
+              href={EXPO_CONFIG.projectCriteriaUrl}
               variant="primary"
-              aria-label="View detailed information about the Innovation Expo"
+              aria-label="View Project Judging Criteria"
             >
-              Click for More Details
+              Project Judging Criteria
+            </ActionButton>
+            
+            <ActionButton 
+              href={EXPO_CONFIG.researchCriteriaUrl}
+              variant="primary"
+              aria-label="View Research Judging Criteria"
+            >
+              Research Judging Criteria
             </ActionButton>
             
             <ActionButton 
