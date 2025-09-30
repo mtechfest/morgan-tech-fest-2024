@@ -13,7 +13,7 @@ import s8 from "../../assets/s8.png"
 import s9 from "../../assets/s9.png"
 import s10 from "../../assets/s10.png"
 import s11 from "../../assets/s11.png"
-import detailsImage from "../../assets/Jdg-Rsc.png"  // ADD THIS LINE
+import detailsImage from "../../assets/Jdg-Rsc.png"
 
 // Configuration constants
 const EXPO_CONFIG = {
@@ -52,25 +52,45 @@ const ActionButton = ({ href, variant = 'primary', children, ...props }) => {
   )
 }
 
+const CategoryCard = ({ title, icon, description }) => (
+  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:border-[#FC711B]/50 transition-all duration-300">
+    <div className="flex items-start gap-3">
+      <span className="text-2xl">{icon}</span>
+      <div>
+        <h3 className="font-bold text-lg text-[#FC711B] mb-2">{title}</h3>
+        <p className="text-sm text-white/80 leading-relaxed">{description}</p>
+      </div>
+    </div>
+  </div>
+)
+
 const ExpoContent = () => (
-  <div className="text-sm leading-relaxed space-y-4">
-    <p>
-      <strong>Calling All Innovators!</strong>
-    </p>
-    <p>
-      Are you ready to revolutionize the tech world? It's time to turn your ideas into reality 
-      and showcase your brilliance at our Innovation Expo!
-    </p>
-    <p>
-      Whether you're passionate about coding, engineering, or conducting groundbreaking research, 
-      this is your chance to shine. Start building your projects, conducting research, and 
-      preparing to blow minds!
-    </p>
-    <p>
-      We are excited to see your work and celebrate you! Cash and prizes to be won.
-    </p>
-    <p>
-      If you are interested, let us know by filling out the interest form below.
+  <div className="space-y-6">
+    <div className="text-sm leading-relaxed space-y-3">
+      <p className="text-base">
+        <strong>Calling All Innovators!</strong>
+      </p>
+      <p>
+        Ready to revolutionize the tech world? Showcase your brilliance at our Innovation Expo! 
+        We have two exciting categories for you to participate in:
+      </p>
+    </div>
+
+    <div className="grid gap-4">
+      <CategoryCard 
+        icon="💻"
+        title="Projects"
+        description="Showcase your technical projects, applications, and innovative solutions. Demonstrate your coding skills and problem-solving abilities."
+      />
+      <CategoryCard 
+        icon="🔬"
+        title="Research"
+        description="Present your groundbreaking research findings, academic work, and experimental studies that push the boundaries of knowledge."
+      />
+    </div>
+
+    <p className="text-sm text-white/90">
+      Cash prizes and recognition await! Fill out the interest form below to participate.
     </p>
   </div>
 )
