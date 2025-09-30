@@ -1,7 +1,7 @@
 import Container from "../../components/Container"
 import ImageSlider from "../../components/ImageSlider"
 
-// Import all images at once using require.context or create a barrel export
+// Import all images
 import s1 from "../../assets/s1.png"
 import s2 from "../../assets/s2.png"
 import s3 from "../../assets/s3.png"
@@ -13,7 +13,7 @@ import s8 from "../../assets/s8.png"
 import s9 from "../../assets/s9.png"
 import s10 from "../../assets/s10.png"
 import s11 from "../../assets/s11.png"
-import detailsImage from "../../assets/Jdg-Rsc.png"
+import researchCriteria from "../../assets/Jdg-Rsc.png"
 import projectCriteria from "../../assets/Jdg-prj.pdf"
 import posterFormat from "../../assets/MorganTechFest-InnovationXpo-Format.pptx.pdf"
 
@@ -21,26 +21,16 @@ import posterFormat from "../../assets/MorganTechFest-InnovationXpo-Format.pptx.
 const EXPO_CONFIG = {
   title: "INNOVATION EXPO",
   projectCriteriaUrl: projectCriteria,
-  researchCriteriaUrl: detailsImage,
+  researchCriteriaUrl: researchCriteria,
   posterFormatUrl: posterFormat,
-  registrationUrl: "https://form.jotform.com/233056575770057",
   images: [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11]
 }
 
-// Animation configuration
-const ANIMATIONS = {
-  fadeDown: {
-    'data-aos': 'fade-down',
-    'data-aos-easing': 'linear',
-    'data-aos-duration': '800'
-  }
-}
-
-const ActionButton = ({ href, variant = 'primary', children, ...props }) => {
-  const baseClasses = "px-8 py-2 rounded-3xl text-xs font-semibold whitespace-nowrap transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2"
+const ActionButton = ({ href, variant = 'primary', children }) => {
+  const baseClasses = "px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 inline-flex items-center gap-2 w-full justify-center"
   const variants = {
-    primary: "bg-[#FC711B] text-white border border-[#FC711B] hover:bg-[#e5640f] focus:ring-[#FC711B]",
-    secondary: "border border-white text-white hover:bg-white hover:text-[#122644] focus:ring-white"
+    primary: "bg-gradient-to-r from-[#FC711B] to-[#ff8c42] hover:from-[#ff8c42] hover:to-[#FC711B] text-white shadow-lg hover:shadow-xl hover:scale-105",
+    secondary: "bg-white/10 hover:bg-white/20 text-white border border-white/20"
   }
 
   return (
@@ -48,129 +38,131 @@ const ActionButton = ({ href, variant = 'primary', children, ...props }) => {
       href={href} 
       target="_blank" 
       rel="noopener noreferrer"
-      className={`${baseClasses} ${variants[variant]} inline-block`}
-      {...props}
+      className={`${baseClasses} ${variants[variant]}`}
     >
-      {children}
+      <span>{children}</span>
+      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      </svg>
     </a>
   )
 }
 
-const CategoryCard = ({ title, icon, description }) => (
-  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:border-[#FC711B]/50 transition-all duration-300">
-    <div className="flex items-start gap-3">
-      <span className="text-2xl">{icon}</span>
-      <div>
-        <h3 className="font-bold text-lg text-[#FC711B] mb-2">{title}</h3>
-        <p className="text-sm text-white/80 leading-relaxed">{description}</p>
-      </div>
+const CategoryCard = ({ icon, title, description, criteriaUrl, children }) => (
+  <div 
+    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-[#FC711B]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#FC711B]/20"
+    data-aos='fade-up'
+    data-aos-duration='1000'
+  >
+    <div className="inline-block px-4 py-2 bg-[#FC711B]/20 backdrop-blur-sm rounded-full text-sm font-bold text-[#ff8c42] mb-6">
+      {icon} {title}
     </div>
-  </div>
-)
-
-const ExpoContent = () => (
-  <div className="space-y-6">
-    <div className="text-sm leading-relaxed space-y-3">
-      <p className="text-base">
-        <strong>Calling All Innovators!</strong>
-      </p>
-      <p>
-        Ready to revolutionize the tech world? Showcase your brilliance at our Innovation Expo! 
-        We have two exciting categories for you to participate in:
-      </p>
-    </div>
-
-    <div className="grid gap-4">
-      <CategoryCard 
-        icon="💻"
-        title="Projects"
-        description="Showcase your technical projects, applications, and innovative solutions. Demonstrate your coding skills and problem-solving abilities."
-      />
-      <CategoryCard 
-        icon="🔬"
-        title="Research"
-        description="Present your groundbreaking research findings, academic work, and experimental studies that push the boundaries of knowledge."
-      />
-    </div>
-
-    <div className="bg-[#FC711B]/10 border border-[#FC711B]/30 rounded-lg p-4">
-      <p className="text-sm text-white/90">
-        <strong>Note:</strong> Both projects and research will be presented in poster format. Download the poster template below to get started!
-      </p>
-    </div>
-
-    <p className="text-sm text-white/90">
-      Cash prizes and recognition await! Fill out the interest form below to participate.
+    
+    <h3 className="font-bold text-2xl lg:text-3xl text-white mb-4">
+      {title} Category
+    </h3>
+    
+    <p className="text-white/80 mb-6 leading-relaxed">
+      {description}
     </p>
+
+    <div className="bg-[#FC711B]/10 border border-[#FC711B]/30 rounded-lg p-4 mb-6">
+      <p className="text-sm text-white/90">
+        <strong>Presentation Format:</strong> All submissions must be presented in poster format. Download the template below.
+      </p>
+    </div>
+    
+    <div className="space-y-3">
+      <ActionButton href={criteriaUrl} variant="primary">
+        View {title} Judging Criteria
+      </ActionButton>
+      <ActionButton href={EXPO_CONFIG.posterFormatUrl} variant="secondary">
+        Download Poster Format
+      </ActionButton>
+    </div>
   </div>
 )
 
 const InnovationExpo = () => {
   return (
-    <section 
-      className="w-full bg-[#122644] py-24" 
-      id="innovation-expo"
-      aria-labelledby="expo-title"
-    >
-      <Container className="flex flex-col lg:flex-row lg:items-center gap-10 text-white">
-        {/* Content Section */}
-        <div className="flex-1" {...ANIMATIONS.fadeDown}>
-          <h2 
-            id="expo-title"
-            className="font-bold text-2xl xl:text-4xl pb-8 text-[#FC711B]"
-          >
-            {EXPO_CONFIG.title}
-          </h2>
-          
-          <ExpoContent />
-          
-          <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center mt-8 flex-wrap">
-            <ActionButton 
-              href={EXPO_CONFIG.projectCriteriaUrl}
-              variant="primary"
-              aria-label="View Project Judging Criteria"
-            >
-              Project Judging Criteria
-            </ActionButton>
+    <div className="bg-gradient-to-br from-[#122644] via-[#1a3354] to-[#0f1f38]">
+      {/* Hero Section with Image Slider */}
+      <section 
+        className="py-20 lg:py-28" 
+        id="innovation-expo"
+        aria-labelledby="expo-title"
+      >
+        <Container>
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#FC711B]/20 to-[#ff8c42]/20 border border-[#FC711B]/30">
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiBvcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
             
-            <ActionButton 
-              href={EXPO_CONFIG.researchCriteriaUrl}
-              variant="primary"
-              aria-label="View Research Judging Criteria"
-            >
-              Research Judging Criteria
-            </ActionButton>
-            
-            <ActionButton 
-              href={EXPO_CONFIG.posterFormatUrl}
-              variant="primary"
-              aria-label="Download Poster Format Template"
-            >
-              Download Poster Format
-            </ActionButton>
-            
-            <ActionButton 
-              href={EXPO_CONFIG.registrationUrl}
-              variant="secondary"
-              aria-label="Register for the Innovation Expo"
-            >
-              Registration Form
-            </ActionButton>
+            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 p-8 lg:p-12 relative z-10">
+              <div 
+                className="lg:w-[45%] text-white"
+                data-aos='fade-right'
+                data-aos-duration='1000'
+              >
+                <div className="inline-block px-5 py-2 bg-[#FC711B]/30 backdrop-blur-sm rounded-full text-sm font-bold text-[#ff8c42] mb-6">
+                  🎯 Showcase Your Innovation
+                </div>
+                <h2 
+                  id="expo-title"
+                  className="font-bold text-4xl lg:text-6xl mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80"
+                >
+                  {EXPO_CONFIG.title}
+                </h2>
+                <p className="text-white/90 mb-4 text-lg leading-relaxed">
+                  Ready to revolutionize the tech world? Showcase your brilliance at our Innovation Expo!
+                </p>
+                <p className="text-white/80 text-base leading-relaxed">
+                  Choose your category: <span className="font-semibold text-[#ff8c42]">Projects</span> or <span className="font-semibold text-[#ff8c42]">Research</span>. Cash prizes and recognition await!
+                </p>
+              </div>
+              
+              <div 
+                className="lg:w-[55%]"
+                data-aos='fade-left'
+                data-aos-duration='1000'
+                data-aos-delay='200'
+              >
+                <div className="relative group">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-[#FC711B] to-[#ff8c42] rounded-3xl blur-xl opacity-75 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative">
+                    <ImageSlider 
+                      images={EXPO_CONFIG.images} 
+                      alt="Innovation Expo showcase images"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </Container>
+      </section>
 
-        {/* Image Slider Section */}
-        <div 
-          className="flex-1 lg:min-w-[50%]"
-          aria-label="Innovation Expo image gallery"
-        >
-          <ImageSlider 
-            images={EXPO_CONFIG.images} 
-            alt="Innovation Expo showcase images"
-          />
-        </div>
-      </Container>
-    </section>
+      {/* Two Category Cards */}
+      <div className="py-16 lg:py-20">
+        <Container>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10">
+            {/* Projects Card */}
+            <CategoryCard
+              icon="💻"
+              title="Projects"
+              description="Showcase your technical projects, applications, and innovative solutions. Demonstrate your coding skills, problem-solving abilities, and bring your ideas to life through technology."
+              criteriaUrl={EXPO_CONFIG.projectCriteriaUrl}
+            />
+
+            {/* Research Card */}
+            <CategoryCard
+              icon="🔬"
+              title="Research"
+              description="Present your groundbreaking research findings, academic work, and experimental studies. Share discoveries that push the boundaries of knowledge and contribute to advancing your field."
+              criteriaUrl={EXPO_CONFIG.researchCriteriaUrl}
+            />
+          </div>
+        </Container>
+      </div>
+    </div>
   )
 }
 
