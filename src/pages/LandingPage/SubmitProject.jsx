@@ -36,14 +36,10 @@ const ProjectSubmissionSection = () => {
                 data-aos-delay='200'
               >
                 <p className="text-white/90 mb-6 text-lg lg:text-xl leading-relaxed">
-                  ProjectX bridges the gap between academia and industry by empowering students with 
-                  real-world, project-driven learning. Create and collaborate on hands-on projects while earning <span className="font-semibold text-[#ff8c42]">TechTalent Badges</span> that 
-                  showcase your skills, achievements, and problem-solving abilities.
+                  Create and collaborate on real-world projects while earning <span className="font-semibold text-[#ff8c42]">TechTalent Badges</span> that showcase your skills. Our platform bridges academia and industry through hands-on, project-driven learning.
                 </p>
                 <p className="text-white/90 mb-10 text-lg lg:text-xl leading-relaxed">
-                  With our <span className="font-semibold text-[#ff8c42]">AI-powered Career Navigator</span>, learners from any background can transition into tech 
-                  with personalized insights, curated resources, career tips, and interview prep—turning projects 
-                  into pathways for future-proof careers.
+                  Get personalized career guidance with our <span className="font-semibold text-[#ff8c42]">AI-powered Career Navigator</span>. Access curated resources, career tips, and interview prep to turn your projects into career opportunities.
                 </p>
                 
                 <div className="bg-[#FC711B]/20 backdrop-blur-sm border border-[#FC711B]/40 rounded-2xl p-6 mb-8">
@@ -86,10 +82,10 @@ const ProjectSubmissionSection = () => {
                   Submit Your Project
                 </h3>
                 <p className="text-white/80 mb-4 leading-relaxed text-lg">
-                  Ready to showcase your innovative project at the Innovation Expo? Whether built on ProjectX or independently, submit your work now!
+                  Ready to showcase your project at the Innovation Expo? Submit your work and compete with peers for recognition.
                 </p>
                 <p className="text-white/70 mb-6 leading-relaxed">
-                  Present your project, compete with peers, and get recognized for your innovation and technical skills.
+                  Projects built on ProjectX or independently are welcome!
                 </p>
                 
                 <div className="relative mb-6 overflow-hidden rounded-xl">
@@ -129,7 +125,7 @@ const ProjectSubmissionSection = () => {
                   Judging Criteria
                 </h3>
                 <p className="text-white/80 mb-6 leading-relaxed text-lg">
-                  Understand what our expert judges are looking for in your project submission. Review the comprehensive evaluation framework to maximize your chances.
+                  Review what our expert judges evaluate in project submissions. Understanding the criteria helps you prepare a stronger submission.
                 </p>
                 
                 <div className="relative mb-6 overflow-hidden rounded-xl">
