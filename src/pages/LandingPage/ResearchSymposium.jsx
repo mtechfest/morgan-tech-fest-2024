@@ -13,11 +13,12 @@ import s8 from "../../assets/s8.png"
 import s9 from "../../assets/s9.png"
 import s10 from "../../assets/s10.png"
 import s11 from "../../assets/s11.png"
+import detailsImage from "../../assets/Jdg-Rsc.png"  // ADD THIS LINE
 
 // Configuration constants
 const EXPO_CONFIG = {
   title: "INNOVATION EXPO",
-  detailsUrl: "https://drive.google.com/file/d/1i85SxFfURvMWuKPjkhxM8jEERtAPkUwa/view?usp=sharing",
+  detailsUrl: detailsImage,
   registrationUrl: "https://form.jotform.com/233056575770057",
   images: [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11]
 }
