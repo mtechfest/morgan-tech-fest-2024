@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import judgingImg from '../../assets/Yearly.png';
+
 // Container component
 const Container = ({ children, className = "" }) => (
   <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
@@ -128,11 +130,14 @@ const Countdown = () => {
                         )
                     })}
                 </div>
-                <button 
+                <a 
+                  href={judgingImg}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   data-aos='fade-up'
                   data-aos-easing='linear'
                   data-aos-duration='1000'
-                className='px-4 py-2 bg-[#FC711B] rounded-3xl text-xs font-semibold text-white'>COMING SOON</button>
+                className='px-4 py-2 bg-[#FC711B] rounded-3xl text-xs font-semibold text-white cursor-pointer'>Download the schedule</a>
                 
             </Container>
         </div>
