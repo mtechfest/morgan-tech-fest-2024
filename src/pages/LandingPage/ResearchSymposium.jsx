@@ -85,7 +85,7 @@ const CategoryCard = ({ icon, title, description, criteriaUrl, children }) => (
 
 const InnovationExpo = () => {
   return (
-    <div className="bg-gradient-to-br from-[#122644] via-[#1a3354] to-[#0f1f38]">
+    <div name='symposium' className="bg-gradient-to-br from-[#122644] via-[#1a3354] to-[#0f1f38]">
       {/* Hero Section with Image Slider */}
       <section 
         className="py-20 lg:py-28" 
