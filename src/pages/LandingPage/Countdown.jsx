@@ -25,7 +25,7 @@ const Countdown = () => {
 
     const features = ["TECH TALK", "WORKSHOP", "JOB FAIR", "POSTER SESSION", "AWARD", "NETWORKING", "PANEL SESSION", "PROJECT"]
 
-    const eventDate = new Date("November 15, 2025 00:00:00 GMT+00:00");
+    const eventDate = new Date("September 26, 2026 00:00:00 GMT+00:00");
 
   const calculateTimeLeft = () => {
     const now = new Date();
@@ -105,7 +105,7 @@ const Countdown = () => {
                       data-aos-duration='1000'
                     >
                         <CalendarIcon />
-                        <p>November 15, 2025</p>
+                        <p>September 26, 2026</p>
                     </div>
                     <div className="flex items-center gap-3"
                       data-aos='zoom-out'
