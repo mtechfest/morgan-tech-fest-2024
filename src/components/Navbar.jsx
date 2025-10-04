@@ -3,14 +3,17 @@ import Logo from '../assets/Logo.png';
 import { Link as SmoothLink } from 'react-scroll';
 import { Link } from 'react-router-dom';
 import Container from './Container';
+import { IoChevronDown } from 'react-icons/io5';
 
 function Navbar() {
   const [scroll, setScroll] = useState(false);
   const [flip, setFlip] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   function handleBurger() {
     setFlip(!flip);
-    // handleClick()
+    setMobileServicesOpen(false);
   }
 
   useEffect(() => {
@@ -41,10 +44,45 @@ function Navbar() {
         <Link to={"/"}>
           <img src={Logo} alt="" className="w-[120px] lg:w-[100px]" />
         </Link>
+        
+        {/* Desktop Navigation */}
         <div className=' hidden lg:flex gap-8 lg:gap-4 xl:gap-8 items-center text-white uppercase text-sm font-semibold'>
             <SmoothLink to={'hero'} smooth='true' duration={500} className='cursor-pointer'>Home</SmoothLink>
             <SmoothLink to={'aboutUs'} smooth='true' duration={500} className='cursor-pointer'>About Us</SmoothLink>
-            <SmoothLink to={'symposium'} smooth='true' duration={500} className='cursor-pointer'>Expo</SmoothLink>
+            
+            {/* Services Dropdown */}
+            <div 
+              className='relative'
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
+              <button className='cursor-pointer flex items-center gap-1'>
+                Services
+                <IoChevronDown className={`transition-transform duration-300 ${servicesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {servicesOpen && (
+                <div className='absolute top-full left-0 mt-2 bg-[#1e3d76] rounded-lg shadow-xl py-2 min-w-[200px] border border-white/10'>
+                  <SmoothLink 
+                    to={'symposium'} 
+                    smooth='true' 
+                    duration={500} 
+                    className='cursor-pointer block px-4 py-3 hover:bg-[#FC711B]/20 transition-colors'
+                  >
+                    Innovation Expo
+                  </SmoothLink>
+                  <SmoothLink 
+                    to={'projectx'} 
+                    smooth='true' 
+                    duration={500} 
+                    className='cursor-pointer block px-4 py-3 hover:bg-[#FC711B]/20 transition-colors'
+                  >
+                    ProjectX
+                  </SmoothLink>
+                </div>
+              )}
+            </div>
+            
             <SmoothLink to={'schedule'} smooth='true' duration={500} className='cursor-pointer'>Schedule</SmoothLink>
             <SmoothLink to={'speakers'} smooth='true' duration={500} className='cursor-pointer'>Speakers</SmoothLink>
             <SmoothLink to={'sponsors'} smooth='true' duration={500} className='cursor-pointer'>Sponsors</SmoothLink>
@@ -52,6 +90,8 @@ function Navbar() {
             <SmoothLink to={'news'} smooth='true' duration={500} className='cursor-pointer'>News</SmoothLink>
             <a href={'https://form.jotform.com/233056575770057'} target="_blank" rel="noopener noreferrer" className='px-4 py-2 bg-gradient-to-r from-[#FC711B] to-[#FC4608] rounded-3xl text-sm'>REGISTRATION FORM</a>
         </div>
+        
+        {/* Mobile Burger Menu */}
         <div className="burger-menu lg:hidden" onClick={handleBurger}>
             <div className="flex flex-col items-center justify-center w-[24px] h-[24px] cursor-pointer relative">
                 <div
@@ -71,15 +111,50 @@ function Navbar() {
                 ></div>
             </div>
         </div>
+        
+        {/* Mobile Menu */}
         <div
             className={`lg:hidden flex flex-col justify-between absolute top-[100%] left-0 right-0 bg-[#FC711B] overflow-hidden ${
-            !flip ? "h-0" : "h-[456px]"
+            !flip ? "h-0" : mobileServicesOpen ? "h-[552px]" : "h-[456px]"
             }  ease-in-out duration-500`}
         >
             <ul className="flex flex-col lg:flex-row whitespace-nowrap lg:leading-[80px] font-medium  w-full lg:w-auto uppercase">
               <SmoothLink to={'hero'} smooth='true' duration={500} className='cursor-pointer px-2 lg:px-3 xl:px-4 py-4 lg:py-0' onClick={() => setFlip(!flip)}>Home</SmoothLink>
               <SmoothLink to={'aboutUs'} smooth='true' duration={500} className='cursor-pointer px-2 lg:px-3 xl:px-4 py-4 lg:py-0' onClick={() => setFlip(!flip)}>About Us</SmoothLink>
-              <SmoothLink to={'symposium'} smooth='true' duration={500} className='cursor-pointer px-2 lg:px-3 xl:px-4 py-4 lg:py-0' onClick={() => setFlip(!flip)}>Symposium</SmoothLink>
+              
+              {/* Mobile Services Dropdown */}
+              <div>
+                <button 
+                  className='cursor-pointer px-2 lg:px-3 xl:px-4 py-4 lg:py-0 w-full text-left flex items-center justify-between'
+                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                >
+                  Services
+                  <IoChevronDown className={`transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {mobileServicesOpen && (
+                  <div className='bg-[#ff8c42] pl-6'>
+                    <SmoothLink 
+                      to={'symposium'} 
+                      smooth='true' 
+                      duration={500} 
+                      className='cursor-pointer block px-2 py-3' 
+                      onClick={() => setFlip(!flip)}
+                    >
+                      Innovation Expo
+                    </SmoothLink>
+                    <SmoothLink 
+                      to={'projectx'} 
+                      smooth='true' 
+                      duration={500} 
+                      className='cursor-pointer block px-2 py-3' 
+                      onClick={() => setFlip(!flip)}
+                    >
+                      ProjectX
+                    </SmoothLink>
+                  </div>
+                )}
+              </div>
+              
               <SmoothLink to={'schedule'} smooth='true' duration={500} className='cursor-pointer px-2 lg:px-3 xl:px-4 py-4 lg:py-0' onClick={() => setFlip(!flip)}>Schedule</SmoothLink>
               <SmoothLink to={'speakers'} smooth='true' duration={500} className='cursor-pointer px-2 lg:px-3 xl:px-4 py-4 lg:py-0' onClick={() => setFlip(!flip)}>Speakers</SmoothLink>
               <SmoothLink to={'sponsors'} smooth='true' duration={500} className='cursor-pointer px-2 lg:px-3 xl:px-4 py-4 lg:py-0' onClick={() => setFlip(!flip)}>Sponsors</SmoothLink>
