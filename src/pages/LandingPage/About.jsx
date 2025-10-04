@@ -54,13 +54,13 @@ const About = () => {
           {/* Description */}
           <div className="space-y-6">
             <p className="text-lg lg:text-xl leading-relaxed text-gray-300">
-              Morgan TechFest is a <span className="text-orange-300 font-medium">student-led technology conference</span> that 
-              educates students on the impact of technology in shaping their career paths.
+              Morgan TechFest is a <span className="text-orange-300 font-medium">student-led initiative</span> that 
+              empowers students to build tech careers through <span className="text-orange-300 font-medium">ProjectX</span>, our year-round career development platform, and the annual <span className="text-orange-300 font-medium">Innovation Expo</span>, where students showcase their work and connect with industry.
             </p>
             
             <p className="text-lg leading-relaxed text-gray-300">
-              We inspire through <span className="text-orange-300 font-medium">tech talks, projects, and research expos</span>, 
-              empower with mentorship and career opportunities, and bridge the gap between 
+              We inspire through <span className="text-orange-300 font-medium">continuous skill-building</span>, 
+              empower through TechTalents badges and real-world opportunities, and bridge the gap between 
               <span className="text-orange-300 font-medium"> academia and industry</span>.
             </p>
           </div>
