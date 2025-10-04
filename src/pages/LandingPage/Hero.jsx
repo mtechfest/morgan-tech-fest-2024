@@ -1,5 +1,5 @@
 import Container from "../../components/Container"
-import NewsTicker from "../../components/NewsTicker" // Add this import
+import NewsSlider from "../../components/NewsSlider" // Add this import
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaXTwitter } from "react-icons/fa6";
@@ -7,9 +7,6 @@ import { FaXTwitter } from "react-icons/fa6";
 const Hero = () => {
   return (
     <>
-      {/* News Ticker at the top */}
-      <NewsTicker />
-      
       <Container className="flex items-center pt-40 lg:pt-28 xl:pt-32 2xl:pt-40 text-white">
         <div className="w-[0%] md:w-[27%] xl:w-[35%] 2xl:w-[48%] flex-1"></div>
         <div className="md:w-[73%] xl:w-[65%] 2xl:w-[52%] items-start pl-7">
@@ -35,6 +32,9 @@ const Hero = () => {
           </div>
         </div>
       </Container>
+      
+      {/* News Slider at the bottom */}
+      <NewsSlider />
     </>
   )
 }
