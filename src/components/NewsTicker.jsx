@@ -1,8 +1,8 @@
 import React from 'react';
 
-function NewsTicker() {
+function NewsSlider() {
   return (
-    <div className="bg-blue-600 text-white py-3 overflow-hidden relative">
+    <div className="bg-[#FC711B] text-black py-3 overflow-hidden relative">
       <div className="animate-marquee whitespace-nowrap inline-block">
         <span className="text-sm md:text-base font-medium mx-8">
           🚀 Morgan TechFest launches ProjectX, a career development platform - build your skills, earn TechTalents badges, and grow year-round!
@@ -38,4 +38,4 @@ function NewsTicker() {
   );
 }
 
-export default NewsTicker;
+export default NewsSlider;
