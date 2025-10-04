@@ -1,4 +1,4 @@
-//
+// src/pages/LandingPage/Hero.jsx
 
 import Container from "../../components/Container"
 import NewsSlider from "../../components/NewsSlider" // Add this import
