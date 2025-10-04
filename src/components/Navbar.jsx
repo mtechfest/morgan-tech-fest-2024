@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Logo from '../assets/Logo.png';
 import { Link as SmoothLink } from 'react-scroll';
 import { Link } from 'react-router-dom';
@@ -10,11 +10,26 @@ function Navbar() {
   const [flip, setFlip] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  const timeoutRef = useRef(null);
 
   function handleBurger() {
     setFlip(!flip);
     setMobileServicesOpen(false);
   }
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setServicesOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setServicesOpen(false);
+    }, 200);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +44,9 @@ function Navbar() {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
     };
   }, []);
 
@@ -52,33 +70,38 @@ function Navbar() {
             
             {/* Services Dropdown */}
             <div 
+              ref={dropdownRef}
               className='relative'
-              onMouseEnter={() => setServicesOpen(true)}
-              onMouseLeave={() => setServicesOpen(false)}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
-              <button className='cursor-pointer flex items-center gap-1'>
+              <button className='cursor-pointer flex items-center gap-1 py-2'>
                 Services
                 <IoChevronDown className={`transition-transform duration-300 ${servicesOpen ? 'rotate-180' : ''}`} />
               </button>
               
               {servicesOpen && (
-                <div className='absolute top-full left-0 mt-2 bg-[#1e3d76] rounded-lg shadow-xl py-2 min-w-[200px] border border-white/10'>
-                  <SmoothLink 
-                    to={'symposium'} 
-                    smooth='true' 
-                    duration={500} 
-                    className='cursor-pointer block px-4 py-3 hover:bg-[#FC711B]/20 transition-colors'
-                  >
-                    Innovation Expo
-                  </SmoothLink>
-                  <SmoothLink 
-                    to={'projectx'} 
-                    smooth='true' 
-                    duration={500} 
-                    className='cursor-pointer block px-4 py-3 hover:bg-[#FC711B]/20 transition-colors'
-                  >
-                    ProjectX
-                  </SmoothLink>
+                <div className='absolute top-full left-0 pt-2'>
+                  <div className='bg-[#1e3d76] rounded-lg shadow-xl py-2 min-w-[200px] border border-white/10'>
+                    <SmoothLink 
+                      to={'symposium'} 
+                      smooth='true' 
+                      duration={500} 
+                      className='cursor-pointer block px-4 py-3 hover:bg-[#FC711B]/20 transition-colors'
+                      onClick={() => setServicesOpen(false)}
+                    >
+                      Innovation Expo
+                    </SmoothLink>
+                    <SmoothLink 
+                      to={'projectx'} 
+                      smooth='true' 
+                      duration={500} 
+                      className='cursor-pointer block px-4 py-3 hover:bg-[#FC711B]/20 transition-colors'
+                      onClick={() => setServicesOpen(false)}
+                    >
+                      ProjectX
+                    </SmoothLink>
+                  </div>
                 </div>
               )}
             </div>
