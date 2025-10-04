@@ -16,7 +16,7 @@ const FeatureCard = ({ icon, title, description }) => (
 
 const ProjectXSection = () => {
   return (
-    <div className="bg-gradient-to-br from-[#122644] via-[#1a3354] to-[#0f1f38]">
+    <div className="bg-gradient-to-br from-[#122644] via-[#1a3354] to-[#0f1f38]" name='projectx'>
       {/* Main ProjectX Section */}
       <div className="py-20 lg:py-28">
         <Container className="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16 text-white">
