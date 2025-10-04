@@ -15,14 +15,16 @@ import s10 from "../../assets/s10.png"
 import s11 from "../../assets/s11.png"
 import researchCriteria from "../../assets/Jdg-Rsc.png"
 import projectCriteria from "../../assets/Jdg-prj.pdf"
-import posterFormat from "../../assets/MorganTechFest-InnovationXpo-Format.pptx.pdf"
+import projectPosterFormat from "../../assets/MorganTechFest-ProjXpo-Format.pptx.pdf"
+import researchPosterFormat from "../../assets/MorganTechFest-ResearchXpo-Format.pptx.pdf"
 
 // Configuration constants
 const EXPO_CONFIG = {
   title: "INNOVATION EXPO",
   projectCriteriaUrl: projectCriteria,
   researchCriteriaUrl: researchCriteria,
-  posterFormatUrl: posterFormat,
+  projectPosterFormatUrl: projectPosterFormat,
+  researchPosterFormatUrl: researchPosterFormat,
   images: [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11]
 }
 
@@ -48,7 +50,7 @@ const ActionButton = ({ href, variant = 'primary', children }) => {
   )
 }
 
-const CategoryCard = ({ icon, title, description, criteriaUrl, children }) => (
+const CategoryCard = ({ icon, title, description, criteriaUrl, posterFormatUrl }) => (
   <div 
     className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-[#FC711B]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#FC711B]/20"
     data-aos='fade-up'
@@ -67,8 +69,11 @@ const CategoryCard = ({ icon, title, description, criteriaUrl, children }) => (
     </p>
 
     <div className="bg-[#FC711B]/10 border border-[#FC711B]/30 rounded-lg p-4 mb-6">
-      <p className="text-sm text-white/90">
-        <strong>Presentation Format:</strong> All submissions must be presented in poster format. Download the template below.
+      <p className="text-sm text-white/90 mb-2">
+        <strong>Presentation Format:</strong> All submissions must be presented in poster format.
+      </p>
+      <p className="text-sm text-white/80">
+        <strong>Poster Sizes:</strong> 36" x 48" (36 inches high by 48 inches wide) or 42" x 60"
       </p>
     </div>
     
@@ -76,7 +81,7 @@ const CategoryCard = ({ icon, title, description, criteriaUrl, children }) => (
       <ActionButton href={criteriaUrl} variant="primary">
         View {title} Judging Criteria
       </ActionButton>
-      <ActionButton href={EXPO_CONFIG.posterFormatUrl} variant="secondary">
+      <ActionButton href={posterFormatUrl} variant="secondary">
         Download Poster Format
       </ActionButton>
     </div>
@@ -150,6 +155,7 @@ const InnovationExpo = () => {
               title="Projects"
               description="Showcase your technical projects, applications, and innovative solutions. Demonstrate your coding skills, problem-solving abilities, and bring your ideas to life through technology."
               criteriaUrl={EXPO_CONFIG.projectCriteriaUrl}
+              posterFormatUrl={EXPO_CONFIG.projectPosterFormatUrl}
             />
 
             {/* Research Card */}
@@ -158,6 +164,7 @@ const InnovationExpo = () => {
               title="Research"
               description="Present your groundbreaking research findings, academic work, and experimental studies. Share discoveries that push the boundaries of knowledge and contribute to advancing your field."
               criteriaUrl={EXPO_CONFIG.researchCriteriaUrl}
+              posterFormatUrl={EXPO_CONFIG.researchPosterFormatUrl}
             />
           </div>
         </Container>
