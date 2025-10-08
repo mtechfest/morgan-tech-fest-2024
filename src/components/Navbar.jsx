@@ -111,7 +111,7 @@ function Navbar() {
             <SmoothLink to={'sponsors'} smooth='true' duration={500} className='cursor-pointer'>Sponsors</SmoothLink>
             <SmoothLink to={'faqs'} smooth='true' duration={500} className='cursor-pointer'>FAQs</SmoothLink>
             <SmoothLink to={'news'} smooth='true' duration={500} className='cursor-pointer'>News</SmoothLink>
-            <a href={'https://form.jotform.com/233056575770057'} target="_blank" rel="noopener noreferrer" className='px-4 py-2 bg-gradient-to-r from-[#FC711B] to-[#FC4608] rounded-3xl text-sm'>REGISTRATION FORM</a>
+            <a href={'https://form.jotform.com/252798316140156'} target="_blank" rel="noopener noreferrer" className='px-4 py-2 bg-gradient-to-r from-[#FC711B] to-[#FC4608] rounded-3xl text-sm'>REGISTRATION FORM</a>
         </div>
         
         {/* Mobile Burger Menu */}
@@ -184,7 +184,7 @@ function Navbar() {
               <SmoothLink to={'faqs'} smooth='true' duration={500} className='cursor-pointer px-2 lg:px-3 xl:px-4 py-4 lg:py-0' onClick={() => setFlip(!flip)}>FAQs</SmoothLink>
               <SmoothLink to={'news'} smooth='true' duration={500} className='cursor-pointer px-2 lg:px-3 xl:px-4 py-4 lg:py-0' onClick={() => setFlip(!flip)}>News</SmoothLink>
             </ul>
-            <a href={'https://form.jotform.com/250367598302158'} target="_blank" rel="noopener noreferrer" className="text-[#FC711B] font-semibold bg-[#fff] px-4 py-4 whitespace-nowrap text-sm lg:text-sm">
+            <a href={'https://form.jotform.com/252798316140156'} target="_blank" rel="noopener noreferrer" className="text-[#FC711B] font-semibold bg-[#fff] px-4 py-4 whitespace-nowrap text-sm lg:text-sm">
                 INTEREST FORM
             </a>
         </div>
