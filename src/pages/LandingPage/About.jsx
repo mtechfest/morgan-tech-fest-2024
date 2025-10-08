@@ -61,12 +61,7 @@ const About = () => {
             <p className="text-lg leading-relaxed text-gray-300">
               Innovation Expo is our <span className="text-orange-300 font-medium">annual one-day event</span> where attendees participate in networking sessions, tune into keynote panels, and expand their knowledge while celebrating outstanding student innovation. Students showcase their research and technology projects and connect with industry professionals.
             </p>
-            
-            <p className="text-lg leading-relaxed text-gray-300">
-              We inspire through <span className="text-orange-300 font-medium">continuous skill-building</span>, 
-              empower through TechTalents badges and real-world opportunities, and bridge the gap between 
-              <span className="text-orange-300 font-medium"> academia and industry</span>.
-            </p>
+        
           </div>
         </div>
 
