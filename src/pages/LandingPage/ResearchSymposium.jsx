@@ -21,6 +21,7 @@ import researchPosterFormat from "../../assets/MorganTechFest-ResearchXpo-Format
 // Configuration constants
 const EXPO_CONFIG = {
   title: "INNOVATION EXPO",
+  submissionUrl: "https://form.jotform.com/241518319102145",
   projectCriteriaUrl: projectCriteria,
   researchCriteriaUrl: researchCriteria,
   projectPosterFormatUrl: projectPosterFormat,
@@ -32,7 +33,8 @@ const ActionButton = ({ href, variant = 'primary', children }) => {
   const baseClasses = "px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 inline-flex items-center gap-2 w-full justify-center"
   const variants = {
     primary: "bg-gradient-to-r from-[#FC711B] to-[#ff8c42] hover:from-[#ff8c42] hover:to-[#FC711B] text-white shadow-lg hover:shadow-xl hover:scale-105",
-    secondary: "bg-white/10 hover:bg-white/20 text-white border border-white/20"
+    secondary: "bg-white/10 hover:bg-white/20 text-white border border-white/20",
+    submit: "bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-lg hover:shadow-xl hover:scale-105"
   }
 
   return (
@@ -50,7 +52,7 @@ const ActionButton = ({ href, variant = 'primary', children }) => {
   )
 }
 
-const CategoryCard = ({ icon, title, description, criteriaUrl, posterFormatUrl }) => (
+const CategoryCard = ({ icon, title, description, criteriaUrl, posterFormatUrl, submissionUrl }) => (
   <div 
     className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-[#FC711B]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#FC711B]/20"
     data-aos='fade-up'
@@ -78,6 +80,9 @@ const CategoryCard = ({ icon, title, description, criteriaUrl, posterFormatUrl }
     </div>
     
     <div className="space-y-3">
+      <ActionButton href={submissionUrl} variant="submit">
+        Submit Your {title}
+      </ActionButton>
       <ActionButton href={criteriaUrl} variant="primary">
         View {title} Judging Criteria
       </ActionButton>
@@ -156,6 +161,7 @@ const InnovationExpo = () => {
               description="Showcase your technical projects, applications, and innovative solutions. Demonstrate your coding skills, problem-solving abilities, and bring your ideas to life through technology."
               criteriaUrl={EXPO_CONFIG.projectCriteriaUrl}
               posterFormatUrl={EXPO_CONFIG.projectPosterFormatUrl}
+              submissionUrl={EXPO_CONFIG.submissionUrl}
             />
 
             {/* Research Card */}
@@ -165,6 +171,7 @@ const InnovationExpo = () => {
               description="Present your groundbreaking research findings, academic work, and experimental studies. Share discoveries that push the boundaries of knowledge and contribute to advancing your field."
               criteriaUrl={EXPO_CONFIG.researchCriteriaUrl}
               posterFormatUrl={EXPO_CONFIG.researchPosterFormatUrl}
+              submissionUrl={EXPO_CONFIG.submissionUrl}
             />
           </div>
         </Container>
