@@ -51,20 +51,23 @@ const About = () => {
             <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full" />
           </div>
           
-          {/* Description */}
-          <div className="space-y-6">
-            <p className="text-lg lg:text-xl leading-relaxed text-gray-300">
-              Morgan TechFest is a <span className="text-orange-300 font-medium">student-led initiative</span> that 
-              empowers students to build tech careers through <span className="text-orange-300 font-medium">ProjectX</span>, our year-round career development platform, and the annual <span className="text-orange-300 font-medium">Innovation Expo</span>, where students showcase their work and connect with industry.
-            </p>
-            
-            <p className="text-lg leading-relaxed text-gray-300">
-              We inspire through <span className="text-orange-300 font-medium">continuous skill-building</span>, 
-              empower through TechTalents badges and real-world opportunities, and bridge the gap between 
-              <span className="text-orange-300 font-medium"> academia and industry</span>.
-            </p>
-          </div>
-        </div>
+        {/* Description */}
+<div className="space-y-6">
+  <p className="text-lg lg:text-xl leading-relaxed text-gray-300">
+    Morgan TechFest is a <span className="text-orange-300 font-medium">student-led initiative</span> that 
+    empowers students to build tech careers through <span className="text-orange-300 font-medium">ProjectX</span>, our year-round career development platform, and <span className="text-orange-300 font-medium">Innovation Expo</span>.
+  </p>
+  
+  <p className="text-lg leading-relaxed text-gray-300">
+    Innovation Expo is our <span className="text-orange-300 font-medium">annual one-day event</span> where attendees participate in networking sessions, tune into keynote panels, and expand their knowledge while celebrating outstanding student innovation. Students showcase their research and technology projects and connect with industry professionals.
+  </p>
+  
+  <p className="text-lg leading-relaxed text-gray-300">
+    We inspire through <span className="text-orange-300 font-medium">continuous skill-building</span>, 
+    empower through TechTalents badges and real-world opportunities, and bridge the gap between 
+    <span className="text-orange-300 font-medium"> academia and industry</span>.
+  </p>
+</div>
 
         {/* Right Video Section */}
         <div className={`lg:w-1/2 transform transition-all duration-700 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
