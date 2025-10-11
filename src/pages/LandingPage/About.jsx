@@ -16,6 +16,11 @@ const PlayIcon = ({ size = 48, className = "" }) => (
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [loadVideo, setLoadVideo] = useState(false);
+  
+  // OPTIMIZATION: Video ID and thumbnail
+  const videoId = "MLX3J9nk0cI";
+  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 200);
@@ -25,10 +30,10 @@ const About = () => {
   return (
     <div className="w-full bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-20" name='aboutUs'>
       
-      {/* Subtle background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-orange-500/5 rounded-full blur-3xl" />
+      {/* OPTIMIZATION: Reduced blur intensity and opacity */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full blur-2xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-orange-500 rounded-full blur-2xl" />
       </div>
 
       <Container className="flex flex-col lg:flex-row lg:items-center gap-16 text-white relative z-10">
@@ -61,7 +66,6 @@ const About = () => {
             <p className="text-lg leading-relaxed text-gray-300">
               Innovation Expo is our <span className="text-orange-300 font-medium">annual one-day event</span> where attendees participate in networking sessions, tune into keynote panels, and expand their knowledge while celebrating outstanding student innovation. Students showcase their research and technology projects and connect with industry professionals.
             </p>
-        
           </div>
         </div>
 
@@ -74,28 +78,49 @@ const About = () => {
               
               <div className="relative aspect-video bg-slate-800">
                 
-                {/* Video */}
-                <iframe
-                  className="w-full h-full rounded-2xl"
-                  src="https://www.youtube.com/embed/MLX3J9nk0cI"
-                  title="Morgan TechFest Video"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
-
-                {/* Simple overlay for when video isn't playing */}
-                <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none">
-                  <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center">
-                    <PlayIcon size={24} className="text-slate-800 ml-1" />
+                {/* OPTIMIZATION: Load thumbnail first, iframe only on click */}
+                {!loadVideo ? (
+                  /* Thumbnail with play button - loads instantly, no YouTube scripts */
+                  <div 
+                    className="relative w-full h-full cursor-pointer group"
+                    onClick={() => setLoadVideo(true)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyPress={(e) => e.key === 'Enter' && setLoadVideo(true)}
+                    aria-label="Play Morgan TechFest video"
+                  >
+                    <img 
+                      src={thumbnailUrl}
+                      alt="Morgan TechFest 2025 Video Thumbnail"
+                      className="w-full h-full object-cover rounded-2xl"
+                      loading="lazy"
+                    />
+                    
+                    {/* Play button overlay */}
+                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/50 transition-colors duration-300 rounded-2xl">
+                      <div className="w-20 h-20 bg-white/95 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-2xl">
+                        <PlayIcon size={32} className="text-slate-800 ml-1" />
+                      </div>
+                    </div>
+                    
+                    {/* Video Title on thumbnail */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 rounded-b-2xl">
+                      <h3 className="text-white font-medium text-lg">Morgan TechFest 2025</h3>
+                      <p className="text-gray-300 text-sm mt-1">Bridging Academia & Industry</p>
+                      <p className="text-gray-400 text-xs mt-2">▶ Click to play video</p>
+                    </div>
                   </div>
-                </div>
-              </div>
-
-              {/* Video Title */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 rounded-b-2xl">
-                <h3 className="text-white font-medium text-lg">Morgan TechFest 2025</h3>
-                <p className="text-gray-300 text-sm mt-1">Bridging Academia & Industry</p>
+                ) : (
+                  /* Actual iframe - only loads after user clicks */
+                  <iframe
+                    className="w-full h-full rounded-2xl"
+                    src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+                    title="Morgan TechFest Video"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  ></iframe>
+                )}
               </div>
             </div>
           </div>
