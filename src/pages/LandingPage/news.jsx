@@ -9,13 +9,19 @@ const NewsPage = () => {
     setIsVisible(true);
   }, []);
 
+  const stats = [
+    { icon: "📰", label: "Media Coverage" },
+    { icon: "🤝", label: "Industry Recognition" },
+    { icon: "🚀", label: "Growing Impact" }
+  ];
+
   return (
     <div id="news" className="bg-gradient-to-br from-[#122644] via-[#1a3154] to-[#0f1c33] py-20 relative overflow-hidden">
       
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-r from-orange-400/10 to-yellow-400/10 rounded-full blur-2xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-48 h-48 bg-gradient-to-l from-blue-400/10 to-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
+      {/* OPTIMIZATION: Simplified background decorations, reduced opacity */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
+        <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-20 right-10 w-48 h-48 bg-gradient-to-l from-blue-400 to-cyan-400 rounded-full blur-2xl"></div>
       </div>
 
       <Container className="relative z-10">
@@ -23,11 +29,11 @@ const NewsPage = () => {
           
           {/* Content card */}
           <div className={`max-w-4xl w-full transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl border border-white/10 p-8 lg:p-12 shadow-2xl hover:shadow-orange-500/10 transition-all duration-500">
+            <div className="bg-gradient-to-br from-white/5 to-white/10 rounded-3xl border border-white/10 p-8 lg:p-12 shadow-2xl hover:shadow-orange-500/10 transition-all duration-500">
               
               {/* Badge */}
               <div className="flex justify-center mb-6">
-                <div className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-orange-500/20 to-yellow-400/20 backdrop-blur-sm rounded-full border border-orange-400/30">
+                <div className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-orange-500/20 to-yellow-400/20 rounded-full border border-orange-400/30">
                   <span className="text-orange-400 text-xl">🏆</span>
                   <span className="text-sm font-semibold text-orange-300">Latest News</span>
                 </div>
@@ -50,18 +56,12 @@ const NewsPage = () => {
 
               {/* Quick stats */}
               <div className="grid grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
-                <div className="text-center p-3 bg-white/5 rounded-xl">
-                  <p className="text-2xl font-bold text-orange-400 mb-1">📰</p>
-                  <p className="text-xs text-blue-200">Media Coverage</p>
-                </div>
-                <div className="text-center p-3 bg-white/5 rounded-xl">
-                  <p className="text-2xl font-bold text-orange-400 mb-1">🤝</p>
-                  <p className="text-xs text-blue-200">Industry Recognition</p>
-                </div>
-                <div className="text-center p-3 bg-white/5 rounded-xl">
-                  <p className="text-2xl font-bold text-orange-400 mb-1">🚀</p>
-                  <p className="text-xs text-blue-200">Growing Impact</p>
-                </div>
+                {stats.map((stat, index) => (
+                  <div key={index} className="text-center p-3 bg-white/5 rounded-xl">
+                    <p className="text-2xl font-bold text-orange-400 mb-1">{stat.icon}</p>
+                    <p className="text-xs text-blue-200">{stat.label}</p>
+                  </div>
+                ))}
               </div>
 
               {/* CTA Button */}
