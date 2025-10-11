@@ -1,34 +1,47 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import backgroundImage from "../../assets/cvs.png";
 import opeyemi from "../../assets/opeyemi-pic.png";
 import obi from "../../assets/passport.jpg";
+
+// OPTIMIZATION: Removed AOS completely
+// import AOS from "aos";
+// import "aos/dist/aos.css";
+
+// Eager load above-fold components
+import Hero from "./Hero";
 import About from "./About";
 import Countdown from "./Countdown";
-import Faq from "./Faq";
-import Gallery from "./Gallery";
-import Hero from "./Hero";
-import Speakers from "./Speakers";
-import Sponsors from "./Sponsors";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import JudgingCriteria from "./JudgingCriteria";
-import ResearchSymposium from "./ResearchSymposium";
-import TeamSection from "./TeamSection";
-import SubmitProject from "./SubmitProject";
-import NewsPage from "./news";
+
+// OPTIMIZATION: Lazy load below-fold components for faster initial load
+const Faq = lazy(() => import("./Faq"));
+const Gallery = lazy(() => import("./Gallery"));
+const Speakers = lazy(() => import("./Speakers"));
+const Sponsors = lazy(() => import("./Sponsors"));
+const ResearchSymposium = lazy(() => import("./ResearchSymposium"));
+const TeamSection = lazy(() => import("./TeamSection"));
+const SubmitProject = lazy(() => import("./SubmitProject"));
+const NewsPage = lazy(() => import("./news"));
+const JudgingCriteria = lazy(() => import("./JudgingCriteria"));
+
+// Loading fallback component
+const LoadingFallback = () => (
+  <div className="flex items-center justify-center py-20">
+    <div className="w-12 h-12 border-4 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
+  </div>
+);
 
 const LandingPage = () => {
+  // OPTIMIZATION: Removed all AOS initialization
+  // useEffect(() => {
+  //   AOS.init({
+  //     easing: "ease-in-out-cubic",
+  //     duration: 1000,
+  //   });
+  // }, []);
 
-  useEffect(() => {
-    AOS.init({
-      easing: "ease-in-out-cubic",
-      duration: 1000,
-    });
-  }, []);
-
-  useEffect(() => {
-    AOS.refresh();
-  });
+  // useEffect(() => {
+  //   AOS.refresh();
+  // });
 
   const teamData = [
     { name: 'Seyifunmi Williams', position: 'President', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413422/lapxnlymmypo0l0buzke.png" },
@@ -40,7 +53,7 @@ const LandingPage = () => {
     { name: 'Obiageli Nwachukwu', position: 'Program Manager', image: obi },
     { name: 'Beatrice Oshokoya', position: 'IT Manager', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413421/idmjnp2xeediteyxjmlm.png" },
     { name: 'Terell Reed', position: 'Communication manager', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413420/b1u1xpmxnqnma0ybnrlj.png" },
-    { name: 'Damilola Adegbuyi', position: 'Social Media Manager(Instagram)', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413422/uy9fk61mz2xia5rokzka.png" },    
+    { name: 'Damilola Adegbuyi', position: 'Social Media Manager(Instagram)', image: "https://res.cloudinary.com/dlzxduiks/image/upload/v1714413422/uy9fk61mz2xia5rokzka.png" },
     { name: 'David Owolabi', position: 'Media / Creative Director', image: "https://res.cloudinary.com/dv4qabxvt/image/upload/v1745951778/DavidOwolabi_ymwctc.jpg" },
     { name: 'Grace Balogun', position: 'Social Media Manager(LinkedIn)', image: "https://res.cloudinary.com/dv4qabxvt/image/upload/v1745951779/GraceBalogun_g3bnxr.jpg" },
     { name: 'Opeyemi Adeniran', position: 'Ai Engineer/Director', image: opeyemi },
@@ -48,23 +61,53 @@ const LandingPage = () => {
 
   return (
     <div>
-        <div
-            className=' bg-cover bg-center h-[100vh] md:h-[70vh] lg:h-[100vh]'
-            style={{ backgroundImage: `url(${backgroundImage})` }}
-            name='hero'
-        >
-            <Hero />
-        </div>
-        <About />
+      {/* Hero Section - Load immediately */}
+      <div
+        className='bg-cover bg-center h-[100vh] md:h-[70vh] lg:h-[100vh]'
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+        name='hero'
+      >
+        <Hero />
+      </div>
+
+      {/* Above-fold content - Load immediately */}
+      <About />
+      
+      {/* OPTIMIZATION: Lazy load below-fold content */}
+      <Suspense fallback={<LoadingFallback />}>
         <ResearchSymposium />
+      </Suspense>
+
+      <Suspense fallback={<LoadingFallback />}>
         <SubmitProject />
-        <Countdown />
+      </Suspense>
+
+      {/* Countdown loads immediately since it's important */}
+      <Countdown />
+
+      <Suspense fallback={<LoadingFallback />}>
         <Speakers />
+      </Suspense>
+
+      <Suspense fallback={<LoadingFallback />}>
         <TeamSection teamData={teamData} />
+      </Suspense>
+
+      <Suspense fallback={<LoadingFallback />}>
         <Sponsors />
+      </Suspense>
+
+      <Suspense fallback={<LoadingFallback />}>
         <NewsPage />
+      </Suspense>
+
+      <Suspense fallback={<LoadingFallback />}>
         <Gallery />
+      </Suspense>
+
+      <Suspense fallback={<LoadingFallback />}>
         <Faq />
+      </Suspense>
     </div>
   );
 };
