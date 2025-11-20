@@ -59,12 +59,11 @@ const About = () => {
           {/* Description */}
           <div className="space-y-6">
             <p className="text-lg lg:text-xl leading-relaxed text-gray-300">
-              Morgan TechFest is a <span className="text-orange-300 font-medium">student-led initiative</span> that 
-              empowers students to build tech careers through <span className="text-orange-300 font-medium">ProjectX</span>, our year-round career development platform, and <span className="text-orange-300 font-medium">Innovation Expo</span>.
+              Morgan TechFest is a <span className="text-orange-300 font-medium">two-day in-person tech conference</span> that not only educates students about the influence of technology on their career paths, but also provides a platform for <span className="text-orange-300 font-medium">networking with tech experts</span>, enabling job applications in the tech industry.
             </p>
             
             <p className="text-lg leading-relaxed text-gray-300">
-              Innovation Expo is our <span className="text-orange-300 font-medium">annual one-day event</span> where attendees participate in networking sessions, tune into keynote panels, and expand their knowledge while celebrating outstanding student innovation. Students showcase their research and technology projects and connect with industry professionals.
+              We pride ourselves on recognizing excellence by showcasing and awarding outstanding tech-innovative research presentations in fields like <span className="text-orange-300 font-medium">AI, Robotics, Cybersecurity, Data Science, VR, and Blockchain</span>. Moreover, we celebrate innovative projects in <span className="text-orange-300 font-medium">Software Development, Engineering, and Business & Education Technology</span>.
             </p>
           </div>
         </div>
