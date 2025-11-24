@@ -5,16 +5,13 @@ function NewsSlider() {
     <div className="bg-[#FC711B] text-black py-3 overflow-hidden relative">
       <div className="animate-marquee whitespace-nowrap inline-block">
         <span className="text-sm md:text-base font-medium mx-8">
-          🚀 Morgan TechFest launches ProjectX, a career development platform - build your skills, earn TechTalents badges, and grow year-round!
-          <span className="mx-4">|</span>
-          Morgan TechFest Innovation Expo returns 2026 - present your innovative research, projects and showcase your growth.
+          Morgan TechFest Innovation Expo returns 2026 — present your innovative research, projects and showcase your growth.
           <span className="mx-4">|</span>
           Start your journey today at morgantechfest.com
         </span>
+
         <span className="text-sm md:text-base font-medium mx-8">
-          🚀 Morgan TechFest launches ProjectX, a career development platform - build your tech skills, earn TechTalents badges, and grow year-round!
-          <span className="mx-4">|</span>
-          Morgan TechFest Innovation Expo returns 2026 - present your innovative projects and showcase your growth.
+          Morgan TechFest Innovation Expo returns 2026 — present your innovative projects and showcase your growth.
           <span className="mx-4">|</span>
           Start your journey today at morgantechfest.com
         </span>
