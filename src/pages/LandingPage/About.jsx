@@ -18,7 +18,6 @@ const About = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [loadVideo, setLoadVideo] = useState(false);
   
-  // OPTIMIZATION: Video ID and thumbnail
   const videoId = "MLX3J9nk0cI";
   const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
@@ -28,8 +27,8 @@ const About = () => {
   }, []);
 
   return (
-    <div className="w-full bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-20" name='aboutUs'>
-      
+    <div className="w-full bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-20" name="aboutUs">
+
       {/* OPTIMIZATION: Reduced blur intensity and opacity */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full blur-2xl" />
@@ -37,7 +36,7 @@ const About = () => {
       </div>
 
       <Container className="flex flex-col lg:flex-row lg:items-center gap-16 text-white relative z-10">
-        
+
         {/* Left Content Section */}
         <div className={`lg:w-1/2 space-y-8 transform transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
           
@@ -55,33 +54,29 @@ const About = () => {
             </h2>
             <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full" />
           </div>
-          
+
           {/* Description */}
-          
           <div className="space-y-6">
             <p className="text-lg lg:text-xl leading-relaxed text-gray-300">
               Morgan TechFest is <span className="text-orange-300 font-medium">an in-person tech conference powered by Morgan State University</span> that not only educates students about the influence of technology on their career paths, but also provides a platform for <span className="text-orange-300 font-medium">networking with tech experts</span> and exploring <span className="text-orange-300 font-medium">career and job opportunities in the tech industry</span>.
             </p>
           </div>
-            <p className="text-lg leading-relaxed text-gray-300">
-              We pride ourselves on recognizing excellence by showcasing and awarding outstanding tech-innovative research presentations in fields like <span className="text-orange-300 font-medium">AI, Robotics, Cybersecurity, Data Science, VR, and Blockchain</span>. Moreover, we celebrate innovative projects in <span className="text-orange-300 font-medium">Software Development, Engineering, and Business & Education Technology</span>.
-            </p>
-          </div>
+
+          <p className="text-lg leading-relaxed text-gray-300">
+            We pride ourselves on recognizing excellence by showcasing and awarding outstanding tech-innovative research presentations in fields like <span className="text-orange-300 font-medium">AI, Robotics, Cybersecurity, Data Science, VR, and Blockchain</span>. Moreover, we celebrate innovative projects in <span className="text-orange-300 font-medium">Software Development, Engineering, and Business & Education Technology</span>.
+          </p>
         </div>
 
         {/* Right Video Section */}
         <div className={`lg:w-1/2 transform transition-all duration-700 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
           <div className="relative group">
-            
+
             {/* Video Container */}
             <div className="relative overflow-hidden rounded-2xl shadow-2xl bg-slate-800">
-              
               <div className="relative aspect-video bg-slate-800">
-                
-                {/* OPTIMIZATION: Load thumbnail first, iframe only on click */}
+
                 {!loadVideo ? (
-                  /* Thumbnail with play button - loads instantly, no YouTube scripts */
-                  <div 
+                  <div
                     className="relative w-full h-full cursor-pointer group"
                     onClick={() => setLoadVideo(true)}
                     role="button"
@@ -89,21 +84,21 @@ const About = () => {
                     onKeyPress={(e) => e.key === 'Enter' && setLoadVideo(true)}
                     aria-label="Play Morgan TechFest video"
                   >
-                    <img 
+                    <img
                       src={thumbnailUrl}
                       alt="Morgan TechFest 2025 Video Thumbnail"
                       className="w-full h-full object-cover rounded-2xl"
                       loading="lazy"
                     />
-                    
-                    {/* Play button overlay */}
+
+                    {/* Play overlay */}
                     <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/50 transition-colors duration-300 rounded-2xl">
                       <div className="w-20 h-20 bg-white/95 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-2xl">
                         <PlayIcon size={32} className="text-slate-800 ml-1" />
                       </div>
                     </div>
-                    
-                    {/* Video Title on thumbnail */}
+
+                    {/* Title on thumbnail */}
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 rounded-b-2xl">
                       <h3 className="text-white font-medium text-lg">Morgan TechFest 2025</h3>
                       <p className="text-gray-300 text-sm mt-1">Bridging Academia & Industry</p>
@@ -111,7 +106,6 @@ const About = () => {
                     </div>
                   </div>
                 ) : (
-                  /* Actual iframe - only loads after user clicks */
                   <iframe
                     className="w-full h-full rounded-2xl"
                     src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
@@ -125,6 +119,7 @@ const About = () => {
             </div>
           </div>
         </div>
+
       </Container>
     </div>
   );
