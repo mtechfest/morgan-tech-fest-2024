@@ -19,7 +19,6 @@ const Speakers = lazy(() => import("./Speakers"));
 const Sponsors = lazy(() => import("./Sponsors"));
 const ResearchSymposium = lazy(() => import("./ResearchSymposium"));
 const TeamSection = lazy(() => import("./TeamSection"));
-const SubmitProject = lazy(() => import("./SubmitProject"));
 const NewsPage = lazy(() => import("./news"));
 const JudgingCriteria = lazy(() => import("./JudgingCriteria"));
 
@@ -76,10 +75,6 @@ const LandingPage = () => {
       {/* OPTIMIZATION: Lazy load below-fold content */}
       <Suspense fallback={<LoadingFallback />}>
         <ResearchSymposium />
-      </Suspense>
-
-      <Suspense fallback={<LoadingFallback />}>
-        <SubmitProject />
       </Suspense>
 
       {/* Countdown loads immediately since it's important */}
