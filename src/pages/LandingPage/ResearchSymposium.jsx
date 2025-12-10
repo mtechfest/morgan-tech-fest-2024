@@ -22,8 +22,8 @@ const EXPO_CONFIG = {
   submissionUrl: "https://form.jotform.com/241518319102145",
   projectCriteriaUrl: projectCriteria,
   researchCriteriaUrl: researchCriteria,
-  posterFormat36x48Url: "https://raw.githubusercontent.com/mtechfest/morgan-tech-fest-2024/bcc8ee19f8ba25105415acf3cd59223eb2f1126c/src/assets/36x%2048-MorganTechFest-InnovationXpo-Format.pptx",
-  posterFormat42x60Url: "https://raw.githubusercontent.com/mtechfest/morgan-tech-fest-2024/bcc8ee19f8ba25105415acf3cd59223eb2f1126c/src/assets/42x60-MorganTechFest-InnovationXpo-Format.pptx",
+  posterFormat36x48Url: "https://raw.githubusercontent.com/mtechfest/morgan-tech-fest-2024/master/src/assets/36x%2048-MorganTechFest-InnovationXpo-Format.pptx",
+  posterFormat42x60Url: "https://raw.githubusercontent.com/mtechfest/morgan-tech-fest-2024/master/src/assets/42x60-MorganTechFest-InnovationXpo-Format.pptx",
   images: [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11]
 };
 
