@@ -16,7 +16,6 @@ import s11 from "../../assets/s11.png";
 import researchCriteria from "../../assets/Jdg-Rsc.png";
 import projectCriteria from "../../assets/Jdg-prj.pdf";
 import posterFormat36x48 from "../../assets/36x 48-MorganTechFest-InnovationXpo-Format.pptx";
-import posterFormat42x60 from "../../assets/42x60-MorganTechFest-InnovationXpo-Format.pptx";
 
 // Configuration constants
 const EXPO_CONFIG = {
@@ -25,7 +24,6 @@ const EXPO_CONFIG = {
   projectCriteriaUrl: projectCriteria,
   researchCriteriaUrl: researchCriteria,
   posterFormat36x48Url: posterFormat36x48,
-  posterFormat42x60Url: posterFormat42x60,
   images: [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11]
 };
 
@@ -69,7 +67,7 @@ const CategoryCard = ({ icon, title, description, criteriaUrl }) => (
         <strong>Presentation Format:</strong> All submissions must be presented in poster format.
       </p>
       <p className="text-sm text-white/80">
-        <strong>Poster Sizes:</strong> 36" x 48" (36 inches high by 48 inches wide) or 42" x 60"
+        <strong>Poster Size:</strong> 36" x 48" (36 inches high by 48 inches wide)
       </p>
     </div>
     
@@ -160,19 +158,14 @@ const InnovationExpo = () => {
                 Submit Your Project or Research
               </ActionButton>
 
-              {/* Poster Format Downloads */}
+              {/* Poster Format Download */}
               <div className="bg-[#FC711B]/10 border border-[#FC711B]/30 rounded-lg p-6">
                 <p className="text-white/90 text-center mb-4 font-semibold">
-                  Download Poster Templates
+                  Download Poster Template
                 </p>
-                <div className="grid sm:grid-cols-2 gap-3">
-                  <ActionButton href={EXPO_CONFIG.posterFormat36x48Url} variant="secondary" download={true}>
-                    36" x 48" Format
-                  </ActionButton>
-                  <ActionButton href={EXPO_CONFIG.posterFormat42x60Url} variant="secondary" download={true}>
-                    42" x 60" Format
-                  </ActionButton>
-                </div>
+                <ActionButton href={EXPO_CONFIG.posterFormat36x48Url} variant="secondary" download={true}>
+                  Download 36" x 48" Format
+                </ActionButton>
               </div>
             </div>
           </div>
