@@ -15,8 +15,6 @@ import s10 from "../../assets/s10.png";
 import s11 from "../../assets/s11.png";
 import researchCriteria from "../../assets/Jdg-Rsc.png";
 import projectCriteria from "../../assets/Jdg-prj.pdf";
-import projectPosterFormat from "../../assets/MorganTechFest-ProjXpo-Format.pptx.pdf";
-import researchPosterFormat from "../../assets/MorganTechFest-ResearchXpo-Format.pptx.pdf";
 
 // Configuration constants
 const EXPO_CONFIG = {
@@ -24,8 +22,8 @@ const EXPO_CONFIG = {
   submissionUrl: "https://form.jotform.com/241518319102145",
   projectCriteriaUrl: projectCriteria,
   researchCriteriaUrl: researchCriteria,
-  projectPosterFormatUrl: projectPosterFormat,
-  researchPosterFormatUrl: researchPosterFormat,
+  posterFormat36x48Url: "https://raw.githubusercontent.com/mtechfest/morgan-tech-fest-2024/bcc8ee19f8ba25105415acf3cd59223eb2f1126c/src/assets/36x%2048-MorganTechFest-InnovationXpo-Format.pptx",
+  posterFormat42x60Url: "https://raw.githubusercontent.com/mtechfest/morgan-tech-fest-2024/bcc8ee19f8ba25105415acf3cd59223eb2f1126c/src/assets/42x60-MorganTechFest-InnovationXpo-Format.pptx",
   images: [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11]
 };
 
@@ -33,8 +31,7 @@ const ActionButton = ({ href, variant = 'primary', children }) => {
   const baseClasses = "px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 inline-flex items-center gap-2 w-full justify-center";
   const variants = {
     primary: "bg-gradient-to-r from-[#FC711B] to-[#ff8c42] hover:from-[#ff8c42] hover:to-[#FC711B] text-white shadow-lg hover:shadow-xl hover:scale-105",
-    secondary: "bg-white/10 hover:bg-white/20 text-white border border-white/20",
-    submit: "bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-lg hover:shadow-xl hover:scale-105"
+    secondary: "bg-white/10 hover:bg-white/20 text-white border border-white/20"
   };
 
   return (
@@ -52,7 +49,7 @@ const ActionButton = ({ href, variant = 'primary', children }) => {
   );
 };
 
-const CategoryCard = ({ icon, title, description, criteriaUrl, posterFormatUrl, submissionUrl }) => (
+const CategoryCard = ({ icon, title, description, criteriaUrl }) => (
   <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-[#FC711B]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#FC711B]/20">
     <div className="inline-block px-4 py-2 bg-[#FC711B]/20 rounded-full text-sm font-bold text-[#ff8c42] mb-6">
       {icon} {title}
@@ -76,14 +73,8 @@ const CategoryCard = ({ icon, title, description, criteriaUrl, posterFormatUrl, 
     </div>
     
     <div className="space-y-3">
-      <ActionButton href={submissionUrl} variant="submit">
-        Submit Your {title}
-      </ActionButton>
       <ActionButton href={criteriaUrl} variant="primary">
         View {title} Judging Criteria
-      </ActionButton>
-      <ActionButton href={posterFormatUrl} variant="secondary">
-        Download Poster Format
       </ActionButton>
     </div>
   </div>
@@ -145,8 +136,6 @@ const InnovationExpo = () => {
               title="Projects"
               description="Showcase your technical projects, applications, and innovative solutions. Demonstrate your coding skills, problem-solving abilities, and bring your ideas to life through technology."
               criteriaUrl={EXPO_CONFIG.projectCriteriaUrl}
-              posterFormatUrl={EXPO_CONFIG.projectPosterFormatUrl}
-              submissionUrl={EXPO_CONFIG.submissionUrl}
             />
 
             {/* Research Card */}
@@ -155,9 +144,36 @@ const InnovationExpo = () => {
               title="Research"
               description="Present your groundbreaking research findings, academic work, and experimental studies. Share discoveries that push the boundaries of knowledge and contribute to advancing your field."
               criteriaUrl={EXPO_CONFIG.researchCriteriaUrl}
-              posterFormatUrl={EXPO_CONFIG.researchPosterFormatUrl}
-              submissionUrl={EXPO_CONFIG.submissionUrl}
             />
+          </div>
+
+          {/* Unified Submission and Poster Format Section */}
+          <div className="mt-12 bg-white/5 border border-white/10 rounded-2xl p-8 lg:p-10">
+            <h3 className="font-bold text-2xl lg:text-3xl text-white mb-6 text-center">
+              Ready to Submit?
+            </h3>
+            
+            <div className="max-w-2xl mx-auto space-y-4">
+              {/* Submission Button */}
+              <ActionButton href={EXPO_CONFIG.submissionUrl} variant="primary">
+                Submit Your Project or Research
+              </ActionButton>
+
+              {/* Poster Format Downloads */}
+              <div className="bg-[#FC711B]/10 border border-[#FC711B]/30 rounded-lg p-6">
+                <p className="text-white/90 text-center mb-4 font-semibold">
+                  Download Poster Templates
+                </p>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <ActionButton href={EXPO_CONFIG.posterFormat36x48Url} variant="secondary">
+                    36" x 48" Format
+                  </ActionButton>
+                  <ActionButton href={EXPO_CONFIG.posterFormat42x60Url} variant="secondary">
+                    42" x 60" Format
+                  </ActionButton>
+                </div>
+              </div>
+            </div>
           </div>
         </Container>
       </div>
