@@ -15,6 +15,8 @@ import s10 from "../../assets/s10.png";
 import s11 from "../../assets/s11.png";
 import researchCriteria from "../../assets/Jdg-Rsc.png";
 import projectCriteria from "../../assets/Jdg-prj.pdf";
+import posterFormat36x48 from "../../assets/36x 48-MorganTechFest-InnovationXpo-Format.pptx";
+import posterFormat42x60 from "../../assets/42x60-MorganTechFest-InnovationXpo-Format.pptx";
 
 // Configuration constants
 const EXPO_CONFIG = {
@@ -22,12 +24,12 @@ const EXPO_CONFIG = {
   submissionUrl: "https://form.jotform.com/241518319102145",
   projectCriteriaUrl: projectCriteria,
   researchCriteriaUrl: researchCriteria,
-  posterFormat36x48Url: "https://raw.githubusercontent.com/mtechfest/morgan-tech-fest-2024/master/src/assets/36x%2048-MorganTechFest-InnovationXpo-Format.pptx",
-  posterFormat42x60Url: "https://raw.githubusercontent.com/mtechfest/morgan-tech-fest-2024/master/src/assets/42x60-MorganTechFest-InnovationXpo-Format.pptx",
+  posterFormat36x48Url: posterFormat36x48,
+  posterFormat42x60Url: posterFormat42x60,
   images: [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11]
 };
 
-const ActionButton = ({ href, variant = 'primary', children }) => {
+const ActionButton = ({ href, variant = 'primary', children, download = false }) => {
   const baseClasses = "px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 inline-flex items-center gap-2 w-full justify-center";
   const variants = {
     primary: "bg-gradient-to-r from-[#FC711B] to-[#ff8c42] hover:from-[#ff8c42] hover:to-[#FC711B] text-white shadow-lg hover:shadow-xl hover:scale-105",
@@ -37,8 +39,7 @@ const ActionButton = ({ href, variant = 'primary', children }) => {
   return (
     <a 
       href={href} 
-      target="_blank" 
-      rel="noopener noreferrer"
+      {...(download ? { download: true } : { target: "_blank", rel: "noopener noreferrer" })}
       className={`${baseClasses} ${variants[variant]}`}
     >
       <span>{children}</span>
@@ -165,10 +166,10 @@ const InnovationExpo = () => {
                   Download Poster Templates
                 </p>
                 <div className="grid sm:grid-cols-2 gap-3">
-                  <ActionButton href={EXPO_CONFIG.posterFormat36x48Url} variant="secondary">
+                  <ActionButton href={EXPO_CONFIG.posterFormat36x48Url} variant="secondary" download={true}>
                     36" x 48" Format
                   </ActionButton>
-                  <ActionButton href={EXPO_CONFIG.posterFormat42x60Url} variant="secondary">
+                  <ActionButton href={EXPO_CONFIG.posterFormat42x60Url} variant="secondary" download={true}>
                     42" x 60" Format
                   </ActionButton>
                 </div>
