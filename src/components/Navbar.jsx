@@ -42,8 +42,8 @@ function Navbar() {
           <SmoothLink to={'schedule'} smooth duration={500} className="cursor-pointer">Schedule</SmoothLink>
           <SmoothLink to={'speakers'} smooth duration={500} className="cursor-pointer">Speakers</SmoothLink>
           <SmoothLink to={'sponsors'} smooth duration={500} className="cursor-pointer">Sponsors</SmoothLink>
-          <SmoothLink to={'faqs'} smooth duration={500} className="cursor-pointer">FAQs</SmoothLink>
           <SmoothLink to={'news'} smooth duration={500} className="cursor-pointer">News</SmoothLink>
+          <SmoothLink to={'faqs'} smooth duration={500} className="cursor-pointer">FAQs</SmoothLink>
           <a href="https://form.jotform.com/252798316140156" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-gradient-to-r from-[#FC711B] to-[#FC4608] rounded-3xl text-sm">
             REGISTRATION FORM
           </a>
@@ -71,8 +71,8 @@ function Navbar() {
             <SmoothLink to={'schedule'} smooth duration={500} className="cursor-pointer px-4 py-4" onClick={handleBurger}>Schedule</SmoothLink>
             <SmoothLink to={'speakers'} smooth duration={500} className="cursor-pointer px-4 py-4" onClick={handleBurger}>Speakers</SmoothLink>
             <SmoothLink to={'sponsors'} smooth duration={500} className="cursor-pointer px-4 py-4" onClick={handleBurger}>Sponsors</SmoothLink>
-            <SmoothLink to={'faqs'} smooth duration={500} className="cursor-pointer px-4 py-4" onClick={handleBurger}>FAQs</SmoothLink>
             <SmoothLink to={'news'} smooth duration={500} className="cursor-pointer px-4 py-4" onClick={handleBurger}>News</SmoothLink>
+            <SmoothLink to={'faqs'} smooth duration={500} className="cursor-pointer px-4 py-4" onClick={handleBurger}>FAQs</SmoothLink>
           </ul>
 
           <a href="https://form.jotform.com/252798316140156" target="_blank" rel="noopener noreferrer"
