@@ -38,6 +38,7 @@ function Navbar() {
         <div className="hidden lg:flex gap-8 lg:gap-4 xl:gap-8 items-center text-white uppercase text-sm font-semibold">
           <SmoothLink to={'hero'} smooth duration={500} className="cursor-pointer">Home</SmoothLink>
           <SmoothLink to={'aboutUs'} smooth duration={500} className="cursor-pointer">About Us</SmoothLink>
+          <SmoothLink to={'projectX'} smooth duration={500} className="cursor-pointer">ProjectX</SmoothLink>
           <SmoothLink to={'symposium'} smooth duration={500} className="cursor-pointer">Innovation Expo</SmoothLink>
           <SmoothLink to={'schedule'} smooth duration={500} className="cursor-pointer">Schedule</SmoothLink>
           <SmoothLink to={'speakers'} smooth duration={500} className="cursor-pointer">Speakers</SmoothLink>
@@ -61,12 +62,13 @@ function Navbar() {
         {/* Mobile Menu */}
         <div
           className={`lg:hidden flex flex-col justify-between absolute top-[100%] left-0 right-0 bg-[#FC711B] overflow-hidden ${
-            !flip ? "h-0" : "h-[460px]"
+            !flip ? "h-0" : "h-[510px]"
           } ease-in-out duration-500`}
         >
           <ul className="flex flex-col font-medium uppercase">
             <SmoothLink to={'hero'} smooth duration={500} className="cursor-pointer px-4 py-4" onClick={handleBurger}>Home</SmoothLink>
             <SmoothLink to={'aboutUs'} smooth duration={500} className="cursor-pointer px-4 py-4" onClick={handleBurger}>About Us</SmoothLink>
+            <SmoothLink to={'projectX'} smooth duration={500} className="cursor-pointer px-4 py-4" onClick={handleBurger}>ProjectX</SmoothLink>
             <SmoothLink to={'symposium'} smooth duration={500} className="cursor-pointer px-4 py-4" onClick={handleBurger}>Innovation Expo</SmoothLink>
             <SmoothLink to={'schedule'} smooth duration={500} className="cursor-pointer px-4 py-4" onClick={handleBurger}>Schedule</SmoothLink>
             <SmoothLink to={'speakers'} smooth duration={500} className="cursor-pointer px-4 py-4" onClick={handleBurger}>Speakers</SmoothLink>
