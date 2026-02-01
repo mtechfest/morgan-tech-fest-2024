@@ -10,6 +10,7 @@ import obi from "../../assets/passport.jpg";
 // Eager load above-fold components
 import Hero from "./Hero";
 import About from "./About";
+import ProjectX from "./ProjectX";
 import Countdown from "./Countdown";
 
 // OPTIMIZATION: Lazy load below-fold components for faster initial load
@@ -70,6 +71,9 @@ const LandingPage = () => {
 
       {/* Above-fold content - Load immediately */}
       <About />
+      
+      {/* ProjectX Section - Load immediately after About */}
+      <ProjectX />
       
       {/* OPTIMIZATION: Lazy load below-fold content */}
       <Suspense fallback={<LoadingFallback />}>
