@@ -15,7 +15,7 @@ import s9 from "../../assets/s9.png";
 import s10 from "../../assets/s10.png";
 import s11 from "../../assets/s11.png";
 import researchCriteria from "../../assets/Jdg-Rsc.png";
-import projectCriteria from "../../assets/Jdg-prj.pdf";
+import projectCriteria from "../../assets/Jdg-prj.png";
 import posterFormat36x48 from "../../assets/36x 48-MorganTechFest-InnovationXpo-Format.pptx";
 
 // Configuration constants
