@@ -17,17 +17,14 @@ const FeatureCard = ({ icon, title, description }) => (
 const ProjectXSection = () => {
   const features = [
     {
-      icon: "🎯",
       title: "Project-Driven Learning",
       description: "Build real-world projects and collaborate with peers to gain hands-on experience."
     },
     {
-      icon: "🤖",
       title: "AI Career Navigator",
       description: "Get personalized career guidance, curated resources, and interview prep tailored to your goals."
     },
     {
-      icon: "🏆",
       title: "TechTalent Badges",
       description: "Earn verified badges that showcase your skills and achievements to potential employers."
     }
@@ -42,7 +39,7 @@ const ProjectXSection = () => {
           {/* Content Side */}
           <div className="lg:w-[50%]">
             <div className="inline-block px-5 py-2 bg-[#FC711B]/30 rounded-full text-sm font-bold text-[#ff8c42] mb-6">
-              ✨ Career Platform
+               Career Platform
             </div>
             
             <h2 className="font-bold text-4xl lg:text-5xl xl:text-6xl mb-4">
@@ -71,7 +68,7 @@ const ProjectXSection = () => {
 
             <div className="bg-[#FC711B]/20 border border-[#FC711B]/40 rounded-xl p-5 mb-8">
               <p className="text-white/95 text-base font-semibold">
-                💡 Projects created on ProjectX can be submitted and presented at our Innovation Expo!
+                 Projects created on ProjectX can be submitted and presented at our Innovation Expo!
               </p>
             </div>
             
