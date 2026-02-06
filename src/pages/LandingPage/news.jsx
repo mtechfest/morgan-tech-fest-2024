@@ -10,9 +10,9 @@ const NewsPage = () => {
   }, []);
 
   const stats = [
-    { icon: "📰", label: "Media Coverage" },
-    { icon: "🤝", label: "Industry Recognition" },
-    { icon: "🚀", label: "Growing Impact" }
+    { label: "Media Coverage" },
+    { label: "Industry Recognition" },
+    { label: "Growing Impact" }
   ];
 
   return (
@@ -34,7 +34,6 @@ const NewsPage = () => {
               {/* Badge */}
               <div className="flex justify-center mb-6">
                 <div className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-orange-500/20 to-yellow-400/20 rounded-full border border-orange-400/30">
-                  <span className="text-orange-400 text-xl">🏆</span>
                   <span className="text-sm font-semibold text-orange-300">Latest News</span>
                 </div>
               </div>
