@@ -56,21 +56,18 @@ const ProjectX = () => {
             
             {/* Feature 1 */}
             <div className="bg-orange-50 rounded-xl p-6 border border-orange-200 hover:border-orange-400 hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105">
-              <div className="text-4xl mb-3">💼</div>
               <h3 className="text-gray-900 font-semibold text-lg mb-2">Real-World Projects</h3>
               <p className="text-gray-600 text-sm">Contribute to actual tech projects and build practical experience</p>
             </div>
 
             {/* Feature 2 */}
             <div className="bg-orange-50 rounded-xl p-6 border border-orange-200 hover:border-orange-400 hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105">
-              <div className="text-4xl mb-3">🏢</div>
               <h3 className="text-gray-900 font-semibold text-lg mb-2">Industry Simulation</h3>
               <p className="text-gray-600 text-sm">Collaborate like a real organization and develop essential soft skills</p>
             </div>
 
             {/* Feature 3 */}
             <div className="bg-orange-50 rounded-xl p-6 border border-orange-200 hover:border-orange-400 hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105">
-              <div className="text-4xl mb-3">🤖</div>
               <h3 className="text-gray-900 font-semibold text-lg mb-2">AI Career Navigator</h3>
               <p className="text-gray-600 text-sm">Get AI-powered guidance to accelerate your professional growth</p>
             </div>
