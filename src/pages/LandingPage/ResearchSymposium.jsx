@@ -92,7 +92,7 @@ const InnovationExpo = () => {
             <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 p-8 lg:p-12 relative z-10">
               <div className="lg:w-[45%] text-white">
                 <div className="inline-block px-5 py-2 bg-[#FC711B]/30 rounded-full text-sm font-bold text-[#ff8c42] mb-6">
-                  🎯 Showcase Your Innovation
+                  Showcase Your Innovation
                 </div>
                 <h2 
                   id="expo-title"
@@ -131,7 +131,6 @@ const InnovationExpo = () => {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-10">
             {/* Projects Card */}
             <CategoryCard
-              icon="💻"
               title="Projects"
               description="Showcase your technical projects, applications, and innovative solutions. Demonstrate your coding skills, problem-solving abilities, and bring your ideas to life through technology."
               criteriaUrl={EXPO_CONFIG.projectCriteriaUrl}
@@ -139,7 +138,6 @@ const InnovationExpo = () => {
 
             {/* Research Card */}
             <CategoryCard
-              icon="🔬"
               title="Research"
               description="Present your groundbreaking research findings, academic work, and experimental studies. Share discoveries that push the boundaries of knowledge and contribute to advancing your field."
               criteriaUrl={EXPO_CONFIG.researchCriteriaUrl}
