@@ -28,9 +28,9 @@ const EXPO_CONFIG = {
 };
 
 const ActionButton = ({ href, variant = 'primary', children, download = false }) => {
-  const baseClasses = "px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 inline-flex items-center gap-2 w-full justify-center";
+  const baseClasses = "px-6 py-3.5 rounded-full text-sm font-semibold transition-all duration-300 inline-flex items-center gap-2 w-full justify-center";
   const variants = {
-    primary: "bg-gradient-to-r from-[#FC711B] to-[#ff8c42] hover:from-[#ff8c42] hover:to-[#FC711B] text-white shadow-lg hover:shadow-xl hover:scale-105",
+    primary: "bg-gradient-to-r from-[#FC711B] to-[#ff8c42] hover:from-[#ff8c42] hover:to-[#FC711B] text-white shadow-lg hover:shadow-xl hover:scale-[1.02]",
     secondary: "bg-white/10 hover:bg-white/20 text-white border border-white/20"
   };
 
@@ -48,34 +48,37 @@ const ActionButton = ({ href, variant = 'primary', children, download = false })
   );
 };
 
-const CategoryCard = ({ icon, title, description, criteriaUrl }) => (
-  <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-[#FC711B]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#FC711B]/20">
-    <div className="inline-block px-4 py-2 bg-[#FC711B]/20 rounded-full text-sm font-bold text-[#ff8c42] mb-6">
-      {icon} {title}
+const CategoryCard = ({ title, description, criteriaUrl }) => (
+  <div className="bg-[#1e3555]/80 border border-white/10 rounded-2xl p-8 lg:p-10 hover:border-[#FC711B]/40 transition-all duration-500 group">
+    {/* Category Pill Badge */}
+    <div className="inline-block px-5 py-2 bg-[#FC711B] rounded-full text-sm font-bold text-white mb-6">
+      {title}
     </div>
     
+    {/* Category Title */}
     <h3 className="font-bold text-2xl lg:text-3xl text-white mb-4">
       {title} Category
     </h3>
     
-    <p className="text-white/80 mb-6 leading-relaxed">
+    {/* Description */}
+    <p className="text-white/80 mb-8 leading-relaxed text-base">
       {description}
     </p>
 
-    <div className="bg-[#FC711B]/10 border border-[#FC711B]/30 rounded-lg p-4 mb-6">
-      <p className="text-sm text-white/90 mb-2">
-        <strong>Presentation Format:</strong> All submissions must be presented in poster format.
+    {/* Poster Format Info Box */}
+    <div className="bg-[#FC711B]/10 border border-[#FC711B]/25 rounded-xl p-5 mb-8">
+      <p className="text-sm text-white/90 mb-1.5">
+        <strong className="text-white">Presentation Format:</strong> All submissions must be presented in poster format.
       </p>
       <p className="text-sm text-white/80">
-        <strong>Poster Size:</strong> 36" x 48" (36 inches high by 48 inches wide)
+        <strong className="text-white">Poster Size:</strong> 36" x 48" (36 inches high by 48 inches wide)
       </p>
     </div>
     
-    <div className="space-y-3">
-      <ActionButton href={criteriaUrl} variant="primary">
-        View {title} Judging Criteria
-      </ActionButton>
-    </div>
+    {/* CTA Button */}
+    <ActionButton href={criteriaUrl} variant="primary">
+      View {title} Judging Criteria
+    </ActionButton>
   </div>
 );
 
@@ -86,7 +89,6 @@ const InnovationExpo = () => {
       <section className="py-20 lg:py-28" id="innovation-expo" aria-labelledby="expo-title">
         <Container>
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#FC711B]/20 to-[#ff8c42]/20 border border-[#FC711B]/30">
-            {/* OPTIMIZATION: Simplified background pattern */}
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiBvcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
             
             <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 p-8 lg:p-12 relative z-10">
@@ -110,7 +112,6 @@ const InnovationExpo = () => {
               
               <div className="lg:w-[55%]">
                 <div className="relative group">
-                  {/* OPTIMIZATION: Reduced blur intensity */}
                   <div className="absolute -inset-1 bg-gradient-to-r from-[#FC711B] to-[#ff8c42] rounded-3xl blur-lg opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
                   <div className="relative">
                     <ImageSlider 
@@ -125,18 +126,17 @@ const InnovationExpo = () => {
         </Container>
       </section>
 
-      {/* Two Category Cards */}
-      <div className="py-16 lg:py-20">
+      {/* Category Cards + Submission Section */}
+      <div className="pb-20 lg:pb-28">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10">
-            {/* Projects Card */}
+          {/* Two Category Cards */}
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
             <CategoryCard
               title="Projects"
               description="Showcase your technical projects, applications, and innovative solutions. Demonstrate your coding skills, problem-solving abilities, and bring your ideas to life through technology."
               criteriaUrl={EXPO_CONFIG.projectCriteriaUrl}
             />
 
-            {/* Research Card */}
             <CategoryCard
               title="Research"
               description="Present your groundbreaking research findings, academic work, and experimental studies. Share discoveries that push the boundaries of knowledge and contribute to advancing your field."
@@ -144,21 +144,21 @@ const InnovationExpo = () => {
             />
           </div>
 
-          {/* Unified Submission and Poster Format Section */}
-          <div className="mt-12 bg-white/5 border border-white/10 rounded-2xl p-8 lg:p-10">
-            <h3 className="font-bold text-2xl lg:text-3xl text-white mb-6 text-center">
+          {/* Submission Section */}
+          <div className="mt-8 bg-[#1e3555]/80 border border-white/10 rounded-2xl p-8 lg:p-10">
+            <h3 className="font-bold text-2xl lg:text-3xl text-white mb-8 text-center">
               Ready to Submit?
             </h3>
             
-            <div className="max-w-2xl mx-auto space-y-4">
-              {/* Submission Button */}
+            <div className="max-w-2xl mx-auto space-y-5">
+              {/* Primary Submission Button */}
               <ActionButton href={EXPO_CONFIG.submissionUrl} variant="primary">
                 Submit Your Project or Research
               </ActionButton>
 
-              {/* Poster Format Download */}
-              <div className="bg-[#FC711B]/10 border border-[#FC711B]/30 rounded-lg p-6">
-                <p className="text-white/90 text-center mb-4 font-semibold">
+              {/* Poster Template Download */}
+              <div className="bg-[#FC711B]/10 border border-[#FC711B]/25 rounded-xl p-6">
+                <p className="text-white font-semibold text-center mb-4">
                   Download Poster Template
                 </p>
                 <ActionButton href={EXPO_CONFIG.posterFormat36x48Url} variant="secondary" download={true}>
