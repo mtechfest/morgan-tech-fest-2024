@@ -1,5 +1,4 @@
 import Container from "../../components/Container"
-import NewsSlider from "../../components/NewsSlider" // Add this import
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaXTwitter } from "react-icons/fa6";
