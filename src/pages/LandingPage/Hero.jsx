@@ -31,9 +31,6 @@ const Hero = () => {
           </div>
         </div>
       </Container>
-      
-      {/* News Slider at the bottom */}
-      <NewsSlider />
     </>
   )
 }
