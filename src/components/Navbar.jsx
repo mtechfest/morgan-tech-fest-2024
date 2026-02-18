@@ -38,7 +38,6 @@ function Navbar() {
         <div className="hidden lg:flex gap-8 lg:gap-4 xl:gap-8 items-center text-white uppercase text-sm font-semibold">
           <SmoothLink to={'hero'} smooth duration={500} className="cursor-pointer">Home</SmoothLink>
           <SmoothLink to={'aboutUs'} smooth duration={500} className="cursor-pointer">About</SmoothLink>
-          <SmoothLink to={'projectX'} smooth duration={500} className="cursor-pointer">ProjectX</SmoothLink>
           <SmoothLink to={'symposium'} smooth duration={500} className="cursor-pointer">Expo</SmoothLink>
           <SmoothLink to={'schedule'} smooth duration={500} className="cursor-pointer">Schedule</SmoothLink>
           <SmoothLink to={'speakers'} smooth duration={500} className="cursor-pointer">Speakers</SmoothLink>
@@ -68,7 +67,6 @@ function Navbar() {
           <ul className="flex flex-col font-medium uppercase">
             <SmoothLink to={'hero'} smooth duration={500} className="cursor-pointer px-4 py-4" onClick={handleBurger}>Home</SmoothLink>
             <SmoothLink to={'aboutUs'} smooth duration={500} className="cursor-pointer px-4 py-4" onClick={handleBurger}>About</SmoothLink>
-            <SmoothLink to={'projectX'} smooth duration={500} className="cursor-pointer px-4 py-4" onClick={handleBurger}>ProjectX</SmoothLink>
             <SmoothLink to={'symposium'} smooth duration={500} className="cursor-pointer px-4 py-4" onClick={handleBurger}>Expo</SmoothLink>
             <SmoothLink to={'schedule'} smooth duration={500} className="cursor-pointer px-4 py-4" onClick={handleBurger}>Schedule</SmoothLink>
             <SmoothLink to={'speakers'} smooth duration={500} className="cursor-pointer px-4 py-4" onClick={handleBurger}>Speakers</SmoothLink>
