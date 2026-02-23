@@ -72,7 +72,7 @@ const About = () => {
 
             <div className="space-y-6">
               <p className="text-lg lg:text-xl leading-relaxed text-gray-300">
-  At <span className="text-orange-400 font-semibold">Morgan TechFest</span>, we are dedicated to empowering the next generation of technology leaders. Through our annual in-person conference, we enable students to discover transformative technologies and evolving career pathways, network with industry and academic leaders, and innovate through impactful research and project showcases.
+  At <span className="text-orange-400 font-semibold">Morgan TechFest</span>, we empower the next generation of technology leaders through our annual in-person conference, where students discover transformative technologies and evolving career pathways, network with industry and academic leaders, and innovate through impactful research and project showcases.
 </p>
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
                 <h3 className="text-orange-400 font-semibold mb-3">
