@@ -373,7 +373,8 @@ import { schedule, tracks, studentValues, partners, FaqQuestionsAnswers } from '
 
 /* ===== VALUE CARDS ===== */
 .val-card {
-  @apply rounded-xl border border-[#121139]/6 bg-white px-5 py-5 transition-all duration-200 sm:rounded-2xl sm:px-6 sm:py-6;
+  @apply rounded-xl bg-white px-5 py-5 transition-all duration-200 sm:rounded-2xl sm:px-6 sm:py-6;
+  border: 1px solid rgba(18, 17, 57, 0.06);
 }
 
 .val-card:hover {
