@@ -301,10 +301,7 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
 /* ===== VIDEO ===== */
 .video-section {
   @apply relative px-5 pb-6 xs:px-8 lg:pb-8 lg:pt-8;
-  background-image: url('/backg.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: #fef8f0;
 }
 
 .video-container {
