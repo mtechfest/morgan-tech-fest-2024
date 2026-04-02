@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import MessageIcon from '@/components/icons/IconMessage.vue'
+import LinkedinIcon from '@/components/icons/IconLinkedin.vue'
 import TwitterIcon from '@/components/icons/IconTwitter.vue'
 import InstagramIcon from '@/components/icons/IconInstagram.vue'
 import GithubIcon from '@/components/icons/IconGithub.vue'
