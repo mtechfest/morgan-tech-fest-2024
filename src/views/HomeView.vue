@@ -350,7 +350,7 @@ onUnmounted(() => {
       <div class="flex flex-col items-center justify-between gap-y-6 sm:flex-row">
         <p class="font-urbanist text-sm text-white/40">Morgan TechFest &middot; Morgan State University</p>
         <div class="flex gap-x-4">
-          <a href="mailto:morgantechfest@gmail.com" target="_blank" rel="noopener noreferrer" class="social-link"><MessageIcon /></a>
+          <a href="https://www.linkedin.com/company/morgan-techfest/" target="_blank" rel="noopener noreferrer" class="social-link"><LinkedinIcon /></a>
           <a href="https://twitter.com/MorganTechFest" target="_blank" rel="noopener noreferrer" class="social-link"><TwitterIcon /></a>
           <a href="https://www.instagram.com/morgantechfest/" target="_blank" rel="noopener noreferrer" class="social-link"><InstagramIcon /></a>
           <a href="https://github.com/morgantechfest" target="_blank" rel="noopener noreferrer" class="social-link"><GithubIcon /></a>
