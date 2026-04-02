@@ -18,7 +18,7 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
         <div class="grid grid-cols-2 items-end gap-x-8">
           <div>
             <span class="hero-word animate-word-1">Discover</span>
-            <span class="hero-word animate-word-2">Network</span>
+            <span class="hero-word animate-word-2 text-[#F68F21]">Network</span>
             <span class="hero-word animate-word-3">Innovate</span>
           </div>
           <div class="flex flex-col items-end justify-end gap-y-10 pb-4">
@@ -44,7 +44,7 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
       <div class="block pb-16 pt-10 sm:pb-20 sm:pt-14 lg:hidden">
         <div class="flex flex-col items-center gap-y-1">
           <span class="hero-word-mobile animate-word-1">Discover</span>
-          <span class="hero-word-mobile animate-word-2">Network</span>
+          <span class="hero-word-mobile animate-word-2 text-[#F68F21]">Network</span>
           <span class="hero-word-mobile animate-word-3">Innovate</span>
         </div>
         <p class="mx-auto mt-6 max-w-xs text-center font-urbanist text-base text-white/60 xs:text-lg">
@@ -194,7 +194,7 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
 
   <!-- ===================== GALLERY ===================== -->
   <div class="bg-morgan-blue px-5 pb-12 pt-16 xs:px-8 md:pb-20 md:pt-24">
-    <div class="mx-auto max-w-6xl">
+    <div class="mx-auto max-w-6xl text-center">
       <span class="section-label-light">Moments</span>
       <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">Gallery</h2>
 

@@ -44,12 +44,20 @@ export const studentValues = [
 
 export const partners = [
   {
-    name: 'Gold Sponsors',
-    img: 'https://res.cloudinary.com/ojay-dev/image/upload/v1693912316/MorganTechFest/sponsors/gold_sponsor_efuamu.svg'
+    name: 'Google',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg'
   },
   {
-    name: 'Silver Sponsors',
-    img: 'https://res.cloudinary.com/ojay-dev/image/upload/v1700027733/MorganTechFest/sponsors/Silver_Sponsor_fqwafo.svg'
+    name: 'Bloomberg',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/New_Bloomberg_Logo.svg'
+  },
+  {
+    name: 'NSBE',
+    img: 'https://upload.wikimedia.org/wikipedia/en/a/a4/National_Society_of_Black_Engineers_%28logo%29.png'
+  },
+  {
+    name: 'Microsoft',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg'
   },
   {
     name: 'JS Technology Academy',
