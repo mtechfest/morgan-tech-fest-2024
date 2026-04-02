@@ -13,10 +13,9 @@ const myHeader = ref(null)
 // Define a mapping between the link key and the section id
 const sectionIds = {
   Home: 'home',
-  'About us': 'about',
+  'About': 'about',
   'Components': 'components',
   Schedule: 'schedule',
-  Speakers: 'speakers',
   Sponsors: 'sponsors',
   FAQ: 'faq'
 }
@@ -142,7 +141,7 @@ onUnmounted(() => {
       <a-sub-menu key="sub2" @titleClick="titleClick">
         <template #title>Navigation</template>
         <a-menu-item key="Home">Home</a-menu-item>
-        <a-menu-item key="About us">About us</a-menu-item>
+        <a-menu-item key="About">About</a-menu-item>
         <a-menu-item key="Components">Components</a-menu-item>
         <a-menu-item key="Schedule">Schedule</a-menu-item>
         <a-menu-item key="Sponsors">Sponsors</a-menu-item>
