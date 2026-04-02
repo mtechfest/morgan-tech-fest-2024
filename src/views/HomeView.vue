@@ -80,11 +80,11 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
   </div>
 
   <!-- ===================== ABOUT ===================== -->
-  <div class="bg-[#FEF8F0] px-5 pb-20 pt-16 xs:px-8 md:pb-32 md:pt-24" id="about">
+  <div class="bg-[#FEF8F0] px-5 pb-14 pt-12 xs:px-8 md:pb-20 md:pt-16" id="about">
     <div class="mx-auto max-w-3xl text-center">
       <span class="section-label">About Morgan TechFest</span>
       <p class="mt-6 font-urbanist text-xl leading-relaxed text-[#121139] xs:text-2xl md:text-3xl md:leading-relaxed">
-        Morgan TechFest is a platform for discovery, innovation, and collaboration — empowering
+        Morgan TechFest is a platform for discovery, innovation, and collaboration, empowering
         the next generation of technology leaders while supporting student development and enabling
         career path discovery in technology-driven fields.
       </p>
@@ -296,7 +296,7 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
 
 /* ===== VIDEO ===== */
 .video-section {
-  @apply relative px-5 pb-8 xs:px-8 lg:pb-20 lg:pt-20;
+  @apply relative px-5 pb-8 xs:px-8 lg:pb-12 lg:pt-12;
   background: linear-gradient(to bottom, #003466 0%, #003466 40%, #fef8f0 40%, #fef8f0 100%);
 }
 
@@ -358,7 +358,7 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
 
 /* ===== BUTTONS ===== */
 .cta-btn {
-  @apply inline-block rounded-full border-2 border-white/20 px-7 py-3 font-urbanist text-sm font-semibold text-white transition-all duration-200 hover:border-[#F68F21] hover:text-[#F68F21] sm:px-9 sm:py-4 sm:text-base;
+  @apply inline-block rounded-full border-2 border-[#F68F21] px-7 py-3 font-urbanist text-sm font-semibold text-[#F68F21] transition-all duration-200 hover:bg-[#F68F21] hover:text-white sm:px-9 sm:py-4 sm:text-base;
 }
 
 /* ===== SOCIAL LINKS ===== */
