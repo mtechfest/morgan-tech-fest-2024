@@ -80,15 +80,15 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
   </div>
 
   <!-- ===================== ABOUT ===================== -->
-  <div class="bg-[#FEF8F0] px-5 pb-14 pt-12 xs:px-8 md:pb-20 md:pt-16" id="about">
+  <div class="bg-[#FEF8F0] px-5 pb-10 pt-8 xs:px-8 md:pb-14 md:pt-10" id="about">
     <div class="mx-auto max-w-3xl text-center">
       <span class="section-label">About Morgan TechFest</span>
-      <p class="mt-6 font-urbanist text-xl leading-relaxed text-[#121139] xs:text-2xl md:text-3xl md:leading-relaxed">
+      <p class="mt-4 font-urbanist text-xl leading-relaxed text-[#121139] xs:text-2xl md:text-3xl md:leading-relaxed">
         Morgan TechFest is a platform for discovery, innovation, and collaboration, empowering
         the next generation of technology leaders while supporting student development and enabling
         career path discovery in technology-driven fields.
       </p>
-      <p class="mt-6 font-urbanist text-base leading-relaxed text-[#121139]/60 xs:text-lg md:text-xl">
+      <p class="mt-4 font-urbanist text-base leading-relaxed text-[#121139]/60 xs:text-lg md:text-xl">
         Open to students from Morgan State University and other institutions, Morgan TechFest
         encourages collaboration across schools, diverse perspectives, and increased visibility
         of student innovation.
@@ -159,7 +159,7 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
   <!-- ===================== PARTNERS ===================== -->
   <div class="bg-[#FEF8F0] px-5 pb-16 pt-16 xs:px-8 md:pb-28 md:pt-24" id="partners">
     <div class="mx-auto max-w-6xl">
-      <span class="section-label">Collaborators</span>
+      <span class="section-label">Past</span>
       <h2 class="mt-3 font-bebas text-5xl font-normal text-[#121139] xs:text-6xl sm:text-7xl">Partners</h2>
 
       <div class="mt-10 flex flex-wrap items-center justify-center gap-8 md:mt-16 lg:gap-16">
@@ -296,7 +296,7 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
 
 /* ===== VIDEO ===== */
 .video-section {
-  @apply relative px-5 pb-8 xs:px-8 lg:pb-12 lg:pt-12;
+  @apply relative px-5 pb-6 xs:px-8 lg:pb-8 lg:pt-8;
   background: linear-gradient(to bottom, #003466 0%, #003466 40%, #fef8f0 40%, #fef8f0 100%);
 }
 

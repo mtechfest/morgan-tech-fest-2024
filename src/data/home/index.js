@@ -56,6 +56,38 @@ export const partners = [
     img: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg'
   },
   {
+    name: 'Northrop Grumman',
+    img: '/Northrop-Grumman-Logo.png'
+  },
+  {
+    name: 'Ripple',
+    img: '/Ripple - blueblack_lg (1).png'
+  },
+  {
+    name: 'AltusTech',
+    img: '/AltusTech.png'
+  },
+  {
+    name: 'CEAMLS',
+    img: '/CEAMLS.PNG'
+  },
+  {
+    name: 'JS2T',
+    img: '/JS2T (Black- Trspt).png'
+  },
+  {
+    name: 'LFG',
+    img: '/LFG_color.jpg'
+  },
+  {
+    name: 'Y3K',
+    img: '/Y3K.JPG'
+  },
+  {
+    name: 'MLH',
+    img: '/mlh-logo-color.png'
+  },
+  {
     name: 'JS Technology Academy',
     img: 'https://res.cloudinary.com/ojay-dev/image/upload/v1693912315/MorganTechFest/patners/JOS-Tech-Logo_yyryyj.png'
   },
@@ -78,6 +110,10 @@ export const partners = [
   {
     name: 'Morgan State University, Graves School',
     img: 'https://res.cloudinary.com/ojay-dev/image/upload/v1700028979/MorganTechFest/patners/MSU-Earl-G-Graves-Logo-1_1_vlv3ij.png'
+  },
+  {
+    name: 'RTC',
+    img: '/RTC__Logo Orange.png'
   }
 ]
 
