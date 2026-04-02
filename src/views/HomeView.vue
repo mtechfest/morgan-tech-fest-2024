@@ -50,20 +50,20 @@ onUnmounted(() => {
       <!-- Desktop -->
       <div class="hidden pb-24 pt-20 lg:block xl:pt-28 xl:pb-32">
         <div class="flex">
-          <!-- Left spacer (robot area ~50%) -->
-          <div class="w-[50%] flex-shrink-0 xl:w-[45%]"></div>
+          <!-- Left spacer — scales per breakpoint so text never overlaps the robot -->
+          <div class="w-[52%] flex-shrink-0 xl:w-[55%] 2xl:w-[55%] 3xl:w-[50%] 4xl:w-[45%]"></div>
           <!-- Right content -->
-          <div class="flex flex-col items-start text-left">
+          <div class="flex flex-col items-start text-left min-w-0">
             <span class="hero-word animate-word-1">Discover</span>
             <span class="hero-word animate-word-2 text-[#F68F21]">Network</span>
             <span class="hero-word animate-word-3">Innovate</span>
-            <p class="mt-6 max-w-md text-left font-urbanist text-lg leading-relaxed text-white/70">
+            <p class="mt-4 max-w-sm text-left font-urbanist text-base leading-relaxed text-white/70 xl:mt-6 xl:max-w-md xl:text-lg">
               Empowering the next generation of technology leaders at Morgan State University.
             </p>
             <!-- Countdown -->
-            <div class="mt-6">
+            <div class="mt-4 xl:mt-6">
               <span class="font-urbanist text-[10px] font-bold uppercase tracking-[0.25em] text-[#F68F21]">Event Countdown</span>
-              <div class="mt-2 flex gap-x-6">
+              <div class="mt-2 flex gap-x-4 xl:gap-x-6">
                 <div class="countdown-block">
                   <span class="countdown-number">{{ days }}</span>
                   <span class="countdown-label">Days</span>
@@ -82,14 +82,14 @@ onUnmounted(() => {
                 </div>
               </div>
             </div>
-            <div class="mt-6 flex gap-x-10">
+            <div class="mt-4 flex gap-x-8 xl:mt-6 xl:gap-x-10">
               <div>
                 <span class="hero-label">Date</span>
-                <p class="font-urbanist text-xl text-white">TBA</p>
+                <p class="font-urbanist text-lg text-white xl:text-xl">TBA</p>
               </div>
               <div>
                 <span class="hero-label">Venue</span>
-                <p class="font-urbanist text-xl text-white">Morgan State University</p>
+                <p class="font-urbanist text-lg text-white xl:text-xl">Morgan State University</p>
               </div>
             </div>
           </div>
@@ -373,17 +373,46 @@ onUnmounted(() => {
   background-repeat: no-repeat;
 }
 
+/* Keep robot visible and well-positioned at every width */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .hero-wrapper {
+    background-position: 15% center;
+  }
+}
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .hero-wrapper {
+    background-position: 20% center;
+  }
+}
+@media (min-width: 1536px) and (max-width: 1919px) {
+  .hero-wrapper {
+    background-position: 25% center;
+  }
+}
+@media (min-width: 1920px) {
+  .hero-wrapper {
+    background-position: 30% center;
+  }
+}
+/* Mobile / tablet: center the background */
+@media (max-width: 1023px) {
+  .hero-wrapper {
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
 .hero-grain {
   @apply pointer-events-none absolute inset-0 z-0 opacity-[0.03];
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 .hero-word {
-  @apply block font-bebas text-[88px] font-normal leading-[0.9] text-white xl:text-[112px] 3xl:text-[130px];
+  @apply block font-bebas text-[72px] font-normal leading-[0.9] text-white xl:text-[96px] 2xl:text-[112px] 3xl:text-[130px];
 }
 
 .hero-word-mobile {
-  @apply block text-center font-bebas text-[56px] font-normal leading-[0.9] text-white xs:text-[68px] sm:text-[88px];
+  @apply block text-center font-bebas text-[48px] font-normal leading-[0.9] text-white xs:text-[56px] sm:text-[72px];
 }
 
 .hero-label {
@@ -425,7 +454,7 @@ onUnmounted(() => {
 }
 
 .countdown-number {
-  @apply font-bebas text-6xl text-white xl:text-7xl;
+  @apply font-bebas text-5xl text-white xl:text-6xl 2xl:text-7xl;
   text-shadow: 0 0 20px rgba(246, 143, 33, 0.3);
 }
 
@@ -438,7 +467,7 @@ onUnmounted(() => {
 }
 
 .countdown-number-sm {
-  @apply font-bebas text-4xl text-white;
+  @apply font-bebas text-3xl text-white xs:text-4xl;
   text-shadow: 0 0 15px rgba(246, 143, 33, 0.3);
 }
 
