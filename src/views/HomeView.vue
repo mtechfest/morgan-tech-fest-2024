@@ -237,7 +237,7 @@ onUnmounted(() => {
   <!-- ===================== PARTNERS ===================== -->
   <div class="bg-[#FEF8F0] px-5 pb-16 pt-16 xs:px-8 md:pb-28 md:pt-24" id="partners">
     <div class="mx-auto max-w-6xl">
-      <span class="section-label">Past</span>
+      <span class="section-label">Our</span>
       <h2 class="mt-3 font-bebas text-5xl font-normal text-[#121139] xs:text-6xl sm:text-7xl">Partners</h2>
 
       <div class="mt-10 flex flex-wrap items-center justify-center gap-8 md:mt-16 lg:gap-16">
