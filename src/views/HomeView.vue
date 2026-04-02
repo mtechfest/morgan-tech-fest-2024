@@ -1,4 +1,5 @@
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
 import MessageIcon from '@/components/icons/IconMessage.vue'
 import TwitterIcon from '@/components/icons/IconTwitter.vue'
 import InstagramIcon from '@/components/icons/IconInstagram.vue'
@@ -6,6 +7,39 @@ import GithubIcon from '@/components/icons/IconGithub.vue'
 import DiscordIcon from '@/components/icons/IconDiscord.vue'
 import FAQItem from '@/components/FAQItem.vue'
 import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
+
+// Countdown timer
+const eventDate = new Date('2026-10-15T09:00:00') // Update with actual event date
+const days = ref('00')
+const hours = ref('00')
+const mins = ref('00')
+const secs = ref('00')
+let countdownInterval = null
+
+const updateCountdown = () => {
+  const now = new Date()
+  const diff = eventDate - now
+  if (diff <= 0) {
+    days.value = '00'
+    hours.value = '00'
+    mins.value = '00'
+    secs.value = '00'
+    return
+  }
+  days.value = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0')
+  hours.value = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0')
+  mins.value = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0')
+  secs.value = String(Math.floor((diff / 1000) % 60)).padStart(2, '0')
+}
+
+onMounted(() => {
+  updateCountdown()
+  countdownInterval = setInterval(updateCountdown, 1000)
+})
+
+onUnmounted(() => {
+  if (countdownInterval) clearInterval(countdownInterval)
+})
 </script>
 
 <template>
@@ -15,7 +49,31 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
     <div class="relative z-10 mx-auto max-w-7xl px-5 xs:px-8 lg:px-12">
       <!-- Desktop -->
       <div class="hidden pb-24 pt-20 lg:block xl:pt-28 xl:pb-32">
-        <div class="ml-auto w-1/2">
+        <div class="grid grid-cols-2 items-center gap-x-12">
+          <!-- Countdown (left side, over the robot) -->
+          <div class="flex flex-col items-center">
+            <span class="font-urbanist text-xs font-bold uppercase tracking-[0.25em] text-[#F68F21]">Event Countdown</span>
+            <div class="mt-4 flex gap-x-6">
+              <div class="countdown-block">
+                <span class="countdown-number">{{ days }}</span>
+                <span class="countdown-label">Days</span>
+              </div>
+              <div class="countdown-block">
+                <span class="countdown-number">{{ hours }}</span>
+                <span class="countdown-label">Hours</span>
+              </div>
+              <div class="countdown-block">
+                <span class="countdown-number">{{ mins }}</span>
+                <span class="countdown-label">Mins</span>
+              </div>
+              <div class="countdown-block">
+                <span class="countdown-number">{{ secs }}</span>
+                <span class="countdown-label">Secs</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text (right side) -->
           <div class="flex flex-col items-start text-left">
             <span class="hero-word animate-word-1">Discover</span>
             <span class="hero-word animate-word-2 text-[#F68F21]">Network</span>
@@ -49,6 +107,25 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
           <p class="mx-auto mt-6 max-w-xs text-center font-urbanist text-base text-white/70 xs:text-lg">
             Empowering the next generation of technology leaders.
           </p>
+          <!-- Mobile countdown -->
+          <div class="mt-6 flex justify-center gap-x-4">
+            <div class="countdown-block-sm">
+              <span class="countdown-number-sm">{{ days }}</span>
+              <span class="countdown-label-sm">Days</span>
+            </div>
+            <div class="countdown-block-sm">
+              <span class="countdown-number-sm">{{ hours }}</span>
+              <span class="countdown-label-sm">Hours</span>
+            </div>
+            <div class="countdown-block-sm">
+              <span class="countdown-number-sm">{{ mins }}</span>
+              <span class="countdown-label-sm">Mins</span>
+            </div>
+            <div class="countdown-block-sm">
+              <span class="countdown-number-sm">{{ secs }}</span>
+              <span class="countdown-label-sm">Secs</span>
+            </div>
+          </div>
           <div class="mt-8 flex justify-center gap-x-8">
             <div class="text-center">
               <span class="hero-label">Date</span>
@@ -64,35 +141,35 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
     </div>
   </div>
 
-  <!-- ===================== VIDEO ===================== -->
-  <div class="video-section">
-    <div class="mx-auto max-w-6xl 3xl:max-w-screen-lg 4xl:max-w-screen-xl">
-      <div class="video-container">
-        <iframe
-          src="https://www.youtube.com/embed/MLX3J9nk0cI?si=Fe_QZEDKo3kaM7Qe"
-          title="Networking Session"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
+  <!-- ===================== ABOUT (with Video) ===================== -->
+  <div class="bg-[#FEF8F0] px-5 pb-10 pt-10 xs:px-8 md:pb-16 md:pt-14" id="about">
+    <div class="mx-auto max-w-6xl">
+      <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12">
+        <!-- Left: About text -->
+        <div>
+          <span class="section-label">About Morgan TechFest</span>
+          <p class="mt-4 font-urbanist text-xl leading-relaxed text-[#121139] xs:text-2xl md:text-2xl md:leading-relaxed">
+            Morgan TechFest is a platform for discovery, innovation, and collaboration, empowering
+            the next generation of technology leaders while supporting student development and enabling
+            career path discovery in technology-driven fields.
+          </p>
+          <p class="mt-4 font-urbanist text-base leading-relaxed text-[#121139]/60 xs:text-lg">
+            Open to students from Morgan State University and other institutions, Morgan TechFest
+            encourages collaboration across schools, diverse perspectives, and increased visibility
+            of student innovation.
+          </p>
+        </div>
+        <!-- Right: Video -->
+        <div class="video-container-inline">
+          <iframe
+            src="https://www.youtube.com/embed/MLX3J9nk0cI?si=Fe_QZEDKo3kaM7Qe"
+            title="Networking Session"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <!-- ===================== ABOUT ===================== -->
-  <div class="bg-[#FEF8F0] px-5 pb-10 pt-8 xs:px-8 md:pb-14 md:pt-10" id="about">
-    <div class="mx-auto max-w-3xl text-center">
-      <span class="section-label">About Morgan TechFest</span>
-      <p class="mt-4 font-urbanist text-xl leading-relaxed text-[#121139] xs:text-2xl md:text-3xl md:leading-relaxed">
-        Morgan TechFest is a platform for discovery, innovation, and collaboration, empowering
-        the next generation of technology leaders while supporting student development and enabling
-        career path discovery in technology-driven fields.
-      </p>
-      <p class="mt-4 font-urbanist text-base leading-relaxed text-[#121139]/60 xs:text-lg md:text-xl">
-        Open to students from Morgan State University and other institutions, Morgan TechFest
-        encourages collaboration across schools, diverse perspectives, and increased visibility
-        of student innovation.
-      </p>
     </div>
   </div>
 
@@ -181,7 +258,7 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
         </p>
         <div class="mt-8 flex justify-center md:mt-12">
           <a
-            href="https://drive.google.com/drive/folders/1-m8WPWPPjLZuv9BUEwkRIMI6z2F6DEgb?usp=sharing"
+            href="https://medium.com/@morgantechfest"
             target="_blank"
             rel="noopener noreferrer"
             class="cta-btn"
@@ -298,19 +375,41 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
   @apply block font-urbanist text-xs font-bold uppercase tracking-[0.25em] text-[#F68F21]/80 sm:text-sm;
 }
 
-/* ===== VIDEO ===== */
-.video-section {
-  @apply relative px-5 pb-6 xs:px-8 lg:pb-8 lg:pt-8;
-  background: #fef8f0;
-}
-
-.video-container {
+/* ===== VIDEO (inline in about) ===== */
+.video-container-inline {
   @apply relative h-0 w-full pb-[56.25%];
 }
 
-.video-container iframe {
+.video-container-inline iframe {
   @apply absolute left-0 top-0 h-full w-full rounded-xl sm:rounded-2xl;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== COUNTDOWN ===== */
+.countdown-block {
+  @apply flex flex-col items-center;
+}
+
+.countdown-number {
+  @apply font-bebas text-6xl text-white xl:text-7xl;
+  text-shadow: 0 0 20px rgba(246, 143, 33, 0.3);
+}
+
+.countdown-label {
+  @apply mt-1 font-urbanist text-xs font-bold uppercase tracking-[0.15em] text-white/50;
+}
+
+.countdown-block-sm {
+  @apply flex flex-col items-center;
+}
+
+.countdown-number-sm {
+  @apply font-bebas text-4xl text-white;
+  text-shadow: 0 0 15px rgba(246, 143, 33, 0.3);
+}
+
+.countdown-label-sm {
+  @apply mt-0.5 font-urbanist text-[10px] font-bold uppercase tracking-[0.15em] text-white/50;
 }
 
 /* ===== COMPONENT CARDS ===== */
