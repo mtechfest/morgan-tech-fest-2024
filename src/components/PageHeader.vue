@@ -16,7 +16,7 @@ const sectionIds = {
   'About': 'about',
   'Components': 'components',
   Schedule: 'schedule',
-  Sponsors: 'sponsors',
+  Partners: 'partners',
   FAQ: 'faq'
 }
 
@@ -48,7 +48,7 @@ const scaleDown = async (event) => {
     }, 100)
   })
 
-  window.open('https://form.jotform.com/cmorgantechfest/register', '_blank', 'noopener noreferrer')
+  window.open('https://form.jotform.com/252798316140156', '_blank', 'noopener noreferrer')
 }
 
 const titleClick = () => {
@@ -122,7 +122,7 @@ onUnmounted(() => {
           <a href="#" v-scroll-to="'#about'" class="nav-link">About</a>
           <a href="#" v-scroll-to="'#components'" class="nav-link">Components</a>
           <a href="#" v-scroll-to="'#schedule'" class="nav-link">Schedule</a>
-          <a href="#" v-scroll-to="'#sponsors'" class="nav-link">Sponsors</a>
+          <a href="#" v-scroll-to="'#partners'" class="nav-link">Partners</a>
           <a href="#" v-scroll-to="'#faq'" class="nav-link">FAQ</a>
         </nav>
 
@@ -144,7 +144,7 @@ onUnmounted(() => {
         <a-menu-item key="About">About</a-menu-item>
         <a-menu-item key="Components">Components</a-menu-item>
         <a-menu-item key="Schedule">Schedule</a-menu-item>
-        <a-menu-item key="Sponsors">Sponsors</a-menu-item>
+        <a-menu-item key="Partners">Partners</a-menu-item>
         <a-menu-item key="FAQ">FAQ</a-menu-item>
       </a-sub-menu>
     </a-menu>

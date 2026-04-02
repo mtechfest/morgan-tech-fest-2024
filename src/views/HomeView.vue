@@ -5,7 +5,7 @@ import InstagramIcon from '@/components/icons/IconInstagram.vue'
 import GithubIcon from '@/components/icons/IconGithub.vue'
 import DiscordIcon from '@/components/icons/IconDiscord.vue'
 import FAQItem from '@/components/FAQItem.vue'
-import { schedule, tracks, studentValues, partners, FaqQuestionsAnswers } from '@/data/home'
+import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
 </script>
 
 <template>
@@ -69,7 +69,7 @@ import { schedule, tracks, studentValues, partners, FaqQuestionsAnswers } from '
     <div class="mx-auto max-w-6xl 3xl:max-w-screen-lg 4xl:max-w-screen-xl">
       <div class="video-container">
         <iframe
-          src="https://www.youtube.com/embed/rbUvsSZRNnI?si=kidkUFrEuH_m1Yu1"
+          src="https://www.youtube.com/embed/MLX3J9nk0cI?si=Fe_QZEDKo3kaM7Qe"
           title="Networking Session"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -132,23 +132,6 @@ import { schedule, tracks, studentValues, partners, FaqQuestionsAnswers } from '
     </div>
   </div>
 
-  <!-- ===================== STUDENT VALUE ===================== -->
-  <div class="bg-[#FEF8F0] px-5 pb-16 pt-16 xs:px-8 md:pb-28 md:pt-24" id="value">
-    <div class="mx-auto max-w-6xl">
-      <span class="section-label">For Students</span>
-      <h2 class="mt-3 font-bebas text-5xl font-normal text-[#121139] xs:text-6xl sm:text-7xl">What You Gain</h2>
-
-      <div class="mt-10 grid grid-cols-1 gap-4 xs:grid-cols-2 md:mt-14 lg:grid-cols-3 lg:gap-5">
-        <template v-for="(item, i) in studentValues" :key="item.title">
-          <div class="val-card" :style="{ animationDelay: (i * 80) + 'ms' }">
-            <h4 class="font-bebas text-xl text-[#121139] sm:text-2xl">{{ item.title }}</h4>
-            <p class="mt-1.5 font-urbanist text-sm text-[#121139]/55 sm:text-base">{{ item.description }}</p>
-          </div>
-        </template>
-      </div>
-    </div>
-  </div>
-
   <!-- ===================== SCHEDULE ===================== -->
   <div class="bg-morgan-blue px-5 pb-16 pt-16 xs:px-8 md:pb-28 md:pt-24" id="schedule">
     <div class="mx-auto max-w-6xl">
@@ -173,48 +156,37 @@ import { schedule, tracks, studentValues, partners, FaqQuestionsAnswers } from '
     </div>
   </div>
 
-  <!-- ===================== SPONSORS ===================== -->
-  <div class="px-5 pb-16 pt-16 xs:px-8 md:pb-28 md:pt-24" id="sponsors">
+  <!-- ===================== PARTNERS ===================== -->
+  <div class="bg-[#FEF8F0] px-5 pb-16 pt-16 xs:px-8 md:pb-28 md:pt-24" id="partners">
     <div class="mx-auto max-w-6xl">
-      <span class="section-label">Support Us</span>
-      <h2 class="mt-3 font-bebas text-5xl font-normal text-[#121139] xs:text-6xl sm:text-7xl">Sponsors & Partners</h2>
+      <span class="section-label">Collaborators</span>
+      <h2 class="mt-3 font-bebas text-5xl font-normal text-[#121139] xs:text-6xl sm:text-7xl">Partners</h2>
 
-      <div class="mt-10 flex flex-col items-center gap-y-8 md:mt-16 lg:gap-y-14">
-        <img
-          src="https://res.cloudinary.com/ojay-dev/image/upload/v1693912316/MorganTechFest/sponsors/gold_sponsor_efuamu.svg"
-          alt="Gold Sponsor"
-          class="max-w-full md:w-3/4 lg:w-3/5"
-        />
-        <img
-          src="https://res.cloudinary.com/ojay-dev/image/upload/v1700027733/MorganTechFest/sponsors/Silver_Sponsor_fqwafo.svg"
-          alt="Silver Sponsor"
-          class="max-w-full md:w-3/4 lg:w-3/5"
-        />
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-8 md:mt-16 lg:gap-16">
+        <template v-for="item in partners" :key="item.name">
+          <img :src="item.img" :alt="item.name" class="h-10 max-w-[120px] object-contain opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-14 sm:max-w-[140px]" />
+        </template>
       </div>
+    </div>
+  </div>
 
-      <div class="sponsor-cta-box">
-        <p class="font-urbanist text-sm text-white/80 xs:text-base lg:text-lg">
-          Interested in sponsoring? Elevate brand visibility and connect with accomplished students,
-          developers, and researchers.
+  <!-- ===================== AWARDS ===================== -->
+  <div class="bg-morgan-blue px-5 pb-16 pt-16 xs:px-8 md:pb-28 md:pt-24" id="awards">
+    <div class="mx-auto max-w-6xl">
+      <div class="mx-auto max-w-3xl text-center">
+        <span class="section-label-light">Highlights</span>
+        <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">Celebrating Innovation and Excellence</h2>
+        <p class="mt-6 font-urbanist text-base leading-relaxed text-white/60 xs:text-lg md:text-xl">
+          Morgan TechFest 2024 recognized standout projects and individuals through its Award Ceremony, emphasizing innovation and problem-solving in tech.
         </p>
-        <div class="mt-4 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6">
-          <a href="mailto:morgantechfest@gmail.com" class="font-urbanist text-sm font-semibold text-[#F68F21] underline xs:text-base">morgantechfest@gmail.com</a>
+        <div class="mt-8 flex justify-center md:mt-12">
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdY4ck5YX9NmUqldB8Cw-9tjsrqo37z8GoQ_1XzNDYvaA8DHQ/viewform?usp=sf_link"
+            href="https://drive.google.com/drive/folders/1-m8WPWPPjLZuv9BUEwkRIMI6z2F6DEgb?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            class="cta-btn-sm"
-            >Become a Sponsor
+            class="cta-btn"
+            >Read on Medium
           </a>
-        </div>
-      </div>
-
-      <div class="mt-12 md:mt-20">
-        <h3 class="text-center font-bebas text-3xl font-normal text-[#121139]/40 sm:text-4xl">Partners</h3>
-        <div class="mt-6 flex flex-wrap items-center justify-center gap-8 md:mt-10 lg:gap-16">
-          <template v-for="item in partners" :key="item.name">
-            <img :src="item.img" :alt="item.name" class="h-10 max-w-[120px] object-contain opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-14 sm:max-w-[140px]" />
-          </template>
         </div>
       </div>
     </div>
@@ -241,7 +213,7 @@ import { schedule, tracks, studentValues, partners, FaqQuestionsAnswers } from '
 
       <div class="mt-8 flex justify-center md:mt-12">
         <a
-          href="https://seethroughmylens.pixieset.com/morgantechfest/"
+          href="https://drive.google.com/drive/folders/1-m8WPWPPjLZuv9BUEwkRIMI6z2F6DEgb?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           class="cta-btn"
@@ -350,36 +322,25 @@ import { schedule, tracks, studentValues, partners, FaqQuestionsAnswers } from '
 }
 
 .comp-number {
-  @apply font-bebas text-4xl text-[#F68F21]/30 sm:text-5xl;
+  @apply font-bebas text-5xl text-[#F68F21]/30 sm:text-6xl;
 }
 
 .comp-title {
-  @apply mt-1 font-bebas text-2xl text-white sm:text-3xl lg:text-4xl;
+  @apply mt-1 font-bebas text-3xl text-white sm:text-4xl lg:text-5xl;
 }
 
 .comp-subtitle {
-  @apply -mt-0.5 font-urbanist text-sm text-white/40;
+  @apply -mt-0.5 font-urbanist text-base text-white/40 sm:text-lg;
 }
 
 .comp-text {
-  @apply mt-3 font-urbanist text-sm leading-relaxed text-white/60 sm:text-base;
+  @apply mt-3 font-urbanist text-base leading-relaxed text-white/60 sm:text-lg;
 }
 
 .track-tag {
-  @apply rounded-full px-3 py-1 font-urbanist text-[11px] font-semibold text-white/80 sm:text-xs;
+  @apply rounded-full px-4 py-1.5 font-urbanist text-xs font-semibold text-white/80 sm:text-sm;
   border: 1px solid rgba(246, 143, 33, 0.35);
   background: rgba(246, 143, 33, 0.08);
-}
-
-/* ===== VALUE CARDS ===== */
-.val-card {
-  @apply rounded-xl bg-white px-5 py-5 transition-all duration-200 sm:rounded-2xl sm:px-6 sm:py-6;
-  border: 1px solid rgba(18, 17, 57, 0.06);
-}
-
-.val-card:hover {
-  border-color: #F68F21;
-  box-shadow: 0 4px 20px rgba(246, 143, 33, 0.08);
 }
 
 /* ===== SCHEDULE PILLS ===== */
@@ -398,21 +359,6 @@ import { schedule, tracks, studentValues, partners, FaqQuestionsAnswers } from '
 /* ===== BUTTONS ===== */
 .cta-btn {
   @apply inline-block rounded-full border-2 border-white/20 px-7 py-3 font-urbanist text-sm font-semibold text-white transition-all duration-200 hover:border-[#F68F21] hover:text-[#F68F21] sm:px-9 sm:py-4 sm:text-base;
-}
-
-.cta-btn-sm {
-  @apply inline-block rounded-full px-5 py-2.5 font-urbanist text-sm font-semibold text-[#121139] transition-colors duration-200;
-  background: linear-gradient(180deg, #fc711a 0%, #fc470b 100%);
-}
-
-.cta-btn-sm:hover {
-  background: linear-gradient(180deg, #fd8133 0%, #fd5a1e 100%);
-}
-
-/* ===== SPONSOR CTA ===== */
-.sponsor-cta-box {
-  @apply mt-10 rounded-2xl bg-[#1a1a2e] px-5 py-6 sm:rounded-3xl sm:px-8 sm:py-8 md:mt-16 lg:px-12 lg:py-10;
-  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* ===== SOCIAL LINKS ===== */

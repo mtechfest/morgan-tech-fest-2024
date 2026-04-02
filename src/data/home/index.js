@@ -44,6 +44,14 @@ export const studentValues = [
 
 export const partners = [
   {
+    name: 'Gold Sponsors',
+    img: 'https://res.cloudinary.com/ojay-dev/image/upload/v1693912316/MorganTechFest/sponsors/gold_sponsor_efuamu.svg'
+  },
+  {
+    name: 'Silver Sponsors',
+    img: 'https://res.cloudinary.com/ojay-dev/image/upload/v1700027733/MorganTechFest/sponsors/Silver_Sponsor_fqwafo.svg'
+  },
+  {
     name: 'JS Technology Academy',
     img: 'https://res.cloudinary.com/ojay-dev/image/upload/v1693912315/MorganTechFest/patners/JOS-Tech-Logo_yyryyj.png'
   },
