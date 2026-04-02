@@ -49,18 +49,21 @@ onUnmounted(() => {
     <div class="relative z-10 mx-auto max-w-7xl px-5 xs:px-8 lg:px-12">
       <!-- Desktop -->
       <div class="hidden pb-24 pt-20 lg:block xl:pt-28 xl:pb-32">
-        <div class="ml-auto w-1/2">
-          <div class="flex flex-col items-start text-left">
+        <div class="grid grid-cols-5 items-center gap-x-8">
+          <!-- Left spacer (robot area) -->
+          <div class="col-span-2"></div>
+          <!-- Right content -->
+          <div class="col-span-3 flex flex-col items-start text-left">
             <span class="hero-word animate-word-1">Discover</span>
             <span class="hero-word animate-word-2 text-[#F68F21]">Network</span>
             <span class="hero-word animate-word-3">Innovate</span>
-            <p class="mt-6 max-w-sm text-left font-urbanist text-lg leading-relaxed text-white/70">
+            <p class="mt-6 max-w-md text-left font-urbanist text-lg leading-relaxed text-white/70">
               Empowering the next generation of technology leaders at Morgan State University.
             </p>
             <!-- Countdown -->
             <div class="mt-6">
               <span class="font-urbanist text-[10px] font-bold uppercase tracking-[0.25em] text-[#F68F21]">Event Countdown</span>
-              <div class="mt-2 flex gap-x-5">
+              <div class="mt-2 flex gap-x-6">
                 <div class="countdown-block">
                   <span class="countdown-number">{{ days }}</span>
                   <span class="countdown-label">Days</span>
