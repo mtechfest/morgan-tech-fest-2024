@@ -40,22 +40,24 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
 
       <!-- Mobile / Tablet -->
       <div class="block pb-16 pt-10 sm:pb-20 sm:pt-14 lg:hidden">
-        <div class="flex flex-col items-center gap-y-1">
-          <span class="hero-word-mobile animate-word-1">Discover</span>
-          <span class="hero-word-mobile animate-word-2 text-[#F68F21]">Network</span>
-          <span class="hero-word-mobile animate-word-3">Innovate</span>
-        </div>
-        <p class="mx-auto mt-6 max-w-xs text-center font-urbanist text-base text-white/60 xs:text-lg">
-          Empowering the next generation of technology leaders.
-        </p>
-        <div class="mt-8 flex justify-center gap-x-8">
-          <div class="text-center">
-            <span class="hero-label">Date</span>
-            <p class="font-urbanist text-lg text-white">TBA</p>
+        <div class="rounded-2xl bg-[#002a52]/80 px-6 py-10 backdrop-blur-sm">
+          <div class="flex flex-col items-center gap-y-1">
+            <span class="hero-word-mobile animate-word-1">Discover</span>
+            <span class="hero-word-mobile animate-word-2 text-[#F68F21]">Network</span>
+            <span class="hero-word-mobile animate-word-3">Innovate</span>
           </div>
-          <div class="text-center">
-            <span class="hero-label">Venue</span>
-            <p class="font-urbanist text-lg text-white">Morgan State University</p>
+          <p class="mx-auto mt-6 max-w-xs text-center font-urbanist text-base text-white/70 xs:text-lg">
+            Empowering the next generation of technology leaders.
+          </p>
+          <div class="mt-8 flex justify-center gap-x-8">
+            <div class="text-center">
+              <span class="hero-label">Date</span>
+              <p class="font-urbanist text-lg text-white">TBA</p>
+            </div>
+            <div class="text-center">
+              <span class="hero-label">Venue</span>
+              <p class="font-urbanist text-lg text-white">Morgan State University</p>
+            </div>
           </div>
         </div>
       </div>
