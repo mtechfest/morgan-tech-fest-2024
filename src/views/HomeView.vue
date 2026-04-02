@@ -49,39 +49,37 @@ onUnmounted(() => {
     <div class="relative z-10 mx-auto max-w-7xl px-5 xs:px-8 lg:px-12">
       <!-- Desktop -->
       <div class="hidden pb-24 pt-20 lg:block xl:pt-28 xl:pb-32">
-        <div class="grid grid-cols-2 items-center gap-x-12">
-          <!-- Countdown (left side, over the robot) -->
-          <div class="flex flex-col items-center">
-            <span class="font-urbanist text-xs font-bold uppercase tracking-[0.25em] text-[#F68F21]">Event Countdown</span>
-            <div class="mt-4 flex gap-x-6">
-              <div class="countdown-block">
-                <span class="countdown-number">{{ days }}</span>
-                <span class="countdown-label">Days</span>
-              </div>
-              <div class="countdown-block">
-                <span class="countdown-number">{{ hours }}</span>
-                <span class="countdown-label">Hours</span>
-              </div>
-              <div class="countdown-block">
-                <span class="countdown-number">{{ mins }}</span>
-                <span class="countdown-label">Mins</span>
-              </div>
-              <div class="countdown-block">
-                <span class="countdown-number">{{ secs }}</span>
-                <span class="countdown-label">Secs</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Text (right side) -->
+        <div class="ml-auto w-1/2">
           <div class="flex flex-col items-start text-left">
             <span class="hero-word animate-word-1">Discover</span>
             <span class="hero-word animate-word-2 text-[#F68F21]">Network</span>
             <span class="hero-word animate-word-3">Innovate</span>
-            <p class="mt-8 max-w-sm text-left font-urbanist text-lg leading-relaxed text-white/70">
+            <p class="mt-6 max-w-sm text-left font-urbanist text-lg leading-relaxed text-white/70">
               Empowering the next generation of technology leaders at Morgan State University.
             </p>
-            <div class="mt-8 flex gap-x-10">
+            <!-- Countdown -->
+            <div class="mt-6">
+              <span class="font-urbanist text-[10px] font-bold uppercase tracking-[0.25em] text-[#F68F21]">Event Countdown</span>
+              <div class="mt-2 flex gap-x-5">
+                <div class="countdown-block">
+                  <span class="countdown-number">{{ days }}</span>
+                  <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-block">
+                  <span class="countdown-number">{{ hours }}</span>
+                  <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-block">
+                  <span class="countdown-number">{{ mins }}</span>
+                  <span class="countdown-label">Mins</span>
+                </div>
+                <div class="countdown-block">
+                  <span class="countdown-number">{{ secs }}</span>
+                  <span class="countdown-label">Secs</span>
+                </div>
+              </div>
+            </div>
+            <div class="mt-6 flex gap-x-10">
               <div>
                 <span class="hero-label">Date</span>
                 <p class="font-urbanist text-xl text-white">TBA</p>
@@ -223,7 +221,7 @@ onUnmounted(() => {
 
       <div class="mt-10 flex justify-center md:mt-14">
         <a
-          href="https://drive.google.com/file/d/19I9O3YuLNebegV23h7Z6oSua8dEuOGfI/view?usp=sharing"
+          href="/schedule.html"
           target="_blank"
           rel="noopener noreferrer"
           class="cta-btn"
