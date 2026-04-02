@@ -12,11 +12,11 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
   <!-- ===================== HERO ===================== -->
   <div id="hero" class="hero-wrapper">
     <div class="hero-grain"></div>
-    <div class="relative z-10 mx-auto max-w-6xl px-5 xs:px-8 3xl:max-w-screen-lg 4xl:max-w-screen-xl">
+    <div class="relative z-10 px-5 xs:px-8 lg:px-12 xl:px-20">
       <!-- Desktop -->
       <div class="hidden pb-24 pt-20 lg:block xl:pt-28 xl:pb-32">
         <div class="flex items-end justify-end">
-          <div class="flex max-w-xl flex-col items-end text-right">
+          <div class="flex flex-col items-end text-right">
             <span class="hero-word animate-word-1">Discover</span>
             <span class="hero-word animate-word-2 text-[#F68F21]">Network</span>
             <span class="hero-word animate-word-3">Innovate</span>
@@ -253,7 +253,7 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
 /* ===== HERO ===== */
 .hero-wrapper {
   @apply relative overflow-hidden;
-  background: linear-gradient(165deg, #002a52 0%, #004583 40%, #003466 100%);
+  background-color: #002a52;
   background-image: url('/backg.png');
   background-size: cover;
   background-position: left center;
