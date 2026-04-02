@@ -6,7 +6,7 @@ import InstagramIcon from '@/components/icons/IconInstagram.vue'
 import GithubIcon from '@/components/icons/IconGithub.vue'
 import DiscordIcon from '@/components/icons/IconDiscord.vue'
 import FAQItem from '@/components/FAQItem.vue'
-import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
+import { schedule, speakers, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
 
 // Countdown timer
 const eventDate = new Date('2026-10-15T09:00:00') // Update with actual event date
@@ -170,6 +170,39 @@ onUnmounted(() => {
             allowfullscreen
           ></iframe>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SPEAKERS ===================== -->
+  <div class="overflow-hidden bg-[#FEF8F0] px-5 pb-14 pt-10 xs:px-8 md:pb-20 md:pt-14" id="speakers">
+    <div class="mx-auto max-w-6xl">
+      <div class="text-center">
+        <span class="section-label">Past Speakers & Guests</span>
+        <h2 class="mt-3 font-bebas text-5xl font-normal text-[#121139] xs:text-6xl sm:text-7xl">Featured Voices</h2>
+      </div>
+    </div>
+
+    <!-- Scrolling marquee -->
+    <div class="speaker-marquee mt-10 md:mt-14">
+      <div class="speaker-track">
+        <template v-for="item in speakers" :key="item.name + '-1'">
+          <div class="speaker-card">
+            <div class="speaker-img-wrap">
+              <img :src="item.img" :alt="item.name" class="speaker-img" />
+            </div>
+            <p class="speaker-name">{{ item.name }}</p>
+          </div>
+        </template>
+        <!-- Duplicate for seamless loop -->
+        <template v-for="item in speakers" :key="item.name + '-2'">
+          <div class="speaker-card">
+            <div class="speaker-img-wrap">
+              <img :src="item.img" :alt="item.name" class="speaker-img" />
+            </div>
+            <p class="speaker-name">{{ item.name }}</p>
+          </div>
+        </template>
       </div>
     </div>
   </div>
@@ -468,5 +501,63 @@ onUnmounted(() => {
 /* ===== SOCIAL LINKS ===== */
 .social-link {
   @apply block rounded-lg border border-white/10 px-2.5 py-2.5 transition-colors duration-200 hover:border-[#F68F21]/40;
+}
+
+/* ===== SPEAKERS MARQUEE ===== */
+.speaker-marquee {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.speaker-track {
+  display: flex;
+  gap: 24px;
+  animation: scrollMarquee 35s linear infinite;
+  width: max-content;
+}
+
+.speaker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.speaker-card {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 160px;
+}
+
+.speaker-img-wrap {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(246, 143, 33, 0.2);
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.speaker-card:hover .speaker-img-wrap {
+  border-color: #F68F21;
+  transform: scale(1.05);
+}
+
+.speaker-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.speaker-name {
+  @apply text-center font-urbanist text-sm font-semibold text-[#121139];
+  line-height: 1.3;
 }
 </style>

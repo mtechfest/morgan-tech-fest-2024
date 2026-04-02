@@ -6,6 +6,22 @@ export const schedule = [
   'Award Ceremony'
 ]
 
+export const speakers = [
+  { name: 'Amen Mashariki', img: '/Guest Images/AmenMashariki.JPG' },
+  { name: 'Arielle Williams', img: '/Guest Images/Arielle Headshot.jpeg' },
+  { name: 'Deanna Bailey', img: '/Guest Images/DeannaBailey_Headshot.png' },
+  { name: 'Dr. Jalaal A. Hayes', img: '/Guest Images/Jamaal.JPG' },
+  { name: 'Jamell Dacon', img: '/Guest Images/Jamell_Dacon.jpg' },
+  { name: 'Kayla Mclaughlin', img: '/Guest Images/Kayla.jpg' },
+  { name: 'Kenneth Kerr', img: '/Guest Images/KennethKerr.png' },
+  { name: 'Marisniulkis Lescaille', img: '/Guest Images/IMG_6945.jpeg' },
+  { name: 'Rishi Chopra', img: '/Guest Images/Rishi.jpg' },
+  { name: 'Scott Roth', img: '/Guest Images/Roth, Scott_CROPPED_2022.jpg' },
+  { name: 'Sharod Jenkins', img: '/Guest Images/SharodJenkins_HS.JPEG' },
+  { name: 'Vinod Akunuri', img: '/Guest Images/IMG_0315.jpg' },
+  { name: 'Guest Speaker', img: '/Guest Images/Headshot.jpg' }
+]
+
 export const tracks = [
   'Health',
   'Education',
