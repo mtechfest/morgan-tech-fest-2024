@@ -1,21 +1,27 @@
+import { fileURLToPath, URL } from 'node:url'
+
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
+import Components from 'unplugin-vue-components/vite'
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  assetsInclude: ['**/*.pptx', '**/*.pdf'],
-  build: {
-    rollupOptions: {
-      output: {
-        assetFileNames: (assetInfo) => {
-          // Keep the original filename for assets
-          if (assetInfo.name.endsWith('.pptx') || assetInfo.name.endsWith('.pdf')) {
-            return 'assets/[name][extname]';
-          }
-          return 'assets/[name]-[hash][extname]';
-        }
-      }
+  plugins: [
+    vue(),
+    vueJsx(),
+    Components({
+      resolvers: [
+        AntDesignVueResolver({
+          importStyle: false // css in js
+        })
+      ]
+    })
+  ],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   }
 })
