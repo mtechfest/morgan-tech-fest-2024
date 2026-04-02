@@ -12,15 +12,15 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
   <!-- ===================== HERO ===================== -->
   <div id="hero" class="hero-wrapper">
     <div class="hero-grain"></div>
-    <div class="relative z-10 px-5 xs:px-8 lg:px-12 xl:px-20">
+    <div class="relative z-10 mx-auto max-w-7xl px-5 xs:px-8 lg:px-12">
       <!-- Desktop -->
       <div class="hidden pb-24 pt-20 lg:block xl:pt-28 xl:pb-32">
-        <div class="flex items-end justify-end">
-          <div class="flex flex-col items-end text-right">
+        <div class="ml-auto w-1/2">
+          <div class="flex flex-col items-start text-left">
             <span class="hero-word animate-word-1">Discover</span>
             <span class="hero-word animate-word-2 text-[#F68F21]">Network</span>
             <span class="hero-word animate-word-3">Innovate</span>
-            <p class="mt-8 max-w-sm text-right font-urbanist text-lg leading-relaxed text-white/70">
+            <p class="mt-8 max-w-sm text-left font-urbanist text-lg leading-relaxed text-white/70">
               Empowering the next generation of technology leaders at Morgan State University.
             </p>
             <div class="mt-8 flex gap-x-10">
@@ -301,7 +301,10 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
 /* ===== VIDEO ===== */
 .video-section {
   @apply relative px-5 pb-6 xs:px-8 lg:pb-8 lg:pt-8;
-  background: linear-gradient(to bottom, #003466 0%, #003466 40%, #fef8f0 40%, #fef8f0 100%);
+  background-image: url('/backg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .video-container {
