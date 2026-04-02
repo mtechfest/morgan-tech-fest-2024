@@ -178,7 +178,7 @@ onUnmounted(() => {
   <div class="overflow-hidden bg-[#FEF8F0] px-5 pb-14 pt-10 xs:px-8 md:pb-20 md:pt-14" id="speakers">
     <div class="mx-auto max-w-6xl">
       <div class="text-center">
-        <span class="section-label">Past Speakers & Guests</span>
+        <span class="section-label">Past Speakers & Panelists</span>
         <h2 class="mt-3 font-bebas text-5xl font-normal text-[#121139] xs:text-6xl sm:text-7xl">Featured Voices</h2>
       </div>
     </div>
