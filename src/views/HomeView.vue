@@ -46,14 +46,14 @@ onUnmounted(() => {
   <!-- ===================== HERO ===================== -->
   <div id="hero" class="hero-wrapper">
     <div class="hero-grain"></div>
-    <div class="relative z-10 mx-auto max-w-7xl px-5 xs:px-8 lg:px-12">
+    <div class="relative z-10 px-5 xs:px-8 lg:px-12 xl:px-16">
       <!-- Desktop -->
       <div class="hidden pb-24 pt-20 lg:block xl:pt-28 xl:pb-32">
-        <div class="grid grid-cols-5 items-center gap-x-8">
-          <!-- Left spacer (robot area) -->
-          <div class="col-span-2"></div>
+        <div class="flex">
+          <!-- Left spacer (robot area ~50%) -->
+          <div class="w-[50%] flex-shrink-0 xl:w-[45%]"></div>
           <!-- Right content -->
-          <div class="col-span-3 flex flex-col items-start text-left">
+          <div class="flex flex-col items-start text-left">
             <span class="hero-word animate-word-1">Discover</span>
             <span class="hero-word animate-word-2 text-[#F68F21]">Network</span>
             <span class="hero-word animate-word-3">Innovate</span>
