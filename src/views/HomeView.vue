@@ -15,17 +15,15 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
     <div class="relative z-10 mx-auto max-w-6xl px-5 xs:px-8 3xl:max-w-screen-lg 4xl:max-w-screen-xl">
       <!-- Desktop -->
       <div class="hidden pb-24 pt-20 lg:block xl:pt-28 xl:pb-32">
-        <div class="grid grid-cols-2 items-end gap-x-8">
-          <div>
+        <div class="flex items-end justify-end">
+          <div class="flex max-w-xl flex-col items-end text-right">
             <span class="hero-word animate-word-1">Discover</span>
             <span class="hero-word animate-word-2 text-[#F68F21]">Network</span>
             <span class="hero-word animate-word-3">Innovate</span>
-          </div>
-          <div class="flex flex-col items-end justify-end gap-y-10 pb-4">
-            <p class="max-w-sm text-right font-urbanist text-lg leading-relaxed text-white/70">
+            <p class="mt-8 max-w-sm text-right font-urbanist text-lg leading-relaxed text-white/70">
               Empowering the next generation of technology leaders at Morgan State University.
             </p>
-            <div class="flex gap-x-10">
+            <div class="mt-8 flex gap-x-10">
               <div>
                 <span class="hero-label">Date</span>
                 <p class="font-urbanist text-xl text-white">TBA</p>
@@ -256,6 +254,10 @@ import { schedule, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
 .hero-wrapper {
   @apply relative overflow-hidden;
   background: linear-gradient(165deg, #002a52 0%, #004583 40%, #003466 100%);
+  background-image: url('/backg.png');
+  background-size: cover;
+  background-position: left center;
+  background-repeat: no-repeat;
 }
 
 .hero-grain {
