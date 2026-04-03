@@ -88,7 +88,7 @@ export const partners = [
   },
   {
     name: 'JS2T',
-    img: '/JS2T (Black- Trspt).png'
+    img: '/JS2T - (Black-NonTrspt).png'
   },
   {
     name: 'LFG',
