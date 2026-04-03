@@ -208,38 +208,40 @@ onUnmounted(() => {
   </div>
 
   <!-- ===================== CORE COMPONENTS ===================== -->
-
   <div class="bg-morgan-blue px-5 pb-16 pt-16 xs:px-8 md:pb-28 md:pt-24" id="components">
-  <div class="mx-auto max-w-6xl">
-    <span class="section-label-light">What We Do</span>
-    <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">Core Components</h2>
+    <div class="mx-auto max-w-6xl">
+      <span class="section-label-light">What We Do</span>
+      <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">Core Components</h2>
 
-    <div class="mt-10 grid grid-cols-1 gap-6 md:mt-16 md:grid-cols-2 md:gap-8">
-      
-      <!-- Tech Case Competition -->
-      <div class="comp-card group">
-        <span class="comp-number">01</span>
-        <h3 class="comp-title">Tech Case Competition</h3>
-        <p class="comp-text">
-         Student teams develop technology-driven solutions to real-world problems across key tracks. Solutions are evaluated based on clarity, innovation, feasibility, and impact.
-        </p>
-        <div class="mt-5 flex flex-wrap gap-2">
-          <template v-for="track in tracks" :key="track">
-            <span class="track-tag">{{ track }}</span>
-          </template>
+      <div class="mt-10 grid grid-cols-1 gap-6 md:mt-16 md:grid-cols-2 md:gap-8">
+        
+        <!-- Tech Case Competition -->
+        <div class="comp-card group">
+          <span class="comp-number">01</span>
+          <h3 class="comp-title">Tech Case Competition</h3>
+          <p class="comp-text">
+           Student teams develop technology-driven solutions to real-world problems across key tracks. Solutions are evaluated based on clarity, innovation, feasibility, and impact.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            <template v-for="track in tracks" :key="track">
+              <span class="track-tag">{{ track }}</span>
+            </template>
+          </div>
         </div>
+
+        <!-- Innovation Expo -->
+        <div class="comp-card group">
+          <span class="comp-number">02</span>
+          <h3 class="comp-title">Innovation Expo</h3>
+          <p class="comp-subtitle">Research & Project Showcase</p>
+          <p class="comp-text">
+           Students showcase research and projects, including prototypes and technology-driven solutions, evaluated based on clarity, technical depth, organization, and real-world impact.
+          </p>
+        </div>
+
       </div>
-
-      <!-- Innovation Expo -->
-<div class="comp-card group">
-  <span class="comp-number">02</span>
-  <h3 class="comp-title">Innovation Expo</h3>
-  <p class="comp-subtitle">Research & Project Showcase</p>
-  <p class="comp-text">
- Students showcase research and projects, including prototypes and technology-driven solutions, evaluated based on clarity, technical depth, organization, and real-world impact.
-  </p>
-</div>
-
+    </div>
+  </div>
 
   <!-- ===================== SCHEDULE ===================== -->
   <div class="bg-morgan-blue px-5 pb-16 pt-16 xs:px-8 md:pb-28 md:pt-24" id="schedule">
