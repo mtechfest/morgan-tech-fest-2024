@@ -135,7 +135,7 @@ export const partners = [
 export const FaqQuestionsAnswers = [
   {
     question: 'What is Morgan TechFest?',
-    answer: 'Morgan TechFest is an annual technology innovation platform hosted by Morgan State University. It brings together students, faculty, and the broader academic community through a Tech Case Competition and an Innovation Expo.'
+    answer: 'Morgan TechFest is a premier platform for discovery, innovation, and collaboration, empowering the next generation of technology leaders by advancing student development and creating pathways for career exploration in technology-driven fields.'
   },
   {
     question: 'Who can participate?',
