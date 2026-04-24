@@ -150,9 +150,7 @@ onUnmounted(() => {
         <div>
           <span class="section-label">About Morgan TechFest</span>
           <p class="mt-4 font-urbanist text-xl leading-relaxed text-[#121139] xs:text-2xl md:text-2xl md:leading-relaxed">
-            Morgan TechFest is a platform for discovery, innovation, and collaboration, empowering
-            the next generation of technology leaders while supporting student development and enabling
-            career path discovery in technology-driven fields.
+            Morgan TechFest is a platform that drives discovery, innovation, and collaboration, empowering the next generation of technology leaders and enabling meaningful career exploration in technology-driven fields.
           </p>
           <p class="mt-4 font-urbanist text-base leading-relaxed text-[#121139]/60 xs:text-lg">
             Open to students from Morgan State University and other institutions, Morgan TechFest
