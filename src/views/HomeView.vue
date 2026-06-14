@@ -9,7 +9,7 @@ import FAQItem from '@/components/FAQItem.vue'
 import { schedule, speakers, tracks, partners, FaqQuestionsAnswers } from '@/data/home'
 
 // Countdown timer
-const eventDate = new Date('2026-10-15T09:00:00') // Update with actual event date
+const eventDate = new Date('2026-09-19T09:00:00') // Update with actual event date
 const days = ref('00')
 const hours = ref('00')
 const mins = ref('00')
@@ -85,11 +85,11 @@ onUnmounted(() => {
             <div class="mt-4 flex gap-x-8 xl:mt-6 xl:gap-x-10">
               <div>
                 <span class="hero-label">Date</span>
-                <p class="font-urbanist text-lg text-white xl:text-xl">TBA</p>
+                <p class="font-urbanist text-lg text-white xl:text-xl">September 19, 2026</p>
               </div>
               <div>
                 <span class="hero-label">Venue</span>
-                <p class="font-urbanist text-lg text-white xl:text-xl">Morgan State University</p>
+                <p class="font-urbanist text-lg text-white xl:text-xl">Earl G. Graves School of Business & Management</p>
               </div>
             </div>
           </div>
