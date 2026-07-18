@@ -12,21 +12,28 @@ export const eventInfo = {
 }
 
 // Nav is data, so the desktop bar and the mobile disclosure cannot drift apart.
+// `href` wins over `id`: items with an href are standalone pages, items
+// without one scroll to a section on this page.
 export const nav = [
   { id: 'about', label: 'About', index: '01' },
   { id: 'components', label: 'Components', index: '02' },
   { id: 'tracks', label: 'Tracks', index: '03' },
-  { id: 'schedule', label: 'Schedule', index: '04' },
-  { id: 'partners', label: 'Partners', index: '05' },
-  { id: 'faq', label: 'FAQ', index: '06' }
+  { id: 'schedule', label: 'Schedule', index: '04', href: '/schedule.html' },
+  { id: 'sponsors', label: 'Sponsors', index: '05', href: '/sponsors.html' },
+  { id: 'highlights', label: 'Highlights', index: '06', href: '/highlights.html' },
+  { id: 'faq', label: 'FAQ', index: '07' }
 ]
 
+// Headline program blocks, in the order they actually run on the day.
+// The SH-0n ids are a sequence, so the order here must match the timeline on
+// /schedule.html — if that page is re-timed, re-sort this list to match.
 export const schedule = [
-  'Tech Case Competition',
-  'Innovation Expo',
-  'Networking',
-  'Panel Session',
-  'Award Ceremony'
+  { id: 'SH-01', name: 'Innovation Expo' },
+  { id: 'SH-02', name: 'Panel Session' },
+  { id: 'SH-03', name: 'Workshop' },
+  { id: 'SH-04', name: 'Tech Case Competition' },
+  { id: 'SH-05', name: 'Networking' },
+  { id: 'SH-06', name: 'Award Ceremony' }
 ]
 
 // The 2026 lineup is not announced yet, so the marquee runs placeholder slots.

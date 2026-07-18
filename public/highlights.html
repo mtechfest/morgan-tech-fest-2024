@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morgan TechFest — Highlights</title>
+  <meta name="theme-color" content="#241145" />
+  <meta name="description" content="Morgan TechFest highlights: award winners, the photo album, and write-ups from past editions." />
+  <link rel="icon" href="/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/page.css" />
+  <style>
+    /* ===== AWARD LATTICE =====
+       One hairline grid: the wrapper's background shows through the 1px gaps,
+       so no cell owns a border. */
+    .award-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      margin-top: 24px;
+      background: rgba(22, 7, 43, 0.1);
+      border: 1px solid rgba(22, 7, 43, 0.1);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    @media (max-width: 700px) {
+      .award-grid { grid-template-columns: 1fr; }
+    }
+
+    .award-cell {
+      background: white;
+      padding: 24px;
+      transition: background 0.2s;
+    }
+
+    .award-cell:hover { background: #fbfaff; }
+
+    .award-id {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(13, 198, 244, 0.9);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .award-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      color: var(--dark);
+      line-height: 1.05;
+    }
+
+    .award-desc {
+      margin-top: 6px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(22, 7, 43, 0.6);
+    }
+
+    /* ===== GALLERY ===== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 700px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+
+    .gallery-grid figure {
+      margin: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(22, 7, 43, 0.06);
+      position: relative;
+    }
+
+    .gallery-grid img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-grid figure:hover img { transform: scale(1.04); }
+
+    .gallery-grid figcaption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 24px 16px 12px;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: white;
+      background: linear-gradient(to top, rgba(22, 7, 43, 0.8), transparent);
+    }
+
+    /* ===== LINK ROW ===== */
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .link-row .back-link { margin-top: 0; }
+
+    .link-solid {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: 100px;
+      border: 2px solid transparent;
+      background: linear-gradient(180deg, #ff7a1a 20%, #fc470b 100%);
+      color: white;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .link-solid:hover { transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <div class="header-content animate-in">
+      <p class="eyebrow">Future Flux &middot; Recap</p>
+      <h1>Celebrating <span>Innovation</span></h1>
+      <p class="subtitle">Morgan TechFest recognises standout projects and the people behind them, with awards for innovation, technical depth, and real-world problem solving.</p>
+      <div class="preevent-banner">Award Categories &mdash; 2026 Winners Announced On Event Day</div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- AWARDS -->
+    <div class="section-block animate-in">
+      <span class="section-tag">01 — What gets recognised</span>
+      <h2 class="section-title">Award Ceremony</h2>
+      <p class="section-desc">
+        Awards close the day. Each of the two core components is judged on its own criteria, and
+        recognition goes to the teams and individuals whose work best answers the brief.
+      </p>
+
+      <div class="award-grid">
+        <div class="award-cell">
+          <span class="award-id">AWD-01</span>
+          <h3 class="award-name">Tech Case Competition</h3>
+          <p class="award-desc">Judged on clarity, innovation, feasibility, and impact of the proposed solution.</p>
+        </div>
+        <div class="award-cell">
+          <span class="award-id">AWD-02</span>
+          <h3 class="award-name">Innovation Expo</h3>
+          <p class="award-desc">Judged on clarity, technical depth, organisation, and real-world impact of the work shown.</p>
+        </div>
+        <div class="award-cell">
+          <span class="award-id">AWD-03</span>
+          <h3 class="award-name">Recognition</h3>
+          <p class="award-desc">Exposure and awards for standout individuals across the day's programme.</p>
+        </div>
+      </div>
+
+      <div class="note-box" style="margin-top: 28px;">
+        <strong>Winners are announced at the ceremony.</strong> Write-ups from previous editions are
+        published on Medium after each event.
+      </div>
+    </div>
+
+    <!-- GALLERY -->
+    <div class="section-block animate-in delay-2" style="margin-top: 64px;">
+      <span class="section-tag">02 — Moments</span>
+      <h2 class="section-title">Gallery</h2>
+      <p class="section-desc">
+        A look at previous editions. The full album lives on Google Drive.
+      </p>
+
+      <div class="gallery-grid">
+        <figure>
+          <img
+            src="https://res.cloudinary.com/ojay-dev/image/upload/v1693949821/MorganTechFest/gallery/_PAG0547_1_1_z7ffvg.png"
+            alt="Attendees at a past Morgan TechFest"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>IMG-01 · Attendees</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="https://res.cloudinary.com/ojay-dev/image/upload/v1693912317/MorganTechFest/gallery/_PAG05472_b2x7ra.png"
+            alt="Project showcase at a past Morgan TechFest"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>IMG-02 · Showcase</figcaption>
+        </figure>
+      </div>
+
+      <div class="link-row">
+        <a class="link-solid" href="https://drive.google.com/drive/folders/1-m8WPWPPjLZuv9BUEwkRIMI6z2F6DEgb?usp=sharing" target="_blank" rel="noopener noreferrer">View full album</a>
+        <a class="back-link" href="https://medium.com/@morgantechfest" target="_blank" rel="noopener noreferrer">Read on Medium</a>
+      </div>
+    </div>
+
+    <a href="/" class="back-link animate-in delay-4">&larr; Back to home</a>
+    <a href="/schedule.html" class="back-link animate-in delay-4" style="margin-left: 12px;">View schedule &rarr;</a>
+
+  </div>
+
+</body>
+</html>

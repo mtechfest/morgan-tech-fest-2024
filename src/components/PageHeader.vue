@@ -69,9 +69,15 @@ onUnmounted(() => {
         </div>
 
         <nav class="hidden w-full max-w-screen-md justify-between lg:flex" aria-label="Primary">
-          <a v-for="item in nav" :key="item.id" :href="'#' + item.id" class="nav-link">
+          <a
+            v-for="item in nav"
+            :key="item.id"
+            :href="item.href || '#' + item.id"
+            class="nav-link"
+          >
             <span class="nav-index">{{ item.index }}</span>
             {{ item.label }}
+            <span v-if="item.href" class="nav-out" aria-hidden="true">&#8599;</span>
           </a>
         </nav>
 
@@ -102,12 +108,13 @@ onUnmounted(() => {
       <a
         v-for="item in nav"
         :key="item.id"
-        :href="'#' + item.id"
+        :href="item.href || '#' + item.id"
         class="mobile-nav-link"
         @click="closeMenu"
       >
         <span class="nav-index">{{ item.index }}</span>
         {{ item.label }}
+        <span v-if="item.href" class="nav-out" aria-hidden="true">&#8599;</span>
       </a>
     </nav>
   </header>
@@ -118,6 +125,18 @@ header {
   position: sticky;
   top: 0;
   z-index: 50;
+  /* A sticky header can never be scrolled past, so it must never be taller
+     than the screen — otherwise anything below the fold is unreachable.
+     Capping it here and letting the nav scroll inside is what keeps the last
+     menu item reachable on short viewports (landscape phones). */
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  max-height: 100dvh; /* dvh accounts for mobile browser chrome; vh is the fallback */
+}
+
+.header-bg {
+  flex: 0 0 auto;
 }
 
 .header-bg {
@@ -142,6 +161,11 @@ header {
 
 .nav-index {
   @apply mr-1.5 text-[10px] text-flux-cyan/55;
+}
+
+/* Marks the two items that leave this page for a standalone one */
+.nav-out {
+  @apply ml-1 text-[10px] text-flux-cyan/60;
 }
 
 .nav-link::after {
@@ -191,6 +215,26 @@ header {
 .mobile-nav {
   @apply flex flex-col border-b border-white/10 px-5 pb-4 pt-1;
   background: rgba(21, 8, 41, 0.97);
+  /* min-height:0 lets this flex child shrink below its content height so the
+     cap above can bite; without it the list would push the header taller. */
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Landscape phones are wide and short: a single 7-item column wastes the width
+   and runs off the bottom. Two columns halve the height. */
+@media (max-height: 500px) and (orientation: landscape) {
+  .mobile-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+  }
+
+  .mobile-nav-link {
+    @apply py-2;
+  }
 }
 
 .mobile-nav-link {
@@ -199,5 +243,14 @@ header {
 
 .mobile-nav-link:last-child {
   @apply border-b-0;
+}
+
+/* In the two-column layout the "last child" rule no longer maps to the visually
+   bottom row, so keep the rules uniform there. */
+@media (max-height: 500px) and (orientation: landscape) {
+  .mobile-nav-link:last-child {
+    @apply border-b;
+    border-color: rgb(255 255 255 / 0.05);
+  }
 }
 </style>

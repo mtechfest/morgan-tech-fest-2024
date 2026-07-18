@@ -333,11 +333,14 @@ onUnmounted(() => {
       <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">
         Schedule
       </h2>
+      <p class="mt-3 max-w-xl font-urbanist text-base text-white/55 sm:text-lg">
+        Six headline blocks, in the order they run. The full timed programme lives on its own page.
+      </p>
 
-      <div class="mt-8 grid grid-cols-1 gap-3 xs:grid-cols-2 sm:grid-cols-3 md:mt-12 lg:grid-cols-5 lg:gap-4">
-        <span v-for="(item, i) in schedule" :key="item" class="sched-pill">
-          <i class="sched-index">{{ String(i + 1).padStart(2, '0') }}</i>
-          {{ item }}
+      <div class="mt-8 grid grid-cols-1 gap-3 xs:grid-cols-2 md:mt-12 lg:grid-cols-3 lg:gap-4">
+        <span v-for="item in schedule" :key="item.id" class="sched-pill">
+          <i class="sched-index">{{ item.id }}</i>
+          {{ item.name }}
         </span>
       </div>
 
@@ -350,14 +353,18 @@ onUnmounted(() => {
   </div>
 
   <!-- ===================== PARTNERS ===================== -->
-  <div class="bg-flux-mist px-5 pb-16 pt-16 xs:px-8 md:pb-28 md:pt-24" id="partners">
+  <div class="bg-flux-mist px-5 pb-16 pt-16 xs:px-8 md:pb-24 md:pt-24" id="partners">
     <div class="mx-auto max-w-6xl">
-      <span class="section-label"><i>05</i> Our</span>
+      <span class="section-label"><i>06</i> Backed by</span>
       <h2 class="mt-3 font-bebas text-5xl font-normal text-flux-ink xs:text-6xl sm:text-7xl">
-        Partners
+        Sponsors &amp; Partners
       </h2>
+      <p class="mt-3 max-w-xl font-urbanist text-base text-flux-ink/55 sm:text-lg">
+        Organisations that have supported past editions through funding, speakers, judges, prizes,
+        and venue.
+      </p>
 
-      <div class="mt-10 flex flex-wrap items-center justify-center gap-8 md:mt-16 lg:gap-16">
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-8 md:mt-14 lg:gap-16">
         <img
           v-for="item in partners"
           :key="item.name"
@@ -368,71 +375,57 @@ onUnmounted(() => {
           class="h-10 max-w-[120px] object-contain opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-14 sm:max-w-[140px]"
         />
       </div>
+
+      <div class="mt-10 flex justify-center md:mt-14">
+        <a href="/sponsors.html" class="cta-btn-dark">Sponsors &amp; reach &rarr;</a>
+      </div>
     </div>
   </div>
 
-  <!-- ===================== AWARDS ===================== -->
-  <div class="section-dark px-5 pb-16 pt-16 xs:px-8 md:pb-28 md:pt-24" id="awards">
+  <!-- ===================== HIGHLIGHTS (entry point) ===================== -->
+  <div class="section-dark px-5 pb-12 pt-16 xs:px-8 md:pb-20 md:pt-24" id="highlights">
     <div class="mx-auto max-w-6xl">
-      <div class="mx-auto max-w-3xl text-center">
-        <span class="section-label-light justify-center">Highlights</span>
-        <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">
-          Celebrating Innovation and Excellence
-        </h2>
-        <p class="mt-6 font-urbanist text-base leading-relaxed text-white/60 xs:text-lg md:text-xl">
-          Morgan TechFest 2024 recognized standout projects and individuals through its Award
-          Ceremony, emphasizing innovation and problem-solving in tech.
-        </p>
-        <div class="mt-8 flex justify-center md:mt-12">
-          <a
-            href="https://medium.com/@morgantechfest"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="cta-btn"
-            >Read on Medium</a
-          >
+      <span class="section-label-light"><i>07</i> Recap</span>
+      <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">
+        Highlights
+      </h2>
+      <p class="mt-3 max-w-xl font-urbanist text-base text-white/55 sm:text-lg">
+        Award winners, the photo album, and the write-ups from previous years.
+      </p>
+
+      <a href="/highlights.html" class="recap-card mt-8 md:mt-10">
+        <div class="recap-body">
+          <span class="card-id">REC-01</span>
+          <h3 class="recap-title">Celebrating Innovation &amp; Excellence</h3>
+          <p class="recap-text">
+            Morgan TechFest recognises standout projects and individuals through its Award Ceremony.
+            The recap page collects the winners, the gallery, and the Medium write-ups in one place.
+          </p>
+          <span class="recap-cta">Open highlights <span aria-hidden="true">&rarr;</span></span>
         </div>
-      </div>
+        <div class="recap-thumbs" aria-hidden="true">
+          <img
+            src="https://res.cloudinary.com/ojay-dev/image/upload/v1693949821/MorganTechFest/gallery/_PAG0547_1_1_z7ffvg.png"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            src="https://res.cloudinary.com/ojay-dev/image/upload/v1693912317/MorganTechFest/gallery/_PAG05472_b2x7ra.png"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </a>
     </div>
   </div>
 
-  <!-- ===================== GALLERY ===================== -->
-  <div class="section-dark px-5 pb-12 pt-16 xs:px-8 md:pb-20 md:pt-24">
-    <div class="mx-auto max-w-6xl text-center">
-      <span class="section-label-light justify-center">Moments</span>
-      <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">Gallery</h2>
-
-      <div class="mt-8 grid grid-cols-1 gap-4 md:mt-12 md:grid-cols-2 md:gap-6">
-        <img
-          src="https://res.cloudinary.com/ojay-dev/image/upload/v1693949821/MorganTechFest/gallery/_PAG0547_1_1_z7ffvg.png"
-          alt="Morgan TechFest attendees at a past event"
-          loading="lazy"
-          decoding="async"
-          class="w-full rounded-xl object-cover sm:rounded-2xl"
-        />
-        <img
-          src="https://res.cloudinary.com/ojay-dev/image/upload/v1693912317/MorganTechFest/gallery/_PAG05472_b2x7ra.png"
-          alt="Morgan TechFest project showcase"
-          loading="lazy"
-          decoding="async"
-          class="w-full rounded-xl object-cover sm:rounded-2xl"
-        />
-      </div>
-
-      <div class="mt-8 flex justify-center md:mt-12">
-        <a
-          href="https://drive.google.com/drive/folders/1-m8WPWPPjLZuv9BUEwkRIMI6z2F6DEgb?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="cta-btn"
-          >View full album</a
-        >
-      </div>
-    </div>
-
+  <!-- ===================== FAQ + FOOTER ===================== -->
+  <div class="section-dark px-5 pb-12 pt-4 xs:px-8 md:pb-20">
     <!-- ===================== FAQ ===================== -->
-    <div class="mx-auto mt-20 max-w-6xl md:mt-32" id="faq">
-      <span class="section-label-light"><i>06</i> Questions?</span>
+    <div class="mx-auto max-w-6xl pt-8 md:pt-16" id="faq">
+      <span class="section-label-light"><i>08</i> Questions?</span>
       <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">FAQ</h2>
 
       <div class="mt-6 md:mt-10">
@@ -833,10 +826,57 @@ onUnmounted(() => {
   @apply inline-block rounded-full border-2 border-flux-cyan px-7 py-3 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-flux-cyan transition-colors duration-200 hover:bg-flux-cyan hover:text-flux-void sm:px-9 sm:py-4 sm:text-xs;
 }
 
+.cta-btn-dark {
+  @apply inline-block rounded-full border-2 border-flux-violet px-7 py-3 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-flux-violet transition-colors duration-200 hover:bg-flux-violet hover:text-white sm:px-9 sm:py-4 sm:text-xs;
+}
+
 .cta-solid {
   @apply inline-block rounded-full px-8 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-white transition-transform duration-200 hover:-translate-y-0.5 sm:px-10 sm:py-4 sm:text-sm;
   background: linear-gradient(180deg, #ff7a1a 20%, #fc470b 100%);
   box-shadow: 0 12px 34px rgba(252, 71, 11, 0.34);
+}
+
+/* ===== RECAP ENTRY CARD ===== */
+.recap-card {
+  @apply grid grid-cols-1 overflow-hidden rounded-2xl transition-colors duration-200 sm:rounded-3xl md:grid-cols-[1.15fr_1fr];
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.01) 100%);
+}
+
+.recap-card:hover {
+  border-color: rgba(13, 198, 244, 0.4);
+}
+
+.recap-body {
+  @apply px-5 py-7 xs:px-7 sm:px-9 sm:py-9;
+}
+
+.recap-title {
+  @apply font-bebas text-3xl leading-tight text-white sm:text-4xl lg:text-5xl;
+}
+
+.recap-text {
+  @apply mt-3 max-w-md font-urbanist text-base leading-relaxed text-white/55 sm:text-lg;
+}
+
+.recap-cta {
+  @apply mt-5 inline-block font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-flux-cyan;
+}
+
+.recap-card:hover .recap-cta {
+  @apply underline underline-offset-4;
+}
+
+/* Two stacked stills stand in for the album without loading it */
+.recap-thumbs {
+  @apply grid grid-cols-2 gap-px md:grid-cols-1;
+  background: rgba(255, 255, 255, 0.08);
+  min-height: 180px;
+}
+
+.recap-thumbs img {
+  @apply h-full w-full object-cover;
+  min-height: 90px;
 }
 
 /* ===== SOCIAL LINKS ===== */
