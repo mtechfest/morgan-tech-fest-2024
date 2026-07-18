@@ -134,6 +134,47 @@
     }
 
     .link-solid:hover { transform: translateY(-2px); }
+
+    /* ===== PAST SPEAKERS CAROUSEL ===== */
+    .carousel { position: relative; margin-top: 28px; }
+    .carousel-track {
+      display: flex; gap: 16px; overflow-x: auto;
+      scroll-snap-type: x mandatory; scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch; padding: 4px 2px 8px;
+      scrollbar-width: none;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .speaker-slide { flex: 0 0 auto; width: 168px; scroll-snap-align: start; margin: 0; }
+    @media (min-width: 640px) { .speaker-slide { width: 190px; } }
+    .speaker-photo {
+      position: relative; aspect-ratio: 1 / 1; border-radius: 18px; overflow: hidden;
+      background: #e7e0f3; border: 1px solid rgba(22, 7, 43, 0.08);
+      box-shadow: 0 10px 24px rgba(22, 7, 43, 0.08);
+    }
+    .speaker-photo img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center 22%;
+      display: block; transition: transform 0.4s ease;
+    }
+    .speaker-slide:hover .speaker-photo img { transform: scale(1.05); }
+    .speaker-caption {
+      margin-top: 12px; font-family: 'Urbanist', sans-serif; font-weight: 700;
+      font-size: 15px; color: var(--dark); line-height: 1.25;
+    }
+    .carousel-arrow {
+      position: absolute; top: 42%; transform: translateY(-50%);
+      width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+      border-radius: 50%; border: 1px solid rgba(22, 7, 43, 0.12); background: #fff;
+      color: var(--dark); font-size: 26px; line-height: 1; cursor: pointer;
+      box-shadow: 0 6px 18px rgba(22, 7, 43, 0.12);
+      transition: background 0.2s, color 0.2s, transform 0.15s, opacity 0.2s; z-index: 3;
+    }
+    .carousel-arrow:hover { background: var(--orange); color: #fff; border-color: var(--orange); }
+    .carousel-arrow:active { transform: translateY(-50%) scale(0.92); }
+    .carousel-arrow:disabled { opacity: 0.3; cursor: default; }
+    .carousel-arrow:disabled:hover { background: #fff; color: var(--dark); border-color: rgba(22, 7, 43, 0.12); }
+    .carousel-prev { left: -6px; }
+    .carousel-next { right: -6px; }
+    @media (min-width: 720px) { .carousel-prev { left: -20px; } .carousel-next { right: -20px; } }
   </style>
 </head>
 <body>
@@ -217,6 +258,70 @@
       </div>
     </div>
 
+    <!-- PAST SPEAKERS -->
+    <div class="section-block animate-in delay-2" style="margin-top: 64px;">
+      <span class="section-tag">Who took the stage</span>
+      <h2 class="section-title">Past Speakers</h2>
+      <p class="section-desc">
+        Industry leaders, researchers, and mentors who joined previous editions of Morgan TechFest.
+      </p>
+
+      <div class="carousel" data-carousel>
+        <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous speakers" data-carousel-prev>&lsaquo;</button>
+        <div class="carousel-track" data-carousel-track>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/Guest%20Images/Amen%20Mashariki.JPG" alt="Amen Mashariki" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Amen Mashariki</figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/Guest%20Images/Arielle%20Williams.jpeg" alt="Arielle Williams" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Arielle Williams</figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/Guest%20Images/DeannaBailey_Headshot.png" alt="Deanna Bailey" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Deanna Bailey</figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/Guest%20Images/Dr.%20Jalaal%20A.%20Hayes.JPG" alt="Dr. Jalaal A. Hayes" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Dr. Jalaal A. Hayes</figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/Guest%20Images/Jamell%20Dacon.jpg" alt="Jamell Dacon" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Jamell Dacon</figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/Guest%20Images/Kayla%20Mclaughlin.jpg" alt="Kayla Mclaughlin" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Kayla Mclaughlin</figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/Guest%20Images/Kenneth%20Kerr.png" alt="Kenneth Kerr" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Kenneth Kerr</figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/Guest%20Images/Marisniulkis%20Lescaille.jpeg" alt="Marisniulkis Lescaille" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Marisniulkis Lescaille</figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/Guest%20Images/Rishi%20Chopra.jpg" alt="Rishi Chopra" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Rishi Chopra</figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/Guest%20Images/Scott%20Roth.jpg" alt="Scott Roth" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Scott Roth</figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/Guest%20Images/Sharod%20Jenkins.JPEG" alt="Sharod Jenkins" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Sharod Jenkins</figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/Guest%20Images/Vinod%20Akunuri.jpg" alt="Vinod Akunuri" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Vinod Akunuri</figcaption>
+        </figure>
+        </div>
+        <button class="carousel-arrow carousel-next" type="button" aria-label="Next speakers" data-carousel-next>&rsaquo;</button>
+      </div>
+    </div>
+
     <!-- GALLERY -->
     <div class="section-block animate-in delay-2" style="margin-top: 64px;">
       <span class="section-tag">Moments</span>
@@ -255,5 +360,33 @@
 
   </div>
 
+
+  <script>
+    (function () {
+      document.querySelectorAll('[data-carousel]').forEach(function (c) {
+        var track = c.querySelector('[data-carousel-track]');
+        var prev = c.querySelector('[data-carousel-prev]');
+        var next = c.querySelector('[data-carousel-next]');
+        if (!track) return;
+        function step() {
+          var slide = track.querySelector('.speaker-slide');
+          var w = slide ? slide.getBoundingClientRect().width : 180;
+          var gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 16;
+          var per = Math.max(1, Math.floor(track.clientWidth / (w + gap)));
+          return per * (w + gap);
+        }
+        function update() {
+          var max = track.scrollWidth - track.clientWidth - 2;
+          if (prev) prev.disabled = track.scrollLeft <= 0;
+          if (next) next.disabled = track.scrollLeft >= max;
+        }
+        if (prev) prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+        if (next) next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+        track.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+        update();
+      });
+    })();
+  </script>
 </body>
 </html>
