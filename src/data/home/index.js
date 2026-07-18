@@ -1,3 +1,13 @@
+// ── Event details: single source of truth for the hero + countdown ──
+export const eventInfo = {
+  theme: 'Future Flux',
+  tagline: 'Building The Intelligent World',
+  iso: '2026-09-19T09:00:00',
+  date: 'September 19, 2026',
+  venue: 'Earl G. Graves School of Business & Management',
+  city: 'Morgan State University, Baltimore, MD'
+}
+
 export const schedule = [
   'Tech Case Competition',
   'Innovation Expo',
@@ -6,7 +16,20 @@ export const schedule = [
   'Award Ceremony'
 ]
 
-export const speakers = [
+// The 2026 lineup is not announced yet, so the marquee runs placeholder slots.
+// Swap `speakerSlots` for the announced names when they are confirmed.
+export const speakerSlots = [
+  { id: 's1', role: 'Keynote' },
+  { id: 's2', role: 'Panelist' },
+  { id: 's3', role: 'Panelist' },
+  { id: 's4', role: 'Industry Speaker' },
+  { id: 's5', role: 'Panelist' },
+  { id: 's6', role: 'Industry Speaker' }
+]
+
+// Archived: 2024 speakers and panelists. Kept so the marquee can be restored
+// with real names and headshots once the 2026 lineup is public.
+export const pastSpeakers = [
   { name: 'Amen Mashariki', img: '/Guest Images/Amen Mashariki.JPG' },
   { name: 'Arielle Williams', img: '/Guest Images/Arielle Williams.jpeg' },
   { name: 'Deanna Bailey', img: '/Guest Images/DeannaBailey_Headshot.png' },
@@ -134,6 +157,10 @@ export const partners = [
 
 export const FaqQuestionsAnswers = [
   {
+    question: 'What is the 2026 theme?',
+    answer: 'Future Flux: Building The Intelligent World. The 2026 edition runs across four areas shaping that world — AI, Cybersecurity, Robotics, and Data Science.'
+  },
+  {
     question: 'What is Morgan TechFest?',
     answer: 'Morgan TechFest is a premier platform for discovery, innovation, and collaboration, empowering the next generation of technology leaders by advancing student development and creating pathways for career exploration in technology-driven fields.'
   },
@@ -155,7 +182,7 @@ export const FaqQuestionsAnswers = [
   },
   {
     question: 'Where is it held?',
-    answer: 'Morgan State University, Baltimore, MD. It is an in-person event.'
+    answer: 'The Earl G. Graves School of Business & Management at Morgan State University, Baltimore, MD. It is an in-person event held on September 19, 2026.'
   },
   {
     question: 'How do I register?',

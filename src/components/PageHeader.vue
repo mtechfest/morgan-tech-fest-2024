@@ -107,7 +107,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <header :class="{ 'bg-morgan-blue': !isSticky, sticky: isSticky }" ref="myHeader">
+  <header :class="{ 'bg-flux-indigo': !isSticky, sticky: isSticky }" ref="myHeader">
     <div class="header-bg px-3 py-5 xs:px-5 xs:py-7 xl:px-[5%]">
       <div class="mx-auto flex items-center justify-between gap-x-3 xs:gap-x-[5%]">
         <div class="flex items-center gap-x-2 xs:gap-x-3">
@@ -153,21 +153,31 @@ onUnmounted(() => {
 
 <style scoped>
 .header-bg {
-  /* border: 3px solid linear-gradient(136deg, rgba(255, 255, 255, 0.2), rgb(255, 255, 255)); */
-  /*
-  */
-  border: 3px solid rgba(255, 255, 255, 0.014);
-  background: linear-gradient(175deg, rgba(177, 177, 177, 0.32) 5.24%, rgba(0, 69, 131, 0.2) 51.01%),
-    rgba(0, 0, 128, 0.3);
-  backdrop-filter: blur(3.3px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-left: 0;
+  border-right: 0;
+  background: linear-gradient(175deg, rgba(78, 22, 104, 0.55) 5%, rgba(36, 17, 69, 0.55) 51%),
+    rgba(21, 8, 41, 0.55);
+  backdrop-filter: blur(10px);
 }
+
 .nav-link {
-  @apply font-urbanist text-base font-medium text-white xl:text-lg 2xl:text-xl;
+  @apply relative font-urbanist text-base font-medium text-white/85 transition-colors duration-200 hover:text-white xl:text-lg 2xl:text-xl;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute -bottom-1.5 left-0 h-px w-0 bg-flux-cyan transition-all duration-200;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
 }
 
 .register-btn {
-  @apply flex h-[36px] w-full max-w-[130px] flex-shrink-0 items-center justify-center rounded-[80px] px-4 text-xs font-extrabold text-[#121139] xs:h-[40px] xs:max-w-[165px] xs:px-9 xs:text-sm md:h-14 md:max-w-[196px] md:text-lg;
-  background: linear-gradient(180deg, #fc711a 25.62%, #fc470b 100.89%);
+  @apply flex h-[36px] w-full max-w-[130px] flex-shrink-0 items-center justify-center rounded-[80px] px-4 text-xs font-extrabold text-white transition-transform duration-150 xs:h-[40px] xs:max-w-[165px] xs:px-9 xs:text-sm md:h-14 md:max-w-[196px] md:text-lg;
+  background: linear-gradient(180deg, #ff7a1a 25.62%, #fc470b 100.89%);
+  box-shadow: 0 8px 24px rgba(252, 71, 11, 0.3);
 }
 
 .clicked {

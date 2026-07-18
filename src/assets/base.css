@@ -1,5 +1,20 @@
+:root {
+  --flux-void: #150829;
+  --flux-indigo: #241145;
+  --flux-violet: #3d1552;
+  --flux-plum: #4e1668;
+  --flux-cyan: #0dc6f4;
+  --flux-ember: #ff5a16;
+  --flux-mist: #f4f0fa;
+}
+
+html {
+  background-color: var(--flux-indigo);
+}
+
 body {
   min-height: 100vh;
+  background-color: var(--flux-indigo);
   transition:
     color 0.5s,
     background-color 0.5s;
@@ -21,4 +36,28 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--flux-cyan);
+  color: var(--flux-void);
+}
+
+/* Quality floor: visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--flux-cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
