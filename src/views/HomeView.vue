@@ -189,39 +189,6 @@ onUnmounted(() => {
     </div>
   </section>
 
-  <!-- ===================== ABOUT ===================== -->
-  <div class="bg-flux-mist px-5 pb-10 pt-14 xs:px-8 md:pb-16 md:pt-20" id="about">
-    <div class="mx-auto max-w-6xl">
-      <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12">
-        <div>
-          <span class="section-label">About Morgan TechFest</span>
-          <p
-            class="mt-4 font-urbanist text-xl leading-relaxed text-flux-ink xs:text-2xl md:text-2xl md:leading-relaxed"
-          >
-            Morgan TechFest is a platform that drives discovery, innovation, and collaboration,
-            empowering the next generation of technology leaders and enabling meaningful career
-            exploration in technology-driven fields.
-          </p>
-          <p class="mt-4 font-urbanist text-base leading-relaxed text-flux-ink/60 xs:text-lg">
-            Open to students from Morgan State University and other institutions, Morgan TechFest
-            encourages collaboration across schools, diverse perspectives, and increased visibility
-            of student innovation.
-          </p>
-        </div>
-        <div class="video-container-inline">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/MLX3J9nk0cI?si=Fe_QZEDKo3kaM7Qe"
-            title="Morgan TechFest networking session"
-            loading="lazy"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- ===================== SPEAKERS ===================== -->
   <div class="overflow-hidden bg-flux-mist px-5 pb-14 pt-10 xs:px-8 md:pb-20 md:pt-14" id="speakers">
     <div class="mx-auto max-w-6xl">
@@ -302,6 +269,48 @@ onUnmounted(() => {
           <h3 class="track-name">{{ track.name }}</h3>
           <p class="track-brief">{{ track.brief }}</p>
         </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== PRIZES ===================== -->
+  <div class="bg-flux-mist px-5 pb-16 pt-16 xs:px-8 md:pb-24 md:pt-24" id="prizes">
+    <div class="mx-auto max-w-6xl">
+      <span class="section-label">Cash prizes</span>
+      <h2 class="mt-3 font-bebas text-5xl font-normal text-flux-ink xs:text-6xl sm:text-7xl">
+        Compete For The Pot
+      </h2>
+      <p class="mt-3 max-w-xl font-urbanist text-base text-flux-ink/55 sm:text-lg">
+        Two competitions, six cash prizes. The amounts stay sealed until the Award Ceremony on event day.
+      </p>
+
+      <div class="prize-grid">
+        <div class="prize-card">
+          <span class="prize-kicker">Competition 01</span>
+          <h3 class="prize-comp">Innovation Expo</h3>
+          <ul class="prize-tiers">
+            <li><span class="prize-place"><i class="medal medal-gold"></i>1st Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
+            <li><span class="prize-place"><i class="medal medal-silver"></i>2nd Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
+            <li><span class="prize-place"><i class="medal medal-bronze"></i>3rd Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
+          </ul>
+        </div>
+        <div class="prize-card">
+          <span class="prize-kicker">Competition 02</span>
+          <h3 class="prize-comp">Tech Case Competition</h3>
+          <ul class="prize-tiers">
+            <li><span class="prize-place"><i class="medal medal-gold"></i>1st Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
+            <li><span class="prize-place"><i class="medal medal-silver"></i>2nd Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
+            <li><span class="prize-place"><i class="medal medal-bronze"></i>3rd Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="prize-foot">
+        <span class="prize-sealed">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Amounts revealed on event day
+        </span>
+        <a :href="eventInfo.registerUrl" target="_blank" rel="noopener noreferrer" class="cta-solid">Register to compete</a>
       </div>
     </div>
   </div>
@@ -1063,5 +1072,57 @@ onUnmounted(() => {
 
 .speaker-name {
   @apply text-center font-mono text-[10px] uppercase tracking-[0.12em] text-flux-ink/60;
+}
+
+/* ===== PRIZES ===== */
+.prize-grid {
+  @apply mt-10 grid grid-cols-1 gap-5 md:grid-cols-2;
+}
+
+.prize-card {
+  @apply rounded-2xl p-6 sm:p-8;
+  border: 1.5px solid rgba(22, 7, 43, 0.1);
+  background: linear-gradient(165deg, #ffffff 0%, #f6f1fb 100%);
+  box-shadow: 0 12px 30px rgba(22, 7, 43, 0.06);
+}
+
+.prize-kicker {
+  @apply font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-flux-cyan;
+}
+
+.prize-comp {
+  @apply mt-1 font-bebas text-3xl leading-none text-flux-ink sm:text-4xl;
+}
+
+.prize-tiers {
+  @apply mt-5 flex flex-col;
+}
+
+.prize-tiers li {
+  @apply flex items-center justify-between py-3;
+  border-top: 1px solid rgba(22, 7, 43, 0.08);
+}
+
+.prize-place {
+  @apply flex items-center gap-x-3 font-urbanist text-base font-semibold text-flux-ink/80;
+}
+
+.medal {
+  @apply inline-block h-3.5 w-3.5 flex-shrink-0 rounded-full;
+}
+.medal-gold { background: linear-gradient(180deg, #f5d36b, #e0a92e); }
+.medal-silver { background: linear-gradient(180deg, #dfe3e8, #b6bcc6); }
+.medal-bronze { background: linear-gradient(180deg, #e6a562, #c2763a); }
+
+.prize-amount {
+  @apply font-mono text-lg font-bold tracking-[0.2em] text-flux-ink/35;
+}
+
+.prize-foot {
+  @apply mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between;
+}
+
+.prize-sealed {
+  @apply inline-flex items-center gap-x-2 font-mono text-xs uppercase tracking-[0.12em] text-flux-ink/55;
 }
 </style>

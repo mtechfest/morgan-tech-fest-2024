@@ -15,9 +15,8 @@ export const eventInfo = {
 // `href` wins over `id`: items with an href are standalone pages, items
 // without one scroll to a section on this page.
 export const nav = [
-  { id: 'about', label: 'About', index: '01' },
+  { id: 'about', label: 'About', index: '01', href: '/about.html' },
   { id: 'components', label: 'Components', index: '02' },
-  { id: 'tracks', label: 'Tracks', index: '03' },
   { id: 'schedule', label: 'Schedule', index: '04', href: '/schedule.html' },
   { id: 'sponsors', label: 'Sponsors', index: '05', href: '/sponsors.html' },
   { id: 'highlights', label: 'Highlights', index: '06', href: '/highlights.html' },
