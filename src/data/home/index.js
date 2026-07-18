@@ -134,10 +134,6 @@ export const partners = [
     img: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/New_Bloomberg_Logo.svg'
   },
   {
-    name: 'Microsoft',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg'
-  },
-  {
     name: 'Northrop Grumman',
     img: '/Northrop-Grumman-Logo.png'
   },
@@ -146,56 +142,16 @@ export const partners = [
     img: '/Ripple - blueblack_lg (1).png'
   },
   {
-    name: 'AltusTech',
-    img: '/AltusTech.png'
-  },
-  {
     name: 'CEAMLS',
     img: '/CEAMLS.PNG'
-  },
-  {
-    name: 'JS2T',
-    img: '/JS2T - (Black-NonTrspt).png'
   },
   {
     name: 'LFG',
     img: '/LFG_color.jpg'
   },
   {
-    name: 'Y3K',
-    img: '/Y3K.JPG'
-  },
-  {
-    name: 'MLH',
-    img: '/mlh-logo-color.png'
-  },
-  {
-    name: 'JS Technology Academy',
-    img: 'https://res.cloudinary.com/ojay-dev/image/upload/v1693912315/MorganTechFest/patners/JOS-Tech-Logo_yyryyj.png'
-  },
-  {
-    name: 'AWS',
-    img: 'https://res.cloudinary.com/ojay-dev/image/upload/v1700028978/MorganTechFest/patners/aws_logo_1_sdbmrm.png'
-  },
-  {
     name: 'Oracle',
     img: 'https://res.cloudinary.com/ojay-dev/image/upload/v1700028978/MorganTechFest/patners/Oracle_logo_PNG1_1_xfqgvx.png'
-  },
-  {
-    name: 'Scholarly',
-    img: 'https://res.cloudinary.com/ojay-dev/image/upload/v1700028979/MorganTechFest/patners/Scholarly_1_ens2ws.png'
-  },
-  {
-    name: 'Timeless Venture Group',
-    img: 'https://res.cloudinary.com/ojay-dev/image/upload/v1700192312/MorganTechFest/patners/TGV_2_1_dpmpfd.png'
-  },
-  {
-    name: 'Morgan State University, Graves School',
-    img: 'https://res.cloudinary.com/ojay-dev/image/upload/v1700028979/MorganTechFest/patners/MSU-Earl-G-Graves-Logo-1_1_vlv3ij.png'
-  },
-  {
-    name: 'RTC',
-    img: '/RTC__Logo Orange.png'
   }
 ]
 

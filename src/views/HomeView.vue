@@ -465,10 +465,9 @@ onUnmounted(() => {
         <span class="recap-proof-label">Past sponsors &amp; partners</span>
         <ul class="recap-proof-logos">
           <li><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" loading="lazy" decoding="async" /></li>
-          <li><img src="https://res.cloudinary.com/ojay-dev/image/upload/v1700028978/MorganTechFest/patners/aws_logo_1_sdbmrm.png" alt="AWS" loading="lazy" decoding="async" /></li>
-          <li><img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/New_Bloomberg_Logo.svg" alt="Bloomberg" loading="lazy" decoding="async" /></li>
+          <li><img src="/LFG_color.jpg" alt="Lincoln Financial" loading="lazy" decoding="async" /></li>
           <li><img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" loading="lazy" decoding="async" /></li>
-          <li><img src="https://res.cloudinary.com/ojay-dev/image/upload/v1700028978/MorganTechFest/patners/Oracle_logo_PNG1_1_xfqgvx.png" alt="Oracle" loading="lazy" decoding="async" /></li>
+          <li><img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/New_Bloomberg_Logo.svg" alt="Bloomberg" loading="lazy" decoding="async" /></li>
         </ul>
       </div>
     </div>

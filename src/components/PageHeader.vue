@@ -75,17 +75,12 @@ onUnmounted(() => {
             :href="item.href || '#' + item.id"
             class="nav-link"
           >
-            <span class="nav-index">{{ item.index }}</span>
             {{ item.label }}
             <span v-if="item.href" class="nav-out" aria-hidden="true">&#8599;</span>
           </a>
         </nav>
 
         <div class="flex items-center gap-x-3">
-          <span class="status-pill" :title="eventInfo.stamp">
-            <span class="status-dot"></span>
-            <span>Reg. Open</span>
-          </span>
           <a
             :href="eventInfo.registerUrl"
             target="_blank"
@@ -112,7 +107,6 @@ onUnmounted(() => {
         class="mobile-nav-link"
         @click="closeMenu"
       >
-        <span class="nav-index">{{ item.index }}</span>
         {{ item.label }}
         <span v-if="item.href" class="nav-out" aria-hidden="true">&#8599;</span>
       </a>
@@ -159,10 +153,6 @@ header {
   @apply relative font-mono text-xs font-medium uppercase tracking-[0.12em] text-white/70 transition-colors duration-200 hover:text-white xl:text-[13px];
 }
 
-.nav-index {
-  @apply mr-1.5 text-[10px] text-flux-cyan/55;
-}
-
 /* Marks the two items that leave this page for a standalone one */
 .nav-out {
   @apply ml-1 text-[10px] text-flux-cyan/60;
@@ -179,30 +169,6 @@ header {
 
 .menu-toggle {
   @apply rounded-md p-1 transition-colors duration-200 hover:bg-white/10;
-}
-
-/* ===== STATUS PILL ===== */
-.status-pill {
-  @apply hidden flex-shrink-0 items-center gap-x-1.5 rounded-full px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-flux-cyan xs:flex;
-  border: 1px solid rgba(13, 198, 244, 0.3);
-  background: rgba(13, 198, 244, 0.08);
-}
-
-.status-dot {
-  @apply block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-flux-cyan;
-  animation: statusPulse 2.4s ease-in-out infinite;
-}
-
-@keyframes statusPulse {
-  0%,
-  100% {
-    opacity: 1;
-    box-shadow: 0 0 0 0 rgba(13, 198, 244, 0.55);
-  }
-  50% {
-    opacity: 0.65;
-    box-shadow: 0 0 0 4px rgba(13, 198, 244, 0);
-  }
 }
 
 .register-btn {
