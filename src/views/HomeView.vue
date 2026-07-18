@@ -443,7 +443,6 @@ onUnmounted(() => {
           <li><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" loading="lazy" decoding="async" /></li>
           <li><img src="/LFG_color.jpg" alt="Lincoln Financial" loading="lazy" decoding="async" /></li>
           <li><img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" loading="lazy" decoding="async" /></li>
-          <li><img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/New_Bloomberg_Logo.svg" alt="Bloomberg" loading="lazy" decoding="async" /></li>
         </ul>
       </div>
     </div>
