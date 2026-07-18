@@ -26,7 +26,7 @@ export const nav = [
 
 // Headline program blocks, in the order they actually run on the day.
 // The SH-0n ids are a sequence, so the order here must match the timeline on
-// /schedule.html — if that page is re-timed, re-sort this list to match.
+// /schedule.html, if that page is re-timed, re-sort this list to match.
 export const schedule = [
   { id: 'SH-01', name: 'Innovation Expo' },
   { id: 'SH-02', name: 'Panel Session' },
@@ -158,7 +158,7 @@ export const partners = [
 export const FaqQuestionsAnswers = [
   {
     question: 'What is the 2026 theme?',
-    answer: 'Future Flux: Building The Intelligent World. The 2026 edition runs across four areas shaping that world — AI, Cybersecurity, Robotics, and Data Science.'
+    answer: 'Future Flux: Building The Intelligent World. The 2026 edition runs across four areas shaping that world: AI, Cybersecurity, Robotics, and Data Science.'
   },
   {
     question: 'What is Morgan TechFest?',

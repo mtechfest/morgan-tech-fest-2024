@@ -2,11 +2,11 @@
    Both pages link this, so the palette lives in exactly one place. */
 :root {
       /* Future Flux 2026 palette, matched to the event key art */
-      --blue: #241145;      /* flux indigo — dark ground */
+      --blue: #241145;      /* flux indigo, dark ground */
       --blue-mid: #3D1552;  /* flux violet */
-      --orange: #0DC6F4;    /* flux cyan — primary accent */
+      --orange: #0DC6F4;    /* flux cyan, primary accent */
       --ember: #FF5A16;     /* retained brand orange, used for the CTA only */
-      --cream: #F4F0FA;     /* flux mist — light ground */
+      --cream: #F4F0FA;     /* flux mist, light ground */
       --dark: #16072B;      /* flux ink */
     }
 
@@ -369,7 +369,7 @@
     .delay-4 { animation-delay: 0.4s; }
 
 /* ===================================================================
-   SHARED SITE HEADER — mirrors the front-page menu on standalone pages
+   SHARED SITE HEADER: mirrors the front-page menu on standalone pages
    =================================================================== */
 .site-header { position: sticky; top: 0; z-index: 50; }
 

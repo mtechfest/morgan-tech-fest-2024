@@ -15,6 +15,14 @@ const closeMenu = () => {
   isMenuOpen.value = false
 }
 
+// Clicking the logo returns the visitor to the hero at the top of the page.
+// On a single-route SPA a plain RouterLink to "/" would be a no-op when already
+// home, so we scroll to the top ourselves.
+const goHome = () => {
+  closeMenu()
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
 const onKeydown = (e) => {
   if (e.key === 'Escape') closeMenu()
 }
@@ -63,7 +71,7 @@ onUnmounted(() => {
           >
             <ChocolateMenuIcon />
           </button>
-          <RouterLink to="/" @click="closeMenu">
+          <RouterLink to="/" @click="goHome">
             <img alt="Morgan TechFest" src="@/assets/logo.svg" class="w-9/12 lg:w-full" />
           </RouterLink>
         </div>
@@ -120,7 +128,7 @@ header {
   top: 0;
   z-index: 50;
   /* A sticky header can never be scrolled past, so it must never be taller
-     than the screen — otherwise anything below the fold is unreachable.
+     than the screen, otherwise anything below the fold is unreachable.
      Capping it here and letting the nav scroll inside is what keeps the last
      menu item reachable on short viewports (landscape phones). */
   display: flex;

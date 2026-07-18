@@ -108,7 +108,7 @@ onUnmounted(() => {
         </p>
 
         <h1 class="animate-rise-2 mt-4 w-full sm:mt-5">
-          <span class="sr-only">Future Flux — Building the Intelligent World</span>
+          <span class="sr-only">Future Flux: Building the Intelligent World</span>
           <img
             src="/future-flux.webp"
             alt=""
@@ -137,7 +137,7 @@ onUnmounted(() => {
           Empowering the next generation of technology leaders at Morgan State University.
         </p>
 
-        <!-- Info card — the flyer's own device, so the type stays readable over the globe -->
+        <!-- Info card, the flyer's own device, so the type stays readable over the globe -->
         <div class="info-card animate-rise-4 mt-8 sm:mt-10">
           <div>
             <span class="hero-label">Doors open in</span>
@@ -418,7 +418,7 @@ onUnmounted(() => {
             </span>
             <span class="min-w-0 flex-1">
               <span class="recap-idx-h">Award Winners</span>
-              <span class="recap-idx-d">Innovation, technical depth, and real-world impact &mdash; recognised at the Award Ceremony.</span>
+              <span class="recap-idx-d">Innovation, technical depth, and real-world impact, recognised at the Award Ceremony.</span>
             </span>
             <span class="recap-idx-arrow" aria-hidden="true">&rarr;</span>
           </a>
