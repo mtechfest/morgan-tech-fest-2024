@@ -9,7 +9,6 @@ import FAQItem from '@/components/FAQItem.vue'
 import {
   schedule,
   speakerSlots,
-  tracks,
   partners,
   FaqQuestionsAnswers,
   eventInfo
@@ -100,13 +99,6 @@ onUnmounted(() => {
       class="relative z-10 px-5 pb-16 pt-10 xs:px-8 sm:pb-20 md:pt-14 lg:px-12 lg:pb-28 lg:pt-16 xl:px-16"
     >
       <div class="mx-auto flex max-w-5xl flex-col items-center text-center">
-        <!-- Eyebrow: the four domains the theme runs on -->
-        <p class="hero-eyebrow animate-rise-1">
-          <span v-for="(d, i) in eventInfo.domains" :key="d">
-            <span v-if="i" class="dot">/</span>{{ d }}
-          </span>
-        </p>
-
         <h1 class="animate-rise-2 mt-4 w-full sm:mt-5">
           <span class="sr-only">Future Flux: Building the Intelligent World</span>
           <img
@@ -250,67 +242,42 @@ onUnmounted(() => {
           </p>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- ===================== TRACKS ===================== -->
-  <div class="section-dark px-5 pb-16 pt-4 xs:px-8 md:pb-28 md:pt-8" id="tracks">
-    <div class="mx-auto max-w-6xl">
-      <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">
-        Competition Tracks
-      </h2>
-      <p class="mt-3 max-w-xl font-urbanist text-base text-white/55 sm:text-lg">
-        Every tech case solution is built against one of six tracks. Choose the domain your team wants to
-        move.
-      </p>
+      <!-- Cash prizes (continuation of Components) -->
+      <div class="mt-16 border-t border-white/10 pt-12">
+        <span class="section-label-light">Cash prizes</span>
+        <p class="mt-3 max-w-xl font-urbanist text-base text-white/55 sm:text-lg">
+          Two competitions, six cash prizes. The amounts stay sealed until the Award Ceremony on event day.
+        </p>
 
-      <div class="track-grid mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-2xl sm:grid-cols-2 lg:grid-cols-3">
-        <article v-for="track in tracks" :key="track.id" class="track-card">
-          <h3 class="track-name">{{ track.name }}</h3>
-          <p class="track-brief">{{ track.brief }}</p>
-        </article>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===================== PRIZES ===================== -->
-  <div class="bg-flux-mist px-5 pb-16 pt-16 xs:px-8 md:pb-24 md:pt-24" id="prizes">
-    <div class="mx-auto max-w-6xl">
-      <span class="section-label">Cash prizes</span>
-      <h2 class="mt-3 font-bebas text-5xl font-normal text-flux-ink xs:text-6xl sm:text-7xl">
-        Compete For The Pot
-      </h2>
-      <p class="mt-3 max-w-xl font-urbanist text-base text-flux-ink/55 sm:text-lg">
-        Two competitions, six cash prizes. The amounts stay sealed until the Award Ceremony on event day.
-      </p>
-
-      <div class="prize-grid">
-        <div class="prize-card">
-          <span class="prize-kicker">Competition 01</span>
-          <h3 class="prize-comp">Innovation Expo</h3>
-          <ul class="prize-tiers">
-            <li><span class="prize-place"><i class="medal medal-gold"></i>1st Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
-            <li><span class="prize-place"><i class="medal medal-silver"></i>2nd Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
-            <li><span class="prize-place"><i class="medal medal-bronze"></i>3rd Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
-          </ul>
+        <div class="prize-grid">
+          <div class="prize-card">
+            <span class="prize-kicker">Innovation Expo</span>
+            <h3 class="prize-comp">Research &amp; Project Showcase</h3>
+            <ul class="prize-tiers">
+              <li><span class="prize-place"><i class="medal medal-gold"></i>1st Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
+              <li><span class="prize-place"><i class="medal medal-silver"></i>2nd Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
+              <li><span class="prize-place"><i class="medal medal-bronze"></i>3rd Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
+            </ul>
+          </div>
+          <div class="prize-card">
+            <span class="prize-kicker">Tech Case Competition</span>
+            <h3 class="prize-comp">Team Solution Sprint</h3>
+            <ul class="prize-tiers">
+              <li><span class="prize-place"><i class="medal medal-gold"></i>1st Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
+              <li><span class="prize-place"><i class="medal medal-silver"></i>2nd Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
+              <li><span class="prize-place"><i class="medal medal-bronze"></i>3rd Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
+            </ul>
+          </div>
         </div>
-        <div class="prize-card">
-          <span class="prize-kicker">Competition 02</span>
-          <h3 class="prize-comp">Tech Case Competition</h3>
-          <ul class="prize-tiers">
-            <li><span class="prize-place"><i class="medal medal-gold"></i>1st Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
-            <li><span class="prize-place"><i class="medal medal-silver"></i>2nd Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
-            <li><span class="prize-place"><i class="medal medal-bronze"></i>3rd Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
-          </ul>
-        </div>
-      </div>
 
-      <div class="prize-foot">
-        <span class="prize-sealed">
-          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          Amounts revealed on event day
-        </span>
-        <a :href="eventInfo.registerUrl" target="_blank" rel="noopener noreferrer" class="cta-solid">Register to compete</a>
+        <div class="prize-foot">
+          <span class="inline-flex items-center gap-x-2 font-mono text-xs uppercase tracking-[0.12em] text-white/55">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Amounts revealed on event day
+          </span>
+          <a href="/components.html" class="cta-solid">See full details</a>
+        </div>
       </div>
     </div>
   </div>
@@ -451,7 +418,6 @@ onUnmounted(() => {
         <ul class="recap-proof-logos">
           <li><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" loading="lazy" decoding="async" /></li>
           <li><img src="/LFG_color.jpg" alt="Lincoln Financial" loading="lazy" decoding="async" /></li>
-          <li><img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" loading="lazy" decoding="async" /></li>
         </ul>
       </div>
     </div>
