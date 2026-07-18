@@ -223,16 +223,17 @@ onUnmounted(() => {
       </h2>
 
       <div class="mt-10 grid grid-cols-1 gap-6 md:mt-14 md:grid-cols-2 md:gap-8">
-        <div class="comp-card">
+        <a class="comp-card block" href="/tech-case.html">
           <h3 class="comp-title">Tech Case Competition</h3>
           <p class="comp-subtitle">Team solution sprint</p>
           <p class="comp-text">
             Student teams develop technology-driven solutions to real-world problems across key
             tracks. Solutions are evaluated based on clarity, innovation, feasibility, and impact.
           </p>
-        </div>
+          <span class="comp-more">See details &rarr;</span>
+        </a>
 
-        <div class="comp-card">
+        <a class="comp-card block" href="/innovation-expo.html">
           <h3 class="comp-title">Innovation Expo</h3>
           <p class="comp-subtitle">Research &amp; project showcase</p>
           <p class="comp-text">
@@ -240,7 +241,8 @@ onUnmounted(() => {
             solutions, evaluated based on clarity, technical depth, organization, and real-world
             impact.
           </p>
-        </div>
+          <span class="comp-more">See details &rarr;</span>
+        </a>
       </div>
     </div>
   </div>
@@ -1053,5 +1055,9 @@ onUnmounted(() => {
 
 .prize-sealed {
   @apply inline-flex items-center gap-x-2 font-mono text-xs uppercase tracking-[0.12em] text-flux-ink/55;
+}
+
+.comp-more {
+  @apply mt-5 inline-block font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-flux-cyan;
 }
 </style>

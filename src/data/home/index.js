@@ -7,7 +7,7 @@ export const eventInfo = {
   date: 'September 19, 2026',
   venue: 'Earl G. Graves School of Business & Management',
   city: 'Morgan State University, Baltimore, MD',
-  registerUrl: 'https://form.jotform.com/252798316140156',
+  registerUrl: 'https://form.jotform.com/233056575770057',
   domains: ['AI', 'Cybersecurity', 'Robotics', 'Data Science']
 }
 
@@ -16,7 +16,8 @@ export const eventInfo = {
 // without one scroll to a section on this page.
 export const nav = [
   { id: 'about', label: 'About', index: '01', href: '/about.html' },
-  { id: 'components', label: 'Components', index: '02', href: '/components.html' },
+  { id: 'techcase', label: 'Tech Case', href: '/tech-case.html' },
+  { id: 'expo', label: 'Innovation Expo', href: '/innovation-expo.html' },
   { id: 'schedule', label: 'Schedule', index: '04', href: '/schedule.html' },
   { id: 'sponsors', label: 'Sponsors', index: '05', href: '/sponsors.html' },
   { id: 'highlights', label: 'Highlights', index: '06', href: '/highlights.html' },

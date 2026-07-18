@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morgan TechFest: Innovation Expo</title>
+  <link rel="icon" href="/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/page.css" />
+  <style>
+    .comp-lead { font-family:'Urbanist',sans-serif; font-size:clamp(17px,2vw,20px); line-height:1.6; color:var(--dark); max-width:64ch; margin-top:24px; }
+    .comp-body { font-family:'Urbanist',sans-serif; font-size:15.5px; line-height:1.7; color:rgba(22,7,43,0.62); max-width:68ch; margin-top:14px; }
+    .subhead { margin-top:36px; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--orange); font-weight:700; }
+    .guide { margin-top:18px; display:grid; gap:10px; list-style:none; }
+    .guide li { position:relative; padding-left:22px; font-family:'Urbanist',sans-serif; font-size:15px; line-height:1.55; color:rgba(22,7,43,0.72); }
+    .guide li::before { content:''; position:absolute; left:0; top:8px; width:8px; height:8px; border-radius:2px; background:var(--orange); }
+    .tracks-cards { margin-top:18px; display:grid; gap:14px; grid-template-columns:1fr; }
+    @media(min-width:560px){ .tracks-cards{grid-template-columns:repeat(2,1fr);} }
+    @media(min-width:900px){ .tracks-cards{grid-template-columns:repeat(3,1fr);} }
+    .track-item { padding:18px; border-radius:14px; background:#fff; border:1px solid rgba(22,7,43,0.08); box-shadow:0 6px 16px rgba(22,7,43,0.05); }
+    .track-item h4 { font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--dark); }
+    .track-item p { margin-top:4px; font-family:'Urbanist',sans-serif; font-size:13.5px; color:rgba(22,7,43,0.6); line-height:1.45; }
+    .crit-note { margin-top:16px; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:rgba(22,7,43,0.5); }
+    .crit-grid { margin-top:14px; display:grid; gap:14px; grid-template-columns:1fr; }
+    @media(min-width:720px){ .crit-grid{grid-template-columns:repeat(2,1fr);} }
+    .crit { display:flex; gap:14px; padding:16px 18px; border-radius:14px; background:#fff; border:1px solid rgba(22,7,43,0.08); }
+    .crit-weight { flex-shrink:0; min-width:52px; font-family:'Bebas Neue',sans-serif; font-size:26px; line-height:1.1; color:var(--orange); }
+    .crit-body h4 { font-family:'Urbanist',sans-serif; font-weight:700; font-size:15px; color:var(--dark); }
+    .crit-body p { margin-top:4px; font-family:'Urbanist',sans-serif; font-size:13.5px; line-height:1.5; color:rgba(22,7,43,0.6); }
+    .prize-row { margin-top:24px; display:grid; gap:20px; grid-template-columns:1fr; max-width:420px; }
+    .prize-box { padding:24px; border-radius:18px; background:linear-gradient(165deg,#fff,#f6f1fb); border:1.5px solid rgba(22,7,43,0.1); box-shadow:0 12px 30px rgba(22,7,43,0.06); }
+    .prize-box h4 { font-family:'Bebas Neue',sans-serif; font-size:30px; line-height:1; color:var(--dark); margin-top:2px; }
+    .prize-box .pk { font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--orange); }
+    .tier { display:flex; align-items:center; justify-content:space-between; padding:12px 0; border-top:1px solid rgba(22,7,43,0.08); }
+    .tier:first-of-type { border-top:0; margin-top:14px; }
+    .place { display:flex; align-items:center; gap:10px; font-family:'Urbanist',sans-serif; font-weight:600; color:rgba(22,7,43,0.8); }
+    .amt { font-family:'JetBrains Mono',ui-monospace,monospace; font-weight:700; letter-spacing:0.2em; color:rgba(22,7,43,0.33); }
+    .medal { width:14px; height:14px; border-radius:50%; flex-shrink:0; display:inline-block; }
+    .m-gold{background:linear-gradient(180deg,#f5d36b,#e0a92e);} .m-silver{background:linear-gradient(180deg,#dfe3e8,#b6bcc6);} .m-bronze{background:linear-gradient(180deg,#e6a562,#c2763a);}
+    .sealed { margin-top:16px; display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:12px; text-transform:uppercase; letter-spacing:0.1em; color:rgba(22,7,43,0.55); }
+    .reg-cta { display:inline-flex; align-items:center; gap:8px; margin-top:22px; padding:14px 28px; border-radius:100px; background:linear-gradient(180deg,#ff7a1a 25%,#fc470b 100%); color:#fff; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; text-decoration:none; box-shadow:0 8px 24px rgba(252,71,11,0.28); transition:transform 0.15s; }
+    .reg-cta:hover { transform:translateY(-2px); }
+    .final-cta { margin-top:64px; padding:40px 32px; border-radius:22px; text-align:center; background:linear-gradient(160deg,#241145,#3d1552); }
+    .final-cta h3 { font-family:'Bebas Neue',sans-serif; font-size:clamp(30px,5vw,44px); color:#fff; line-height:1; }
+    .final-cta p { margin-top:10px; font-family:'Urbanist',sans-serif; font-size:15px; color:rgba(255,255,255,0.65); }
+  </style>
+</head>
+<body>
+
+  <!-- SITE HEADER (shared with front page) -->
+  <header class="site-header">
+    <div class="site-header-bg">
+      <div class="site-header-inner">
+        <div class="site-header-left">
+          <button class="site-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-mobile-nav" onclick="var n=document.getElementById('site-mobile-nav');n.classList.toggle('open');this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true');">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </button>
+          <a class="site-logo" href="/"><img src="/logo.svg" alt="Morgan TechFest" /></a>
+        </div>
+        <nav class="site-nav" aria-label="Primary">
+          <a class="site-nav-link" href="/about.html">About <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+          <a class="site-nav-link" href="/tech-case.html">Tech Case <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+          <a class="site-nav-link active" href="/innovation-expo.html" aria-current="page">Innovation Expo <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+          <a class="site-nav-link" href="/schedule.html">Schedule <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+          <a class="site-nav-link" href="/sponsors.html">Sponsors <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+          <a class="site-nav-link" href="/highlights.html">Highlights <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+          <a class="site-nav-link" href="/#faq">FAQ</a>
+        </nav>
+        <div class="site-header-right">
+          <a class="site-register-btn" href="https://form.jotform.com/233056575770057" target="_blank" rel="noopener noreferrer">Register now</a>
+        </div>
+      </div>
+    </div>
+    <nav class="site-mobile-nav" id="site-mobile-nav" aria-label="Primary mobile">
+      <a class="site-mobile-nav-link" href="/about.html">About <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+      <a class="site-mobile-nav-link" href="/tech-case.html">Tech Case <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+      <a class="site-mobile-nav-link active" href="/innovation-expo.html" aria-current="page">Innovation Expo <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+      <a class="site-mobile-nav-link" href="/schedule.html">Schedule <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+      <a class="site-mobile-nav-link" href="/sponsors.html">Sponsors <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+      <a class="site-mobile-nav-link" href="/highlights.html">Highlights <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+      <a class="site-mobile-nav-link" href="/#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <div class="page-header">
+    <div class="header-content animate-in">
+      <p class="eyebrow">Future Flux &middot; Competition 02</p>
+      <h1>Innovation <span>Expo</span></h1>
+      <p class="subtitle">A Research &amp; Project Showcase: compete for awards across two categories, spanning all domains.</p>
+      <a class="reg-cta" href="https://form.jotform.com/261985240149159" target="_blank" rel="noopener noreferrer">Register for the Innovation Expo &rarr;</a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="section-block animate-in delay-1">
+      <span class="section-tag">Overview</span>
+      <h2 class="section-title">What It Is</h2>
+      <p class="comp-lead">A Research &amp; Project Showcase. Participants compete for awards and recognition across two categories, Research and Projects, spanning all domains.</p>
+      <p class="comp-body">Both apply technology, but they differ in structure and expected outcomes. Morgan TechFest does not publish submissions; participants may present both previously published and unpublished work.</p>
+
+      <p class="subhead">Research</p>
+      <p class="comp-body" style="margin-top:8px;">Research presentations focus on investigation, analysis, and findings, following a structured academic format: problem statement or research objective, methodology, results or findings, and discussion and recommendations. Research may be theoretical or applied, but must demonstrate clear analysis, depth of study, and a contribution to knowledge.</p>
+      <p class="crit-note">Research judging &middot; scored 1 (Poor) &ndash; 5 (Average) &ndash; 10 (Excellent).</p>
+      <div class="crit-grid">
+          <div class="crit"><span class="crit-weight">1&ndash;10</span><div class="crit-body"><h4>Overall Impact</h4><p>Conveys the motivations, context, conclusions, and broader impact of the research.</p></div></div>
+          <div class="crit"><span class="crit-weight">1&ndash;10</span><div class="crit-body"><h4>Appearance &amp; Organization</h4><p>Well-organized, clear, and visually effective; design and layout aid understanding.</p></div></div>
+          <div class="crit"><span class="crit-weight">1&ndash;10</span><div class="crit-body"><h4>Communication &amp; Presentation</h4><p>Explains the topic, methods, findings, and implications for a non-specialist audience.</p></div></div>
+          <div class="crit"><span class="crit-weight">1&ndash;10</span><div class="crit-body"><h4>Technical Knowledge</h4><p>Situates the research within its field and shows mastery of related work.</p></div></div>
+          <div class="crit"><span class="crit-weight">1&ndash;10</span><div class="crit-body"><h4>Oral Presentation &amp; Answering Questions</h4><p>Organized, confident delivery; competent and expert when answering questions.</p></div></div>
+      </div>
+
+      <p class="subhead">Projects</p>
+      <p class="comp-body" style="margin-top:8px;">Project presentations focus on building, implementation, and practical solutions. Submissions must include a clearly defined problem, a developed solution (prototype, system, or product), and demonstrable results or functionality. Projects may originate from coursework, competitions, or independent work, but must be fully developed and functional at the time of submission.</p>
+      <p class="crit-note">Project judging &middot; five criteria, each weighted 20%.</p>
+      <div class="crit-grid">
+          <div class="crit"><span class="crit-weight">20%</span><div class="crit-body"><h4>Overall Impact</h4><p>Showcases the project&rsquo;s importance and impact on the field and society.</p></div></div>
+          <div class="crit"><span class="crit-weight">20%</span><div class="crit-body"><h4>Appearance &amp; Organization</h4><p>Visually appealing, well-organized, and easy to follow.</p></div></div>
+          <div class="crit"><span class="crit-weight">20%</span><div class="crit-body"><h4>Communication &amp; Presentation</h4><p>Communicates clearly, simplifying complex ideas for a general audience.</p></div></div>
+          <div class="crit"><span class="crit-weight">20%</span><div class="crit-body"><h4>Technical Knowledge</h4><p>Demonstrates strong technical expertise and deep understanding of the project.</p></div></div>
+          <div class="crit"><span class="crit-weight">20%</span><div class="crit-body"><h4>Oral Presentation &amp; Answering Questions</h4><p>Confident, well-prepared, and handles questions with expertise.</p></div></div>
+      </div>
+    </div>
+
+    <div class="section-block animate-in delay-2" style="margin-top:64px;">
+      <span class="section-tag">Cash prizes</span>
+      <h2 class="section-title">What&rsquo;s at Stake</h2>
+      <p class="section-desc">First, second, and third place all win cash prizes. Amounts stay sealed until the Award Ceremony on event day.</p>
+      <div class="prize-row">
+        <div class="prize-box">
+          <span class="pk">Innovation Expo</span>
+          <h4>1st &middot; 2nd &middot; 3rd</h4>
+          <div class="tier"><span class="place"><span class="medal m-gold"></span>1st Place</span><span class="amt">$&bull;&bull;&bull;&bull;</span></div>
+          <div class="tier"><span class="place"><span class="medal m-silver"></span>2nd Place</span><span class="amt">$&bull;&bull;&bull;&bull;</span></div>
+          <div class="tier"><span class="place"><span class="medal m-bronze"></span>3rd Place</span><span class="amt">$&bull;&bull;&bull;&bull;</span></div>
+        </div>
+      </div>
+      <span class="sealed"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Amounts revealed on event day</span>
+    </div>
+
+    <div class="final-cta animate-in delay-3">
+      <h3>Ready to Showcase?</h3>
+      <p>Bring your research or project and present it to industry judges.</p>
+      <a class="reg-cta" href="https://form.jotform.com/261985240149159" target="_blank" rel="noopener noreferrer">Register for the Innovation Expo &rarr;</a>
+    </div>
+  </div>
+
+</body>
+</html>
