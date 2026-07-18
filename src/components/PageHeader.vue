@@ -84,7 +84,6 @@ onUnmounted(() => {
             class="nav-link"
           >
             {{ item.label }}
-            <span v-if="item.href" class="nav-out" aria-hidden="true">&#8599;</span>
           </a>
         </nav>
 
@@ -116,7 +115,6 @@ onUnmounted(() => {
         @click="closeMenu"
       >
         {{ item.label }}
-        <span v-if="item.href" class="nav-out" aria-hidden="true">&#8599;</span>
       </a>
     </nav>
   </header>
