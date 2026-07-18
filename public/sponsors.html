@@ -5,16 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Morgan TechFest &mdash; Sponsors &amp; Reach</title>
   <meta name="theme-color" content="#241145" />
-  <meta name="description" content="Morgan TechFest sponsors and partners, with the attendee breakdown and student feedback your brand reaches." />
+  <meta name="description" content="Morgan TechFest sponsors and partners, with the applicant and registration reach your brand connects with." />
   <link rel="icon" href="/favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/page.css" />
   <style>
     :root {
       --c1: #0DC6F4;  /* Morgan State */
-      --c2: #A855D6;  /* Towson */
-      --c3: #FF5A16;  /* U. Maryland */
-      --c4: #5B4A78;  /* everyone else */
+      --c2: #A855D6;  /* Howard */
+      --c3: #FF5A16;  /* Bowie State */
+      --c4: #5B4A78;  /* U. of D.C. */
+      --c5: #9AA6B2;  /* other Maryland institutions */
     }
 
     /* ===== STAT ROW ===== */
@@ -316,6 +317,64 @@
     }
 
     .sources li { margin-left: 18px; padding: 2px 0; }
+
+    /* ===== GEO BARS ===== */
+    .bars.geo .bar-key { width: 46px; }
+    .bars.geo .bar-val { width: 34px; }
+    .bars.geo .bar-fill { background: linear-gradient(90deg, var(--c1), #7BD9F7); }
+
+    .geo-foot {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(22, 7, 43, 0.08);
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 13px;
+      color: rgba(22, 7, 43, 0.6);
+    }
+    .geo-foot b { color: var(--dark); }
+
+    /* ===== PACKAGE CTA ===== */
+    .package-cta {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+      padding: 22px 24px;
+      background: var(--blue);
+      border-radius: 16px;
+    }
+    .package-cta .pk-copy { flex: 1; min-width: 220px; }
+    .package-cta h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      color: #fff;
+      line-height: 1.05;
+    }
+    .package-cta p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+      margin-top: 4px;
+    }
+    .package-cta .pk-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 100px;
+      background: var(--orange);
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .package-cta .pk-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(13,198,244,0.3); }
   </style>
 </head>
 <body>
@@ -326,7 +385,7 @@
       <p class="eyebrow">Future Flux &middot; Partner with us</p>
       <h1>Sponsors &amp; <span>Reach</span></h1>
       <p class="subtitle">The organisations that have backed Morgan TechFest, and the audience your brand reaches when you do.</p>
-      <div class="preevent-banner">Last Event Review</div>
+      <div class="preevent-banner">By the numbers</div>
     </div>
   </div>
 
@@ -335,119 +394,107 @@
 
     <!-- ===== REACH ===== -->
     <div class="section-block animate-in">
-      <span class="section-tag">01 &mdash; Who turns up</span>
-      <h2 class="section-title">Attendance</h2>
+      <span class="section-tag">01 &mdash; Who we reach</span>
+      <h2 class="section-title">Reach &amp; Representation</h2>
       <p class="section-desc">
-        Figures below come from the event check-in form, not from estimates. Every attendee checked
-        in at the door.
+        Figures below come from Morgan TechFest&rsquo;s own applicant and registration records &mdash;
+        not estimates. They cover everyone who applied to take part and everyone who registered to attend.
       </p>
 
       <dl class="stat-row">
         <div class="stat-cell">
-          <dt>Check-ins</dt>
-          <dd>170</dd>
+          <dt>Unique applicants</dt>
+          <dd>337</dd>
         </div>
         <div class="stat-cell">
-          <dt>From Morgan State</dt>
-          <dd>93<i>55%</i></dd>
+          <dt>Event registrants</dt>
+          <dd>156</dd>
         </div>
         <div class="stat-cell">
-          <dt>From other schools</dt>
-          <dd>77<i>45%</i></dd>
+          <dt>Tickets issued</dt>
+          <dd>175</dd>
         </div>
         <div class="stat-cell">
-          <dt>Mean rating</dt>
-          <dd>4.54<i>/5</i></dd>
+          <dt>Institutions represented</dt>
+          <dd>8<i>schools</i></dd>
         </div>
       </dl>
 
       <div class="panel-row">
-        <!-- Universities -->
+        <!-- Institutions -->
         <div class="panel">
-          <p class="panel-tag">Attendance mix</p>
-          <h3 class="panel-title">Universities Represented</h3>
-          <p class="panel-note">Nearly half of everyone who checked in came from outside Morgan State &mdash; the inter-university reach is real, and measurable.</p>
+          <p class="panel-tag">Where they study</p>
+          <h3 class="panel-title">Institutions Represented</h3>
+          <p class="panel-note">Of 337 unique applicants, 174 listed a school we could identify from their email domain. Here is how those break down.</p>
 
           <div class="donut-wrap">
-            <svg class="donut" viewBox="0 0 200 200" role="img" aria-label="Universities represented among 170 check-ins">
+            <svg class="donut" viewBox="0 0 200 200" role="img" aria-label="Institutions represented among 174 identified applicants">
               <g transform="rotate(-90 100 100)">
-      <circle class="seg" cx="100" cy="100" r="80" stroke="var(--c1)"
-        stroke-dasharray="274.98 227.67" stroke-dashoffset="-0.00">
-        <title>Morgan State University: 93 of 170 (54.7%)</title>
-      </circle>
-      <circle class="seg" cx="100" cy="100" r="80" stroke="var(--c2)"
-        stroke-dasharray="94.62 408.04" stroke-dashoffset="-274.98">
-        <title>Towson University: 32 of 170 (18.8%)</title>
-      </circle>
-      <circle class="seg" cx="100" cy="100" r="80" stroke="var(--c4)"
-        stroke-dasharray="127.14 375.51" stroke-dashoffset="-369.60">
-        <title>Other institutions: 43 of 170 (25.3%)</title>
-      </circle>
-      <circle class="seg" cx="100" cy="100" r="80" stroke="var(--c3)"
-        stroke-dasharray="5.91 496.74" stroke-dashoffset="-496.74">
-        <title>University of Maryland: 2 of 170 (1.2%)</title>
-      </circle>
+                <circle class="seg" cx="100" cy="100" r="80" stroke="var(--c1)"
+                  stroke-dasharray="355.33 147.32" stroke-dashoffset="-0.00">
+                  <title>Morgan State University: 123 of 174 (70.7%)</title>
+                </circle>
+                <circle class="seg" cx="100" cy="100" r="80" stroke="var(--c2)"
+                  stroke-dasharray="83.78 418.87" stroke-dashoffset="-355.33">
+                  <title>Howard University: 29 of 174 (16.7%)</title>
+                </circle>
+                <circle class="seg" cx="100" cy="100" r="80" stroke="var(--c3)"
+                  stroke-dasharray="31.77 470.88" stroke-dashoffset="-439.11">
+                  <title>Bowie State University: 11 of 174 (6.3%)</title>
+                </circle>
+                <circle class="seg" cx="100" cy="100" r="80" stroke="var(--c4)"
+                  stroke-dasharray="20.22 482.43" stroke-dashoffset="-470.88">
+                  <title>University of the District of Columbia: 7 of 174 (4.0%)</title>
+                </circle>
+                <circle class="seg" cx="100" cy="100" r="80" stroke="var(--c5)"
+                  stroke-dasharray="11.56 491.09" stroke-dashoffset="-491.10">
+                  <title>Other Maryland institutions: 4 of 174 (2.3%)</title>
+                </circle>
               </g>
-              <text class="donut-hole" x="100" y="99" text-anchor="middle" font-size="30">170</text>
-              <text class="donut-hole-sub" x="100" y="114" text-anchor="middle">CHECK-INS</text>
+              <text class="donut-hole" x="100" y="99" text-anchor="middle" font-size="30">174</text>
+              <text class="donut-hole-sub" x="100" y="114" text-anchor="middle">NAMED SCHOOL</text>
             </svg>
 
             <ul class="legend">
-        <li><span class="swatch" style="background:var(--c1)"></span><span class="lg-name">Morgan State University</span><span class="lg-val">93<i>54.7%</i></span></li>
-        <li><span class="swatch" style="background:var(--c2)"></span><span class="lg-name">Towson University</span><span class="lg-val">32<i>18.8%</i></span></li>
-        <li><span class="swatch" style="background:var(--c4)"></span><span class="lg-name">Other institutions</span><span class="lg-val">43<i>25.3%</i></span></li>
-        <li><span class="swatch" style="background:var(--c3)"></span><span class="lg-name">University of Maryland</span><span class="lg-val">2<i>1.2%</i></span></li>
+              <li><span class="swatch" style="background:var(--c1)"></span><span class="lg-name">Morgan State University</span><span class="lg-val">123<i>70.7%</i></span></li>
+              <li><span class="swatch" style="background:var(--c2)"></span><span class="lg-name">Howard University</span><span class="lg-val">29<i>16.7%</i></span></li>
+              <li><span class="swatch" style="background:var(--c3)"></span><span class="lg-name">Bowie State University</span><span class="lg-val">11<i>6.3%</i></span></li>
+              <li><span class="swatch" style="background:var(--c4)"></span><span class="lg-name">Univ. of the District of Columbia</span><span class="lg-val">7<i>4.0%</i></span></li>
+              <li><span class="swatch" style="background:var(--c5)"></span><span class="lg-name">Other Maryland institutions</span><span class="lg-val">4<i>2.3%</i></span></li>
             </ul>
           </div>
         </div>
 
-        <!-- Feedback -->
+        <!-- Geographic reach -->
         <div class="panel">
-          <p class="panel-tag">Student feedback</p>
-          <h3 class="panel-title">How It Landed</h3>
-          <p class="panel-note">Post-event feedback form, 2023 edition. Small sample &mdash; 13 students rated the event, and none scored it below 3.</p>
+          <p class="panel-tag">Where they came from</p>
+          <h3 class="panel-title">Geographic Reach</h3>
+          <p class="panel-note">Registrants spanned the East Coast and beyond &mdash; from Maryland to California &mdash; plus international sign-ups from Nigeria.</p>
 
-          <div class="score">
-            <b>4.54</b>
-            <span>/ 5 &nbsp;&middot;&nbsp; n = 13</span>
-          </div>
-
-          <ul class="bars">
-        <li><span class="bar-key">5 &#9733;</span><span class="bar-track"><span class="bar-fill" style="width:61.5%"></span></span><span class="bar-val">8</span></li>
-        <li><span class="bar-key">4 &#9733;</span><span class="bar-track"><span class="bar-fill" style="width:30.8%"></span></span><span class="bar-val">4</span></li>
-        <li><span class="bar-key">3 &#9733;</span><span class="bar-track"><span class="bar-fill" style="width:7.7%"></span></span><span class="bar-val">1</span></li>
-        <li><span class="bar-key">2 &#9733;</span><span class="bar-track"><span class="bar-fill" style="width:0.0%"></span></span><span class="bar-val">0</span></li>
-        <li><span class="bar-key">1 &#9733;</span><span class="bar-track"><span class="bar-fill" style="width:0.0%"></span></span><span class="bar-val">0</span></li>
+          <ul class="bars geo">
+            <li><span class="bar-key">MD</span><span class="bar-track"><span class="bar-fill" style="width:100.0%"></span></span><span class="bar-val">120</span></li>
+            <li><span class="bar-key">DC</span><span class="bar-track"><span class="bar-fill" style="width:12.5%"></span></span><span class="bar-val">15</span></li>
+            <li><span class="bar-key">VA</span><span class="bar-track"><span class="bar-fill" style="width:6.7%"></span></span><span class="bar-val">8</span></li>
+            <li><span class="bar-key">NY</span><span class="bar-track"><span class="bar-fill" style="width:2.5%"></span></span><span class="bar-val">3</span></li>
+            <li><span class="bar-key">PA</span><span class="bar-track"><span class="bar-fill" style="width:1.7%"></span></span><span class="bar-val">2</span></li>
+            <li><span class="bar-key">Other</span><span class="bar-track"><span class="bar-fill" style="width:5.0%"></span></span><span class="bar-val">6</span></li>
           </ul>
 
           <div class="pill-group">
-            <p class="pill-head">Most mentioned &mdash; liked (73 mentions)</p>
-            <ul class="pills">
-          <li class="pill pill-up">Recruiters Panel Session<i>10</i></li>
-          <li class="pill pill-up">Networking<i>9</i></li>
-          <li class="pill pill-up">Raffle draw<i>8</i></li>
-          <li class="pill pill-up">Food<i>7</i></li>
-          <li class="pill pill-up">Keynote speakers<i>7</i></li>
-            </ul>
-          </div>
-
-          <div class="pill-group">
-            <p class="pill-head">Most mentioned &mdash; disliked (14 mentions)</p>
-            <ul class="pills">
-          <li class="pill pill-down">Food<i>5</i></li>
-          <li class="pill pill-down">Programme structure<i>4</i></li>
-          <li class="pill pill-down">Professors Panel<i>1</i></li>
-          <li class="pill pill-down">Raffle draw<i>1</i></li>
-          <li class="pill pill-down">Workshops<i>1</i></li>
-            </ul>
+            <p class="pill-head">Registration by country</p>
+            <div class="geo-foot">
+              <span>United States <b>157</b></span>
+              <span>Nigeria <b>3</b></span>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="note-box" style="margin-top: 24px;">
-        <strong>Food is the one to watch.</strong> It is the fourth most-liked thing about the event
-        and the single most-disliked, so the split is real rather than a rounding artefact. Programme
-        structure is the other recurring ask.
+        <strong>A concentrated HBCU pipeline.</strong> 170 of the 174 identified applicants &mdash; nearly
+        all of them &mdash; came from HBCUs: Morgan State, Howard, Bowie State, and the University of the
+        District of Columbia. Sponsoring Morgan TechFest puts your brand directly in front of talent that
+        is hard to reach anywhere else.
       </div>
     </div>
 
@@ -535,8 +582,16 @@
         </li>
       </ul>
 
-      <div class="link-row" style="display:flex; flex-wrap:wrap; gap:12px; margin-top:28px;">
-        <a class="back-link" style="margin-top:0" href="mailto:morgantechfest@gmail.com?subject=Sponsoring%20Morgan%20TechFest%202026">Become a sponsor</a>
+      <div class="package-cta">
+        <div class="pk-copy">
+          <h4>Become a Sponsor</h4>
+          <p>Silver to Title tiers, activity &amp; advertising add-ons, and pricing &mdash; it&rsquo;s all in the full sponsorship package.</p>
+        </div>
+        <a class="pk-btn" href="/Morgan-TechFest-2026-Sponsorship-Package.pdf" target="_blank" rel="noopener" download>Download the package &darr;</a>
+      </div>
+
+      <div class="link-row" style="display:flex; flex-wrap:wrap; gap:12px; margin-top:20px;">
+        <a class="back-link" style="margin-top:0" href="mailto:morgantechfest@gmail.com?subject=Sponsoring%20Morgan%20TechFest%202026">Email the team</a>
         <a class="back-link" style="margin-top:0" href="/highlights.html">See highlights &rarr;</a>
       </div>
     </div>
@@ -545,10 +600,9 @@
     <div class="sources animate-in delay-4">
       <h3>Sources &amp; method</h3>
       <ul>
-        <li>Attendance: Morgan TechFest check-in form, 170 responses (169 unique email addresses; one person checked in twice).</li>
-        <li>School names were normalised before counting &mdash; &ldquo;Morgan State University&rdquo;, &ldquo;Morgan state university&rdquo;, &ldquo;Morgan State&rdquo; and &ldquo;Morgan state&rdquo; are one school (69&nbsp;+&nbsp;11&nbsp;+&nbsp;9&nbsp;+&nbsp;4&nbsp;=&nbsp;93). Towson likewise (25&nbsp;+&nbsp;4&nbsp;+&nbsp;3&nbsp;=&nbsp;32).</li>
-        <li>&ldquo;Other institutions&rdquo; is the 43 responses outside the three named schools. The number of distinct schools in that tail is not recoverable from the form report.</li>
-        <li>Ratings and open responses: post-event feedback form, 2023 edition. 13 rating responses, 73 &ldquo;liked&rdquo; mentions, 14 &ldquo;disliked&rdquo; mentions.</li>
+        <li>Applicant data: Morgan TechFest applicant form &mdash; 362 total submissions, 337 unique applicants after removing 25 duplicate re-submissions.</li>
+        <li>Institution counts are derived from applicant email domains; 174 applicants had an identifiable institution and 161 used personal email domains.</li>
+        <li>Registration data: event registration records &mdash; 160 orders, 156 unique registrants, and 175 tickets issued.</li>
       </ul>
     </div>
 

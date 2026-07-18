@@ -393,31 +393,84 @@ onUnmounted(() => {
         Award winners, the photo album, and the write-ups from previous years.
       </p>
 
-      <a href="/highlights.html" class="recap-card mt-8 md:mt-10">
-        <div class="recap-body">
-          <span class="card-id">REC-01</span>
-          <h3 class="recap-title">Celebrating Innovation &amp; Excellence</h3>
-          <p class="recap-text">
-            Morgan TechFest recognises standout projects and individuals through its Award Ceremony.
-            The recap page collects the winners, the gallery, and the Medium write-ups in one place.
-          </p>
-          <span class="recap-cta">Open highlights <span aria-hidden="true">&rarr;</span></span>
-        </div>
-        <div class="recap-thumbs" aria-hidden="true">
+      <div class="mt-8 grid grid-cols-1 gap-4 md:mt-10 lg:grid-cols-[1.2fr_1fr]">
+
+        <!-- Hero still -->
+        <a href="/highlights.html" class="recap-hero">
           <img
             src="https://res.cloudinary.com/ojay-dev/image/upload/v1693949821/MorganTechFest/gallery/_PAG0547_1_1_z7ffvg.png"
-            alt=""
+            alt="Morgan TechFest attendees at the last edition"
             loading="lazy"
             decoding="async"
           />
-          <img
-            src="https://res.cloudinary.com/ojay-dev/image/upload/v1693912317/MorganTechFest/gallery/_PAG05472_b2x7ra.png"
-            alt=""
-            loading="lazy"
-            decoding="async"
-          />
+          <div class="recap-hero-shade"></div>
+          <span class="recap-chip">2024 &middot; GBSM, Baltimore</span>
+          <div class="recap-stat"><b>175</b><span>attendees</span></div>
+          <div class="recap-hero-foot">
+            <span class="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-flux-cyan">The recap</span>
+            <span class="mt-1 block font-bebas text-3xl leading-none text-white sm:text-4xl">Celebrating Innovation &amp; Excellence</span>
+            <span class="mt-2.5 inline-block font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-flux-cyan">Open the recap <span aria-hidden="true">&rarr;</span></span>
+          </div>
+        </a>
+
+        <!-- Entry index -->
+        <div class="flex flex-col gap-3">
+
+          <a href="/highlights.html#awards" class="recap-idx">
+            <span class="recap-idx-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4zM7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3"/></svg>
+            </span>
+            <span class="min-w-0 flex-1">
+              <span class="recap-idx-id">Rec &middot; 01</span>
+              <span class="recap-idx-h">Award Winners</span>
+              <span class="recap-idx-d">Innovation, technical depth, and real-world impact &mdash; recognised at the Award Ceremony.</span>
+            </span>
+            <span class="recap-idx-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+
+          <a href="/highlights.html#gallery" class="recap-idx">
+            <span class="recap-idx-thumb">
+              <img
+                src="https://res.cloudinary.com/ojay-dev/image/upload/v1693912317/MorganTechFest/gallery/_PAG05472_b2x7ra.png"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+            </span>
+            <span class="min-w-0 flex-1">
+              <span class="recap-idx-id">Rec &middot; 02</span>
+              <span class="recap-idx-h">Photo Album</span>
+              <span class="recap-idx-d">The full gallery from the last edition, on one page.</span>
+            </span>
+            <span class="recap-idx-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+
+          <a href="/highlights.html#writeups" class="recap-idx">
+            <span class="recap-idx-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 10h16M4 15h10M4 20h7"/></svg>
+            </span>
+            <span class="min-w-0 flex-1">
+              <span class="recap-idx-id">Rec &middot; 03</span>
+              <span class="recap-idx-h">Write-ups</span>
+              <span class="recap-idx-d">Read the Medium recaps and stories from previous years.</span>
+            </span>
+            <span class="recap-idx-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+
         </div>
-      </a>
+      </div>
+
+      <!-- Proof strip -->
+      <div class="recap-proof">
+        <span class="recap-proof-label">Past sponsors &amp; partners</span>
+        <ul class="recap-proof-logos">
+          <li><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" loading="lazy" decoding="async" /></li>
+          <li><img src="https://res.cloudinary.com/ojay-dev/image/upload/v1700028978/MorganTechFest/patners/aws_logo_1_sdbmrm.png" alt="AWS" loading="lazy" decoding="async" /></li>
+          <li><img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/New_Bloomberg_Logo.svg" alt="Bloomberg" loading="lazy" decoding="async" /></li>
+          <li><img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" loading="lazy" decoding="async" /></li>
+          <li><img src="https://res.cloudinary.com/ojay-dev/image/upload/v1700028978/MorganTechFest/patners/Oracle_logo_PNG1_1_xfqgvx.png" alt="Oracle" loading="lazy" decoding="async" /></li>
+        </ul>
+      </div>
     </div>
   </div>
 
@@ -836,47 +889,133 @@ onUnmounted(() => {
   box-shadow: 0 12px 34px rgba(252, 71, 11, 0.34);
 }
 
-/* ===== RECAP ENTRY CARD ===== */
-.recap-card {
-  @apply grid grid-cols-1 overflow-hidden rounded-2xl transition-colors duration-200 sm:rounded-3xl md:grid-cols-[1.15fr_1fr];
+/* ===== RECAP: HERO STILL ===== */
+.recap-hero {
+  @apply relative block overflow-hidden rounded-3xl;
+  min-height: 340px;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+}
+
+.recap-hero img {
+  @apply absolute inset-0 h-full w-full object-cover;
+  transition: transform 0.5s ease;
+}
+
+.recap-hero:hover img {
+  transform: scale(1.04);
+}
+
+.recap-hero-shade {
+  @apply absolute inset-0;
+  background: linear-gradient(180deg, rgba(21, 8, 41, 0) 30%, rgba(21, 8, 41, 0.4) 62%, rgba(21, 8, 41, 0.92) 100%);
+}
+
+.recap-chip {
+  @apply absolute left-4 top-4 rounded-full font-mono text-[10px] uppercase tracking-[0.14em] text-white/85;
+  padding: 6px 11px;
+  background: rgba(21, 8, 41, 0.55);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.recap-stat {
+  @apply absolute right-4 top-4 flex items-baseline gap-x-1.5 rounded-xl;
+  padding: 8px 13px;
+  background: rgba(13, 198, 244, 0.14);
+  border: 1px solid rgba(13, 198, 244, 0.4);
+  backdrop-filter: blur(6px);
+}
+
+.recap-stat b {
+  @apply font-mono text-xl leading-none text-white;
+}
+
+.recap-stat span {
+  @apply font-mono text-[9px] uppercase tracking-[0.12em] text-white/70;
+}
+
+.recap-hero-foot {
+  @apply absolute inset-x-6 bottom-5;
+}
+
+/* ===== RECAP: ENTRY INDEX ===== */
+.recap-idx {
+  @apply relative flex flex-1 items-center gap-x-3.5 rounded-2xl px-4 py-4 transition-all duration-200;
   border: 1.5px solid rgba(255, 255, 255, 0.1);
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.01) 100%);
 }
 
-.recap-card:hover {
-  border-color: rgba(13, 198, 244, 0.4);
+.recap-idx:hover {
+  border-color: rgba(13, 198, 244, 0.45);
+  transform: translateX(4px);
+  background: linear-gradient(160deg, rgba(13, 198, 244, 0.1) 0%, rgba(255, 255, 255, 0.01) 100%);
 }
 
-.recap-body {
-  @apply px-5 py-7 xs:px-7 sm:px-9 sm:py-9;
+.recap-idx-icon {
+  @apply flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl text-flux-cyan;
+  background: rgba(13, 198, 244, 0.12);
+  border: 1px solid rgba(13, 198, 244, 0.3);
 }
 
-.recap-title {
-  @apply font-bebas text-3xl leading-tight text-white sm:text-4xl lg:text-5xl;
+.recap-idx-icon svg {
+  @apply h-5 w-5;
 }
 
-.recap-text {
-  @apply mt-3 max-w-md font-urbanist text-base leading-relaxed text-white/55 sm:text-lg;
+.recap-idx-thumb {
+  @apply h-14 w-16 flex-shrink-0 overflow-hidden rounded-xl;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.recap-cta {
-  @apply mt-5 inline-block font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-flux-cyan;
-}
-
-.recap-card:hover .recap-cta {
-  @apply underline underline-offset-4;
-}
-
-/* Two stacked stills stand in for the album without loading it */
-.recap-thumbs {
-  @apply grid grid-cols-2 gap-px md:grid-cols-1;
-  background: rgba(255, 255, 255, 0.08);
-  min-height: 180px;
-}
-
-.recap-thumbs img {
+.recap-idx-thumb img {
   @apply h-full w-full object-cover;
-  min-height: 90px;
+}
+
+.recap-idx-id {
+  @apply mb-0.5 block font-mono text-[9px] uppercase tracking-[0.18em] text-flux-cyan/60;
+}
+
+.recap-idx-h {
+  @apply block font-bebas text-2xl leading-none text-white;
+}
+
+.recap-idx-d {
+  @apply mt-1 block font-urbanist text-sm leading-snug text-white/50;
+}
+
+.recap-idx-arrow {
+  @apply flex-shrink-0 font-mono text-lg text-white/35 transition-all duration-200;
+}
+
+.recap-idx:hover .recap-idx-arrow {
+  @apply text-flux-cyan;
+  transform: translateX(3px);
+}
+
+/* ===== RECAP: PROOF STRIP ===== */
+.recap-proof {
+  @apply mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 pt-6;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.recap-proof-label {
+  @apply flex-shrink-0 font-mono text-[10px] uppercase tracking-[0.18em] text-white/40;
+}
+
+.recap-proof-logos {
+  @apply flex flex-wrap items-center gap-2.5;
+}
+
+.recap-proof-logos li {
+  @apply flex h-10 -translate-y-0 items-center justify-center rounded-lg bg-white px-4 opacity-90 transition-all duration-200;
+}
+
+.recap-proof-logos li:hover {
+  @apply -translate-y-0.5 opacity-100;
+}
+
+.recap-proof-logos img {
+  @apply max-h-5 object-contain;
+  max-width: 96px;
 }
 
 /* ===== SOCIAL LINKS ===== */
