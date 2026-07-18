@@ -21,7 +21,7 @@
     /* ===== STAT ROW ===== */
     .stat-row {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
       margin-top: 40px;
     }
@@ -379,6 +379,42 @@
 </head>
 <body>
 
+  <!-- SITE HEADER (shared with front page) -->
+  <header class="site-header">
+    <div class="site-header-bg">
+      <div class="site-header-inner">
+        <div class="site-header-left">
+          <button class="site-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-mobile-nav" onclick="var n=document.getElementById('site-mobile-nav');n.classList.toggle('open');this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true');">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </button>
+          <a class="site-logo" href="/"><img src="/logo.svg" alt="Morgan TechFest" /></a>
+        </div>
+        <nav class="site-nav" aria-label="Primary">
+          <a class="site-nav-link" href="/#about">About</a>
+          <a class="site-nav-link" href="/#components">Components</a>
+          <a class="site-nav-link" href="/#tracks">Tracks</a>
+          <a class="site-nav-link" href="/schedule.html">Schedule <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+          <a class="site-nav-link active" href="/sponsors.html" aria-current="page">Sponsors <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+          <a class="site-nav-link" href="/highlights.html">Highlights <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+          <a class="site-nav-link" href="/#faq">FAQ</a>
+        </nav>
+        <div class="site-header-right">
+          <a class="site-register-btn" href="https://form.jotform.com/252798316140156" target="_blank" rel="noopener noreferrer">Register now</a>
+        </div>
+      </div>
+    </div>
+    <nav class="site-mobile-nav" id="site-mobile-nav" aria-label="Primary mobile">
+      <a class="site-mobile-nav-link" href="/#about">About</a>
+      <a class="site-mobile-nav-link" href="/#components">Components</a>
+      <a class="site-mobile-nav-link" href="/#tracks">Tracks</a>
+      <a class="site-mobile-nav-link" href="/schedule.html">Schedule <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+      <a class="site-mobile-nav-link active" href="/sponsors.html" aria-current="page">Sponsors <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+      <a class="site-mobile-nav-link" href="/highlights.html">Highlights <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+      <a class="site-mobile-nav-link" href="/#faq">FAQ</a>
+    </nav>
+  </header>
+
+
   <!-- HEADER -->
   <div class="page-header">
     <div class="header-content animate-in">
@@ -394,7 +430,7 @@
 
     <!-- ===== REACH ===== -->
     <div class="section-block animate-in">
-      <span class="section-tag">01 &mdash; Who we reach</span>
+      <span class="section-tag">Who we reach</span>
       <h2 class="section-title">Reach &amp; Representation</h2>
       <p class="section-desc">
         Figures below come from Morgan TechFest&rsquo;s own applicant and registration records &mdash;
@@ -405,10 +441,6 @@
         <div class="stat-cell">
           <dt>Unique applicants</dt>
           <dd>337</dd>
-        </div>
-        <div class="stat-cell">
-          <dt>Event registrants</dt>
-          <dd>156</dd>
         </div>
         <div class="stat-cell">
           <dt>Tickets issued</dt>
@@ -451,16 +483,16 @@
                   <title>Other Maryland institutions: 4 of 174 (2.3%)</title>
                 </circle>
               </g>
-              <text class="donut-hole" x="100" y="99" text-anchor="middle" font-size="30">174</text>
-              <text class="donut-hole-sub" x="100" y="114" text-anchor="middle">NAMED SCHOOL</text>
+              <text class="donut-hole" x="100" y="99" text-anchor="middle" font-size="30">52%</text>
+              <text class="donut-hole-sub" x="100" y="114" text-anchor="middle">NAMED A SCHOOL</text>
             </svg>
 
             <ul class="legend">
-              <li><span class="swatch" style="background:var(--c1)"></span><span class="lg-name">Morgan State University</span><span class="lg-val">123<i>70.7%</i></span></li>
-              <li><span class="swatch" style="background:var(--c2)"></span><span class="lg-name">Howard University</span><span class="lg-val">29<i>16.7%</i></span></li>
-              <li><span class="swatch" style="background:var(--c3)"></span><span class="lg-name">Bowie State University</span><span class="lg-val">11<i>6.3%</i></span></li>
-              <li><span class="swatch" style="background:var(--c4)"></span><span class="lg-name">Univ. of the District of Columbia</span><span class="lg-val">7<i>4.0%</i></span></li>
-              <li><span class="swatch" style="background:var(--c5)"></span><span class="lg-name">Other Maryland institutions</span><span class="lg-val">4<i>2.3%</i></span></li>
+              <li><span class="swatch" style="background:var(--c1)"></span><span class="lg-name">Morgan State University</span><span class="lg-val">70.7%</span></li>
+              <li><span class="swatch" style="background:var(--c2)"></span><span class="lg-name">Howard University</span><span class="lg-val">16.7%</span></li>
+              <li><span class="swatch" style="background:var(--c3)"></span><span class="lg-name">Bowie State University</span><span class="lg-val">6.3%</span></li>
+              <li><span class="swatch" style="background:var(--c4)"></span><span class="lg-name">Univ. of the District of Columbia</span><span class="lg-val">4.0%</span></li>
+              <li><span class="swatch" style="background:var(--c5)"></span><span class="lg-name">Other Maryland institutions</span><span class="lg-val">2.3%</span></li>
             </ul>
           </div>
         </div>
@@ -472,19 +504,19 @@
           <p class="panel-note">Registrants spanned the East Coast and beyond &mdash; from Maryland to California &mdash; plus international sign-ups from Nigeria.</p>
 
           <ul class="bars geo">
-            <li><span class="bar-key">MD</span><span class="bar-track"><span class="bar-fill" style="width:100.0%"></span></span><span class="bar-val">120</span></li>
-            <li><span class="bar-key">DC</span><span class="bar-track"><span class="bar-fill" style="width:12.5%"></span></span><span class="bar-val">15</span></li>
-            <li><span class="bar-key">VA</span><span class="bar-track"><span class="bar-fill" style="width:6.7%"></span></span><span class="bar-val">8</span></li>
-            <li><span class="bar-key">NY</span><span class="bar-track"><span class="bar-fill" style="width:2.5%"></span></span><span class="bar-val">3</span></li>
-            <li><span class="bar-key">PA</span><span class="bar-track"><span class="bar-fill" style="width:1.7%"></span></span><span class="bar-val">2</span></li>
-            <li><span class="bar-key">Other</span><span class="bar-track"><span class="bar-fill" style="width:5.0%"></span></span><span class="bar-val">6</span></li>
+            <li><span class="bar-key">MD</span><span class="bar-track"><span class="bar-fill" style="width:75.0%"></span></span><span class="bar-val">75%</span></li>
+            <li><span class="bar-key">DC</span><span class="bar-track"><span class="bar-fill" style="width:9.4%"></span></span><span class="bar-val">9%</span></li>
+            <li><span class="bar-key">VA</span><span class="bar-track"><span class="bar-fill" style="width:5.0%"></span></span><span class="bar-val">5%</span></li>
+            <li><span class="bar-key">NY</span><span class="bar-track"><span class="bar-fill" style="width:1.9%"></span></span><span class="bar-val">2%</span></li>
+            <li><span class="bar-key">PA</span><span class="bar-track"><span class="bar-fill" style="width:1.3%"></span></span><span class="bar-val">1%</span></li>
+            <li><span class="bar-key">Other</span><span class="bar-track"><span class="bar-fill" style="width:3.8%"></span></span><span class="bar-val">4%</span></li>
           </ul>
 
           <div class="pill-group">
             <p class="pill-head">Registration by country</p>
             <div class="geo-foot">
-              <span>United States <b>157</b></span>
-              <span>Nigeria <b>3</b></span>
+              <span>United States <b>98%</b></span>
+              <span>Nigeria <b>2%</b></span>
             </div>
           </div>
         </div>
@@ -492,9 +524,13 @@
 
     </div>
 
+    <div class="link-row" style="margin-top:40px;">
+      <a class="back-link" style="margin-top:0" href="https://www.morgantechfest.com/highlights.html">See highlights &rarr;</a>
+    </div>
+
     <!-- ===== SPONSORS ===== -->
     <div class="section-block animate-in delay-2" style="margin-top: 64px;">
-      <span class="section-tag">02 &mdash; Backed by</span>
+      <span class="section-tag">Backed by</span>
       <h2 class="section-title">Past Sponsors &amp; Partners</h2>
       <p class="section-desc">
         Organisations that have supported Morgan TechFest across previous editions, through funding,
@@ -559,10 +595,6 @@
           <p class="sponsor-name">Oracle</p>
         </li>
         <li class="sponsor-cell">
-          <div class="sponsor-plate"><img src="https://res.cloudinary.com/ojay-dev/image/upload/v1700028979/MorganTechFest/patners/Scholarly_1_ens2ws.png" alt="Scholarly" loading="lazy" decoding="async" /></div>
-          <p class="sponsor-name">Scholarly</p>
-        </li>
-        <li class="sponsor-cell">
           <div class="sponsor-plate"><img src="https://res.cloudinary.com/ojay-dev/image/upload/v1700192312/MorganTechFest/patners/TGV_2_1_dpmpfd.png" alt="Timeless Venture Group" loading="lazy" decoding="async" /></div>
           <p class="sponsor-name">Timeless Venture Group</p>
         </li>
@@ -588,12 +620,8 @@
         <a class="pk-btn" href="/Morgan-TechFest-2026-Sponsorship-Package.pdf" target="_blank" rel="noopener" download>Download the package &darr;</a>
       </div>
 
-      <div class="link-row" style="display:flex; flex-wrap:wrap; gap:12px; margin-top:20px;">
-        <a class="back-link" style="margin-top:0" href="/highlights.html">See highlights &rarr;</a>
-      </div>
     </div>
 
-    <a href="/" class="back-link animate-in delay-4">&larr; Back to home</a>
 
   </div>
 

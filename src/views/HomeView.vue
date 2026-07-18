@@ -210,7 +210,7 @@ onUnmounted(() => {
     <div class="mx-auto max-w-6xl">
       <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12">
         <div>
-          <span class="section-label"><i>01</i> About Morgan TechFest</span>
+          <span class="section-label">About Morgan TechFest</span>
           <p
             class="mt-4 font-urbanist text-xl leading-relaxed text-flux-ink xs:text-2xl md:text-2xl md:leading-relaxed"
           >
@@ -274,14 +274,13 @@ onUnmounted(() => {
   <!-- ===================== CORE COMPONENTS ===================== -->
   <div class="section-dark px-5 pb-16 pt-16 xs:px-8 md:pb-24 md:pt-24" id="components">
     <div class="mx-auto max-w-6xl">
-      <span class="section-label-light"><i>02</i> What we do</span>
+      <span class="section-label-light">What we do</span>
       <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">
         Core Components
       </h2>
 
       <div class="mt-10 grid grid-cols-1 gap-6 md:mt-14 md:grid-cols-2 md:gap-8">
         <div class="comp-card">
-          <span class="card-id">CMP-01</span>
           <h3 class="comp-title">Tech Case Competition</h3>
           <p class="comp-subtitle">Team solution sprint</p>
           <p class="comp-text">
@@ -291,7 +290,6 @@ onUnmounted(() => {
         </div>
 
         <div class="comp-card">
-          <span class="card-id">CMP-02</span>
           <h3 class="comp-title">Innovation Expo</h3>
           <p class="comp-subtitle">Research &amp; project showcase</p>
           <p class="comp-text">
@@ -307,7 +305,7 @@ onUnmounted(() => {
   <!-- ===================== TRACKS ===================== -->
   <div class="section-dark px-5 pb-16 pt-4 xs:px-8 md:pb-28 md:pt-8" id="tracks">
     <div class="mx-auto max-w-6xl">
-      <span class="section-label-light"><i>03</i> Pick your problem</span>
+      <span class="section-label-light">Pick your problem</span>
       <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">
         Competition Tracks
       </h2>
@@ -318,7 +316,6 @@ onUnmounted(() => {
 
       <div class="track-grid mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-2xl sm:grid-cols-2 lg:grid-cols-3">
         <article v-for="track in tracks" :key="track.id" class="track-card">
-          <span class="card-id">{{ track.id }}</span>
           <h3 class="track-name">{{ track.name }}</h3>
           <p class="track-brief">{{ track.brief }}</p>
         </article>
@@ -329,7 +326,7 @@ onUnmounted(() => {
   <!-- ===================== SCHEDULE ===================== -->
   <div class="section-dark px-5 pb-16 pt-16 xs:px-8 md:pb-28 md:pt-24" id="schedule">
     <div class="mx-auto max-w-6xl">
-      <span class="section-label-light"><i>04</i> The event</span>
+      <span class="section-label-light">The event</span>
       <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">
         Schedule
       </h2>
@@ -339,7 +336,6 @@ onUnmounted(() => {
 
       <div class="mt-8 grid grid-cols-1 gap-3 xs:grid-cols-2 md:mt-12 lg:grid-cols-3 lg:gap-4">
         <span v-for="item in schedule" :key="item.id" class="sched-pill">
-          <i class="sched-index">{{ item.id }}</i>
           {{ item.name }}
         </span>
       </div>
@@ -355,7 +351,7 @@ onUnmounted(() => {
   <!-- ===================== PARTNERS ===================== -->
   <div class="bg-flux-mist px-5 pb-16 pt-16 xs:px-8 md:pb-24 md:pt-24" id="partners">
     <div class="mx-auto max-w-6xl">
-      <span class="section-label"><i>06</i> Backed by</span>
+      <span class="section-label">Backed by</span>
       <h2 class="mt-3 font-bebas text-5xl font-normal text-flux-ink xs:text-6xl sm:text-7xl">
         Sponsors &amp; Partners
       </h2>
@@ -385,7 +381,7 @@ onUnmounted(() => {
   <!-- ===================== HIGHLIGHTS (entry point) ===================== -->
   <div class="section-dark px-5 pb-12 pt-16 xs:px-8 md:pb-20 md:pt-24" id="highlights">
     <div class="mx-auto max-w-6xl">
-      <span class="section-label-light"><i>07</i> Recap</span>
+      <span class="section-label-light">Recap</span>
       <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">
         Highlights
       </h2>
@@ -421,7 +417,6 @@ onUnmounted(() => {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4zM7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3"/></svg>
             </span>
             <span class="min-w-0 flex-1">
-              <span class="recap-idx-id">Rec &middot; 01</span>
               <span class="recap-idx-h">Award Winners</span>
               <span class="recap-idx-d">Innovation, technical depth, and real-world impact &mdash; recognised at the Award Ceremony.</span>
             </span>
@@ -438,7 +433,6 @@ onUnmounted(() => {
               />
             </span>
             <span class="min-w-0 flex-1">
-              <span class="recap-idx-id">Rec &middot; 02</span>
               <span class="recap-idx-h">Photo Album</span>
               <span class="recap-idx-d">The full gallery from the last edition, on one page.</span>
             </span>
@@ -450,7 +444,6 @@ onUnmounted(() => {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 10h16M4 15h10M4 20h7"/></svg>
             </span>
             <span class="min-w-0 flex-1">
-              <span class="recap-idx-id">Rec &middot; 03</span>
               <span class="recap-idx-h">Write-ups</span>
               <span class="recap-idx-d">Read the Medium recaps and stories from previous years.</span>
             </span>
@@ -477,7 +470,7 @@ onUnmounted(() => {
   <div class="section-dark px-5 pb-12 pt-4 xs:px-8 md:pb-20">
     <!-- ===================== FAQ ===================== -->
     <div class="mx-auto max-w-6xl pt-8 md:pt-16" id="faq">
-      <span class="section-label-light"><i>08</i> Questions?</span>
+      <span class="section-label-light">Questions?</span>
       <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">FAQ</h2>
 
       <div class="mt-6 md:mt-10">

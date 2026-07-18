@@ -138,6 +138,42 @@
 </head>
 <body>
 
+  <!-- SITE HEADER (shared with front page) -->
+  <header class="site-header">
+    <div class="site-header-bg">
+      <div class="site-header-inner">
+        <div class="site-header-left">
+          <button class="site-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-mobile-nav" onclick="var n=document.getElementById('site-mobile-nav');n.classList.toggle('open');this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true');">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </button>
+          <a class="site-logo" href="/"><img src="/logo.svg" alt="Morgan TechFest" /></a>
+        </div>
+        <nav class="site-nav" aria-label="Primary">
+          <a class="site-nav-link" href="/#about">About</a>
+          <a class="site-nav-link" href="/#components">Components</a>
+          <a class="site-nav-link" href="/#tracks">Tracks</a>
+          <a class="site-nav-link" href="/schedule.html">Schedule <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+          <a class="site-nav-link" href="/sponsors.html">Sponsors <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+          <a class="site-nav-link active" href="/highlights.html" aria-current="page">Highlights <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+          <a class="site-nav-link" href="/#faq">FAQ</a>
+        </nav>
+        <div class="site-header-right">
+          <a class="site-register-btn" href="https://form.jotform.com/252798316140156" target="_blank" rel="noopener noreferrer">Register now</a>
+        </div>
+      </div>
+    </div>
+    <nav class="site-mobile-nav" id="site-mobile-nav" aria-label="Primary mobile">
+      <a class="site-mobile-nav-link" href="/#about">About</a>
+      <a class="site-mobile-nav-link" href="/#components">Components</a>
+      <a class="site-mobile-nav-link" href="/#tracks">Tracks</a>
+      <a class="site-mobile-nav-link" href="/schedule.html">Schedule <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+      <a class="site-mobile-nav-link" href="/sponsors.html">Sponsors <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+      <a class="site-mobile-nav-link active" href="/highlights.html" aria-current="page">Highlights <span class="nav-out" aria-hidden="true">&#8599;</span></a>
+      <a class="site-mobile-nav-link" href="/#faq">FAQ</a>
+    </nav>
+  </header>
+
+
   <!-- HEADER -->
   <div class="page-header">
     <div class="header-content animate-in">
@@ -153,7 +189,7 @@
 
     <!-- AWARDS -->
     <div class="section-block animate-in">
-      <span class="section-tag">01 — What gets recognised</span>
+      <span class="section-tag">What gets recognised</span>
       <h2 class="section-title">Award Ceremony</h2>
       <p class="section-desc">
         Awards close the day. Each of the two core components is judged on its own criteria, and
@@ -162,17 +198,14 @@
 
       <div class="award-grid">
         <div class="award-cell">
-          <span class="award-id">AWD-01</span>
           <h3 class="award-name">Tech Case Competition</h3>
           <p class="award-desc">Judged on clarity, innovation, feasibility, and impact of the proposed solution.</p>
         </div>
         <div class="award-cell">
-          <span class="award-id">AWD-02</span>
           <h3 class="award-name">Innovation Expo</h3>
           <p class="award-desc">Judged on clarity, technical depth, organisation, and real-world impact of the work shown.</p>
         </div>
         <div class="award-cell">
-          <span class="award-id">AWD-03</span>
           <h3 class="award-name">Recognition</h3>
           <p class="award-desc">Exposure and awards for standout individuals across the day's programme.</p>
         </div>
@@ -186,7 +219,7 @@
 
     <!-- GALLERY -->
     <div class="section-block animate-in delay-2" style="margin-top: 64px;">
-      <span class="section-tag">02 — Moments</span>
+      <span class="section-tag">Moments</span>
       <h2 class="section-title">Gallery</h2>
       <p class="section-desc">
         A look at previous editions. The full album lives on Google Drive.
@@ -200,7 +233,7 @@
             loading="lazy"
             decoding="async"
           />
-          <figcaption>IMG-01 · Attendees</figcaption>
+          <figcaption>Attendees</figcaption>
         </figure>
         <figure>
           <img
@@ -209,7 +242,7 @@
             loading="lazy"
             decoding="async"
           />
-          <figcaption>IMG-02 · Showcase</figcaption>
+          <figcaption>Showcase</figcaption>
         </figure>
       </div>
 
@@ -219,8 +252,6 @@
       </div>
     </div>
 
-    <a href="/" class="back-link animate-in delay-4">&larr; Back to home</a>
-    <a href="/schedule.html" class="back-link animate-in delay-4" style="margin-left: 12px;">View schedule &rarr;</a>
 
   </div>
 
