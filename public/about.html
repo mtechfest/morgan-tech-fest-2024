@@ -26,7 +26,7 @@
       border-radius: 50%; overflow: hidden;
       display: flex; align-items: center; justify-content: center;
     }
-    .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .team-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
     .team-pending {
       border: 2px dashed rgba(61, 21, 82, 0.4);
       background: radial-gradient(circle at 50% 38%, rgba(13, 198, 244, 0.18) 0%, rgba(61, 21, 82, 0.06) 72%);
@@ -38,6 +38,8 @@
     .team-member:hover .team-pending { border-color: var(--orange); transform: scale(1.04); }
     .team-name { margin-top: 14px; font-family: 'Urbanist', sans-serif; font-weight: 700; font-size: 15px; color: var(--dark); }
     .team-role { display: block; margin-top: 2px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(22, 7, 43, 0.5); }
+    .pp-head { margin-top: 48px; font-family: 'Bebas Neue', sans-serif; font-size: 30px; line-height: 1; color: var(--dark); }
+    .pp-grid { margin-top: 20px; grid-template-columns: repeat(2, 1fr); max-width: 380px; }
   </style>
 </head>
 <body>
@@ -79,7 +81,7 @@
     <div class="header-content animate-in">
       <p class="eyebrow">Future Flux &middot; Morgan State University</p>
       <h1>About <span>Us</span></h1>
-      <p class="subtitle">A student-led platform for discovery, innovation, and collaboration at Morgan State University and beyond.</p>
+      <p class="subtitle">A tech development platform for discovery, innovation, and collaboration at Morgan State University and beyond.</p>
     </div>
   </div>
 
@@ -94,7 +96,6 @@
       <div class="about-layout">
         <div class="about-copy">
           <p class="about-lead">Morgan TechFest is an annual technology innovation platform hosted by Morgan State University, bringing together students, faculty, and the broader academic community to solve real-world technology problems, showcase cutting-edge research, and foster meaningful innovation and collaboration.</p>
-          <p class="about-text">At its core, it bridges academic learning and real-world application through a dual structure: the Tech Case Competition and the Innovation Expo. An interdisciplinary platform open to all fields, it helps students discover technology-driven career paths, network with industry professionals, and innovate through real-world problem-solving.</p>
         </div>
         <div class="about-video">
           <iframe src="https://www.youtube-nocookie.com/embed/MLX3J9nk0cI?si=Fe_QZEDKo3kaM7Qe" title="Morgan TechFest" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -104,8 +105,7 @@
 
     <!-- TEAM -->
     <div class="section-block animate-in delay-2" style="margin-top: 64px;">
-      <span class="section-tag">The people behind it</span>
-      <h2 class="section-title">Meet the Team</h2>
+      <h2 class="section-title">Organizing Committee Members</h2>
       <p class="section-desc">The 2026 organizing team is coming together. Photos land here soon.</p>
 
       <!--
@@ -148,6 +148,20 @@
         <figure class="team-member">
           <div class="team-avatar team-pending"><span>Photo<br />soon</span></div>
           <figcaption class="team-name">Team Member</figcaption>
+        </figure>
+      </div>
+
+      <h3 class="pp-head">Past Presidents</h3>
+      <div class="team-grid pp-grid">
+        <figure class="team-member">
+          <div class="team-avatar"><img src="/team/opeyemi-adeniran.jpg" alt="Opeyemi Adeniran" loading="lazy" decoding="async" /></div>
+          <figcaption class="team-name">Opeyemi Adeniran</figcaption>
+          <span class="team-role">Past President</span>
+        </figure>
+        <figure class="team-member">
+          <div class="team-avatar"><img src="/team/femi-mebude.jpg" alt="Femi Mebude" loading="lazy" decoding="async" /></div>
+          <figcaption class="team-name">Femi Mebude</figcaption>
+          <span class="team-role">Past President</span>
         </figure>
       </div>
     </div>

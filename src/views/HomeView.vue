@@ -242,43 +242,6 @@ onUnmounted(() => {
           </p>
         </div>
       </div>
-
-      <!-- Cash prizes (continuation of Components) -->
-      <div class="mt-16 border-t border-white/10 pt-12">
-        <span class="section-label-light">Cash prizes</span>
-        <p class="mt-3 max-w-xl font-urbanist text-base text-white/55 sm:text-lg">
-          Two competitions, six cash prizes. The amounts stay sealed until the Award Ceremony on event day.
-        </p>
-
-        <div class="prize-grid">
-          <div class="prize-card">
-            <span class="prize-kicker">Innovation Expo</span>
-            <h3 class="prize-comp">Research &amp; Project Showcase</h3>
-            <ul class="prize-tiers">
-              <li><span class="prize-place"><i class="medal medal-gold"></i>1st Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
-              <li><span class="prize-place"><i class="medal medal-silver"></i>2nd Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
-              <li><span class="prize-place"><i class="medal medal-bronze"></i>3rd Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
-            </ul>
-          </div>
-          <div class="prize-card">
-            <span class="prize-kicker">Tech Case Competition</span>
-            <h3 class="prize-comp">Team Solution Sprint</h3>
-            <ul class="prize-tiers">
-              <li><span class="prize-place"><i class="medal medal-gold"></i>1st Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
-              <li><span class="prize-place"><i class="medal medal-silver"></i>2nd Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
-              <li><span class="prize-place"><i class="medal medal-bronze"></i>3rd Place</span><span class="prize-amount">$&bull;&bull;&bull;&bull;</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="prize-foot">
-          <span class="inline-flex items-center gap-x-2 font-mono text-xs uppercase tracking-[0.12em] text-white/55">
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            Amounts revealed on event day
-          </span>
-          <a href="/components.html" class="cta-solid">See full details</a>
-        </div>
-      </div>
     </div>
   </div>
 
