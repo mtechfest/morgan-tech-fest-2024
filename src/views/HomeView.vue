@@ -185,22 +185,6 @@ onUnmounted(() => {
           class="cta-solid animate-rise-4 mt-7 sm:mt-8"
           >Register now</a
         >
-
-        <!-- Readout: only counts that are true by construction -->
-        <dl class="stat-row animate-rise-4 mt-10 sm:mt-12">
-          <div class="stat">
-            <dt class="stat-label">Domains</dt>
-            <dd class="stat-value">{{ eventInfo.domains.length }}</dd>
-          </div>
-          <div class="stat">
-            <dt class="stat-label">Tracks</dt>
-            <dd class="stat-value">{{ tracks.length }}</dd>
-          </div>
-          <div class="stat">
-            <dt class="stat-label">Program blocks</dt>
-            <dd class="stat-value">{{ schedule.length }}</dd>
-          </div>
-        </dl>
       </div>
     </div>
   </section>
@@ -305,12 +289,11 @@ onUnmounted(() => {
   <!-- ===================== TRACKS ===================== -->
   <div class="section-dark px-5 pb-16 pt-4 xs:px-8 md:pb-28 md:pt-8" id="tracks">
     <div class="mx-auto max-w-6xl">
-      <span class="section-label-light">Pick your problem</span>
       <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">
         Competition Tracks
       </h2>
       <p class="mt-3 max-w-xl font-urbanist text-base text-white/55 sm:text-lg">
-        Every case solution is built against one of six tracks. Choose the domain your team wants to
+        Every tech case solution is built against one of six tracks. Choose the domain your team wants to
         move.
       </p>
 
@@ -331,7 +314,7 @@ onUnmounted(() => {
         Schedule
       </h2>
       <p class="mt-3 max-w-xl font-urbanist text-base text-white/55 sm:text-lg">
-        Six headline blocks, in the order they run. The full timed programme lives on its own page.
+        A full-day experience integrating innovation, competition, and industry engagement.
       </p>
 
       <div class="mt-8 grid grid-cols-1 gap-3 xs:grid-cols-2 md:mt-12 lg:grid-cols-3 lg:gap-4">
