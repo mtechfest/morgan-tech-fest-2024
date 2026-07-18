@@ -1,168 +1,147 @@
 <script setup>
-import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import ChocolateMenuIcon from '@/components/icons/IconChocolateMenu.vue'
+import { nav, eventInfo } from '@/data/home'
 
-// Define reactive properties
-const isClicked = ref(false)
-const selectedKeys = ref(['1'])
-const openKeys = ref([''])
 const isMenuOpen = ref(false)
 const isSticky = ref(false)
-const myHeader = ref(null)
-
-// Define a mapping between the link key and the section id
-const sectionIds = {
-  Home: 'home',
-  'About': 'about',
-  'Components': 'components',
-  Schedule: 'schedule',
-  Partners: 'partners',
-  FAQ: 'faq'
-}
-
-// watch sub mobile menu property
-watch(isMenuOpen, (val) => {
-  if (val) {
-    openKeys.value = ['sub2']
-  } else {
-    openKeys.value = ['']
-  }
-})
-
-// Computed property for button class
-const buttonClass = computed(() => ({
-  'register-btn': true,
-  clicked: isClicked.value
-}))
-
-// Event handlers
-const scaleDown = async (event) => {
-  event.preventDefault()
-
-  isClicked.value = true
-
-  await new Promise((resolve) => {
-    setTimeout(() => {
-      isClicked.value = false
-      resolve()
-    }, 100)
-  })
-
-  window.open('https://form.jotform.com/252798316140156', '_blank', 'noopener noreferrer')
-}
-
-const titleClick = () => {
-  // no-op
-}
-
-const handleClick = (e) => {
-  openKeys.value = ['']
-
-  const sectionId = sectionIds[e.key]
-  if (sectionId) {
-    const headerEl = document.querySelector('header')
-    if (!headerEl) return
-    const headerHeight = headerEl.offsetHeight
-
-    const sectionElement = document.getElementById(sectionId)
-    if (sectionElement) {
-      const scrollToY = sectionElement.offsetTop - headerHeight - 230
-
-      window.scrollTo({
-        top: scrollToY,
-        behavior: 'smooth'
-      })
-    }
-  }
-}
+const sentinel = ref(null)
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
 
-// Throttle scroll handler with requestAnimationFrame to prevent excessive reflows
-let scrollTicking = false
-
-const handleScroll = () => {
-  if (scrollTicking) return
-  scrollTicking = true
-
-  window.requestAnimationFrame(() => {
-    if (myHeader.value) {
-      isSticky.value = window.scrollY > myHeader.value.offsetTop
-    }
-    scrollTicking = false
-  })
+const closeMenu = () => {
+  isMenuOpen.value = false
 }
 
-// Lifecycle hooks
+const onKeydown = (e) => {
+  if (e.key === 'Escape') closeMenu()
+}
+
+// Sticky state via IntersectionObserver rather than a scroll listener: the
+// browser reports the crossing itself, so there is no per-frame work and no
+// layout read on the main thread while scrolling.
+let observer = null
+
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll, { passive: true })
+  if (sentinel.value && 'IntersectionObserver' in window) {
+    observer = new IntersectionObserver(
+      ([entry]) => {
+        isSticky.value = !entry.isIntersecting
+      },
+      { rootMargin: '0px', threshold: 0 }
+    )
+    observer.observe(sentinel.value)
+  }
+  window.addEventListener('keydown', onKeydown)
 })
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
-  scrollTicking = false
+  if (observer) {
+    observer.disconnect()
+    observer = null
+  }
+  window.removeEventListener('keydown', onKeydown)
 })
 </script>
 
 <template>
-  <header :class="{ 'bg-flux-indigo': !isSticky, sticky: isSticky }" ref="myHeader">
-    <div class="header-bg px-3 py-5 xs:px-5 xs:py-7 xl:px-[5%]">
+  <!-- Zero-height probe: when it scrolls out of view, the header pins -->
+  <div ref="sentinel" aria-hidden="true" class="h-0 w-full"></div>
+
+  <header :class="{ 'is-pinned': isSticky }">
+    <div class="header-bg px-3 py-4 xs:px-5 xs:py-5 xl:px-[5%]">
       <div class="mx-auto flex items-center justify-between gap-x-3 xs:gap-x-[5%]">
         <div class="flex items-center gap-x-2 xs:gap-x-3">
-          <button class="lg:hidden" @click="toggleMenu"><ChocolateMenuIcon /></button>
-          <RouterLink to="/"
-            ><img alt="Logo" src="@/assets/logo.svg" class="w-9/12 lg:w-full"
-          /></RouterLink>
+          <button
+            class="menu-toggle lg:hidden"
+            :aria-expanded="isMenuOpen"
+            aria-controls="mobile-nav"
+            aria-label="Open navigation"
+            @click="toggleMenu"
+          >
+            <ChocolateMenuIcon />
+          </button>
+          <RouterLink to="/" @click="closeMenu">
+            <img alt="Morgan TechFest" src="@/assets/logo.svg" class="w-9/12 lg:w-full" />
+          </RouterLink>
         </div>
 
-        <nav class="hidden w-full max-w-screen-md justify-between lg:flex">
-          <a href="#" v-scroll-to="'#hero'" class="nav-link">Home</a>
-          <a href="#" v-scroll-to="'#about'" class="nav-link">About</a>
-          <a href="#" v-scroll-to="'#components'" class="nav-link">Components</a>
-          <a href="#" v-scroll-to="'#schedule'" class="nav-link">Schedule</a>
-          <a href="#" v-scroll-to="'#partners'" class="nav-link">Partners</a>
-          <a href="#" v-scroll-to="'#faq'" class="nav-link">FAQ</a>
+        <nav class="hidden w-full max-w-screen-md justify-between lg:flex" aria-label="Primary">
+          <a v-for="item in nav" :key="item.id" :href="'#' + item.id" class="nav-link">
+            <span class="nav-index">{{ item.index }}</span>
+            {{ item.label }}
+          </a>
         </nav>
 
-        <a href="#" :class="buttonClass" @click="scaleDown">Register now</a>
+        <div class="flex items-center gap-x-3">
+          <span class="status-pill" :title="eventInfo.stamp">
+            <span class="status-dot"></span>
+            <span>Reg. Open</span>
+          </span>
+          <a
+            :href="eventInfo.registerUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="register-btn"
+            >Register now</a
+          >
+        </div>
       </div>
     </div>
 
-    <a-menu
-      id="dddddd"
-      v-model:openKeys="openKeys"
-      v-model:selectedKeys="selectedKeys"
-      mode="inline"
-      @click="handleClick"
-      class="antd-custom-menu"
+    <!-- Native disclosure. Replaces the full component library that used to ship
+         just to render this list. -->
+    <nav
+      v-show="isMenuOpen"
+      id="mobile-nav"
+      class="mobile-nav lg:hidden"
+      aria-label="Primary mobile"
     >
-      <a-sub-menu key="sub2" @titleClick="titleClick">
-        <template #title>Navigation</template>
-        <a-menu-item key="Home">Home</a-menu-item>
-        <a-menu-item key="About">About</a-menu-item>
-        <a-menu-item key="Components">Components</a-menu-item>
-        <a-menu-item key="Schedule">Schedule</a-menu-item>
-        <a-menu-item key="Partners">Partners</a-menu-item>
-        <a-menu-item key="FAQ">FAQ</a-menu-item>
-      </a-sub-menu>
-    </a-menu>
+      <a
+        v-for="item in nav"
+        :key="item.id"
+        :href="'#' + item.id"
+        class="mobile-nav-link"
+        @click="closeMenu"
+      >
+        <span class="nav-index">{{ item.index }}</span>
+        {{ item.label }}
+      </a>
+    </nav>
   </header>
 </template>
 
 <style scoped>
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
 .header-bg {
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-left: 0;
-  border-right: 0;
-  background: linear-gradient(175deg, rgba(78, 22, 104, 0.55) 5%, rgba(36, 17, 69, 0.55) 51%),
-    rgba(21, 8, 41, 0.55);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(21, 8, 41, 0.82);
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+/* Only pay for the blur once the header is actually overlapping content.
+   backdrop-filter forces a fresh GPU layer every frame, so it stays off
+   at rest. */
+.is-pinned .header-bg {
+  background: rgba(21, 8, 41, 0.72);
+  border-bottom-color: rgba(13, 198, 244, 0.22);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .nav-link {
-  @apply relative font-urbanist text-base font-medium text-white/85 transition-colors duration-200 hover:text-white xl:text-lg 2xl:text-xl;
+  @apply relative font-mono text-xs font-medium uppercase tracking-[0.12em] text-white/70 transition-colors duration-200 hover:text-white xl:text-[13px];
+}
+
+.nav-index {
+  @apply mr-1.5 text-[10px] text-flux-cyan/55;
 }
 
 .nav-link::after {
@@ -174,17 +153,51 @@ onUnmounted(() => {
   @apply w-full;
 }
 
+.menu-toggle {
+  @apply rounded-md p-1 transition-colors duration-200 hover:bg-white/10;
+}
+
+/* ===== STATUS PILL ===== */
+.status-pill {
+  @apply hidden flex-shrink-0 items-center gap-x-1.5 rounded-full px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-flux-cyan xs:flex;
+  border: 1px solid rgba(13, 198, 244, 0.3);
+  background: rgba(13, 198, 244, 0.08);
+}
+
+.status-dot {
+  @apply block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-flux-cyan;
+  animation: statusPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(13, 198, 244, 0.55);
+  }
+  50% {
+    opacity: 0.65;
+    box-shadow: 0 0 0 4px rgba(13, 198, 244, 0);
+  }
+}
+
 .register-btn {
-  @apply flex h-[36px] w-full max-w-[130px] flex-shrink-0 items-center justify-center rounded-[80px] px-4 text-xs font-extrabold text-white transition-transform duration-150 xs:h-[40px] xs:max-w-[165px] xs:px-9 xs:text-sm md:h-14 md:max-w-[196px] md:text-lg;
-  background: linear-gradient(180deg, #ff7a1a 25.62%, #fc470b 100.89%);
-  box-shadow: 0 8px 24px rgba(252, 71, 11, 0.3);
+  @apply flex h-9 w-full max-w-[130px] flex-shrink-0 items-center justify-center rounded-full px-4 font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-white transition-transform duration-150 active:scale-95 xs:h-10 xs:max-w-[165px] xs:px-7 xs:text-xs md:h-12 md:max-w-[190px] md:text-sm;
+  background: linear-gradient(180deg, #ff7a1a 25%, #fc470b 100%);
+  box-shadow: 0 8px 24px rgba(252, 71, 11, 0.28);
 }
 
-.clicked {
-  transform: scale(0.9);
+/* ===== MOBILE NAV ===== */
+.mobile-nav {
+  @apply flex flex-col border-b border-white/10 px-5 pb-4 pt-1;
+  background: rgba(21, 8, 41, 0.97);
 }
 
-.sticky {
-  @apply fixed top-0 z-50 w-full;
+.mobile-nav-link {
+  @apply border-b border-white/5 py-3 font-mono text-xs uppercase tracking-[0.12em] text-white/80 transition-colors duration-150 hover:text-flux-cyan;
+}
+
+.mobile-nav-link:last-child {
+  @apply border-b-0;
 }
 </style>

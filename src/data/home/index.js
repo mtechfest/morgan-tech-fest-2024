@@ -3,10 +3,23 @@ export const eventInfo = {
   theme: 'Future Flux',
   tagline: 'Building The Intelligent World',
   iso: '2026-09-19T09:00:00',
+  stamp: '2026-09-19 09:00 ET',
   date: 'September 19, 2026',
   venue: 'Earl G. Graves School of Business & Management',
-  city: 'Morgan State University, Baltimore, MD'
+  city: 'Morgan State University, Baltimore, MD',
+  registerUrl: 'https://form.jotform.com/252798316140156',
+  domains: ['AI', 'Cybersecurity', 'Robotics', 'Data Science']
 }
+
+// Nav is data, so the desktop bar and the mobile disclosure cannot drift apart.
+export const nav = [
+  { id: 'about', label: 'About', index: '01' },
+  { id: 'components', label: 'Components', index: '02' },
+  { id: 'tracks', label: 'Tracks', index: '03' },
+  { id: 'schedule', label: 'Schedule', index: '04' },
+  { id: 'partners', label: 'Partners', index: '05' },
+  { id: 'faq', label: 'FAQ', index: '06' }
+]
 
 export const schedule = [
   'Tech Case Competition',
@@ -45,12 +58,36 @@ export const pastSpeakers = [
 ]
 
 export const tracks = [
-  'Health',
-  'Education',
-  'Transportation',
-  'Finance',
-  'Energy & Sustainability',
-  'Workforce & Employment'
+  {
+    id: 'TRK-01',
+    name: 'Health',
+    brief: 'Diagnostics, access, and patient outcomes'
+  },
+  {
+    id: 'TRK-02',
+    name: 'Education',
+    brief: 'Learning tools, literacy, and student success'
+  },
+  {
+    id: 'TRK-03',
+    name: 'Transportation',
+    brief: 'Mobility, logistics, and transit systems'
+  },
+  {
+    id: 'TRK-04',
+    name: 'Finance',
+    brief: 'Payments, access to capital, and financial literacy'
+  },
+  {
+    id: 'TRK-05',
+    name: 'Energy & Sustainability',
+    brief: 'Climate, grid, and resource efficiency'
+  },
+  {
+    id: 'TRK-06',
+    name: 'Workforce & Employment',
+    brief: 'Hiring, skills, and career mobility'
+  }
 ]
 
 export const studentValues = [

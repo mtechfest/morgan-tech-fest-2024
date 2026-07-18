@@ -31,7 +31,9 @@ export default {
       },
       fontFamily: {
         bebas: ['Bebas Neue', 'sans-serif'],
-        urbanist: ['Urbanist', 'sans-serif']
+        urbanist: ['Urbanist', 'sans-serif'],
+        // Utility face for data, labels, IDs and timestamps
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
       },
       screens: {
         xs: '425px',

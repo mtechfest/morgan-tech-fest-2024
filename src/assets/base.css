@@ -10,6 +10,13 @@
 
 html {
   background-color: var(--flux-indigo);
+  /* Replaces vue-scrollto: the platform does this with no JS and no rAF loop */
+  scroll-behavior: smooth;
+}
+
+/* Anchored sections stop below the pinned header instead of under it */
+[id] {
+  scroll-margin-top: 84px;
 }
 
 body {

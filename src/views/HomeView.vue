@@ -6,61 +6,107 @@ import InstagramIcon from '@/components/icons/IconInstagram.vue'
 import GithubIcon from '@/components/icons/IconGithub.vue'
 import DiscordIcon from '@/components/icons/IconDiscord.vue'
 import FAQItem from '@/components/FAQItem.vue'
-import { schedule, speakerSlots, tracks, partners, FaqQuestionsAnswers, eventInfo } from '@/data/home'
+import {
+  schedule,
+  speakerSlots,
+  tracks,
+  partners,
+  FaqQuestionsAnswers,
+  eventInfo
+} from '@/data/home'
 
-// Countdown timer
+/* ── Countdown ───────────────────────────────────────────────
+   One interval, and it only runs while the tab is actually visible.
+   A background tab that keeps ticking is wasted wakeups on a phone. */
 const eventDate = new Date(eventInfo.iso)
 const days = ref('00')
 const hours = ref('00')
 const mins = ref('00')
 const secs = ref('00')
-let countdownInterval = null
+let timer = null
 
 const updateCountdown = () => {
-  const now = new Date()
-  const diff = eventDate - now
+  const diff = eventDate - Date.now()
   if (diff <= 0) {
-    days.value = '00'
-    hours.value = '00'
-    mins.value = '00'
-    secs.value = '00'
-    return
+    days.value = hours.value = mins.value = secs.value = '00'
+    return false
   }
-  days.value = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0')
-  hours.value = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0')
-  mins.value = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0')
+  days.value = String(Math.floor(diff / 86400000)).padStart(2, '0')
+  hours.value = String(Math.floor((diff / 3600000) % 24)).padStart(2, '0')
+  mins.value = String(Math.floor((diff / 60000) % 60)).padStart(2, '0')
   secs.value = String(Math.floor((diff / 1000) % 60)).padStart(2, '0')
+  return true
 }
 
+const stopTimer = () => {
+  if (timer) {
+    clearInterval(timer)
+    timer = null
+  }
+}
+
+const startTimer = () => {
+  stopTimer()
+  if (updateCountdown()) timer = setInterval(updateCountdown, 1000)
+}
+
+const onVisibility = () => {
+  if (document.hidden) stopTimer()
+  else startTimer()
+}
+
+/* ── Marquee ─────────────────────────────────────────────────
+   An infinite CSS animation keeps the compositor working even when the
+   strip is far off screen. Pause it unless it is in view. */
+const marquee = ref(null)
+const marqueeLive = ref(true)
+let marqueeObserver = null
+
 onMounted(() => {
-  updateCountdown()
-  countdownInterval = setInterval(updateCountdown, 1000)
+  startTimer()
+  document.addEventListener('visibilitychange', onVisibility)
+
+  if (marquee.value && 'IntersectionObserver' in window) {
+    marqueeObserver = new IntersectionObserver(
+      ([entry]) => {
+        marqueeLive.value = entry.isIntersecting
+      },
+      { rootMargin: '150px' }
+    )
+    marqueeObserver.observe(marquee.value)
+  }
 })
 
 onUnmounted(() => {
-  if (countdownInterval) clearInterval(countdownInterval)
+  stopTimer()
+  document.removeEventListener('visibilitychange', onVisibility)
+  if (marqueeObserver) {
+    marqueeObserver.disconnect()
+    marqueeObserver = null
+  }
 })
 </script>
 
 <template>
   <!-- ===================== HERO ===================== -->
   <section id="hero" class="hero-wrapper">
-    <!-- Atmosphere: perspective grid, light streaks, globe, grain -->
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="hero-streaks" aria-hidden="true"></div>
     <div class="hero-globe" aria-hidden="true"></div>
     <div class="hero-veil" aria-hidden="true"></div>
     <div class="hero-grain" aria-hidden="true"></div>
 
-    <div class="relative z-10 px-5 pb-16 pt-10 xs:px-8 sm:pb-20 md:pt-14 lg:px-12 lg:pb-28 lg:pt-16 xl:px-16">
+    <div
+      class="relative z-10 px-5 pb-16 pt-10 xs:px-8 sm:pb-20 md:pt-14 lg:px-12 lg:pb-28 lg:pt-16 xl:px-16"
+    >
       <div class="mx-auto flex max-w-5xl flex-col items-center text-center">
-        <!-- Eyebrow: the four tracks the theme runs on -->
+        <!-- Eyebrow: the four domains the theme runs on -->
         <p class="hero-eyebrow animate-rise-1">
-          AI <span class="dot">&bull;</span> Cybersecurity <span class="dot">&bull;</span> Robotics
-          <span class="dot">&bull;</span> Data Science
+          <span v-for="(d, i) in eventInfo.domains" :key="d">
+            <span v-if="i" class="dot">/</span>{{ d }}
+          </span>
         </p>
 
-        <!-- Theme wordmark -->
         <h1 class="animate-rise-2 mt-4 w-full sm:mt-5">
           <span class="sr-only">Future Flux — Building the Intelligent World</span>
           <img
@@ -73,10 +119,8 @@ onUnmounted(() => {
           />
         </h1>
 
-        <!-- Tagline band, lifted straight from the key art -->
         <p class="tagline-band animate-rise-3">Building The Intelligent World</p>
 
-        <!-- The three verbs the festival has always run on -->
         <p
           class="animate-rise-3 mt-7 flex items-center justify-center gap-x-3 font-bebas text-2xl tracking-wide text-white xs:gap-x-4 xs:text-3xl sm:text-4xl md:text-5xl"
         >
@@ -96,7 +140,7 @@ onUnmounted(() => {
         <!-- Info card — the flyer's own device, so the type stays readable over the globe -->
         <div class="info-card animate-rise-4 mt-8 sm:mt-10">
           <div>
-            <span class="hero-label">Event countdown</span>
+            <span class="hero-label">Doors open in</span>
             <div class="mt-2 flex justify-center gap-x-4 xs:gap-x-6 sm:gap-x-8">
               <div class="countdown-block">
                 <span class="countdown-number">{{ days }}</span>
@@ -115,6 +159,7 @@ onUnmounted(() => {
                 <span class="countdown-label">Secs</span>
               </div>
             </div>
+            <p class="stamp mt-3">{{ eventInfo.stamp }}</p>
           </div>
 
           <div class="info-rule"></div>
@@ -134,23 +179,38 @@ onUnmounted(() => {
         </div>
 
         <a
-          href="https://form.jotform.com/252798316140156"
+          :href="eventInfo.registerUrl"
           target="_blank"
           rel="noopener noreferrer"
           class="cta-solid animate-rise-4 mt-7 sm:mt-8"
           >Register now</a
         >
+
+        <!-- Readout: only counts that are true by construction -->
+        <dl class="stat-row animate-rise-4 mt-10 sm:mt-12">
+          <div class="stat">
+            <dt class="stat-label">Domains</dt>
+            <dd class="stat-value">{{ eventInfo.domains.length }}</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat-label">Tracks</dt>
+            <dd class="stat-value">{{ tracks.length }}</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat-label">Program blocks</dt>
+            <dd class="stat-value">{{ schedule.length }}</dd>
+          </div>
+        </dl>
       </div>
     </div>
   </section>
 
-  <!-- ===================== ABOUT (with Video) ===================== -->
-  <div class="bg-flux-mist px-5 pb-10 pt-10 xs:px-8 md:pb-16 md:pt-14" id="about">
+  <!-- ===================== ABOUT ===================== -->
+  <div class="bg-flux-mist px-5 pb-10 pt-14 xs:px-8 md:pb-16 md:pt-20" id="about">
     <div class="mx-auto max-w-6xl">
       <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12">
-        <!-- Left: About text -->
         <div>
-          <span class="section-label">About Morgan TechFest</span>
+          <span class="section-label"><i>01</i> About Morgan TechFest</span>
           <p
             class="mt-4 font-urbanist text-xl leading-relaxed text-flux-ink xs:text-2xl md:text-2xl md:leading-relaxed"
           >
@@ -164,11 +224,11 @@ onUnmounted(() => {
             of student innovation.
           </p>
         </div>
-        <!-- Right: Video -->
         <div class="video-container-inline">
           <iframe
-            src="https://www.youtube.com/embed/MLX3J9nk0cI?si=Fe_QZEDKo3kaM7Qe"
-            title="Networking Session"
+            src="https://www.youtube-nocookie.com/embed/MLX3J9nk0cI?si=Fe_QZEDKo3kaM7Qe"
+            title="Morgan TechFest networking session"
+            loading="lazy"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
@@ -182,7 +242,7 @@ onUnmounted(() => {
   <div class="overflow-hidden bg-flux-mist px-5 pb-14 pt-10 xs:px-8 md:pb-20 md:pt-14" id="speakers">
     <div class="mx-auto max-w-6xl">
       <div class="text-center">
-        <span class="section-label">Speakers &amp; Panelists</span>
+        <span class="section-label justify-center">Speakers &amp; Panelists</span>
         <h2 class="mt-3 font-bebas text-5xl font-normal text-flux-ink xs:text-6xl sm:text-7xl">
           Featured Voices
         </h2>
@@ -192,20 +252,15 @@ onUnmounted(() => {
       </div>
     </div>
 
-    <!-- Scrolling marquee -->
-    <div class="speaker-marquee mt-10 md:mt-14">
-      <div class="speaker-track">
-        <template v-for="slot in speakerSlots" :key="slot.id + '-1'">
-          <div class="speaker-card">
-            <div class="speaker-img-wrap">
-              <span class="speaker-pending">Revealed<br />soon</span>
-            </div>
-            <p class="speaker-name">{{ slot.role }}</p>
-          </div>
-        </template>
-        <!-- Duplicate for seamless loop -->
-        <template v-for="slot in speakerSlots" :key="slot.id + '-2'">
-          <div class="speaker-card" aria-hidden="true">
+    <div ref="marquee" class="speaker-marquee mt-10 md:mt-14">
+      <div class="speaker-track" :class="{ 'is-paused': !marqueeLive }">
+        <template v-for="pass in 2" :key="pass">
+          <div
+            v-for="slot in speakerSlots"
+            :key="pass + slot.id"
+            class="speaker-card"
+            :aria-hidden="pass === 2"
+          >
             <div class="speaker-img-wrap">
               <span class="speaker-pending">Revealed<br />soon</span>
             </div>
@@ -217,32 +272,28 @@ onUnmounted(() => {
   </div>
 
   <!-- ===================== CORE COMPONENTS ===================== -->
-  <div class="section-dark px-5 pb-16 pt-16 xs:px-8 md:pb-28 md:pt-24" id="components">
+  <div class="section-dark px-5 pb-16 pt-16 xs:px-8 md:pb-24 md:pt-24" id="components">
     <div class="mx-auto max-w-6xl">
-      <span class="section-label-light">What We Do</span>
+      <span class="section-label-light"><i>02</i> What we do</span>
       <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">
         Core Components
       </h2>
 
-      <div class="mt-10 grid grid-cols-1 gap-6 md:mt-16 md:grid-cols-2 md:gap-8">
-        <!-- Tech Case Competition -->
-        <div class="comp-card group">
+      <div class="mt-10 grid grid-cols-1 gap-6 md:mt-14 md:grid-cols-2 md:gap-8">
+        <div class="comp-card">
+          <span class="card-id">CMP-01</span>
           <h3 class="comp-title">Tech Case Competition</h3>
+          <p class="comp-subtitle">Team solution sprint</p>
           <p class="comp-text">
             Student teams develop technology-driven solutions to real-world problems across key
             tracks. Solutions are evaluated based on clarity, innovation, feasibility, and impact.
           </p>
-          <div class="mt-5 flex flex-wrap gap-2">
-            <template v-for="track in tracks" :key="track">
-              <span class="track-tag">{{ track }}</span>
-            </template>
-          </div>
         </div>
 
-        <!-- Innovation Expo -->
-        <div class="comp-card group">
+        <div class="comp-card">
+          <span class="card-id">CMP-02</span>
           <h3 class="comp-title">Innovation Expo</h3>
-          <p class="comp-subtitle">Research &amp; Project Showcase</p>
+          <p class="comp-subtitle">Research &amp; project showcase</p>
           <p class="comp-text">
             Students showcase research and projects, including prototypes and technology-driven
             solutions, evaluated based on clarity, technical depth, organization, and real-world
@@ -253,24 +304,47 @@ onUnmounted(() => {
     </div>
   </div>
 
+  <!-- ===================== TRACKS ===================== -->
+  <div class="section-dark px-5 pb-16 pt-4 xs:px-8 md:pb-28 md:pt-8" id="tracks">
+    <div class="mx-auto max-w-6xl">
+      <span class="section-label-light"><i>03</i> Pick your problem</span>
+      <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">
+        Competition Tracks
+      </h2>
+      <p class="mt-3 max-w-xl font-urbanist text-base text-white/55 sm:text-lg">
+        Every case solution is built against one of six tracks. Choose the domain your team wants to
+        move.
+      </p>
+
+      <div class="track-grid mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-2xl sm:grid-cols-2 lg:grid-cols-3">
+        <article v-for="track in tracks" :key="track.id" class="track-card">
+          <span class="card-id">{{ track.id }}</span>
+          <h3 class="track-name">{{ track.name }}</h3>
+          <p class="track-brief">{{ track.brief }}</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
   <!-- ===================== SCHEDULE ===================== -->
   <div class="section-dark px-5 pb-16 pt-16 xs:px-8 md:pb-28 md:pt-24" id="schedule">
     <div class="mx-auto max-w-6xl">
-      <span class="section-label-light">The Event</span>
+      <span class="section-label-light"><i>04</i> The event</span>
       <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">
         Schedule
       </h2>
 
-      <div class="mt-8 grid grid-cols-1 gap-3 xs:grid-cols-2 sm:grid-cols-3 md:mt-14 lg:grid-cols-5 lg:gap-4">
-        <template v-for="item in schedule" :key="item">
-          <span class="sched-pill">{{ item }}</span>
-        </template>
+      <div class="mt-8 grid grid-cols-1 gap-3 xs:grid-cols-2 sm:grid-cols-3 md:mt-12 lg:grid-cols-5 lg:gap-4">
+        <span v-for="(item, i) in schedule" :key="item" class="sched-pill">
+          <i class="sched-index">{{ String(i + 1).padStart(2, '0') }}</i>
+          {{ item }}
+        </span>
       </div>
 
       <div class="mt-10 flex justify-center md:mt-14">
         <a href="/schedule.html" target="_blank" rel="noopener noreferrer" class="cta-btn"
-          >Check Full Schedule
-        </a>
+          >Check full schedule</a
+        >
       </div>
     </div>
   </div>
@@ -278,20 +352,21 @@ onUnmounted(() => {
   <!-- ===================== PARTNERS ===================== -->
   <div class="bg-flux-mist px-5 pb-16 pt-16 xs:px-8 md:pb-28 md:pt-24" id="partners">
     <div class="mx-auto max-w-6xl">
-      <span class="section-label">Our</span>
+      <span class="section-label"><i>05</i> Our</span>
       <h2 class="mt-3 font-bebas text-5xl font-normal text-flux-ink xs:text-6xl sm:text-7xl">
         Partners
       </h2>
 
       <div class="mt-10 flex flex-wrap items-center justify-center gap-8 md:mt-16 lg:gap-16">
-        <template v-for="item in partners" :key="item.name">
-          <img
-            :src="item.img"
-            :alt="item.name"
-            loading="lazy"
-            class="h-10 max-w-[120px] object-contain opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-14 sm:max-w-[140px]"
-          />
-        </template>
+        <img
+          v-for="item in partners"
+          :key="item.name"
+          :src="item.img"
+          :alt="item.name"
+          loading="lazy"
+          decoding="async"
+          class="h-10 max-w-[120px] object-contain opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-14 sm:max-w-[140px]"
+        />
       </div>
     </div>
   </div>
@@ -300,7 +375,7 @@ onUnmounted(() => {
   <div class="section-dark px-5 pb-16 pt-16 xs:px-8 md:pb-28 md:pt-24" id="awards">
     <div class="mx-auto max-w-6xl">
       <div class="mx-auto max-w-3xl text-center">
-        <span class="section-label-light">Highlights</span>
+        <span class="section-label-light justify-center">Highlights</span>
         <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">
           Celebrating Innovation and Excellence
         </h2>
@@ -314,8 +389,8 @@ onUnmounted(() => {
             target="_blank"
             rel="noopener noreferrer"
             class="cta-btn"
-            >Read on Medium
-          </a>
+            >Read on Medium</a
+          >
         </div>
       </div>
     </div>
@@ -324,20 +399,22 @@ onUnmounted(() => {
   <!-- ===================== GALLERY ===================== -->
   <div class="section-dark px-5 pb-12 pt-16 xs:px-8 md:pb-20 md:pt-24">
     <div class="mx-auto max-w-6xl text-center">
-      <span class="section-label-light">Moments</span>
+      <span class="section-label-light justify-center">Moments</span>
       <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">Gallery</h2>
 
       <div class="mt-8 grid grid-cols-1 gap-4 md:mt-12 md:grid-cols-2 md:gap-6">
         <img
           src="https://res.cloudinary.com/ojay-dev/image/upload/v1693949821/MorganTechFest/gallery/_PAG0547_1_1_z7ffvg.png"
-          alt="gallery"
+          alt="Morgan TechFest attendees at a past event"
           loading="lazy"
+          decoding="async"
           class="w-full rounded-xl object-cover sm:rounded-2xl"
         />
         <img
           src="https://res.cloudinary.com/ojay-dev/image/upload/v1693912317/MorganTechFest/gallery/_PAG05472_b2x7ra.png"
-          alt="gallery"
+          alt="Morgan TechFest project showcase"
           loading="lazy"
+          decoding="async"
           class="w-full rounded-xl object-cover sm:rounded-2xl"
         />
       </div>
@@ -348,27 +425,30 @@ onUnmounted(() => {
           target="_blank"
           rel="noopener noreferrer"
           class="cta-btn"
-          >View Full Album
-        </a>
+          >View full album</a
+        >
       </div>
     </div>
 
     <!-- ===================== FAQ ===================== -->
     <div class="mx-auto mt-20 max-w-6xl md:mt-32" id="faq">
-      <span class="section-label-light">Questions?</span>
+      <span class="section-label-light"><i>06</i> Questions?</span>
       <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">FAQ</h2>
 
       <div class="mt-6 md:mt-10">
-        <div v-for="item in FaqQuestionsAnswers" :key="item.question">
-          <FAQItem :question="item.question" :answer="item.answer" />
-        </div>
+        <FAQItem
+          v-for="item in FaqQuestionsAnswers"
+          :key="item.question"
+          :question="item.question"
+          :answer="item.answer"
+        />
       </div>
     </div>
 
     <!-- ===================== FOOTER ===================== -->
     <div class="mx-auto mt-20 max-w-6xl border-t border-white/10 pt-10 md:mt-28">
       <div class="flex flex-col items-center justify-between gap-y-6 sm:flex-row">
-        <p class="font-urbanist text-sm text-white/40">
+        <p class="font-mono text-xs uppercase tracking-[0.1em] text-white/40">
           Morgan TechFest &middot; Morgan State University
         </p>
         <div class="flex gap-x-4">
@@ -421,7 +501,7 @@ onUnmounted(() => {
 
 <style scoped>
 /* ============================================================
-   HERO — the 2026 key art, rebuilt as layers
+   HERO
    ============================================================ */
 .hero-wrapper {
   @apply relative overflow-hidden;
@@ -433,7 +513,6 @@ onUnmounted(() => {
     linear-gradient(180deg, #1d0c3a 0%, #2a1250 45%, #1a0a33 100%);
 }
 
-/* Perspective grid — the flyer's floor, receding toward the horizon */
 .hero-grid {
   @apply pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[55%];
   background-image:
@@ -446,7 +525,6 @@ onUnmounted(() => {
   opacity: 0.32;
 }
 
-/* Light streaks raking across the art */
 .hero-streaks {
   @apply pointer-events-none absolute inset-0 z-0;
   background-image:
@@ -456,7 +534,6 @@ onUnmounted(() => {
   opacity: 0.55;
 }
 
-/* The globe, sitting behind the type as ambient ground */
 .hero-globe {
   @apply pointer-events-none absolute z-0;
   background-image: url('/flux-globe.webp');
@@ -472,7 +549,6 @@ onUnmounted(() => {
   animation: globeDrift 26s ease-in-out infinite;
 }
 
-/* Veil keeps the type legible where it crosses the globe */
 .hero-veil {
   @apply pointer-events-none absolute inset-0 z-0;
   background:
@@ -496,7 +572,6 @@ onUnmounted(() => {
   }
 }
 
-/* Desktop: give the globe more room, sitting lower and larger */
 @media (min-width: 1024px) {
   .hero-globe {
     width: min(68vw, 920px);
@@ -508,11 +583,11 @@ onUnmounted(() => {
 
 /* ===== HERO TYPE ===== */
 .hero-eyebrow {
-  @apply mx-auto max-w-md font-urbanist text-[10px] font-bold uppercase leading-relaxed tracking-[0.14em] text-white/85 xs:text-xs xs:tracking-[0.18em] sm:max-w-none sm:text-sm sm:tracking-[0.24em];
+  @apply mx-auto max-w-md font-mono text-[10px] font-medium uppercase leading-relaxed tracking-[0.14em] text-white/80 xs:text-xs xs:tracking-[0.18em] sm:max-w-none sm:text-sm sm:tracking-[0.22em];
 }
 
 .hero-eyebrow .dot {
-  @apply text-flux-cyan;
+  @apply mx-2 text-flux-cyan/70;
 }
 
 .verb {
@@ -526,12 +601,11 @@ onUnmounted(() => {
 
 .tagline-band {
   @apply mt-4 inline-block font-urbanist text-sm font-medium tracking-wide text-white xs:text-base sm:mt-5 sm:text-xl;
-  background: rgba(21, 8, 41, 0.82);
+  background: rgba(21, 8, 41, 0.9);
   border: 1px solid rgba(13, 198, 244, 0.28);
   padding: 0.5rem 1.25rem;
   border-radius: 4px;
   transform: rotate(-1.6deg);
-  backdrop-filter: blur(4px);
 }
 
 @media (min-width: 640px) {
@@ -541,15 +615,18 @@ onUnmounted(() => {
 }
 
 .hero-label {
-  @apply mb-1 block font-urbanist text-[10px] font-bold uppercase tracking-[0.2em] text-flux-cyan xs:text-xs;
+  @apply mb-1 block font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-flux-cyan xs:text-xs;
 }
 
-/* ===== HERO INFO CARD (mirrors the flyer's card) ===== */
+.stamp {
+  @apply font-mono text-[10px] uppercase tracking-[0.14em] text-white/55 xs:text-xs;
+}
+
+/* ===== HERO INFO CARD ===== */
 .info-card {
   @apply w-full max-w-2xl rounded-2xl px-5 py-6 text-center xs:px-7 sm:rounded-3xl sm:px-9 sm:py-8;
-  background: rgba(30, 13, 58, 0.72);
+  background: rgba(30, 13, 58, 0.86);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
   box-shadow: 0 24px 70px rgba(10, 3, 24, 0.5);
 }
 
@@ -560,6 +637,24 @@ onUnmounted(() => {
 
 .info-value {
   @apply font-urbanist text-base font-semibold leading-snug text-white xs:text-lg sm:text-xl;
+}
+
+/* ===== STAT READOUT ===== */
+.stat-row {
+  @apply flex flex-wrap items-stretch justify-center gap-x-8 gap-y-4 xs:gap-x-12 sm:gap-x-16;
+}
+
+.stat {
+  @apply flex flex-col items-center;
+}
+
+.stat-value {
+  @apply font-mono text-2xl font-bold leading-none text-white sm:text-3xl;
+  text-shadow: 0 2px 14px rgba(20, 6, 40, 0.9);
+}
+
+.stat-label {
+  @apply mb-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-flux-cyan xs:text-[10px];
 }
 
 /* ===== HERO STAGGER ===== */
@@ -591,7 +686,6 @@ onUnmounted(() => {
   }
 }
 
-/* The band keeps its tilt through the entrance */
 .tagline-band.animate-rise-3 {
   animation-name: fadeSlideUpTilt;
 }
@@ -615,15 +709,33 @@ onUnmounted(() => {
   background-image: linear-gradient(180deg, #241145 0%, #2c1350 50%, #241145 100%);
 }
 
+.section-label,
+.section-label-light {
+  @apply flex items-center gap-x-2 font-mono text-[10px] font-medium uppercase tracking-[0.2em] sm:text-xs;
+}
+
 .section-label {
-  @apply block font-urbanist text-xs font-bold uppercase tracking-[0.25em] text-flux-violet sm:text-sm;
+  @apply text-flux-violet;
 }
 
 .section-label-light {
-  @apply block font-urbanist text-xs font-bold uppercase tracking-[0.25em] text-flux-cyan sm:text-sm;
+  @apply text-flux-cyan;
 }
 
-/* ===== VIDEO (inline in about) ===== */
+.section-label i,
+.section-label-light i {
+  @apply not-italic;
+}
+
+.section-label i::after,
+.section-label-light i::after {
+  content: '';
+  @apply ml-2 inline-block h-px w-5 align-middle;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+/* ===== VIDEO ===== */
 .video-container-inline {
   @apply relative h-0 w-full pb-[56.25%];
 }
@@ -639,24 +751,27 @@ onUnmounted(() => {
 }
 
 .countdown-number {
-  @apply font-bebas text-4xl leading-none text-white xs:text-5xl sm:text-6xl;
+  @apply font-mono text-3xl font-bold leading-none text-white xs:text-4xl sm:text-5xl;
   text-shadow: 0 0 24px rgba(13, 198, 244, 0.45);
   font-variant-numeric: tabular-nums;
 }
 
 .countdown-label {
-  @apply mt-1.5 font-urbanist text-[10px] font-bold uppercase tracking-[0.15em] text-white/45 xs:text-xs;
+  @apply mt-2 font-mono text-[9px] uppercase tracking-[0.16em] text-white/45 xs:text-[10px];
 }
 
-/* ===== COMPONENT CARDS ===== */
+/* ===== CARDS ===== */
+.card-id {
+  @apply mb-2 block font-mono text-[10px] uppercase tracking-[0.18em] text-flux-cyan/60;
+}
+
 .comp-card {
-  @apply relative rounded-2xl px-5 pb-6 pt-7 transition-transform duration-300 xs:px-6 sm:rounded-3xl sm:px-8 sm:pb-8 sm:pt-9;
+  @apply relative rounded-2xl px-5 pb-6 pt-6 transition-colors duration-300 xs:px-6 sm:rounded-3xl sm:px-8 sm:pb-8 sm:pt-8;
   border: 1.5px solid rgba(255, 255, 255, 0.08);
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.01) 100%);
 }
 
 .comp-card:hover {
-  transform: translateY(-4px);
   border-color: rgba(13, 198, 244, 0.35);
 }
 
@@ -665,27 +780,47 @@ onUnmounted(() => {
 }
 
 .comp-subtitle {
-  @apply -mt-0.5 font-urbanist text-base text-white/40 sm:text-lg;
+  @apply -mt-0.5 font-mono text-[11px] uppercase tracking-[0.14em] text-white/40;
 }
 
 .comp-text {
   @apply mt-3 font-urbanist text-base leading-relaxed text-white/60 sm:text-lg;
 }
 
-.track-tag {
-  @apply rounded-full px-4 py-1.5 font-urbanist text-xs font-semibold text-white/85 sm:text-sm;
-  border: 1px solid rgba(13, 198, 244, 0.35);
-  background: rgba(13, 198, 244, 0.08);
+/* ===== TRACK GRID =====
+   One hairline lattice: the wrapper's background shows through the 1px gaps,
+   so every rule is a single shared line and no cell owns a border. */
+.track-grid {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.track-card {
+  @apply px-5 py-6 transition-colors duration-200 sm:px-6 sm:py-7;
+  background: #26124a;
+}
+
+.track-card:hover {
+  background: #2f1659;
+}
+
+.track-name {
+  @apply font-bebas text-2xl leading-tight text-white sm:text-3xl;
+}
+
+.track-brief {
+  @apply mt-1.5 font-urbanist text-sm leading-relaxed text-white/50 sm:text-base;
 }
 
 /* ===== SCHEDULE PILLS ===== */
 .sched-pill {
-  @apply flex min-h-[56px] items-center justify-center rounded-full px-4 py-2.5 text-center font-urbanist text-sm font-semibold text-white sm:min-h-[64px] sm:text-base lg:min-h-[72px] lg:text-lg;
+  @apply flex min-h-[56px] flex-col items-center justify-center gap-y-1 rounded-xl px-4 py-3 text-center font-urbanist text-sm font-semibold text-white sm:min-h-[76px] sm:text-base;
   border: 1.5px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.04);
-  transition:
-    border-color 0.2s,
-    background 0.2s;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.sched-index {
+  @apply font-mono text-[10px] not-italic tracking-[0.16em] text-flux-cyan/60;
 }
 
 .sched-pill:hover {
@@ -695,17 +830,13 @@ onUnmounted(() => {
 
 /* ===== BUTTONS ===== */
 .cta-btn {
-  @apply inline-block rounded-full border-2 border-flux-cyan px-7 py-3 font-urbanist text-sm font-semibold text-flux-cyan transition-all duration-200 hover:bg-flux-cyan hover:text-flux-void sm:px-9 sm:py-4 sm:text-base;
+  @apply inline-block rounded-full border-2 border-flux-cyan px-7 py-3 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-flux-cyan transition-colors duration-200 hover:bg-flux-cyan hover:text-flux-void sm:px-9 sm:py-4 sm:text-xs;
 }
 
 .cta-solid {
-  @apply inline-block rounded-full px-8 py-3.5 font-urbanist text-sm font-extrabold uppercase tracking-wider text-white transition-transform duration-200 sm:px-10 sm:py-4 sm:text-base;
+  @apply inline-block rounded-full px-8 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-white transition-transform duration-200 hover:-translate-y-0.5 sm:px-10 sm:py-4 sm:text-sm;
   background: linear-gradient(180deg, #ff7a1a 20%, #fc470b 100%);
   box-shadow: 0 12px 34px rgba(252, 71, 11, 0.34);
-}
-
-.cta-solid:hover {
-  transform: translateY(-2px);
 }
 
 /* ===== SOCIAL LINKS ===== */
@@ -728,7 +859,8 @@ onUnmounted(() => {
   width: max-content;
 }
 
-.speaker-track:hover {
+.speaker-track:hover,
+.speaker-track.is-paused {
   animation-play-state: paused;
 }
 
@@ -764,9 +896,7 @@ onUnmounted(() => {
     rgba(13, 198, 244, 0.22) 0%,
     rgba(61, 21, 82, 0.08) 72%
   );
-  transition:
-    border-color 0.3s,
-    transform 0.3s;
+  transition: border-color 0.3s, transform 0.3s;
 }
 
 .speaker-card:hover .speaker-img-wrap {
@@ -775,11 +905,10 @@ onUnmounted(() => {
 }
 
 .speaker-pending {
-  @apply text-center font-bebas text-xl leading-none tracking-wide text-flux-violet;
+  @apply text-center font-mono text-[11px] font-medium uppercase leading-snug tracking-[0.1em] text-flux-violet;
 }
 
 .speaker-name {
-  @apply text-center font-urbanist text-sm font-semibold text-flux-ink/65;
-  line-height: 1.3;
+  @apply text-center font-mono text-[10px] uppercase tracking-[0.12em] text-flux-ink/60;
 }
 </style>

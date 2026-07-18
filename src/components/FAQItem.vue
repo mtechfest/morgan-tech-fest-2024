@@ -34,7 +34,7 @@ function toggleRotation() {
 
 <style scoped>
 .faq-answer {
-  @apply rounded-xl px-4 py-3 font-urbanist text-base font-medium leading-relaxed text-white/85 sm:rounded-2xl sm:px-6 sm:py-4 sm:text-lg lg:py-5 lg:text-xl;
+  @apply rounded-xl px-4 py-3 font-urbanist text-base font-medium leading-relaxed text-white/85 sm:rounded-2xl sm:px-6 sm:py-4 sm:text-lg lg:py-5 lg:text-lg;
   border: 1px solid rgba(13, 198, 244, 0.28);
   border-left: 3px solid #0dc6f4;
   background: rgba(13, 198, 244, 0.07);
