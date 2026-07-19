@@ -91,92 +91,78 @@ onUnmounted(() => {
   <section id="hero" class="hero-wrapper">
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="hero-streaks" aria-hidden="true"></div>
-    <div class="hero-globe" aria-hidden="true"></div>
     <div class="hero-veil" aria-hidden="true"></div>
     <div class="hero-grain" aria-hidden="true"></div>
 
     <div
       class="relative z-10 px-5 pb-16 pt-10 xs:px-8 sm:pb-20 md:pt-14 lg:px-12 lg:pb-28 lg:pt-16 xl:px-16"
     >
-      <div class="mx-auto flex max-w-5xl flex-col items-center text-center">
-        <h1 class="animate-rise-2 mt-4 w-full sm:mt-5">
-          <span class="sr-only">Future Flux: Building the Intelligent World</span>
-          <img
-            src="/future-flux.webp"
-            alt=""
-            class="mx-auto w-[84%] max-w-[280px] xs:max-w-[330px] sm:max-w-[430px] md:max-w-[490px] lg:max-w-[560px] xl:max-w-[620px]"
-            width="1400"
-            height="815"
-            fetchpriority="high"
-          />
-        </h1>
+      <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,400px)_1fr] lg:gap-16">
 
-        <p class="tagline-band animate-rise-3">Building The Intelligent World</p>
-
-        <p
-          class="animate-rise-3 mt-7 flex items-center justify-center gap-x-3 font-bebas text-2xl tracking-wide text-white xs:gap-x-4 xs:text-3xl sm:text-4xl md:text-5xl"
-        >
-          <span class="verb">Discover</span>
-          <span class="text-white/25">|</span>
-          <span class="verb text-flux-cyan">Network</span>
-          <span class="text-white/25">|</span>
-          <span class="verb">Innovate</span>
-        </p>
-
-        <p
-          class="hero-intro animate-rise-3 mx-auto mt-4 max-w-md font-urbanist text-base leading-relaxed sm:mt-5 sm:max-w-xl sm:text-lg"
-        >
-          Empowering the next generation of technology leaders at Morgan State University.
-        </p>
-
-        <!-- Info card, the flyer's own device, so the type stays readable over the globe -->
-        <div class="info-card animate-rise-4 mt-8 sm:mt-10">
-          <div>
-            <span class="hero-label">Doors open in</span>
-            <div class="mt-2 flex justify-center gap-x-4 xs:gap-x-6 sm:gap-x-8">
-              <div class="countdown-block">
-                <span class="countdown-number">{{ days }}</span>
-                <span class="countdown-label">Days</span>
-              </div>
-              <div class="countdown-block">
-                <span class="countdown-number">{{ hours }}</span>
-                <span class="countdown-label">Hours</span>
-              </div>
-              <div class="countdown-block">
-                <span class="countdown-number">{{ mins }}</span>
-                <span class="countdown-label">Mins</span>
-              </div>
-              <div class="countdown-block">
-                <span class="countdown-number">{{ secs }}</span>
-                <span class="countdown-label">Secs</span>
-              </div>
-            </div>
-            <p class="stamp mt-3">{{ eventInfo.stamp }}</p>
-          </div>
-
-          <div class="info-rule"></div>
-
-          <div class="flex flex-col gap-y-5 sm:flex-row sm:gap-x-10 sm:gap-y-0">
-            <div class="flex-1">
-              <span class="hero-label">Date</span>
-              <p class="info-value">{{ eventInfo.date }}</p>
-            </div>
-            <div class="hidden w-px self-stretch bg-white/10 sm:block"></div>
-            <div class="flex-1">
-              <span class="hero-label">Venue</span>
-              <p class="info-value">{{ eventInfo.venue }}</p>
-              <p class="mt-0.5 font-urbanist text-sm text-white/45">{{ eventInfo.city }}</p>
-            </div>
+        <!-- LEFT: glowing globe portal + countdown -->
+        <div class="hero-portal animate-rise-2">
+          <div class="hero-portal-globe" aria-hidden="true"></div>
+          <div class="hero-portal-inner">
+            <span class="portal-label">Doors open in</span>
+            <span class="portal-num">{{ days }}</span>
+            <span class="portal-unit">Days</span>
+            <span class="portal-clock">{{ hours }}:{{ mins }}:{{ secs }}</span>
+            <span class="portal-date">September 19, 2026</span>
           </div>
         </div>
 
-        <a
-          :href="eventInfo.registerUrl"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="cta-solid animate-rise-4 mt-7 sm:mt-8"
-          >Register now</a
-        >
+        <!-- RIGHT: title, pill, CTAs -->
+        <div class="text-center lg:text-left">
+          <span class="hero-pill animate-rise-1">
+            <span class="pill-dot"></span> Registration Open
+            <span class="pill-sep">&middot;</span> {{ eventInfo.date }}
+          </span>
+
+          <h1 class="animate-rise-2 mt-5">
+            <span class="sr-only">Future Flux: Building the Intelligent World</span>
+            <img
+              src="/future-flux.webp"
+              alt=""
+              class="mx-auto w-[86%] max-w-[360px] sm:max-w-[440px] lg:mx-0 lg:max-w-[520px]"
+              width="1400"
+              height="815"
+              fetchpriority="high"
+            />
+          </h1>
+
+          <p class="tagline-band animate-rise-3">Building The Intelligent World</p>
+
+          <p
+            class="animate-rise-3 mt-6 flex items-center justify-center gap-x-3 font-bebas text-2xl tracking-wide text-white xs:gap-x-4 xs:text-3xl sm:text-4xl lg:justify-start"
+          >
+            <span class="verb">Discover</span>
+            <span class="text-white/25">|</span>
+            <span class="verb text-flux-cyan">Network</span>
+            <span class="text-white/25">|</span>
+            <span class="verb">Innovate</span>
+          </p>
+
+          <p
+            class="hero-intro animate-rise-3 mx-auto mt-4 max-w-md font-urbanist text-base leading-relaxed sm:text-lg lg:mx-0"
+          >
+            Empowering the next generation of technology leaders at Morgan State University.
+          </p>
+
+          <div class="animate-rise-4 mt-8 flex flex-col items-center gap-3 xs:flex-row xs:justify-center lg:justify-start">
+            <a
+              :href="eventInfo.registerUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cta-solid"
+              >Register now</a
+            >
+            <a href="/schedule.html" class="cta-outline">View schedule</a>
+          </div>
+
+          <p class="mt-5 font-urbanist text-sm text-white/45">
+            {{ eventInfo.venue }} &middot; {{ eventInfo.city }}
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -1064,5 +1050,106 @@ onUnmounted(() => {
 
 .comp-more {
   @apply mt-5 inline-block font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-flux-cyan;
+}
+
+/* ===== HERO PORTAL (glowing globe emblem) ===== */
+.hero-portal {
+  position: relative;
+  width: min(80vw, 400px);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 2px solid rgba(13, 198, 244, 0.5);
+  background: radial-gradient(circle at 50% 42%, rgba(24, 12, 52, 0.55), rgba(10, 5, 24, 0.92));
+  box-shadow:
+    0 0 0 6px rgba(13, 198, 244, 0.05),
+    0 0 55px rgba(13, 198, 244, 0.35),
+    inset 0 0 55px rgba(13, 198, 244, 0.14);
+}
+
+.hero-portal-globe {
+  position: absolute;
+  inset: 7%;
+  border-radius: 50%;
+  background: url('/flux-globe.webp') center / cover no-repeat;
+  opacity: 0.45;
+  animation: spin360 80s linear infinite;
+}
+
+.hero-portal::after {
+  content: '';
+  position: absolute;
+  inset: 4.5%;
+  border-radius: 50%;
+  border: 1px solid rgba(13, 198, 244, 0.22);
+  pointer-events: none;
+}
+
+.hero-portal-inner {
+  @apply relative z-10 flex flex-col items-center text-center;
+}
+
+.portal-label {
+  @apply font-mono text-[11px] uppercase tracking-[0.2em] text-flux-cyan;
+}
+
+.portal-num {
+  @apply font-bebas leading-none text-white;
+  font-size: clamp(68px, 15vw, 120px);
+  text-shadow: 0 0 26px rgba(13, 198, 244, 0.55);
+}
+
+.portal-unit {
+  @apply -mt-0.5 font-mono text-[13px] uppercase tracking-[0.3em] text-white/70;
+}
+
+.portal-clock {
+  @apply mt-3 font-mono text-[15px] tracking-[0.14em] text-white/55;
+}
+
+.portal-date {
+  @apply mt-1.5 font-mono text-[12px] uppercase tracking-[0.14em] text-flux-cyan;
+}
+
+@keyframes spin360 {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== HERO PILL + OUTLINE CTA ===== */
+.hero-pill {
+  @apply inline-flex items-center gap-x-2 rounded-full border px-4 py-2 font-mono text-[11px] uppercase tracking-[0.12em] text-white/80;
+  border-color: rgba(13, 198, 244, 0.3);
+  background: rgba(13, 198, 244, 0.06);
+}
+
+.pill-dot {
+  @apply inline-block h-2 w-2 flex-shrink-0 rounded-full bg-flux-cyan;
+  animation: pillPulse 2.2s ease-in-out infinite;
+}
+
+.pill-sep {
+  @apply text-white/30;
+}
+
+@keyframes pillPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(13, 198, 244, 0.5); }
+  50% { opacity: 0.55; box-shadow: 0 0 0 5px rgba(13, 198, 244, 0); }
+}
+
+.cta-outline {
+  @apply inline-flex items-center justify-center rounded-full border px-7 py-3 font-mono text-sm font-bold uppercase tracking-[0.1em] text-white transition-all duration-200;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.cta-outline:hover {
+  border-color: rgba(13, 198, 244, 0.6);
+  background: rgba(13, 198, 244, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-portal-globe { animation: none; }
 }
 </style>
