@@ -39,7 +39,8 @@
     .team-name { margin-top: 14px; font-family: 'Urbanist', sans-serif; font-weight: 700; font-size: 15px; color: var(--dark); }
     .team-role { display: block; margin-top: 2px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(22, 7, 43, 0.5); }
     .pp-head { margin-top: 48px; font-family: 'Bebas Neue', sans-serif; font-size: 30px; line-height: 1; color: var(--dark); }
-    .pp-grid { margin-top: 20px; grid-template-columns: repeat(2, 1fr); max-width: 380px; }
+    .pp-grid { margin-top: 20px; grid-template-columns: repeat(3, 1fr); max-width: 560px; }
+    @media (max-width: 520px) { .pp-grid { grid-template-columns: repeat(2, 1fr); } }
   </style>
 </head>
 <body>
@@ -182,6 +183,11 @@
           <div class="team-avatar"><img src="/team/femi-mebude.jpg" alt="Femi Mebude" loading="lazy" decoding="async" /></div>
           <figcaption class="team-name">Femi Mebude</figcaption>
           <span class="team-role">Director 2</span>
+        </figure>
+        <figure class="team-member">
+          <div class="team-avatar"><img src="/team/david-williams.jpg" alt="Oluwaseyifunmi (David) Williams" loading="lazy" decoding="async" /></div>
+          <figcaption class="team-name">Oluwaseyifunmi (David) Williams</figcaption>
+          <span class="team-role">Director 3</span>
         </figure>
       </div>
 
