@@ -26,7 +26,6 @@
 
     /* ===== HERO GLOBE (rolling, matches the front page) ===== */
     .site-header, .main { position: relative; z-index: 1; }
-    .page-header .header-content { position: relative; z-index: 1; }
     .page-header::before {
       content: '';
       position: absolute;
@@ -36,11 +35,10 @@
       height: min(115vw, 440px);
       background: url('/flux-globe.webp') center / contain no-repeat;
       opacity: 0.6;
-      z-index: 0;
+      z-index: -1;
       pointer-events: none;
       transform: translateX(-50%);
       transform-origin: center center;
-      will-change: transform;
       animation: globeRoll 60s linear infinite;
     }
     @keyframes globeRoll {
@@ -64,6 +62,7 @@
       padding: 80px 24px 60px;
       text-align: center;
       position: relative;
+      isolation: isolate;
       overflow: hidden;
     }
 
