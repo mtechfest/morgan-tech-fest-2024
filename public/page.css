@@ -29,14 +29,25 @@
     body::after {
       content: '';
       position: fixed;
-      inset: 0;
-      background-image: url('/flux-globe.webp');
-      background-repeat: no-repeat;
-      background-position: center 54%;
-      background-size: min(720px, 115vw) auto;
-      opacity: 0.08;
+      top: 52%;
+      left: 50%;
+      width: min(680px, 115vw);
+      height: min(680px, 115vw);
+      background: url('/flux-globe.webp') center / contain no-repeat;
+      opacity: 0.09;
       z-index: 0;
       pointer-events: none;
+      transform: translate(-50%, -50%);
+      transform-origin: center center;
+      will-change: transform;
+      animation: globeRoll 55s linear infinite;
+    }
+    @keyframes globeRoll {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      body::after { animation: none; }
     }
 
 
