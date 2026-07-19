@@ -24,6 +24,22 @@
       min-height: 100vh;
     }
 
+    /* ===== GLOBE WATERMARK (whole-page background) ===== */
+    .site-header, .page-header, .main { position: relative; z-index: 1; }
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url('/flux-globe.webp');
+      background-repeat: no-repeat;
+      background-position: center 54%;
+      background-size: min(720px, 115vw) auto;
+      opacity: 0.08;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+
     /* ===== HEADER ===== */
     .page-header {
       background-color: var(--blue);
