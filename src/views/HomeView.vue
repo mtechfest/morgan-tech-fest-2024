@@ -656,8 +656,8 @@ onUnmounted(() => {
    SECTIONS
    ============================================================ */
 .section-dark {
-  background-color: #241145;
-  background-image: linear-gradient(180deg, #241145 0%, #2c1350 50%, #241145 100%);
+  background-color: rgba(36, 17, 69, 0.78);
+  background-image: linear-gradient(180deg, rgba(36, 17, 69, 0.82) 0%, rgba(44, 19, 80, 0.62) 50%, rgba(36, 17, 69, 0.82) 100%);
 }
 
 .section-label,
