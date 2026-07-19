@@ -539,10 +539,10 @@ onUnmounted(() => {
 
 @media (min-width: 1024px) {
   .hero-globe {
-    width: min(68vw, 920px);
-    height: min(68vw, 920px);
-    bottom: 3%;
-    opacity: 0.78;
+    width: min(46vw, 600px);
+    height: min(46vw, 600px);
+    bottom: 4%;
+    opacity: 0.7;
   }
 }
 
