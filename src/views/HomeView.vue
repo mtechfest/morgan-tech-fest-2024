@@ -506,7 +506,7 @@ onUnmounted(() => {
   width: min(158vw, 640px);
   height: min(158vw, 640px);
   opacity: 0.72;
-  animation: globeDrift 26s ease-in-out infinite;
+  animation: globeSpin 80s linear infinite;
 }
 
 .hero-veil {
@@ -522,13 +522,18 @@ onUnmounted(() => {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-@keyframes globeDrift {
-  0%,
-  100% {
-    transform: translateX(-50%) translateY(0);
+@keyframes globeSpin {
+  from {
+    transform: translateX(-50%) rotate(0deg);
   }
-  50% {
-    transform: translateX(-50%) translateY(-14px);
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-globe {
+    animation: none;
   }
 }
 
