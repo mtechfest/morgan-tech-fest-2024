@@ -9,54 +9,56 @@
   <link rel="stylesheet" href="/page.css" />
   <style>
     .comp-lead { font-family:'Urbanist',sans-serif; font-size:clamp(17px,2vw,20px); line-height:1.6; color:var(--dark); max-width:64ch; margin-top:24px; }
-    .comp-body { font-family:'Urbanist',sans-serif; font-size:15.5px; line-height:1.7; color:rgba(22,7,43,0.62); max-width:68ch; margin-top:14px; }
-    .subhead { margin-top:36px; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--orange); font-weight:700; }
+    .comp-body { font-family:'Urbanist',sans-serif; font-size: 18px; line-height:1.7; color: #111111; max-width:68ch; margin-top:14px; }
+    .subhead { margin-top:36px; font-family:'JetBrains Mono',ui-monospace,monospace; font-size: 18px; letter-spacing:0.14em; text-transform:uppercase; color:var(--orange); font-weight:700; }
     .guide { margin-top:18px; display:grid; gap:10px; list-style:none; }
-    .guide li { position:relative; padding-left:22px; font-family:'Urbanist',sans-serif; font-size:15px; line-height:1.55; color:rgba(22,7,43,0.72); }
+    .guide li { position:relative; padding-left:22px; font-family:'Urbanist',sans-serif; font-size: 18px; line-height:1.55; color: #111111; }
     .guide li::before { content:''; position:absolute; left:0; top:8px; width:8px; height:8px; border-radius:2px; background:var(--orange); }
     .tracks-cards { margin-top:18px; display:grid; gap:14px; grid-template-columns:1fr; }
     @media(min-width:560px){ .tracks-cards{grid-template-columns:repeat(2,1fr);} }
     @media(min-width:900px){ .tracks-cards{grid-template-columns:repeat(3,1fr);} }
     .track-item { padding:18px; border-radius:14px; background:#fff; border:1px solid rgba(22,7,43,0.08); box-shadow:0 6px 16px rgba(22,7,43,0.05); }
     .track-item h4 { font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--dark); }
-    .track-item p { margin-top:4px; font-family:'Urbanist',sans-serif; font-size:13.5px; color:rgba(22,7,43,0.6); line-height:1.45; }
-    .crit-note { margin-top:16px; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:rgba(22,7,43,0.5); }
+    .track-item p { margin-top:4px; font-family:'Urbanist',sans-serif; font-size: 18px; color: #111111; line-height:1.45; }
+    .crit-note { margin-top:16px; font-family:'JetBrains Mono',ui-monospace,monospace; font-size: 18px; letter-spacing:0.06em; text-transform:uppercase; color: #111111; }
     .crit-grid { margin-top:14px; display:grid; gap:14px; grid-template-columns:1fr; }
     @media(min-width:720px){ .crit-grid{grid-template-columns:repeat(2,1fr);} }
     .crit { display:flex; gap:14px; padding:16px 18px; border-radius:14px; background:#fff; border:1px solid rgba(22,7,43,0.08); }
     .crit-weight { flex-shrink:0; min-width:52px; font-family:'Bebas Neue',sans-serif; font-size:26px; line-height:1.1; color:var(--orange); }
-    .crit-body h4 { font-family:'Urbanist',sans-serif; font-weight:700; font-size:15px; color:var(--dark); }
-    .crit-body p { margin-top:4px; font-family:'Urbanist',sans-serif; font-size:13.5px; line-height:1.5; color:rgba(22,7,43,0.6); }
+    .crit-body h4 { font-family:'Urbanist',sans-serif; font-weight:700; font-size: 18px; color:var(--dark); }
+    .crit-body p { margin-top:4px; font-family:'Urbanist',sans-serif; font-size: 18px; line-height:1.5; color: #111111; }
     .prize-row { margin-top:24px; display:grid; gap:20px; grid-template-columns:1fr; max-width:420px; }
     .prize-box { padding:24px; border-radius:18px; background:linear-gradient(165deg,#fff,#f6f1fb); border:1.5px solid rgba(22,7,43,0.1); box-shadow:0 12px 30px rgba(22,7,43,0.06); }
     .prize-box h4 { font-family:'Bebas Neue',sans-serif; font-size:30px; line-height:1; color:var(--dark); margin-top:2px; }
-    .prize-box .pk { font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--orange); }
+    .prize-box .pk { font-family:'JetBrains Mono',ui-monospace,monospace; font-size: 18px; letter-spacing:0.14em; text-transform:uppercase; color:var(--orange); }
     .tier { display:flex; align-items:center; justify-content:space-between; padding:12px 0; border-top:1px solid rgba(22,7,43,0.08); }
     .tier:first-of-type { border-top:0; margin-top:14px; }
-    .place { display:flex; align-items:center; gap:10px; font-family:'Urbanist',sans-serif; font-weight:600; color:rgba(22,7,43,0.8); }
-    .amt { font-family:'JetBrains Mono',ui-monospace,monospace; font-weight:700; letter-spacing:0.2em; color:rgba(22,7,43,0.33); }
+    .place { display:flex; align-items:center; gap:10px; font-family:'Urbanist',sans-serif; font-weight:600; color: #111111; }
+    .amt { font-family:'JetBrains Mono',ui-monospace,monospace; font-weight:700; letter-spacing:0.2em; color: #111111; }
     .medal { width:14px; height:14px; border-radius:50%; flex-shrink:0; display:inline-block; }
     .m-gold{background:linear-gradient(180deg,#f5d36b,#e0a92e);} .m-silver{background:linear-gradient(180deg,#dfe3e8,#b6bcc6);} .m-bronze{background:linear-gradient(180deg,#e6a562,#c2763a);}
-    .sealed { margin-top:16px; display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:12px; text-transform:uppercase; letter-spacing:0.1em; color:rgba(22,7,43,0.55); }
-    .reg-cta { display:inline-flex; align-items:center; gap:8px; margin-top:22px; padding:14px 28px; border-radius:100px; background:linear-gradient(180deg,#ff7a1a 25%,#fc470b 100%); color:#fff; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; text-decoration:none; box-shadow:0 8px 24px rgba(252,71,11,0.28); transition:transform 0.15s; }
+    .sealed { margin-top:16px; display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',ui-monospace,monospace; font-size: 18px; text-transform:uppercase; letter-spacing:0.1em; color: #111111; }
+    .reg-cta { display:inline-flex; align-items:center; gap:8px; margin-top:22px; padding:14px 28px; border-radius:100px; background:linear-gradient(180deg,#ff7a1a 25%,#fc470b 100%); color:#fff; font-family:'JetBrains Mono',ui-monospace,monospace; font-size: 18px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; text-decoration:none; box-shadow:0 8px 24px rgba(252,71,11,0.28); transition:transform 0.15s; }
     .reg-cta:hover { transform:translateY(-2px); }
     .final-cta { margin-top:64px; padding:40px 32px; border-radius:22px; text-align:center; background:linear-gradient(160deg,#241145,#3d1552); }
     .final-cta h3 { font-family:'Bebas Neue',sans-serif; font-size:clamp(30px,5vw,44px); color:#fff; line-height:1; }
-    .final-cta p { margin-top:10px; font-family:'Urbanist',sans-serif; font-size:15px; color:rgba(255,255,255,0.65); }
+    .final-cta p { margin-top:10px; font-family:'Urbanist',sans-serif; font-size: 18px; color:rgba(255,255,255,0.65); }
     .prize-cards { margin-top:24px; display:grid; gap:16px; grid-template-columns:1fr; }
     @media(min-width:640px){ .prize-cards{grid-template-columns:repeat(3,1fr);} }
     .prize-card3 { display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center; padding:28px 22px; border-radius:18px; background:linear-gradient(165deg,#fff,#f6f1fb); border:1.5px solid rgba(22,7,43,0.1); box-shadow:0 12px 30px rgba(22,7,43,0.06); }
     .prize-card3.is-first { border-color:rgba(224,169,46,0.5); box-shadow:0 14px 32px rgba(224,169,46,0.16); }
     .p3-medal { width:22px; height:22px; border-radius:50%; }
-    .p3-place { font-family:'JetBrains Mono',ui-monospace,monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(22,7,43,0.7); font-weight:700; }
-    .p3-amt { font-family:'JetBrains Mono',ui-monospace,monospace; font-size:30px; font-weight:700; letter-spacing:0.22em; color:rgba(22,7,43,0.33); }
+    .p3-place { font-family:'JetBrains Mono',ui-monospace,monospace; font-size: 18px; letter-spacing:0.12em; text-transform:uppercase; color: #111111; font-weight:700; }
+    .p3-amt { font-family:'JetBrains Mono',ui-monospace,monospace; font-size:30px; font-weight:700; letter-spacing:0.22em; color: #111111; }
     .tmpl-box { margin-top:44px; display:flex; flex-direction:column; gap:22px; padding:30px; border-radius:20px; background:linear-gradient(160deg,#241145,#3d1552); }
     @media(min-width:780px){ .tmpl-box{ flex-direction:row; align-items:center; justify-content:space-between; } }
     .tmpl-h { font-family:'Bebas Neue',sans-serif; font-size:32px; line-height:1; color:#fff; margin-top:6px; }
-    .tmpl-p { margin-top:8px; font-family:'Urbanist',sans-serif; font-size:15px; line-height:1.55; color:rgba(255,255,255,0.72); max-width:48ch; }
+    .tmpl-p { margin-top:8px; font-family:'Urbanist',sans-serif; font-size: 18px; line-height:1.55; color:rgba(255,255,255,0.72); max-width:48ch; }
     .tmpl-btns { display:flex; flex-wrap:wrap; gap:12px; flex-shrink:0; }
-    .dl-btn { display:inline-flex; align-items:center; gap:8px; padding:14px 24px; border-radius:100px; background:var(--orange); color:#0a1424; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; text-decoration:none; transition:transform 0.15s; white-space:nowrap; }
+    .dl-btn { display:inline-flex; align-items:center; gap:8px; padding:14px 24px; border-radius:100px; background:var(--orange); color:#0a1424; font-family:'JetBrains Mono',ui-monospace,monospace; font-size: 18px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; text-decoration:none; transition:transform 0.15s; white-space:nowrap; }
     .dl-btn:hover { transform:translateY(-2px); }
+    .tmpl-pdf { margin-top:12px; font-family:'Urbanist',sans-serif; font-size: 18px; color:rgba(255,255,255,0.72); }
+    .tmpl-pdf a { color:var(--orange); text-decoration:underline; }
   </style>
 </head>
 <body>
@@ -134,6 +136,21 @@
           <div class="crit"><span class="crit-weight">20%</span><div class="crit-body"><h4>Communication &amp; Presentation</h4><p>Communicates clearly, simplifying complex ideas for a general audience.</p></div></div>
           <div class="crit"><span class="crit-weight">20%</span><div class="crit-body"><h4>Technical Knowledge</h4><p>Demonstrates strong technical expertise and deep understanding of the project.</p></div></div>
           <div class="crit"><span class="crit-weight">20%</span><div class="crit-body"><h4>Oral Presentation &amp; Answering Questions</h4><p>Confident, well-prepared, and handles questions with expertise.</p></div></div>
+      </div>
+    </div>
+
+    <div class="tmpl-box">
+      <div>
+        <span class="section-tag">Prepare your poster</span>
+        <h3 class="tmpl-h">Poster Templates</h3>
+        <p class="tmpl-p">Editable PowerPoint templates (48&Prime; &times; 36&Prime; landscape) with the sections and judging cues built in. Pick the one that matches your entry.</p>
+      </div>
+      <div>
+        <div class="tmpl-btns">
+          <a class="dl-btn" href="/templates/Morgan-TechFest-Research-Poster-48x36.pptx" download>Research poster (PPTX) &darr;</a>
+          <a class="dl-btn" href="/templates/Morgan-TechFest-Project-Poster-48x36.pptx" download>Project poster (PPTX) &darr;</a>
+        </div>
+        <p class="tmpl-pdf">Prefer PDF? <a href="/templates/Morgan-TechFest-Research-Poster-48x36.pdf" target="_blank" rel="noopener">Research</a> &middot; <a href="/templates/Morgan-TechFest-Project-Poster-48x36.pdf" target="_blank" rel="noopener">Project</a></p>
       </div>
     </div>
 

@@ -20,7 +20,8 @@
     body {
       font-family: 'Urbanist', sans-serif;
       background: var(--cream);
-      color: var(--dark);
+      color: #111111;
+      font-size: 18px;
       min-height: 100vh;
     }
 
@@ -75,7 +76,7 @@
     }
 
     .eyebrow {
-      font-size: 12px;
+      font-size: 18px;
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -121,7 +122,7 @@
       border-radius: 100px;
       color: var(--orange);
       font-weight: 700;
-      font-size: 13px;
+      font-size: 18px;
       letter-spacing: 0.15em;
       text-transform: uppercase;
     }
@@ -140,7 +141,7 @@
 
     .section-tag {
       display: inline-block;
-      font-size: 11px;
+      font-size: 18px;
       font-weight: 800;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -158,8 +159,8 @@
 
     .section-desc {
       margin-top: 12px;
-      font-size: 16px;
-      color: rgba(22,7,43,0.6);
+      font-size: 18px;
+      color: #111111;
       line-height: 1.7;
       max-width: 700px;
     }
@@ -202,8 +203,8 @@
     }
 
     .info-card li {
-      font-size: 14px;
-      color: rgba(22,7,43,0.6);
+      font-size: 18px;
+      color: #111111;
       line-height: 1.6;
       padding: 4px 0;
       padding-left: 16px;
@@ -232,7 +233,7 @@
     .track-pill {
       padding: 6px 16px;
       border-radius: 100px;
-      font-size: 13px;
+      font-size: 18px;
       font-weight: 600;
       color: var(--orange);
       border: 1px solid rgba(13,198,244,0.35);
@@ -325,18 +326,18 @@
     .timeline-time {
       flex-shrink: 0;
       width: 180px;
-      font-size: 14px;
+      font-size: 18px;
       font-weight: 700;
       color: var(--blue-mid);
       padding-top: 1px;
     }
 
     @media (max-width: 600px) {
-      .timeline-time { width: auto; font-size: 13px; color: var(--orange); }
+      .timeline-time { width: auto; font-size: 18px; color: var(--orange); }
     }
 
     .timeline-event {
-      font-size: 16px;
+      font-size: 18px;
       color: var(--dark);
       font-weight: 500;
       line-height: 1.5;
@@ -353,7 +354,7 @@
       border: 2px solid var(--orange);
       color: var(--orange);
       font-weight: 600;
-      font-size: 15px;
+      font-size: 18px;
       text-decoration: none;
       transition: all 0.2s;
     }
@@ -370,8 +371,8 @@
       background: rgba(13,198,244,0.06);
       border-left: 4px solid var(--orange);
       border-radius: 0 12px 12px 0;
-      font-size: 15px;
-      color: rgba(22,7,43,0.7);
+      font-size: 18px;
+      color: #111111;
       line-height: 1.7;
     }
 
@@ -424,7 +425,7 @@
 .site-nav-link {
   position: relative;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -448,7 +449,7 @@
 .site-nav-link:hover::after,
 .site-nav-link.active::after { width: 100%; }
 
-.site-header .nav-out { margin-left: 4px; font-size: 10px; color: rgba(13, 198, 244, 0.6); }
+.site-header .nav-out { margin-left: 4px; font-size: 18px; color: rgba(13, 198, 244, 0.6); }
 
 .site-register-btn {
   display: flex;
@@ -458,7 +459,7 @@
   padding: 0 24px;
   border-radius: 100px;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 13px;
+  font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -495,7 +496,7 @@
   padding: 13px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 12px;
+  font-size: 18px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: rgba(255, 255, 255, 0.8);
@@ -511,3 +512,9 @@
   .site-menu-toggle { display: none; }
   .site-mobile-nav { display: none !important; }
 }
+
+
+    /* keep the top navigation compact (exempt from the 18px body minimum) */
+    .site-nav-link { font-size: 13px; }
+    .site-mobile-nav-link { font-size: 15px; }
+    .site-register-btn { font-size: 13px; }
