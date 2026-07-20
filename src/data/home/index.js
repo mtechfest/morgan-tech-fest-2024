@@ -7,7 +7,7 @@ export const eventInfo = {
   date: 'September 19, 2026',
   venue: 'Earl G. Graves School of Business & Management',
   city: 'Morgan State University, Baltimore, MD',
-  registerUrl: 'https://form.jotform.com/233056575770057',
+  registerUrl: 'https://form.jotform.com/262001088004038',
   domains: ['AI', 'Cybersecurity', 'Robotics', 'Data Science']
 }
 
