@@ -50,6 +50,13 @@
     .p3-medal { width:22px; height:22px; border-radius:50%; }
     .p3-place { font-family:'JetBrains Mono',ui-monospace,monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(22,7,43,0.7); font-weight:700; }
     .p3-amt { font-family:'JetBrains Mono',ui-monospace,monospace; font-size:30px; font-weight:700; letter-spacing:0.22em; color:rgba(22,7,43,0.33); }
+    .tmpl-box { margin-top:44px; display:flex; flex-direction:column; gap:22px; padding:30px; border-radius:20px; background:linear-gradient(160deg,#241145,#3d1552); }
+    @media(min-width:780px){ .tmpl-box{ flex-direction:row; align-items:center; justify-content:space-between; } }
+    .tmpl-h { font-family:'Bebas Neue',sans-serif; font-size:32px; line-height:1; color:#fff; margin-top:6px; }
+    .tmpl-p { margin-top:8px; font-family:'Urbanist',sans-serif; font-size:15px; line-height:1.55; color:rgba(255,255,255,0.72); max-width:48ch; }
+    .tmpl-btns { display:flex; flex-wrap:wrap; gap:12px; flex-shrink:0; }
+    .dl-btn { display:inline-flex; align-items:center; gap:8px; padding:14px 24px; border-radius:100px; background:var(--orange); color:#0a1424; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; text-decoration:none; transition:transform 0.15s; white-space:nowrap; }
+    .dl-btn:hover { transform:translateY(-2px); }
   </style>
 </head>
 <body>
@@ -69,6 +76,7 @@
           <a class="site-nav-link active" href="/tech-case.html" aria-current="page">Tech Case</a>
           <a class="site-nav-link" href="/innovation-expo.html">Innovation Expo</a>
           <a class="site-nav-link" href="/schedule.html">Schedule</a>
+          <a class="site-nav-link" href="/transit.html">Transit</a>
           <a class="site-nav-link" href="/sponsors.html">Sponsors</a>
           <a class="site-nav-link" href="/highlights.html">Highlights</a>
           <a class="site-nav-link" href="/#faq">FAQ</a>
@@ -83,6 +91,7 @@
       <a class="site-mobile-nav-link active" href="/tech-case.html" aria-current="page">Tech Case</a>
       <a class="site-mobile-nav-link" href="/innovation-expo.html">Innovation Expo</a>
       <a class="site-mobile-nav-link" href="/schedule.html">Schedule</a>
+      <a class="site-mobile-nav-link" href="/transit.html">Transit</a>
       <a class="site-mobile-nav-link" href="/sponsors.html">Sponsors</a>
       <a class="site-mobile-nav-link" href="/highlights.html">Highlights</a>
       <a class="site-mobile-nav-link" href="/#faq">FAQ</a>

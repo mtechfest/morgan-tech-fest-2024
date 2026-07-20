@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morgan TechFest: Transit</title>
+  <link rel="icon" href="/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/page.css" />
+  <style>
+    .venue-card { margin-top: 28px; padding: 28px 30px; border-radius: 20px; background: linear-gradient(160deg, #241145, #3d1552); color: #fff; }
+    .venue-card .vk { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); }
+    .venue-card h2 { margin-top: 8px; font-family: 'Bebas Neue', sans-serif; font-size: clamp(30px, 4vw, 44px); line-height: 1; }
+    .venue-card .vaddr { margin-top: 10px; font-family: 'Urbanist', sans-serif; font-size: 16px; line-height: 1.5; color: rgba(255,255,255,0.78); }
+    .venue-btns { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .v-solid { display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border-radius:100px; background:linear-gradient(180deg,#ff7a1a 25%,#fc470b 100%); color:#fff; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; text-decoration:none; }
+    .v-out { display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border-radius:100px; border:1px solid rgba(255,255,255,0.3); color:#fff; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; text-decoration:none; }
+    .map-frame { margin-top: 22px; position: relative; width: 100%; aspect-ratio: 16 / 8; border-radius: 18px; overflow: hidden; border: 1px solid rgba(22,7,43,0.1); box-shadow: 0 12px 30px rgba(22,7,43,0.1); }
+    .map-frame iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+    .transit-grid { margin-top: 24px; display: grid; gap: 18px; grid-template-columns: 1fr; }
+    @media(min-width:640px){ .transit-grid{ grid-template-columns: repeat(2,1fr); } }
+    @media(min-width:1000px){ .transit-grid{ grid-template-columns: repeat(3,1fr); } }
+    .mode-card { padding: 22px; border-radius: 16px; background:#fff; border:1px solid rgba(22,7,43,0.08); box-shadow:0 8px 20px rgba(22,7,43,0.05); }
+    .mode-ic { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; background:rgba(13,198,244,0.12); color:var(--orange); }
+    .mode-ic svg { width:24px; height:24px; }
+    .mode-h { margin-top:14px; font-family:'Bebas Neue',sans-serif; font-size:24px; color:var(--dark); }
+    .mode-b { margin-top:6px; font-family:'Urbanist',sans-serif; font-size:14.5px; line-height:1.6; color:rgba(22,7,43,0.66); }
+    .transit-note { margin-top:36px; padding:18px 22px; border-radius:14px; background:rgba(13,198,244,0.08); border:1px solid rgba(13,198,244,0.2); font-family:'Urbanist',sans-serif; font-size:15px; color:var(--dark); }
+  </style>
+</head>
+<body>
+
+  <!-- SITE HEADER (shared with front page) -->
+  <header class="site-header">
+    <div class="site-header-bg">
+      <div class="site-header-inner">
+        <div class="site-header-left">
+          <button class="site-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-mobile-nav" onclick="var n=document.getElementById('site-mobile-nav');n.classList.toggle('open');this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true');">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </button>
+          <a class="site-logo" href="/"><img src="/logo.svg" alt="Morgan TechFest" /></a>
+        </div>
+        <nav class="site-nav" aria-label="Primary">
+          <a class="site-nav-link" href="/about.html">About</a>
+          <a class="site-nav-link" href="/tech-case.html">Tech Case</a>
+          <a class="site-nav-link" href="/innovation-expo.html">Innovation Expo</a>
+          <a class="site-nav-link" href="/schedule.html">Schedule</a>
+          <a class="site-nav-link active" href="/transit.html" aria-current="page">Transit</a>
+          <a class="site-nav-link" href="/sponsors.html">Sponsors</a>
+          <a class="site-nav-link" href="/highlights.html">Highlights</a>
+          <a class="site-nav-link" href="/#faq">FAQ</a>
+        </nav>
+        <div class="site-header-right">
+          <a class="site-register-btn" href="https://form.jotform.com/233056575770057" target="_blank" rel="noopener noreferrer">Register now</a>
+        </div>
+      </div>
+    </div>
+    <nav class="site-mobile-nav" id="site-mobile-nav" aria-label="Primary mobile">
+      <a class="site-mobile-nav-link" href="/about.html">About</a>
+      <a class="site-mobile-nav-link" href="/tech-case.html">Tech Case</a>
+      <a class="site-mobile-nav-link" href="/innovation-expo.html">Innovation Expo</a>
+      <a class="site-mobile-nav-link" href="/schedule.html">Schedule</a>
+      <a class="site-mobile-nav-link active" href="/transit.html" aria-current="page">Transit</a>
+      <a class="site-mobile-nav-link" href="/sponsors.html">Sponsors</a>
+      <a class="site-mobile-nav-link" href="/highlights.html">Highlights</a>
+      <a class="site-mobile-nav-link" href="/#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <div class="page-header">
+    <div class="header-content animate-in">
+      <p class="eyebrow">Future Flux &middot; Getting here</p>
+      <h1>Transit</h1>
+      <p class="subtitle">How to reach the venue, whichever way you are travelling: Earl G. Graves School of Business &amp; Management, Morgan State University, Baltimore, MD.</p>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="section-block animate-in delay-1">
+      <span class="section-tag">The venue</span>
+      <h2 class="section-title">Where We Meet</h2>
+
+      <div class="venue-card">
+        <span class="vk">Event venue</span>
+        <h2>Earl G. Graves School of Business &amp; Management</h2>
+        <p class="vaddr">Morgan State University, West Campus &middot; 4200 Hillen Road, Baltimore, MD 21218<br />(at Hillen Road &amp; Cold Spring Lane)</p>
+        <div class="venue-btns">
+          <a class="v-solid" href="https://www.google.com/maps/dir/?api=1&amp;destination=Earl%20G.%20Graves%20School%20of%20Business%20%26%20Management%2C%204200%20Hillen%20Rd%2C%20Baltimore%2C%20MD%2021218" target="_blank" rel="noopener noreferrer">Get directions &rarr;</a>
+          <a class="v-out" href="https://www.google.com/maps/search/?api=1&amp;query=Earl%20G.%20Graves%20School%20of%20Business%20Morgan%20State%20University" target="_blank" rel="noopener noreferrer">Open in Maps</a>
+        </div>
+      </div>
+
+      <div class="map-frame">
+        <iframe src="https://www.google.com/maps?q=Earl+G.+Graves+School+of+Business+Management,+4200+Hillen+Road,+Baltimore,+MD+21218&amp;z=15&amp;output=embed" title="Map to the venue" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="section-block animate-in delay-2" style="margin-top:64px;">
+      <span class="section-tag">Ways to get here</span>
+      <h2 class="section-title">Plan Your Trip</h2>
+      <p class="section-desc">Pick the option that fits your journey. The &ldquo;Get directions&rdquo; button above will route you from wherever you are.</p>
+      <div class="transit-grid">
+        <div class="mode-card">
+          <div class="mode-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l1.5-4.5A2 2 0 018.4 7h7.2a2 2 0 011.9 1.5L19 13m-14 0h14m-14 0v4m14-4v4M7 17h.01M17 17h.01"/><rect x="3" y="13" width="18" height="4" rx="1"/></svg></div>
+          <h3 class="mode-h">By car &amp; parking</h3>
+          <p class="mode-b">Morgan TechFest is in Northeast Baltimore at Hillen Road &amp; Cold Spring Lane. From I-95 or I-83, follow signs toward Morgan State University. Set your GPS to <strong>4200 Hillen Road</strong>. Visitor parking is available on the West Campus near the building.</p>
+        </div>
+        <div class="mode-card">
+          <div class="mode-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="13" rx="2"/><path d="M4 11h16M8 17v2M16 17v2M8 8h.01M16 8h.01"/></svg></div>
+          <h3 class="mode-h">MTA bus</h3>
+          <p class="mode-b">The MTA <strong>CityLink Silver</strong> stops right at campus (Hillen Rd &amp; Cold Spring Ln), and <strong>LocalLink 28</strong> runs along Cold Spring Lane. Pay with the CharmPass app or exact fare, and use the MTA trip planner to route from your stop.</p>
+        </div>
+        <div class="mode-card">
+          <div class="mode-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14M9 17l-2 3M15 17l2 3M9 7h.01M15 7h.01"/></svg></div>
+          <h3 class="mode-h">By train (Amtrak / MARC)</h3>
+          <p class="mode-b">Take Amtrak (Northeast Regional) or the MARC Penn Line to <strong>Baltimore Penn Station</strong>, then board the <strong>CityLink Silver</strong> bus (Charles St &amp; Penn Station) north to Hillen Rd &amp; Cold Spring Ln, a short ride from the venue.</p>
+        </div>
+        <div class="mode-card">
+          <div class="mode-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 13.5L4 15l-1-2 5-3-1.5-6L9 3l3 6 5-2.5a1.5 1.5 0 011.4 2.5L13 13l1 6-2 1-1.5-6.5z"/></svg></div>
+          <h3 class="mode-h">From BWI Airport</h3>
+          <p class="mode-b">From BWI Thurgood Marshall Airport, take the <strong>Light RailLink</strong> to Penn Station, then the CityLink Silver bus to campus. By car or rideshare it is roughly a 30&ndash;40 minute drive.</p>
+        </div>
+        <div class="mode-card">
+          <div class="mode-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.2-6-10a6 6 0 1112 0c0 4.8-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg></div>
+          <h3 class="mode-h">From Washington, DC</h3>
+          <p class="mode-b">Take the MARC Penn Line or Amtrak from Union Station to Baltimore Penn Station, then the CityLink Silver bus to campus (about 1.5 hours total). Driving is roughly one hour via the BW Parkway or I-95.</p>
+        </div>
+        <div class="mode-card">
+          <div class="mode-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 012-2h2l1.5 4-2 1.5a11 11 0 005 5l1.5-2 4 1.5V19a2 2 0 01-2 2A16 16 0 014 5z"/></svg></div>
+          <h3 class="mode-h">Rideshare &amp; taxi</h3>
+          <p class="mode-b">Uber, Lyft, or a taxi will bring you straight to the door. Set your destination to <strong>&ldquo;Earl G. Graves School of Business, Morgan State University&rdquo;</strong> or 4200 Hillen Road, Baltimore, MD 21218.</p>
+        </div>
+      </div>
+
+      <p class="transit-note"><strong>On the day:</strong> doors open at 9:00 AM on September 19, 2026. Give yourself extra time for parking and check-in, and head for the Earl G. Graves School of Business on the West Campus.</p>
+    </div>
+  </div>
+
+</body>
+</html>

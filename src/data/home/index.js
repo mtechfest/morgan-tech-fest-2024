@@ -19,6 +19,7 @@ export const nav = [
   { id: 'techcase', label: 'Tech Case', href: '/tech-case.html' },
   { id: 'expo', label: 'Innovation Expo', href: '/innovation-expo.html' },
   { id: 'schedule', label: 'Schedule', index: '04', href: '/schedule.html' },
+  { id: 'transit', label: 'Transit', href: '/transit.html' },
   { id: 'sponsors', label: 'Sponsors', index: '05', href: '/sponsors.html' },
   { id: 'highlights', label: 'Highlights', index: '06', href: '/highlights.html' },
   { id: 'faq', label: 'FAQ', index: '07' }
