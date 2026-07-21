@@ -145,7 +145,7 @@ onUnmounted(() => {
           <p
             class="hero-intro animate-rise-3 mx-auto mt-4 max-w-md font-urbanist text-base leading-relaxed sm:text-lg lg:mx-0"
           >
-            Empowering the next generation of technology leaders at Morgan State University.
+            Empowering the next generation of technology leaders.
           </p>
 
           <div class="animate-rise-4 mt-8 flex flex-col items-center gap-3 xs:flex-row xs:justify-center lg:justify-start">
