@@ -22,6 +22,7 @@ export const nav = [
   { id: 'transit', label: 'Transit', href: '/transit.html' },
   { id: 'sponsors', label: 'Sponsors', index: '05', href: '/sponsors.html' },
   { id: 'highlights', label: 'Highlights', index: '06', href: '/highlights.html' },
+  { id: 'media', label: 'Media', href: '/media.html' },
   { id: 'faq', label: 'FAQ', index: '07' }
 ]
 

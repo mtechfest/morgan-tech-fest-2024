@@ -167,6 +167,43 @@ onUnmounted(() => {
     </div>
   </section>
 
+  <!-- ===================== IN THE NEWS ===================== -->
+  <div class="section-dark px-5 py-12 xs:px-8 md:py-16">
+    <div class="mx-auto max-w-4xl text-center">
+      <blockquote class="press-quote">
+        &ldquo;Morgan TechFest demonstrates the knowledge, creativity, and opportunities already present on an HBCU campus.&rdquo;
+      </blockquote>
+      <p class="press-cite">
+        Marybeth Gasman,
+        <a href="https://www.forbes.com/sites/marybethgasman/2026/07/21/morgan-state-techfest-shows-what-hbcus-contribute-to-innovation/" target="_blank" rel="noopener noreferrer">Forbes</a>
+      </p>
+    </div>
+    <div class="mx-auto mt-12 max-w-6xl">
+      <p class="press-label text-center">As featured in</p>
+      <div class="fi-marquee mt-4">
+        <div class="fi-track">
+          <div class="fi-group">
+            <span class="fi-chip"><img src="/press/forbes.png" alt="Forbes" /></span>
+            <span class="fi-chip"><img src="/press/technically.png" alt="Technical.ly" /></span>
+            <span class="fi-chip"><img src="/press/hbcu.png" alt="HBCU News" /></span>
+            <span class="fi-chip"><img src="/press/yahoo.png" alt="Yahoo Tech" /></span>
+            <span class="fi-chip"><img src="/press/bmore.png" alt="Bmore News" /></span>
+          </div>
+          <div class="fi-group" aria-hidden="true">
+            <span class="fi-chip"><img src="/press/forbes.png" alt="" /></span>
+            <span class="fi-chip"><img src="/press/technically.png" alt="" /></span>
+            <span class="fi-chip"><img src="/press/hbcu.png" alt="" /></span>
+            <span class="fi-chip"><img src="/press/yahoo.png" alt="" /></span>
+            <span class="fi-chip"><img src="/press/bmore.png" alt="" /></span>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 text-center">
+        <a href="/media.html" class="cta-outline">Read the coverage &rarr;</a>
+      </div>
+    </div>
+  </div>
+
   <!-- ===================== SPEAKERS ===================== -->
   <div class="overflow-hidden bg-flux-mist px-5 pb-14 pt-10 xs:px-8 md:pb-20 md:pt-14" id="speakers">
     <div class="mx-auto max-w-6xl">
@@ -1151,5 +1188,57 @@ onUnmounted(() => {
 
 @media (prefers-reduced-motion: reduce) {
   .hero-portal-globe { animation: none; }
+}
+
+.press-label {
+  @apply font-mono text-[11px] uppercase tracking-[0.16em] text-flux-cyan;
+}
+.press-logos {
+  @apply mt-3 flex flex-wrap items-center justify-center gap-x-7 gap-y-3 lg:justify-start;
+}
+.press-logos span {
+  @apply inline-flex;
+}
+.fi-chip {
+  @apply inline-flex overflow-hidden rounded-[10px];
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.fi-chip img {
+  @apply block h-9 w-auto sm:h-10;
+}
+.fi-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.fi-track {
+  display: flex;
+  width: max-content;
+  animation: logoSlide 26s linear infinite;
+}
+.fi-marquee:hover .fi-track {
+  animation-play-state: paused;
+}
+.fi-group {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  padding-right: 36px;
+}
+@keyframes logoSlide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fi-track { animation: none; }
+}
+.press-quote {
+  @apply font-urbanist text-xl font-semibold leading-relaxed text-white sm:text-2xl;
+}
+.press-cite {
+  @apply mt-4 font-mono text-sm uppercase tracking-[0.12em] text-flux-cyan;
+}
+.press-cite a {
+  @apply underline;
 }
 </style>
