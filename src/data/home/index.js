@@ -17,7 +17,7 @@ export const eventInfo = {
 export const nav = [
   { id: 'about', label: 'About', index: '01', href: '/about.html' },
   { id: 'techcase', label: 'Tech Case', href: '/tech-case.html' },
-  { id: 'expo', label: 'Innovation Expo', href: '/innovation-expo.html' },
+  { id: 'expo', label: 'Expo', href: '/innovation-expo.html' },
   { id: 'schedule', label: 'Schedule', index: '04', href: '/schedule.html' },
   { id: 'transit', label: 'Transit', href: '/transit.html' },
   { id: 'sponsors', label: 'Sponsors', index: '05', href: '/sponsors.html' },

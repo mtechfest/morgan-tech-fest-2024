@@ -25,6 +25,11 @@
     .pq-mark { font-family:'Georgia',serif; font-size:80px; line-height:0.6; color:var(--orange); opacity:0.6; }
     .prez-quote blockquote { margin:6px 0 0; font-family:'Urbanist',sans-serif; font-size:clamp(19px,2.4vw,26px); line-height:1.5; font-weight:600; }
     .prez-quote .pq-place { color:rgba(255,255,255,0.5); font-style:italic; }
+    .pq-source { margin-top:16px; font-family:'Urbanist',sans-serif; font-size:17px; font-weight:600; color:rgba(255,255,255,0.85); }
+    .pq-source a { color:var(--orange); text-decoration:none; }
+    .pq-source a:hover { text-decoration:underline; }
+    .pq-motto { margin-top:22px; padding-top:18px; border-top:1px solid rgba(255,255,255,0.18); font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:0.06em; color:var(--orange); }
+    .pq-shared { font-family:'JetBrains Mono',ui-monospace,monospace; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:4px; }
     .pq-cap { margin-top:20px; display:flex; flex-direction:column; gap:2px; }
     .pq-name { font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:0.02em; }
     .pq-title { font-family:'Urbanist',sans-serif; font-size:15px; color:rgba(255,255,255,0.7); }
@@ -56,7 +61,7 @@
         <nav class="site-nav" aria-label="Primary">
           <a class="site-nav-link" href="/about.html">About</a>
           <a class="site-nav-link" href="/tech-case.html">Tech Case</a>
-          <a class="site-nav-link" href="/innovation-expo.html">Innovation Expo</a>
+          <a class="site-nav-link" href="/innovation-expo.html">Expo</a>
           <a class="site-nav-link" href="/schedule.html">Schedule</a>
           <a class="site-nav-link" href="/transit.html">Transit</a>
           <a class="site-nav-link" href="/sponsors.html">Sponsors</a>
@@ -72,7 +77,7 @@
     <nav class="site-mobile-nav" id="site-mobile-nav" aria-label="Primary mobile">
       <a class="site-mobile-nav-link" href="/about.html">About</a>
       <a class="site-mobile-nav-link" href="/tech-case.html">Tech Case</a>
-      <a class="site-mobile-nav-link" href="/innovation-expo.html">Innovation Expo</a>
+      <a class="site-mobile-nav-link" href="/innovation-expo.html">Expo</a>
       <a class="site-mobile-nav-link" href="/schedule.html">Schedule</a>
       <a class="site-mobile-nav-link" href="/transit.html">Transit</a>
       <a class="site-mobile-nav-link" href="/sponsors.html">Sponsors</a>
@@ -161,8 +166,11 @@
       <h2 class="section-title">A Word from Morgan State</h2>
       <figure class="prez-quote">
         <div class="pq-mark" aria-hidden="true">&ldquo;</div>
-        <blockquote><span class="pq-place">[ Paste President Wilson&rsquo;s words from the LinkedIn post here ]</span></blockquote>
+        <blockquote>Morgan TechFest demonstrates the knowledge, creativity, and opportunities already present on an HBCU campus.</blockquote>
+        <p class="pq-source">&mdash; Marybeth Gasman, <a href="https://www.forbes.com/sites/marybethgasman/2026/07/21/morgan-state-techfest-shows-what-hbcus-contribute-to-innovation/" target="_blank" rel="noopener noreferrer">Forbes</a></p>
+        <p class="pq-motto">Growing the Future &nbsp;|&nbsp; Leading the World</p>
         <figcaption class="pq-cap">
+          <span class="pq-shared">Shared by</span>
           <span class="pq-name">David K. Wilson</span>
           <span class="pq-title">President, Morgan State University</span>
           <a class="pq-link" href="https://www.linkedin.com/posts/david-k-wilson-87029973_morgan-state-techfest-shows-what-hbcus-contribute-activity-7486572527272693760-JeYM" target="_blank" rel="noopener noreferrer">View the post on LinkedIn &rarr;</a>
