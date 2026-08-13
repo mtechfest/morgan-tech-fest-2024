@@ -199,7 +199,7 @@ onUnmounted(() => {
         </div>
       </div>
       <div class="mt-8 text-center">
-        <a href="/media.html" class="cta-outline">Read the coverage &rarr;</a>
+        <a href="/highlights.html#news" class="cta-outline">Read the coverage &rarr;</a>
       </div>
     </div>
   </div>
