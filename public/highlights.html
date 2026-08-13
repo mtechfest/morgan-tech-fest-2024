@@ -247,6 +247,44 @@
     .is-second .winner-medal { background: linear-gradient(180deg, #dfe3e8, #b6bcc6); color: #2b2f37; }
     .is-third .winner-medal  { background: linear-gradient(180deg, #e6a562, #c2763a); color: #3a1e06; }
     .is-first { border-color: rgba(224, 169, 46, 0.5); box-shadow: 0 16px 36px rgba(224, 169, 46, 0.18); }
+
+    /* ---- press coverage + president quote (merged from media page) ---- */
+    .featured-strip { margin-top:26px; padding:22px 24px; border-radius:16px; background:#fff; border:1px solid rgba(22,7,43,0.08); box-shadow:0 8px 20px rgba(22,7,43,0.05); text-align:center; }
+    .fi-label { font-family:'JetBrains Mono',ui-monospace,monospace; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--orange); }
+    .fi-logos { margin-top:12px; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px 30px; }
+    .fi-logo { font-family:'Georgia',serif; font-weight:700; font-size:24px; color:#111111; opacity:0.82; }
+    .news-grid { margin-top:26px; display:grid; gap:18px; grid-template-columns:1fr; }
+    @media(min-width:680px){ .news-grid{ grid-template-columns:repeat(2,1fr); } }
+    .news-card { display:flex; flex-direction:column; padding:24px; border-radius:16px; background:#fff; border:1px solid rgba(22,7,43,0.08); box-shadow:0 8px 20px rgba(22,7,43,0.05); text-decoration:none; transition:transform 0.15s, box-shadow 0.15s; }
+    .news-card:hover { transform:translateY(-3px); box-shadow:0 16px 34px rgba(22,7,43,0.12); }
+    .news-outlet { font-family:'JetBrains Mono',ui-monospace,monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--orange); font-weight:700; }
+    .news-title { margin-top:10px; font-family:'Bebas Neue',sans-serif; font-size:28px; line-height:1.05; color:var(--dark); }
+    .news-meta { margin-top:8px; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:12px; letter-spacing:0.06em; color:#666; }
+    .news-desc { margin-top:12px; font-family:'Urbanist',sans-serif; font-size:16px; line-height:1.55; color:#111111; flex-grow:1; }
+    .news-read { margin-top:16px; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--orange); }
+    .prez-quote { margin-top:28px; position:relative; padding:34px 34px 30px; border-radius:20px; background:linear-gradient(160deg,#241145,#3d1552); color:#fff; }
+    .pq-mark { font-family:'Georgia',serif; font-size:80px; line-height:0.6; color:var(--orange); opacity:0.6; }
+    .prez-quote blockquote { margin:6px 0 0; font-family:'Urbanist',sans-serif; font-size:clamp(19px,2.4vw,26px); line-height:1.5; font-weight:600; }
+    .prez-quote .pq-place { color:rgba(255,255,255,0.5); font-style:italic; }
+    .pq-source { margin-top:16px; font-family:'Urbanist',sans-serif; font-size:17px; font-weight:600; color:rgba(255,255,255,0.85); }
+    .pq-source a { color:var(--orange); text-decoration:none; }
+    .pq-source a:hover { text-decoration:underline; }
+    .pq-motto { margin-top:22px; padding-top:18px; border-top:1px solid rgba(255,255,255,0.18); font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:0.06em; color:var(--orange); }
+    .pq-shared { font-family:'JetBrains Mono',ui-monospace,monospace; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:4px; }
+    .pq-cap { margin-top:20px; display:flex; flex-direction:column; gap:2px; }
+    .pq-name { font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:0.02em; }
+    .pq-title { font-family:'Urbanist',sans-serif; font-size:15px; color:rgba(255,255,255,0.7); }
+    .pq-link { margin-top:12px; align-self:flex-start; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--orange); text-decoration:none; }
+    .fi-chip { display:inline-flex; overflow:hidden; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.12); }
+    .fi-chip img { display:block; height:46px; width:auto; }
+    .fi-marquee { width:100%; margin-top:14px; overflow:hidden;
+      -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+      mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); }
+    .fi-track { display:flex; width:max-content; animation:logoSlide 26s linear infinite; }
+    .fi-marquee:hover .fi-track { animation-play-state:paused; }
+    .fi-group { display:flex; align-items:center; gap:34px; padding-right:34px; }
+    @keyframes logoSlide { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+    @media (prefers-reduced-motion:reduce){ .fi-track { animation:none; } }
   </style>
 </head>
 <body>
@@ -264,7 +302,7 @@
         <nav class="site-nav" aria-label="Primary">
           <a class="site-nav-link" href="/about.html">About</a>
           <a class="site-nav-link" href="/tech-case.html">Tech Case</a>
-          <a class="site-nav-link" href="/innovation-expo.html">Expo</a>
+          <a class="site-nav-link" href="/innovation-expo.html">Innovation Expo</a>
           <a class="site-nav-link" href="/schedule.html">Schedule</a>
           <a class="site-nav-link" href="/transit.html">Transit</a>
           <a class="site-nav-link" href="/sponsors.html">Sponsors</a>
@@ -279,7 +317,7 @@
     <nav class="site-mobile-nav" id="site-mobile-nav" aria-label="Primary mobile">
       <a class="site-mobile-nav-link" href="/about.html">About</a>
       <a class="site-mobile-nav-link" href="/tech-case.html">Tech Case</a>
-      <a class="site-mobile-nav-link" href="/innovation-expo.html">Expo</a>
+      <a class="site-mobile-nav-link" href="/innovation-expo.html">Innovation Expo</a>
       <a class="site-mobile-nav-link" href="/schedule.html">Schedule</a>
       <a class="site-mobile-nav-link" href="/transit.html">Transit</a>
       <a class="site-mobile-nav-link" href="/sponsors.html">Sponsors</a>
@@ -302,6 +340,71 @@
   <div class="main">
 
     <!-- OPENING ADDRESS -->
+    <div class="section-block animate-in" id="news">
+      <span class="section-tag">Press coverage</span>
+      <h2 class="section-title">In the News</h2>
+
+      <div class="featured-strip">
+        <p class="fi-label">As featured in</p>
+                <div class="fi-marquee">
+          <div class="fi-track">
+            <div class="fi-group">
+            <span class="fi-chip"><img src="/press/forbes.png" alt="Forbes" /></span>
+            <span class="fi-chip"><img src="/press/technically.png" alt="Technical.ly" /></span>
+            <span class="fi-chip"><img src="/press/hbcu.png" alt="HBCU News" /></span>
+            <span class="fi-chip"><img src="/press/yahoo.png" alt="Yahoo Tech" /></span>
+            <span class="fi-chip"><img src="/press/bmore.png" alt="Bmore News" /></span>
+            </div>
+            <div class="fi-group" aria-hidden="true">
+            <span class="fi-chip"><img src="/press/forbes.png" alt="Forbes" /></span>
+            <span class="fi-chip"><img src="/press/technically.png" alt="Technical.ly" /></span>
+            <span class="fi-chip"><img src="/press/hbcu.png" alt="HBCU News" /></span>
+            <span class="fi-chip"><img src="/press/yahoo.png" alt="Yahoo Tech" /></span>
+            <span class="fi-chip"><img src="/press/bmore.png" alt="Bmore News" /></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="news-grid">
+        <a class="news-card" href="https://www.forbes.com/sites/marybethgasman/2026/07/21/morgan-state-techfest-shows-what-hbcus-contribute-to-innovation/" target="_blank" rel="noopener noreferrer">
+          <span class="news-outlet">Forbes</span>
+          <h3 class="news-title">Morgan State TechFest Shows What HBCUs Contribute To Innovation</h3>
+          <span class="news-meta">By Marybeth Gasman &middot; Jul 21, 2026</span>
+          <p class="news-desc">A national look at what HBCUs contribute to technology and innovation.</p>
+          <span class="news-read">Read the article &rarr;</span>
+        </a>
+        <a class="news-card" href="https://technical.ly/workforce/morgan-techfest-builds-baltimores-next-gen-tech-workforce/" target="_blank" rel="noopener noreferrer">
+          <span class="news-outlet">Technical.ly</span>
+          <h3 class="news-title">Discover, Network, Innovate: How Morgan TechFest Is Building Baltimore&rsquo;s Next Generation of Tech Talent</h3>
+          <span class="news-meta">By Opeyemi Adeniran &middot; Jul 6, 2026</span>
+          <p class="news-desc">An interdisciplinary platform connecting students, researchers, and industry with hands-on experience and internships.</p>
+          <span class="news-read">Read the article &rarr;</span>
+        </a>
+        <a class="news-card" href="https://hbcunews.com/2026/07/22/morgan-state-techfest-shows-what-hbcus-contribute-to-innovation/" target="_blank" rel="noopener noreferrer">
+          <span class="news-outlet">HBCU News</span>
+          <h3 class="news-title">Morgan State TechFest Shows What HBCUs Contribute To Innovation</h3>
+          <span class="news-meta">Jul 22, 2026</span>
+          <p class="news-desc">Coverage of Morgan TechFest and the HBCU contribution to innovation.</p>
+          <span class="news-read">Read the article &rarr;</span>
+        </a>
+        <a class="news-card" href="https://tech.yahoo.com/science/articles/morgan-state-techfest-shows-hbcus-165648179.html" target="_blank" rel="noopener noreferrer">
+          <span class="news-outlet">Yahoo Tech</span>
+          <h3 class="news-title">Morgan State TechFest Shows What HBCUs Contribute To Innovation</h3>
+          <span class="news-meta">Yahoo Tech</span>
+          <p class="news-desc">Morgan State TechFest featured in the national tech conversation.</p>
+          <span class="news-read">Read the article &rarr;</span>
+        </a>
+        <a class="news-card" href="https://bmorenews.com/join-us-for-morgan-techfest-2024/" target="_blank" rel="noopener noreferrer">
+          <span class="news-outlet">Bmore News</span>
+          <h3 class="news-title">Join Us for Morgan TechFest 2024!</h3>
+          <span class="news-meta">By Staff Reporter &middot; May 17, 2024</span>
+          <p class="news-desc">An invitation to Morgan TechFest and how it helps students harness technology in their careers.</p>
+          <span class="news-read">Read the article &rarr;</span>
+        </a>
+      </div>
+    </div>
+
     <div class="section-block animate-in">
       <span class="section-tag">How the day begins</span>
       <h2 class="section-title">The Opening Address</h2>
@@ -497,6 +600,23 @@
       <div class="link-row">
         <a class="link-solid" href="https://drive.google.com/drive/folders/1-m8WPWPPjLZuv9BUEwkRIMI6z2F6DEgb?usp=sharing" target="_blank" rel="noopener noreferrer">View full album</a>
       </div>
+    </div>
+
+    <div class="section-block animate-in delay-2" style="margin-top:56px;">
+      <span class="section-tag">From the President</span>
+      <h2 class="section-title">A Word from Morgan State</h2>
+      <figure class="prez-quote">
+        <div class="pq-mark" aria-hidden="true">&ldquo;</div>
+        <blockquote>Morgan TechFest demonstrates the knowledge, creativity, and opportunities already present on an HBCU campus.</blockquote>
+        <p class="pq-source">&mdash; Marybeth Gasman, <a href="https://www.forbes.com/sites/marybethgasman/2026/07/21/morgan-state-techfest-shows-what-hbcus-contribute-to-innovation/" target="_blank" rel="noopener noreferrer">Forbes</a></p>
+        <p class="pq-motto">Growing the Future &nbsp;|&nbsp; Leading the World</p>
+        <figcaption class="pq-cap">
+          <span class="pq-shared">Shared by</span>
+          <span class="pq-name">David K. Wilson</span>
+          <span class="pq-title">President, Morgan State University</span>
+          <a class="pq-link" href="https://www.linkedin.com/posts/david-k-wilson-87029973_morgan-state-techfest-shows-what-hbcus-contribute-activity-7486572527272693760-JeYM" target="_blank" rel="noopener noreferrer">View the post on LinkedIn &rarr;</a>
+        </figcaption>
+      </figure>
     </div>
 
 
