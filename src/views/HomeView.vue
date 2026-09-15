@@ -6,13 +6,21 @@ import InstagramIcon from '@/components/icons/IconInstagram.vue'
 import GithubIcon from '@/components/icons/IconGithub.vue'
 import DiscordIcon from '@/components/icons/IconDiscord.vue'
 import FAQItem from '@/components/FAQItem.vue'
-import {
-  schedule,
-  speakerSlots,
-  partners,
-  FaqQuestionsAnswers,
-  eventInfo
-} from '@/data/home'
+import SpeakerModal from '@/components/SpeakerModal.vue'
+import { schedule, partners, FaqQuestionsAnswers, eventInfo } from '@/data/home'
+import { panelists, workshopHosts } from '@/data/home/speakers'
+
+/* ── Speaker bios ────────────────────────────────────────────
+   One modal instance; the cards just say who is open. */
+const openSpeaker = ref(null)
+const openKicker = ref('Panelist')
+const showBio = (person, kicker) => {
+  openSpeaker.value = person
+  openKicker.value = kicker
+}
+const closeBio = () => {
+  openSpeaker.value = null
+}
 
 /* ── Countdown ───────────────────────────────────────────────
    One interval, and it only runs while the tab is actually visible.
@@ -54,35 +62,14 @@ const onVisibility = () => {
   else startTimer()
 }
 
-/* ── Marquee ─────────────────────────────────────────────────
-   An infinite CSS animation keeps the compositor working even when the
-   strip is far off screen. Pause it unless it is in view. */
-const marquee = ref(null)
-const marqueeLive = ref(true)
-let marqueeObserver = null
-
 onMounted(() => {
   startTimer()
   document.addEventListener('visibilitychange', onVisibility)
-
-  if (marquee.value && 'IntersectionObserver' in window) {
-    marqueeObserver = new IntersectionObserver(
-      ([entry]) => {
-        marqueeLive.value = entry.isIntersecting
-      },
-      { rootMargin: '150px' }
-    )
-    marqueeObserver.observe(marquee.value)
-  }
 })
 
 onUnmounted(() => {
   stopTimer()
   document.removeEventListener('visibilitychange', onVisibility)
-  if (marqueeObserver) {
-    marqueeObserver.disconnect()
-    marqueeObserver = null
-  }
 })
 </script>
 
@@ -205,37 +192,92 @@ onUnmounted(() => {
   </div>
 
   <!-- ===================== SPEAKERS ===================== -->
-  <div class="overflow-hidden bg-flux-mist px-5 pb-14 pt-10 xs:px-8 md:pb-20 md:pt-14" id="speakers">
+  <div class="bg-flux-mist px-5 pb-16 pt-14 xs:px-8 md:pb-24 md:pt-20" id="speakers">
     <div class="mx-auto max-w-6xl">
-      <div class="text-center">
-        <span class="section-label justify-center">Speakers &amp; Panelists</span>
-        <h2 class="mt-3 font-bebas text-5xl font-normal text-flux-ink xs:text-6xl sm:text-7xl">
-          Featured Voices
-        </h2>
-        <p class="mx-auto mt-3 max-w-md font-urbanist text-base text-flux-ink/55 sm:text-lg">
-          The Future Flux lineup lands closer to the event. Follow along and you will hear first.
+      <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div>
+          <span class="section-label">The lineup</span>
+          <h2 class="mt-3 font-bebas text-5xl font-normal text-flux-ink xs:text-6xl sm:text-7xl">
+            Panelists &amp; Workshop Hosts
+          </h2>
+        </div>
+        <p class="max-w-sm font-urbanist text-base text-flux-ink/55 sm:text-lg md:pb-2 md:text-right">
+          Builders, researchers, and founders joining us in Baltimore for Future Flux.
         </p>
       </div>
-    </div>
 
-    <div ref="marquee" class="speaker-marquee mt-10 md:mt-14">
-      <div class="speaker-track" :class="{ 'is-paused': !marqueeLive }">
-        <template v-for="pass in 2" :key="pass">
-          <div
-            v-for="slot in speakerSlots"
-            :key="pass + slot.id"
-            class="speaker-card"
-            :aria-hidden="pass === 2"
-          >
-            <div class="speaker-img-wrap">
-              <span class="speaker-pending">Revealed<br />soon</span>
-            </div>
-            <p class="speaker-name">{{ slot.role }}</p>
+      <!-- Panel session -->
+      <div class="lineup-head">
+        <span class="lineup-kicker">Panel session</span>
+        <span class="lineup-count">{{ panelists.length }} voices</span>
+      </div>
+      <div class="grid grid-cols-1 gap-5 xs:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+        <button
+          v-for="person in panelists"
+          :key="person.id"
+          type="button"
+          class="panelist"
+          @click="showBio(person, 'Panelist')"
+        >
+          <div class="panelist-photo">
+            <img
+              :src="person.img"
+              :alt="person.name"
+              width="800"
+              height="1000"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="panelist-shade"></div>
+            <span class="panelist-focus">{{ person.focus }}</span>
           </div>
-        </template>
+          <div class="panelist-meta">
+            <span class="panelist-name">{{ person.name }}</span>
+            <span class="panelist-role">{{ person.role }}</span>
+            <span class="panelist-org">{{ person.org }}</span>
+            <span class="panelist-cta">Read bio</span>
+          </div>
+        </button>
+      </div>
+
+      <!-- Workshops -->
+      <div class="lineup-head mt-14 md:mt-20">
+        <span class="lineup-kicker">Workshops</span>
+        <span class="lineup-count">{{ workshopHosts.length }} sessions</span>
+      </div>
+      <div class="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-6">
+        <button
+          v-for="host in workshopHosts"
+          :key="host.id"
+          type="button"
+          class="host"
+          @click="showBio(host, 'Workshop host')"
+        >
+          <div class="host-photo">
+            <img
+              :src="host.thumb"
+              :alt="host.name"
+              width="480"
+              height="480"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="host-meta">
+            <span class="host-workshop">{{ host.workshop }}</span>
+            <span class="host-blurb">{{ host.workshopBlurb }}</span>
+            <span class="host-by">
+              <span class="host-name">{{ host.name }}</span>
+              <span class="host-role">{{ host.role }}</span>
+            </span>
+            <span class="panelist-cta">Read bio</span>
+          </div>
+        </button>
       </div>
     </div>
   </div>
+
+  <SpeakerModal :speaker="openSpeaker" :kicker="openKicker" @close="closeBio" />
 
   <!-- ===================== CORE COMPONENTS ===================== -->
   <div class="section-dark px-5 pb-16 pt-16 xs:px-8 md:pb-24 md:pt-24" id="components">
@@ -250,8 +292,8 @@ onUnmounted(() => {
           <h3 class="comp-title">Tech Case Competition</h3>
           <p class="comp-subtitle">Team solution sprint</p>
           <p class="comp-text">
-            Student teams develop technology-driven solutions to real-world problems across key
-            tracks. Solutions are evaluated based on clarity, innovation, feasibility, and impact.
+            2026 case: AI for Small Business. Teams of 2&ndash;4 map a real small-business
+            workflow and pitch an AI-enabled redesign it could actually adopt. $3,000 prize pool.
           </p>
           <span class="comp-more">See details &rarr;</span>
         </a>
@@ -965,72 +1007,150 @@ onUnmounted(() => {
   @apply block rounded-lg border border-white/10 px-2.5 py-2.5 transition-colors duration-200 hover:border-flux-cyan/50;
 }
 
-/* ===== SPEAKERS MARQUEE ===== */
-.speaker-marquee {
-  width: 100%;
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+/* ===== LINEUP ===== */
+.lineup-head {
+  @apply mb-5 mt-10 flex items-center gap-x-4 md:mb-7 md:mt-14;
+}
+.lineup-head::after {
+  content: '';
+  @apply h-px flex-1;
+  background: linear-gradient(to right, rgba(22, 7, 43, 0.22), rgba(22, 7, 43, 0));
+}
+.lineup-kicker {
+  @apply font-bebas text-2xl leading-none text-flux-ink sm:text-3xl;
+}
+.lineup-count {
+  @apply rounded-full px-3 py-1 font-mono text-[10px] tracking-[0.12em] text-flux-violet;
+  border: 1px solid rgba(61, 21, 82, 0.28);
+  background: rgba(61, 21, 82, 0.06);
 }
 
-.speaker-track {
-  display: flex;
-  gap: 24px;
-  animation: scrollMarquee 35s linear infinite;
-  width: max-content;
+/* Panelist: tall portrait, name block below on a white card face */
+.panelist {
+  @apply flex flex-col overflow-hidden rounded-3xl text-left;
+  background: #fff;
+  border: 1.5px solid rgba(22, 7, 43, 0.08);
+  box-shadow: 0 14px 40px rgba(22, 7, 43, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.panelist:hover {
+  transform: translateY(-4px);
+  border-color: rgba(13, 198, 244, 0.55);
+  box-shadow: 0 24px 56px rgba(22, 7, 43, 0.16);
+}
+.panelist-photo {
+  @apply relative overflow-hidden;
+  aspect-ratio: 4 / 5;
+  background: #241145;
+}
+.panelist-photo img {
+  @apply h-full w-full object-cover;
+  object-position: center 20%;
+  transition: transform 0.6s ease;
+}
+.panelist:hover .panelist-photo img {
+  transform: scale(1.04);
+}
+.panelist-shade {
+  @apply absolute inset-0;
+  background: linear-gradient(180deg, rgba(21, 8, 41, 0) 60%, rgba(21, 8, 41, 0.72) 100%);
+}
+.panelist-focus {
+  @apply absolute bottom-4 left-4 rounded-full font-mono text-[10px] tracking-[0.1em] text-white;
+  padding: 6px 11px;
+  background: rgba(13, 198, 244, 0.16);
+  border: 1px solid rgba(13, 198, 244, 0.5);
+  backdrop-filter: blur(6px);
+}
+.panelist-meta {
+  @apply flex flex-1 flex-col px-5 pb-5 pt-4 sm:px-6;
+}
+.panelist-name {
+  @apply font-bebas text-3xl leading-none text-flux-ink;
+}
+.panelist-role {
+  @apply mt-2 font-urbanist text-sm font-semibold leading-snug text-flux-ink/85;
+}
+.panelist-org {
+  @apply mt-0.5 font-urbanist text-xs leading-snug text-flux-ink/50;
+}
+.panelist-cta {
+  @apply mt-4 inline-flex items-center gap-x-1.5 self-start font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-flux-violet transition-colors duration-200;
+}
+.panelist-cta::after {
+  content: '';
+  @apply inline-block h-1.5 w-1.5 rounded-full bg-flux-cyan;
+  transition: transform 0.2s ease;
+}
+.panelist:hover .panelist-cta,
+.host:hover .panelist-cta {
+  @apply text-flux-ink;
+}
+.panelist:hover .panelist-cta::after,
+.host:hover .panelist-cta::after {
+  transform: translateX(3px);
 }
 
-.speaker-track:hover,
-.speaker-track.is-paused {
-  animation-play-state: paused;
+/* Workshop host: wide card on the dark ground, square headshot at left */
+.host {
+  @apply grid gap-5 rounded-3xl p-5 text-left sm:grid-cols-[150px_1fr] sm:gap-6 sm:p-6;
+  background: linear-gradient(150deg, #2b1452 0%, #1a0a33 100%);
+  border: 1.5px solid rgba(13, 198, 244, 0.22);
+  box-shadow: 0 18px 44px rgba(22, 7, 43, 0.18);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
-
-@keyframes scrollMarquee {
-  0% {
-    transform: translateX(0);
+.host:hover {
+  transform: translateY(-4px);
+  border-color: rgba(13, 198, 244, 0.65);
+  box-shadow: 0 26px 60px rgba(22, 7, 43, 0.3), 0 0 0 6px rgba(13, 198, 244, 0.06);
+}
+.host-photo {
+  @apply overflow-hidden rounded-2xl;
+  width: 120px;
+  aspect-ratio: 1 / 1;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+@media (min-width: 640px) {
+  .host-photo {
+    width: 150px;
   }
-  100% {
-    transform: translateX(-50%);
+}
+.host-photo img {
+  @apply h-full w-full object-cover;
+}
+.host-meta {
+  @apply flex min-w-0 flex-col;
+}
+.host-workshop {
+  @apply font-bebas text-3xl leading-none text-white sm:text-4xl;
+}
+.host-blurb {
+  @apply mt-2 font-urbanist text-sm leading-relaxed text-white/60;
+  max-width: 48ch;
+}
+.host-by {
+  @apply mt-4 flex flex-col pt-3;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.host-name {
+  @apply font-urbanist text-base font-bold text-white;
+}
+.host-role {
+  @apply font-urbanist text-xs text-flux-cyan;
+}
+.host .panelist-cta {
+  @apply text-white/70;
+}
+.host:hover .panelist-cta {
+  @apply text-white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panelist,
+  .host,
+  .panelist-photo img {
+    transition: none;
   }
-}
-
-.speaker-card {
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  width: 160px;
-}
-
-.speaker-img-wrap {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px dashed rgba(61, 21, 82, 0.45);
-  background: radial-gradient(
-    circle at 50% 38%,
-    rgba(13, 198, 244, 0.22) 0%,
-    rgba(61, 21, 82, 0.08) 72%
-  );
-  transition: border-color 0.3s, transform 0.3s;
-}
-
-.speaker-card:hover .speaker-img-wrap {
-  border-color: #0dc6f4;
-  transform: scale(1.05);
-}
-
-.speaker-pending {
-  @apply text-center font-mono text-[11px] font-medium uppercase leading-snug tracking-[0.1em] text-flux-violet;
-}
-
-.speaker-name {
-  @apply text-center font-mono text-[10px] uppercase tracking-[0.12em] text-flux-ink/60;
 }
 
 /* ===== PRIZES ===== */

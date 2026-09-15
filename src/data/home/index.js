@@ -37,19 +37,9 @@ export const schedule = [
   { id: 'SH-06', name: 'Award Ceremony' }
 ]
 
-// The 2026 lineup is not announced yet, so the marquee runs placeholder slots.
-// Swap `speakerSlots` for the announced names when they are confirmed.
-export const speakerSlots = [
-  { id: 's1', role: 'Keynote' },
-  { id: 's2', role: 'Panelist' },
-  { id: 's3', role: 'Panelist' },
-  { id: 's4', role: 'Industry Speaker' },
-  { id: 's5', role: 'Panelist' },
-  { id: 's6', role: 'Industry Speaker' }
-]
+// The 2026 panelists and workshop hosts live in ./speakers.js.
 
-// Archived: 2024 speakers and panelists. Kept so the marquee can be restored
-// with real names and headshots once the 2026 lineup is public.
+// Archived: 2024 speakers and panelists, kept for the highlights page.
 export const pastSpeakers = [
   { name: 'Amen Mashariki', img: '/Guest Images/Amen Mashariki.JPG' },
   { name: 'Arielle Williams', img: '/Guest Images/Arielle Williams.jpeg' },
@@ -170,8 +160,8 @@ export const FaqQuestionsAnswers = [
     answer: 'Morgan TechFest is open to students from Morgan State University and other institutions. We encourage inter-university collaboration and diverse perspectives.'
   },
   {
-    question: 'What are the competition tracks?',
-    answer: 'Solutions are developed around six tracks: Health, Education, Transportation, Finance, Energy & Sustainability, and Workforce & Employment.'
+    question: 'What is the 2026 Tech Case?',
+    answer: 'AI for Small Business: The Workflow Adoption Challenge. Teams of 2–4 pick one of three composite cases (an independent consumer business, a specialty-crop farm, or a nurse-led home-health agency), map how the work happens today, and pitch an AI-enabled redesign the business could adopt without a technical team. A $3,000 prize pool is split $1,200 / $1,000 / $800.'
   },
   {
     question: 'What can I showcase at the Innovation Expo?',
