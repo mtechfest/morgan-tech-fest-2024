@@ -24,6 +24,8 @@ body {
   inset: 0;
   z-index: -1;
   pointer-events: none;
+  transform: translateZ(0);
+  will-change: transform;
   background-color: #150829;
   background-image:
     radial-gradient(55% 45% at 14% 12%, rgba(13, 198, 244, 0.12) 0%, transparent 62%),

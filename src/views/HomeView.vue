@@ -62,14 +62,41 @@ const onVisibility = () => {
   else startTimer()
 }
 
+/* ── Off-screen animation pause ─────────────────────────────
+   Infinite CSS animations keep the compositor awake even when the element is
+   nowhere near the viewport. One observer parks them until they are back. */
+const portal = ref(null)
+const pressMarquee = ref(null)
+const portalLive = ref(true)
+const pressLive = ref(true)
+let motionObserver = null
+
 onMounted(() => {
   startTimer()
   document.addEventListener('visibilitychange', onVisibility)
+
+  if ('IntersectionObserver' in window) {
+    motionObserver = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.target === portal.value) portalLive.value = e.isIntersecting
+          if (e.target === pressMarquee.value) pressLive.value = e.isIntersecting
+        }
+      },
+      { rootMargin: '120px' }
+    )
+    if (portal.value) motionObserver.observe(portal.value)
+    if (pressMarquee.value) motionObserver.observe(pressMarquee.value)
+  }
 })
 
 onUnmounted(() => {
   stopTimer()
   document.removeEventListener('visibilitychange', onVisibility)
+  if (motionObserver) {
+    motionObserver.disconnect()
+    motionObserver = null
+  }
 })
 </script>
 
@@ -87,7 +114,7 @@ onUnmounted(() => {
       <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,400px)_1fr] lg:gap-16">
 
         <!-- LEFT: glowing globe portal + countdown -->
-        <div class="hero-portal animate-rise-2">
+        <div ref="portal" class="hero-portal animate-rise-2" :class="{ 'is-idle': !portalLive }">
           <div class="hero-portal-globe" aria-hidden="true"></div>
           <div class="hero-portal-inner">
             <span class="portal-label">Doors open in</span>
@@ -167,7 +194,7 @@ onUnmounted(() => {
     </div>
     <div class="mx-auto mt-12 max-w-6xl">
       <p class="press-label text-center">As featured in</p>
-      <div class="fi-marquee mt-4">
+      <div ref="pressMarquee" class="fi-marquee mt-4" :class="{ 'is-idle': !pressLive }">
         <div class="fi-track">
           <div class="fi-group">
             <span class="fi-chip"><img src="/press/forbes.png" alt="Forbes" /></span>
@@ -559,21 +586,6 @@ onUnmounted(() => {
   opacity: 0.55;
 }
 
-.hero-globe {
-  @apply pointer-events-none absolute z-0;
-  background-image: url('/flux-globe.webp');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 2%;
-  width: min(158vw, 640px);
-  height: min(158vw, 640px);
-  opacity: 0.72;
-  animation: globeSpin 80s linear infinite;
-}
-
 .hero-veil {
   @apply pointer-events-none absolute inset-0 z-0;
   background:
@@ -593,21 +605,6 @@ onUnmounted(() => {
   }
   to {
     transform: translateX(-50%) rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-globe {
-    animation: none;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-globe {
-    width: min(46vw, 600px);
-    height: min(46vw, 600px);
-    bottom: 4%;
-    opacity: 0.7;
   }
 }
 
@@ -1233,7 +1230,11 @@ onUnmounted(() => {
   border-radius: 50%;
   background: url('/flux-globe.webp') center / cover no-repeat;
   opacity: 0.45;
+  will-change: transform;
   animation: spin360 80s linear infinite;
+}
+.hero-portal.is-idle .hero-portal-globe {
+  animation-play-state: paused;
 }
 
 .hero-portal::after {
@@ -1292,8 +1293,8 @@ onUnmounted(() => {
 }
 
 @keyframes pillPulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(13, 198, 244, 0.5); }
-  50% { opacity: 0.55; box-shadow: 0 0 0 5px rgba(13, 198, 244, 0); }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
 }
 
 .cta-outline {
@@ -1336,8 +1337,12 @@ onUnmounted(() => {
   width: max-content;
   animation: logoSlide 26s linear infinite;
 }
-.fi-marquee:hover .fi-track {
+.fi-marquee:hover .fi-track,
+.fi-marquee.is-idle .fi-track {
   animation-play-state: paused;
+}
+.fi-track {
+  will-change: transform;
 }
 .fi-group {
   display: flex;
