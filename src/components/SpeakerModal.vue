@@ -56,9 +56,10 @@ onUnmounted(() => {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
           </button>
 
-          <div class="bio-portrait">
-            <img :src="speaker.img" :alt="speaker.name" width="800" height="1000" />
-            <div class="bio-portrait-shade"></div>
+          <div class="bio-side">
+            <div class="bio-portrait">
+              <img :src="speaker.img" :alt="speaker.name" width="800" height="1000" />
+            </div>
             <div class="bio-portrait-foot">
               <span class="bio-kicker">{{ kicker }}</span>
               <span :id="`bio-title-${speaker.id}`" class="bio-name">{{ speaker.name }}</span>
@@ -147,42 +148,57 @@ onUnmounted(() => {
 }
 
 /* ── Portrait column ── */
-.bio-portrait {
-  position: relative;
-  height: 260px;
-  overflow: hidden;
+.bio-side {
+  display: flex;
+  flex-direction: column;
+  background: #150829;
+  border-bottom: 1px solid rgba(13, 198, 244, 0.18);
 }
 @media (min-width: 768px) {
+  .bio-side {
+    border-bottom: 0;
+    border-right: 1px solid rgba(13, 198, 244, 0.18);
+    overflow-y: auto;
+  }
+}
+.bio-portrait {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #241145;
+}
+@media (max-width: 767px) {
   .bio-portrait {
-    height: auto;
-    min-height: 100%;
+    aspect-ratio: 4 / 3;
+  }
+  .bio-portrait img {
+    object-position: center 30%;
+  }
+  /* On phones the whole card scrolls as one piece */
+  .bio-panel {
+    overflow-y: auto;
+  }
+  .bio-body {
+    overflow: visible;
   }
 }
 .bio-portrait img {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 20%;
 }
-.bio-portrait-shade {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(21, 8, 41, 0) 35%, rgba(21, 8, 41, 0.55) 65%, rgba(21, 8, 41, 0.96) 100%);
-}
 .bio-portrait-foot {
-  position: absolute;
-  inset-inline: 22px;
-  bottom: 20px;
   display: flex;
   flex-direction: column;
+  padding: 18px 22px 22px;
 }
 .bio-kicker {
   @apply font-mono text-[10px] uppercase tracking-[0.2em] text-flux-cyan;
 }
 .bio-name {
-  @apply mt-1 font-bebas text-3xl leading-none text-white sm:text-4xl;
+  @apply mt-1 font-bebas text-3xl leading-none text-white;
 }
 .bio-role {
   @apply mt-2 font-urbanist text-sm font-semibold text-white/90;
