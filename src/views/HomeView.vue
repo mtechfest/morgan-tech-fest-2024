@@ -300,29 +300,30 @@ onUnmounted(() => {
         <span class="lineup-kicker">Speakers</span>
         <span class="lineup-count">{{ speakers.length }} confirmed</span>
       </div>
-      <div class="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-6">
+      <div class="grid grid-cols-1 gap-5 xs:grid-cols-2 lg:grid-cols-3 lg:gap-6">
         <button
           v-for="person in speakers"
           :key="person.id"
           type="button"
-          class="host speaker"
+          class="panelist"
           @click="showBio(person, 'Speaker')"
         >
-          <div class="host-photo">
+          <div class="panelist-photo">
             <img
-              :src="person.thumb"
+              :src="person.img"
               :alt="person.name"
-              width="480"
-              height="480"
+              width="800"
+              height="1000"
               loading="lazy"
               decoding="async"
             />
+            <div class="panelist-shade"></div>
+            <span class="panelist-focus">{{ person.focus }}</span>
           </div>
-          <div class="host-meta">
-            <span class="host-workshop">{{ person.name }}</span>
-            <span class="speaker-role">{{ person.role }}</span>
-            <span class="host-blurb">{{ person.org }}</span>
-            <span class="speaker-focus">{{ person.focus }}</span>
+          <div class="panelist-meta">
+            <span class="panelist-name">{{ person.name }}</span>
+            <span class="panelist-role">{{ person.role }}</span>
+            <span class="panelist-org">{{ person.org }}</span>
             <span class="panelist-cta">Read bio</span>
           </div>
         </button>
@@ -1247,19 +1248,6 @@ onUnmounted(() => {
 .panelist:hover .panelist-cta::after,
 .host:hover .panelist-cta::after {
   transform: translateX(3px);
-}
-
-/* Speaker: same wide dark card, role in place of a workshop title */
-.speaker-role {
-  @apply mt-2 font-urbanist text-base font-bold text-flux-cyan;
-}
-.speaker .host-blurb {
-  @apply mt-0.5;
-}
-.speaker-focus {
-  @apply mt-3 self-start rounded-full font-mono text-[10px] tracking-[0.1em] text-white/80;
-  padding: 5px 11px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 /* Workshop host: wide card on the dark ground, square headshot at left */
