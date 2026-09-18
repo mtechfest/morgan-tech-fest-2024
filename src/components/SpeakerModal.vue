@@ -74,6 +74,12 @@ onUnmounted(() => {
               <span class="bio-workshop-blurb">{{ speaker.workshopBlurb }}</span>
             </div>
             <p v-for="(para, i) in speaker.bio" :key="i" class="bio-para">{{ para }}</p>
+            <div v-if="speaker.highlights" class="bio-highlights">
+              <span class="bio-workshop-label">Notable</span>
+              <ul>
+                <li v-for="(h, i) in speaker.highlights" :key="i">{{ h }}</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -221,6 +227,19 @@ onUnmounted(() => {
 }
 .bio-para + .bio-para {
   margin-top: 1em;
+}
+.bio-highlights {
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.bio-highlights ul {
+  @apply mt-3 flex flex-col gap-y-2 pl-4 font-urbanist text-sm leading-relaxed text-white/75 sm:text-[15px];
+  list-style: disc;
+  max-width: 62ch;
+}
+.bio-highlights li::marker {
+  color: #0dc6f4;
 }
 
 /* ── Motion ── */

@@ -3,6 +3,30 @@
 // square thumbs (-sq, 480×480). Bios are the ones each guest supplied;
 // `bio` is an array of paragraphs so the modal can set them cleanly.
 
+export const speakers = [
+  {
+    id: 'alexis-robinson',
+    name: 'Alexis Appollonia Robinson',
+    role: 'Principal Program Manager, Amazon',
+    org: 'Adjunct Professor, California State University, San Bernardino',
+    img: '/speakers/alexis-robinson.webp',
+    thumb: '/speakers/alexis-robinson-sq.webp',
+    focus: 'Cloud security, GRC, FedRAMP',
+    highlights: [
+      'AWS re:Inforce speaker, three years running, and Governance, Risk & Compliance track leader (2022–2024)',
+      'ISACA speaker (2018–2025)',
+      'Co-author of AWS Audit Manager’s Generative AI Security Best Practices Framework',
+      'Co-writer on the FedRAMP Authorization Act (passed 2023) and FISMA reform bills',
+      'Managed FedRAMP authorization and continuous monitoring for 100+ AWS cloud services (2019–2022)'
+    ],
+    bio: [
+      'Alexis Appollonia Robinson is a Principal Program Manager for Amazon in the Washington, DC area and an Adjunct Professor at California State University, San Bernardino. For the past 15 years, she has served buyers of the cloud, retail sellers, policy makers, compliance organizations, engineering leaders, and security teams by developing and implementing security strategies, collaborating on thought leadership, solving problems, building products, and conducting cybersecurity, engineering, and financial assessments.',
+      'She graduated with double Bachelor of Science degrees in Accounting and Information Systems from the Robert H. Smith School of Business at the University of Maryland, College Park, and holds an Executive MBA from the Quantic program. She worked at CGI Federal and Ernst & Young before finding her way to Amazon. She is a Certified Information Systems Auditor (CISA) and a Project Management Professional (PMP).',
+      'In her free time she plays video games and watches “Only Murders in the Building,” “Real Housewives,” “Demon Slayer,” and “Abbott Elementary.” She lives with her husband and son in Maryland.'
+    ]
+  }
+]
+
 export const panelists = [
   {
     id: 'jamell-dacon',
