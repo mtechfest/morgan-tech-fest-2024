@@ -1,6 +1,5 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import ChocolateMenuIcon from '@/components/icons/IconChocolateMenu.vue'
 import { nav, eventInfo } from '@/data/home'
 
 const isMenuOpen = ref(false)
@@ -61,7 +60,7 @@ onUnmounted(() => {
   <header :class="{ 'is-pinned': isSticky }">
     <div class="header-bg px-3 py-4 xs:px-5 xs:py-5 xl:px-[5%]">
       <div class="mx-auto flex items-center justify-between gap-x-3 xs:gap-x-[5%]">
-        <div class="flex items-center gap-x-2 xs:gap-x-3">
+        <div class="flex flex-shrink-0 items-center gap-x-2 xs:gap-x-3">
           <button
             class="menu-toggle lg:hidden"
             :aria-expanded="isMenuOpen"
@@ -69,10 +68,10 @@ onUnmounted(() => {
             aria-label="Open navigation"
             @click="toggleMenu"
           >
-            <ChocolateMenuIcon />
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" /></svg>
           </button>
           <RouterLink to="/" @click="goHome">
-            <img alt="Morgan TechFest" src="@/assets/logo.svg" class="w-9/12 lg:w-full" />
+            <img alt="Morgan TechFest" src="@/assets/logo.svg" class="w-24 flex-shrink-0 sm:w-32" />
           </RouterLink>
         </div>
 
@@ -178,7 +177,7 @@ header {
 }
 
 .register-btn {
-  @apply flex h-9 w-full max-w-[130px] flex-shrink-0 items-center justify-center rounded-full px-4 font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-white transition-transform duration-150 active:scale-95 xs:h-10 xs:max-w-[165px] xs:px-7 xs:text-xs md:h-12 md:max-w-[190px] md:text-sm;
+  @apply flex h-9 flex-shrink-0 items-center justify-center whitespace-nowrap rounded-full px-4 font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-white transition-transform duration-150 active:scale-95 xs:h-10 xs:px-7 xs:text-xs md:h-12 md:text-sm;
   background: linear-gradient(180deg, #ff7a1a 25%, #fc470b 100%);
   box-shadow: 0 8px 24px rgba(252, 71, 11, 0.28);
 }

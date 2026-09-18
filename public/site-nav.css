@@ -1,0 +1,99 @@
+/* Shared header for the static pages. Loaded after each page's inline styles so
+   it wins, and tuned to match the Vue header on the home page (PageHeader.vue)
+   so the chrome reads as one site. */
+.site-header { position: sticky; top: 0; z-index: 50; }
+.site-header-bg {
+  padding: 20px 5%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(21, 8, 41, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.site-header-inner {
+  max-width: none;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5%;
+}
+.site-header-left { display: flex; align-items: center; gap: 12px; }
+.site-logo { display: block; line-height: 0; }
+.site-logo img { width: 128px; height: auto; display: block; }
+
+.site-nav { display: none; width: 100%; max-width: 768px; align-items: center; justify-content: space-between; gap: 0; }
+.site-nav-link {
+  position: relative;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+.site-nav-link:hover, .site-nav-link.active { color: #fff; }
+.site-nav-link::after {
+  content: '';
+  position: absolute; left: 0; bottom: -6px;
+  height: 1px; width: 0;
+  background: #0dc6f4;
+  transition: width 0.2s ease;
+}
+.site-nav-link:hover::after, .site-nav-link.active::after { width: 100%; }
+
+.site-header-right { display: flex; align-items: center; gap: 12px; }
+.site-register-btn {
+  display: flex; align-items: center; justify-content: center;
+  height: 48px; padding: 0 28px; border-radius: 100px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+  color: #fff; text-decoration: none; white-space: nowrap;
+  background: linear-gradient(180deg, #ff7a1a 25%, #fc470b 100%);
+  box-shadow: 0 8px 24px rgba(252, 71, 11, 0.28);
+  transition: transform 0.15s ease;
+}
+.site-register-btn:active { transform: scale(0.95); }
+
+.site-menu-toggle {
+  display: inline-flex; padding: 4px; border: 0; border-radius: 6px;
+  background: transparent; color: #fff; cursor: pointer; transition: background 0.2s ease;
+}
+.site-menu-toggle:hover { background: rgba(255, 255, 255, 0.1); }
+
+.site-mobile-nav {
+  display: none; flex-direction: column;
+  padding: 4px 20px 16px;
+  background: rgba(21, 8, 41, 0.97);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.site-mobile-nav.open { display: flex; }
+.site-mobile-nav-link {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.15s ease;
+}
+.site-mobile-nav-link:hover, .site-mobile-nav-link.active { color: #0dc6f4; }
+.site-mobile-nav-link:last-child { border-bottom: 0; }
+
+@media (max-width: 639px) {
+  .site-header-bg { padding: 16px 12px; }
+  .site-header-inner { gap: 12px; }
+  .site-logo img { width: 96px; }
+  .site-register-btn { height: 36px; padding: 0 16px; font-size: 10px; }
+}
+@media (min-width: 640px) and (max-width: 767px) {
+  .site-register-btn { height: 40px; padding: 0 28px; font-size: 12px; }
+}
+@media (min-width: 1024px) {
+  .site-nav { display: flex; }
+  .site-menu-toggle { display: none; }
+  .site-mobile-nav { display: none !important; }
+}
+@media (min-width: 1280px) {
+  .site-nav-link { font-size: 13px; }
+}
