@@ -114,34 +114,25 @@ export const studentValues = [
 ]
 
 export const partners = [
-  {
-    name: 'Google',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg'
-  },
-  {
-    name: 'Bloomberg',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/New_Bloomberg_Logo.svg'
-  },
-  {
-    name: 'Northrop Grumman',
-    img: '/Northrop-Grumman-Logo.png'
-  },
-  {
-    name: 'Ripple',
-    img: '/Ripple - blueblack_lg (1).png'
-  },
-  {
-    name: 'CEAMLS',
-    img: '/CEAMLS.PNG'
-  },
-  {
-    name: 'LFG',
-    img: '/LFG_color.jpg'
-  },
-  {
-    name: 'Oracle',
-    img: 'https://res.cloudinary.com/ojay-dev/image/upload/v1700028978/MorganTechFest/patners/Oracle_logo_PNG1_1_xfqgvx.png'
-  }
+  { name: 'Amazon', img: '/sponsors-2026/amazon.webp' },
+  { name: 'Google', img: '/sponsors-2026/google.webp' },
+  { name: 'AT&T', img: '/sponsors-2026/att.webp' },
+  { name: 'Morgan State University', img: '/sponsors-2026/msu.webp' },
+  { name: 'Center for Equitable AI & Machine Learning Systems', img: '/sponsors-2026/ceamls.webp' },
+  { name: 'Nuel Foundation', img: '/sponsors-2026/nuel-foundation.webp' },
+  { name: 'Utiva', img: '/sponsors-2026/utiva.webp' },
+  { name: 'Technical.ly', img: '/sponsors-2026/technically.webp' },
+  { name: 'Jumpstart2Tech', img: '/sponsors-2026/jumpstart2tech.webp' },
+  { name: 'RapidLabz', img: '/sponsors-2026/rapidlabz.webp' },
+  { name: 'The Fintech Center', img: '/sponsors-2026/fintech-center.webp' },
+  { name: 'Clarence M. Mitchell, Jr. School of Engineering', img: '/sponsors-2026/mitchell-engineering.webp' },
+  { name: 'Earl G. Graves School of Business & Management', img: '/sponsors-2026/graves-business.webp' },
+  { name: 'CECE', img: '/sponsors-2026/cece.webp' },
+  { name: 'Herbiestech', img: '/sponsors-2026/herbiestech.webp' },
+  { name: 'Beacon Printz', img: '/sponsors-2026/beacon-printz.webp' },
+  { name: 'HAX Lab', img: '/sponsors-2026/hax-lab.webp' },
+  { name: 'ACE: AI Club Engineers', img: '/sponsors-2026/ace.webp' },
+  { name: 'Student Government Association', img: '/sponsors-2026/sga.webp' }
 ]
 
 export const FaqQuestionsAnswers = [

@@ -508,20 +508,14 @@ onUnmounted(() => {
         Sponsors &amp; Partners
       </h2>
       <p class="mt-3 max-w-xl font-urbanist text-base text-flux-ink/55 sm:text-lg">
-        Organisations that have supported past editions through funding, speakers, judges, prizes,
+        The organisations making Future Flux possible through funding, speakers, judges, prizes,
         and venue.
       </p>
 
-      <div class="mt-10 flex flex-wrap items-center justify-center gap-8 md:mt-14 lg:gap-16">
-        <img
-          v-for="item in partners"
-          :key="item.name"
-          :src="item.img"
-          :alt="item.name"
-          loading="lazy"
-          decoding="async"
-          class="h-10 max-w-[120px] object-contain opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-14 sm:max-w-[140px]"
-        />
+      <div class="partner-grid mt-10 md:mt-14">
+        <div v-for="item in partners" :key="item.name" class="partner-plate" :title="item.name">
+          <img :src="item.img" :alt="item.name" width="600" height="360" loading="lazy" decoding="async" />
+        </div>
       </div>
 
       <div class="mt-10 flex justify-center md:mt-14">
@@ -1204,6 +1198,37 @@ onUnmounted(() => {
 }
 .provost-title {
   @apply mt-0.5 font-urbanist text-sm text-flux-cyan;
+}
+
+/* ===== PARTNERS ===== */
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+@media (min-width: 640px) {
+  .partner-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+}
+@media (min-width: 1024px) {
+  .partner-grid { grid-template-columns: repeat(5, 1fr); gap: 20px; }
+}
+.partner-plate {
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff;
+  border: 1.5px solid rgba(22, 7, 43, 0.08);
+  box-shadow: 0 10px 28px rgba(22, 7, 43, 0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.partner-plate:hover {
+  transform: translateY(-3px);
+  border-color: rgba(13, 198, 244, 0.55);
+  box-shadow: 0 18px 40px rgba(22, 7, 43, 0.14);
+}
+.partner-plate img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* ===== LINEUP ===== */
