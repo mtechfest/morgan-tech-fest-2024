@@ -20,7 +20,8 @@ export const nav = [
   { id: 'expo', label: 'Innovation Expo', href: '/innovation-expo.html' },
   { id: 'schedule', label: 'Schedule', index: '04', href: '/schedule.html' },
   { id: 'transit', label: 'Transit', href: '/transit.html' },
-  { id: 'faq', label: 'FAQ', index: '05' }
+  { id: 'past', label: 'Past Events', href: '/highlights.html' },
+  { id: 'faq', label: 'FAQ', index: '06' }
 ]
 
 // Headline program blocks, in the order they actually run on the day.

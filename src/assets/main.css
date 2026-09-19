@@ -34,3 +34,9 @@
     color: #0dc6f4 !important;
   }
 }
+
+/* Positioning context for the absolutely-placed page backdrop */
+#app {
+  position: relative;
+  min-height: 100vh;
+}

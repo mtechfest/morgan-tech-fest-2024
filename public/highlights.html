@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Morgan TechFest: Highlights</title>
+  <title>Morgan TechFest: Past Events</title>
   <meta name="theme-color" content="#241145" />
-  <meta name="description" content="Morgan TechFest highlights: award winners, the photo album, and write-ups from past editions." />
+  <meta name="description" content="Morgan TechFest past events: speakers, judges, award winners, sponsors, and press coverage from 2022 to 2024." />
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" type="image/png" href="/icon-96.png" sizes="96x96" />
   <link rel="icon" type="image/png" href="/icon-192.png" sizes="192x192" />
@@ -164,6 +164,15 @@
     .year-head:first-of-type { margin-top:24px; padding-top:0; border-top:0; }
     .year-badge { font-family:'Bebas Neue',sans-serif; font-size:40px; line-height:1; color:var(--dark); }
     .year-theme { font-family:'JetBrains Mono',ui-monospace,monospace; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:var(--orange); font-weight:700; }
+    .ps-grid { list-style:none; margin-top:24px; display:grid; gap:14px; grid-template-columns:repeat(2,1fr); }
+    @media (min-width:640px){ .ps-grid{grid-template-columns:repeat(3,1fr);} }
+    @media (min-width:960px){ .ps-grid{grid-template-columns:repeat(6,1fr);} }
+    .ps-cell { display:flex; flex-direction:column; align-items:center; gap:8px; }
+    .ps-plate { position:relative; width:100%; aspect-ratio:5/3; border-radius:14px; background:#fff; border:1px solid rgba(22,7,43,0.08); box-shadow:0 8px 20px rgba(22,7,43,0.06); overflow:hidden; }
+    .ps-plate img { position:absolute; inset:14px; width:calc(100% - 28px); height:calc(100% - 28px); object-fit:contain; }
+    .ps-name { font-family:'Urbanist',sans-serif; font-size:13px; font-weight:600; color:#444; text-align:center; line-height:1.3; }
+    .inline-link { color:var(--dark); text-decoration:underline; text-underline-offset:3px; }
+    .year-note { margin-top:16px; font-family:'Urbanist',sans-serif; font-size:15px; line-height:1.5; color:#555; max-width:78ch; }
     .year-sub { margin:18px 0 10px; font-family:'Urbanist',sans-serif; font-size:18px; font-weight:700; color:var(--dark); }
     .speaker-caption {
       margin-top: 12px; font-family: 'Urbanist', sans-serif; font-weight: 700;
@@ -312,6 +321,7 @@
           <a class="site-nav-link" href="/innovation-expo.html">Innovation Expo</a>
           <a class="site-nav-link" href="/schedule.html">Schedule</a>
           <a class="site-nav-link" href="/transit.html">Transit</a>
+          <a class="site-nav-link active" href="/highlights.html" aria-current="page">Past Events</a>
           <a class="site-nav-link" href="/#faq">FAQ</a>
         </nav>
         <div class="site-header-right">
@@ -325,6 +335,7 @@
       <a class="site-mobile-nav-link" href="/innovation-expo.html">Innovation Expo</a>
       <a class="site-mobile-nav-link" href="/schedule.html">Schedule</a>
       <a class="site-mobile-nav-link" href="/transit.html">Transit</a>
+      <a class="site-mobile-nav-link active" href="/highlights.html" aria-current="page">Past Events</a>
       <a class="site-mobile-nav-link" href="/#faq">FAQ</a>
     </nav>
   </header>
@@ -333,9 +344,9 @@
   <!-- HEADER -->
   <div class="page-header">
     <div class="header-content animate-in">
-      <p class="eyebrow">Future Flux &middot; Recap</p>
-      <h1>Celebrating <span>Innovation</span></h1>
-      <p class="subtitle">Morgan TechFest recognises standout projects and the people behind them, with awards for innovation, technical depth, and real-world problem solving.</p>
+      <p class="eyebrow">2022 &middot; 2023 &middot; 2024</p>
+      <h1>Past <span>Events</span></h1>
+      <p class="subtitle">Speakers, judges, award winners, sponsors, and press coverage from the first three editions of Morgan TechFest.</p>
     </div>
   </div>
 
@@ -681,6 +692,99 @@
         <button class="carousel-arrow carousel-next" type="button" aria-label="Next judges" data-carousel-next>&rsaquo;</button>
       </div>
 
+      <div class="year-head"><span class="year-badge">2022</span><span class="year-theme">The Impact of Technology on Your Career Path</span></div>
+      <h4 class="year-sub">Speakers &amp; Panelists</h4>
+      <div class="carousel" data-carousel>
+        <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous 2022 speakers" data-carousel-prev>&lsaquo;</button>
+        <div class="carousel-track" data-carousel-track>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/guests-2022/hongtao-yu.webp" alt="Dr. Hongtao Yu" width="480" height="480" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Dr. Hongtao Yu<span class="speaker-org">Provost, Morgan State University</span></figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/guests-2022/md-rahman.webp" alt="Dr. Md Rahman" width="480" height="480" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Dr. Md Rahman<span class="speaker-org">Associate Chair, Computer Science</span></figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/guests-2022/monir-sharker.webp" alt="Dr. Monir Sharker" width="480" height="480" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Dr. Monir Sharker<span class="speaker-org">Program Coordinator, Computer Science</span></figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/guests-2022/michael-mcdonald.webp" alt="Michael McDonald" width="480" height="480" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Michael McDonald<span class="speaker-org">Google</span></figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/guests-2022/michael-hoggard.webp" alt="Michael Hoggard" width="480" height="480" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Michael Hoggard<span class="speaker-org">Amazon</span></figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/guests-2022/efuru-okororie.webp" alt="Efuru Okororie" width="480" height="480" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Efuru Okororie<span class="speaker-org">Goldman Sachs</span></figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/guests-2022/oludare-owolabi.webp" alt="Dr. Oludare Owolabi" width="480" height="480" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Dr. Oludare Owolabi<span class="speaker-org">Associate Prof., Civil Engineering</span></figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/guests-2022/radhouane-chouchane.webp" alt="Dr. Radhouane Chouchane" width="480" height="480" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Dr. Radhouane Chouchane<span class="speaker-org">Associate Prof., Computer Science</span></figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/guests-2022/paul-wang.webp" alt="Dr. Shuangbao “Paul” Wang" width="480" height="480" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Dr. Shuangbao “Paul” Wang<span class="speaker-org">Chair, Computer Science</span></figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/guests-2022/tomasz-durakiewicz.webp" alt="Prof. Tomasz Durakiewicz" width="480" height="480" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Prof. Tomasz Durakiewicz<span class="speaker-org">National Science Foundation</span></figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/guests-2022/yacob-astatke.webp" alt="Dr. Yacob Astatke" width="480" height="480" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Dr. Yacob Astatke<span class="speaker-org">Assoc. VP for International Affairs</span></figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/guests-2022/taofeek-obafemi-babatunde.webp" alt="Taofeek Obafemi-Babatunde" width="480" height="480" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Taofeek Obafemi-Babatunde<span class="speaker-org">Microsoft</span></figcaption>
+        </figure>
+        <figure class="speaker-slide">
+          <div class="speaker-photo"><img src="/guests-2022/nicole-tinson.webp" alt="Nicole Tinson" width="480" height="480" loading="lazy" decoding="async" /></div>
+          <figcaption class="speaker-caption">Nicole Tinson<span class="speaker-org">HBCU 20x20</span></figcaption>
+        </figure>
+        </div>
+        <button class="carousel-arrow carousel-next" type="button" aria-label="Next 2022 speakers" data-carousel-next>&rsaquo;</button>
+      </div>
+      <p class="year-note">Panel sponsors and networking partners in 2022: Bloomberg, HBCU 20x20, Microsoft, Google, Goldman Sachs, Roku, Amazon, M&amp;T Bank, Wonderfly Games, and JustOne Technology Academy.</p>
+
+    </div>
+
+    <!-- PAST SPONSORS -->
+    <div class="section-block animate-in delay-2" style="margin-top: 64px;">
+      <span class="section-tag">Backed by</span>
+      <h2 class="section-title">Past Sponsors &amp; Partners</h2>
+      <p class="section-desc">
+        Organisations that supported the 2022, 2023, and 2024 editions through funding, speakers, judges, prizes, and venue.
+        This year&rsquo;s partners are on the <a href="/sponsors.html" class="inline-link">Sponsors page</a>.
+      </p>
+      <ul class="ps-grid">
+        <li class="ps-cell"><div class="ps-plate"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" loading="lazy" decoding="async" /></div><span class="ps-name">Google</span></li>
+        <li class="ps-cell"><div class="ps-plate"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/New_Bloomberg_Logo.svg" alt="Bloomberg" loading="lazy" decoding="async" /></div><span class="ps-name">Bloomberg</span></li>
+        <li class="ps-cell"><div class="ps-plate"><img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" loading="lazy" decoding="async" /></div><span class="ps-name">Microsoft</span></li>
+        <li class="ps-cell"><div class="ps-plate"><img src="/NorthRop Grumman Logo 2.png" alt="Northrop Grumman" loading="lazy" decoding="async" /></div><span class="ps-name">Northrop Grumman</span></li>
+        <li class="ps-cell"><div class="ps-plate"><img src="/Ripple - blueblack_lg (1).png" alt="Ripple" loading="lazy" decoding="async" /></div><span class="ps-name">Ripple</span></li>
+        <li class="ps-cell"><div class="ps-plate"><img src="https://res.cloudinary.com/ojay-dev/image/upload/v1700028978/MorganTechFest/patners/aws_logo_1_sdbmrm.png" alt="AWS" loading="lazy" decoding="async" /></div><span class="ps-name">AWS</span></li>
+        <li class="ps-cell"><div class="ps-plate"><img src="https://res.cloudinary.com/ojay-dev/image/upload/v1700028978/MorganTechFest/patners/Oracle_logo_PNG1_1_xfqgvx.png" alt="Oracle" loading="lazy" decoding="async" /></div><span class="ps-name">Oracle</span></li>
+        <li class="ps-cell"><div class="ps-plate"><img src="/kyndryl-logo.png" alt="Kyndryl" loading="lazy" decoding="async" /></div><span class="ps-name">Kyndryl</span></li>
+        <li class="ps-cell"><div class="ps-plate"><img src="/AltusTech.png" alt="AltusTech" loading="lazy" decoding="async" /></div><span class="ps-name">AltusTech</span></li>
+        <li class="ps-cell"><div class="ps-plate"><img src="/sponsors-2026/ceamls.webp" alt="CEAMLS" loading="lazy" decoding="async" /></div><span class="ps-name">CEAMLS</span></li>
+        <li class="ps-cell"><div class="ps-plate"><img src="/sponsors-2026/jumpstart2tech.webp" alt="Jumpstart2Tech" loading="lazy" decoding="async" /></div><span class="ps-name">Jumpstart2Tech</span></li>
+        <li class="ps-cell"><div class="ps-plate"><img src="/LFG_color.jpg" alt="LFG" loading="lazy" decoding="async" /></div><span class="ps-name">LFG</span></li>
+        <li class="ps-cell"><div class="ps-plate"><img src="/Y3K.JPG" alt="Y3K" loading="lazy" decoding="async" /></div><span class="ps-name">Y3K</span></li>
+        <li class="ps-cell"><div class="ps-plate"><img src="/mlh-logo-color.png" alt="Major League Hacking" loading="lazy" decoding="async" /></div><span class="ps-name">Major League Hacking</span></li>
+        <li class="ps-cell"><div class="ps-plate"><img src="https://res.cloudinary.com/ojay-dev/image/upload/v1693912315/MorganTechFest/patners/JOS-Tech-Logo_yyryyj.png" alt="JS Technology Academy" loading="lazy" decoding="async" /></div><span class="ps-name">JS Technology Academy</span></li>
+        <li class="ps-cell"><div class="ps-plate"><img src="https://res.cloudinary.com/ojay-dev/image/upload/v1700192312/MorganTechFest/patners/TGV_2_1_dpmpfd.png" alt="Timeless Venture Group" loading="lazy" decoding="async" /></div><span class="ps-name">Timeless Venture Group</span></li>
+        <li class="ps-cell"><div class="ps-plate"><img src="https://res.cloudinary.com/ojay-dev/image/upload/v1700028979/MorganTechFest/patners/MSU-Earl-G-Graves-Logo-1_1_vlv3ij.png" alt="Earl G. Graves School of Business &amp; Management" loading="lazy" decoding="async" /></div><span class="ps-name">Earl G. Graves School of Business &amp; Management</span></li>
+        <li class="ps-cell"><div class="ps-plate"><img src="/RTC__Logo Orange.png" alt="Rewriting the Code" loading="lazy" decoding="async" /></div><span class="ps-name">Rewriting the Code</span></li>
+      </ul>
+      <p class="year-note">Also in 2022: HBCU 20x20, Goldman Sachs, Roku, M&amp;T Bank, Wonderfly Games, JustOne Technology Academy, and Exelon.</p>
     </div>
 
     <!-- GALLERY -->

@@ -97,8 +97,7 @@ onUnmounted(() => {
   display: grid;
   place-items: center;
   padding: 16px;
-  background: rgba(13, 4, 28, 0.78);
-  backdrop-filter: blur(10px);
+  background: rgba(13, 4, 28, 0.9);
 }
 
 .bio-panel {
@@ -136,7 +135,6 @@ onUnmounted(() => {
   color: #fff;
   background: rgba(21, 8, 41, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(6px);
   transition: border-color 0.2s, background 0.2s;
 }
 .bio-close:hover {

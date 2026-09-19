@@ -527,12 +527,12 @@ onUnmounted(() => {
   <!-- ===================== HIGHLIGHTS (entry point) ===================== -->
   <div class="section-dark px-5 pb-12 pt-16 xs:px-8 md:pb-20 md:pt-24" id="highlights">
     <div class="mx-auto max-w-6xl">
-      <span class="section-label-light">Recap</span>
+      <span class="section-label-light">2022 &ndash; 2024</span>
       <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">
-        Highlights
+        Past Events
       </h2>
       <p class="mt-3 max-w-xl font-urbanist text-base text-white/55 sm:text-lg">
-        Award winners, the photo album, and the write-ups from previous years.
+        Speakers, judges, award winners, sponsors, and press coverage from previous editions.
       </p>
 
       <div class="mt-8 grid grid-cols-1 gap-4 md:mt-10 lg:grid-cols-[1.2fr_1fr]">
@@ -1027,7 +1027,6 @@ onUnmounted(() => {
   @apply absolute left-4 top-4 rounded-full font-mono text-[10px] uppercase tracking-[0.14em] text-white/85;
   padding: 6px 11px;
   background: rgba(21, 8, 41, 0.55);
-  backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.16);
 }
 
@@ -1036,7 +1035,6 @@ onUnmounted(() => {
   padding: 8px 13px;
   background: rgba(13, 198, 244, 0.14);
   border: 1px solid rgba(13, 198, 244, 0.4);
-  backdrop-filter: blur(6px);
 }
 
 .recap-stat b {
@@ -1288,7 +1286,6 @@ onUnmounted(() => {
   padding: 6px 11px;
   background: rgba(13, 198, 244, 0.16);
   border: 1px solid rgba(13, 198, 244, 0.5);
-  backdrop-filter: blur(6px);
 }
 .panelist-meta {
   @apply flex flex-1 flex-col px-5 pb-5 pt-4 sm:px-6;

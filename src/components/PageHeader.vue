@@ -140,18 +140,18 @@ header {
 
 .header-bg {
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-  background: rgba(21, 8, 41, 0.82);
+  background: rgba(21, 8, 41, 0.92);
   transition: background 0.25s ease, border-color 0.25s ease;
 }
 
 /* Only pay for the blur once the header is actually overlapping content.
    backdrop-filter forces a fresh GPU layer every frame, so it stays off
    at rest. */
+/* No backdrop-filter: blurring the header over the page on every scroll
+   frame was the main cause of scroll jitter on macOS. */
 .is-pinned .header-bg {
-  background: rgba(21, 8, 41, 0.72);
+  background: rgba(21, 8, 41, 0.96);
   border-bottom-color: rgba(13, 198, 244, 0.22);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .nav-link {

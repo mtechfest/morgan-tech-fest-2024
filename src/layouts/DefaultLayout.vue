@@ -20,43 +20,24 @@ body {
 }
 
 .page-backdrop {
-  position: fixed;
+  /* Painted once as part of the page (no fixed layer, no masks, no forced
+     compositing). The previous fixed + masked + will-change version made
+     Chrome on macOS re-rasterise a viewport-sized layer under the blurred
+     header on every scroll frame, which shows up as jitter and, on Retina
+     displays, exhausts GPU memory. */
+  position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  transform: translateZ(0);
-  will-change: transform;
   background-color: #150829;
   background-image:
+    radial-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1.4px),
     radial-gradient(55% 45% at 14% 12%, rgba(13, 198, 244, 0.12) 0%, transparent 62%),
     radial-gradient(55% 50% at 86% 16%, rgba(124, 58, 237, 0.16) 0%, transparent 62%),
     radial-gradient(60% 55% at 78% 90%, rgba(252, 71, 11, 0.09) 0%, transparent 62%),
     radial-gradient(50% 50% at 24% 82%, rgba(13, 198, 244, 0.09) 0%, transparent 62%),
     linear-gradient(180deg, #1a0a33 0%, #150829 60%, #10061f 100%);
-}
-
-/* data-grid dot matrix */
-.page-backdrop::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1.4px);
-  background-size: 36px 36px;
-  -webkit-mask-image: radial-gradient(90% 85% at 50% 35%, #000 25%, transparent 100%);
-  mask-image: radial-gradient(90% 85% at 50% 35%, #000 25%, transparent 100%);
-}
-
-/* faint connective network lines */
-.page-backdrop::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.5;
-  background-image:
-    linear-gradient(115deg, transparent 49.6%, rgba(13, 198, 244, 0.06) 49.8%, rgba(13, 198, 244, 0.06) 50.2%, transparent 50.4%),
-    linear-gradient(-115deg, transparent 49.6%, rgba(124, 58, 237, 0.06) 49.8%, rgba(124, 58, 237, 0.06) 50.2%, transparent 50.4%);
-  background-size: 260px 260px, 320px 320px;
-  -webkit-mask-image: radial-gradient(100% 100% at 50% 30%, #000 40%, transparent 100%);
-  mask-image: radial-gradient(100% 100% at 50% 30%, #000 40%, transparent 100%);
+  background-size: 36px 36px, 100% 100vh, 100% 100vh, 100% 100vh, 100% 100vh, 100% 100%;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
 }
 </style>
