@@ -65,6 +65,7 @@ onUnmounted(() => {
               <span :id="`bio-title-${speaker.id}`" class="bio-name">{{ speaker.name }}</span>
               <span class="bio-role">{{ speaker.role }}</span>
               <span class="bio-org">{{ speaker.org }}</span>
+              <a v-if="speaker.linkedin" :href="speaker.linkedin" target="_blank" rel="noopener noreferrer" class="bio-link">LinkedIn &rarr;</a>
             </div>
           </div>
 
@@ -205,6 +206,12 @@ onUnmounted(() => {
 }
 .bio-org {
   @apply mt-0.5 font-urbanist text-xs text-white/55;
+}
+.bio-link {
+  @apply mt-3 self-start font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-flux-cyan;
+}
+.bio-link:hover {
+  @apply text-white;
 }
 
 /* ── Bio column ── */

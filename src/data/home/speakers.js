@@ -53,6 +53,7 @@ export const representatives = [
     represents: 'Office of the Governor of Maryland',
     img: '/speakers/maureen-wambui.webp',
     thumb: '/speakers/maureen-wambui-sq.webp',
+    linkedin: 'https://www.linkedin.com/in/maureenwambui/',
     focus: 'Office of the Governor',
     bio: [
       'Ms. Maureen Wambui serves as African Affairs Commissioner in the Governor’s Office of Community Initiatives, and represents the Office of the Governor of Maryland at Morgan TechFest 2026.'
@@ -66,6 +67,7 @@ export const representatives = [
     represents: 'Office of the Governor of Maryland',
     img: '/speakers/antwan-brown.webp',
     thumb: '/speakers/antwan-brown-sq.webp',
+    linkedin: 'https://www.linkedin.com/in/antwanbrown/',
     focus: 'Office of the Governor',
     bio: [
       'Dr. Antwan C. Brown is Administrative Director of the Governor’s Commission on African Affairs, and represents the Office of the Governor of Maryland at Morgan TechFest 2026.'
