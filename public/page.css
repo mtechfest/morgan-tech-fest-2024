@@ -342,7 +342,17 @@
       color: var(--dark);
       font-weight: 500;
       line-height: 1.5;
+      display: flex;
+      flex-direction: column;
     }
+    .timeline-detail {
+      font-size: 15px;
+      font-weight: 400;
+      color: #4b4b5c;
+      line-height: 1.45;
+      margin-top: 2px;
+    }
+    .timeline-detail::before { content: '›'; color: var(--orange); margin-right: 8px; font-weight: 700; }
 
     /* ===== BACK LINK ===== */
     .back-link {

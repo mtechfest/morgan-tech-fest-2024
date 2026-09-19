@@ -9,6 +9,7 @@ export const speakers = [
     name: 'Alexis Appollonia Robinson',
     role: 'Principal Program Manager, Amazon',
     org: 'Adjunct Professor, California State University, San Bernardino',
+    session: 'Keynote · 10:20 AM · Room 104',
     img: '/speakers/alexis-robinson.webp',
     thumb: '/speakers/alexis-robinson-sq.webp',
     focus: 'Cloud security, GRC, FedRAMP',
@@ -26,6 +27,78 @@ export const speakers = [
     ]
   }
 ]
+
+// Opening Ceremony: the University's opening speaker, then the government
+// representatives speaking on behalf of the Governor of Maryland and the Mayor
+// of Baltimore.
+export const representatives = [
+  {
+    id: 'don-terry-veal',
+    name: 'Dr. Don-Terry Veal',
+    role: 'Vice President for State and Federal Relations & Chief of Staff',
+    org: 'Morgan State University · Office of the President',
+    represents: 'Office of the President, Morgan State University',
+    img: '/speakers/don-terry-veal.webp',
+    thumb: '/speakers/don-terry-veal-sq.webp',
+    focus: 'Opening speaker',
+    bio: [
+      'Dr. Don-Terry Veal is Vice President for State and Federal Relations and Chief of Staff at Morgan State University. He delivers the opening address at Morgan TechFest 2026 on behalf of the Office of the President.'
+    ]
+  },
+  {
+    id: 'maureen-wambui',
+    name: 'Ms. Maureen Wambui',
+    role: 'African Affairs Commissioner',
+    org: 'Governor’s Office of Community Initiatives',
+    represents: 'Office of the Governor of Maryland',
+    img: '/speakers/maureen-wambui.webp',
+    thumb: '/speakers/maureen-wambui-sq.webp',
+    focus: 'Office of the Governor',
+    bio: [
+      'Ms. Maureen Wambui serves as African Affairs Commissioner in the Governor’s Office of Community Initiatives, and represents the Office of the Governor of Maryland at Morgan TechFest 2026.'
+    ]
+  },
+  {
+    id: 'antwan-brown',
+    name: 'Dr. Antwan C. Brown',
+    role: 'Administrative Director',
+    org: 'Governor’s Commission on African Affairs',
+    represents: 'Office of the Governor of Maryland',
+    img: '/speakers/antwan-brown.webp',
+    thumb: '/speakers/antwan-brown-sq.webp',
+    focus: 'Office of the Governor',
+    bio: [
+      'Dr. Antwan C. Brown is Administrative Director of the Governor’s Commission on African Affairs, and represents the Office of the Governor of Maryland at Morgan TechFest 2026.'
+    ]
+  },
+  {
+    id: 'masuma-islam-lonczak',
+    name: 'Ms. Masuma Islam Lonczak',
+    role: 'Deputy Director',
+    org: 'Mayor’s Office of Immigrant Affairs, City of Baltimore',
+    represents: 'Office of the Mayor of Baltimore',
+    img: '/speakers/masuma-islam-lonczak.webp',
+    thumb: '/speakers/masuma-islam-lonczak-sq.webp',
+    focus: 'Office of the Mayor',
+    bio: [
+      'Ms. Masuma Islam Lonczak is Deputy Director of the Mayor’s Office of Immigrant Affairs, and represents the Office of the Mayor of Baltimore at Morgan TechFest 2026.'
+    ]
+  }
+]
+
+// Panel moderator and event MC
+export const moderator = {
+  id: 'juliana-talabi',
+  name: 'Juliana Talabi',
+  role: 'Panel Moderator & MC (MC JAT)',
+  org: 'Legal Practitioner',
+  img: '/speakers/juliana-talabi.webp',
+  thumb: '/speakers/juliana-talabi-sq.webp',
+  focus: 'Moderator',
+  bio: [
+    'Juliana Talabi, known as MC JAT, is a legal practitioner. She serves as master of ceremonies for Morgan TechFest 2026 and moderates the “Reinventing Industries” panel.'
+  ]
+}
 
 export const panelists = [
   {
@@ -88,6 +161,7 @@ export const workshopHosts = [
     img: '/speakers/adalbert-de-la-cruz.webp',
     thumb: '/speakers/adalbert-de-la-cruz-sq.webp',
     workshop: 'Build Like a Full-Stack Product Manager on Lovable',
+    room: 'Room 110',
     workshopBlurb:
       'A masterclass on shipping AI products end to end, from idea to working prototype, without waiting on an engineering team.',
     bio: [
@@ -102,13 +176,30 @@ export const workshopHosts = [
     org: 'Workshop Host · Returning TechFest speaker',
     img: '/speakers/vinod-akunuri.webp',
     thumb: '/speakers/vinod-akunuri-sq.webp',
-    workshop: 'Jumpstart2Tech',
+    workshop: 'How to Land a Six-Figure Career in Tech',
+    room: 'Room 112',
     workshopBlurb:
       'A hands-on session on breaking into tech: the skills, portfolio, and moves that get students from classroom to first role.',
     // TODO: replace with the bio Vinod supplies. Only the headshot was in the
     // shared folder.
     bio: [
       'Vinod Akunuri leads Jumpstart2Tech and returns to Morgan TechFest after speaking at the 2024 edition. Full bio coming soon.'
+    ]
+  },
+  {
+    id: 'alexis-robinson-kiro',
+    name: 'Alexis Appollonia Robinson',
+    role: 'Principal Program Manager, Amazon',
+    org: 'Adjunct Professor, California State University, San Bernardino',
+    img: '/speakers/alexis-robinson.webp',
+    thumb: '/speakers/alexis-robinson-sq.webp',
+    workshop: 'Kiro',
+    room: 'Room 105',
+    workshopBlurb:
+      'A hands-on session with Kiro, Amazon’s agentic AI development environment, from the keynote speaker.',
+    bio: [
+      'Alexis Appollonia Robinson is a Principal Program Manager for Amazon in the Washington, DC area and an Adjunct Professor at California State University, San Bernardino. After delivering the morning keynote, she leads the afternoon Kiro workshop in Room 105.',
+      'She graduated with double Bachelor of Science degrees in Accounting and Information Systems from the Robert H. Smith School of Business at the University of Maryland, College Park, and holds an Executive MBA from the Quantic program. She worked at CGI Federal and Ernst & Young before finding her way to Amazon. She is a Certified Information Systems Auditor (CISA) and a Project Management Professional (PMP).'
     ]
   }
 ]

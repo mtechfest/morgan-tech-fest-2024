@@ -8,7 +8,7 @@ import DiscordIcon from '@/components/icons/IconDiscord.vue'
 import FAQItem from '@/components/FAQItem.vue'
 import SpeakerModal from '@/components/SpeakerModal.vue'
 import { schedule, partners, FaqQuestionsAnswers, eventInfo } from '@/data/home'
-import { speakers, panelists, workshopHosts } from '@/data/home/speakers'
+import { speakers, representatives, moderator, panelists, workshopHosts } from '@/data/home/speakers'
 
 /* ── Speaker bios ────────────────────────────────────────────
    One modal instance; the cards just say who is open. */
@@ -234,7 +234,7 @@ onUnmounted(() => {
           Future Flux, and explains why this year&rsquo;s TechFest matters.
         </p>
         <p class="provost-name">Dr. Hongtao Yu</p>
-        <p class="provost-title">Provost &amp; Senior Vice President for Academic Affairs, Morgan State University</p>
+        <p class="provost-title">Provost and Senior Vice President, Morgan State University</p>
         <div class="mt-8 flex flex-col items-center gap-3 xs:flex-row xs:justify-center lg:justify-start">
           <a :href="eventInfo.registerUrl" target="_blank" rel="noopener noreferrer" class="cta-solid">Accept the invitation</a>
           <a href="#speakers" class="cta-outline">Meet the lineup</a>
@@ -297,8 +297,8 @@ onUnmounted(() => {
 
       <!-- Speakers -->
       <div class="lineup-head">
-        <span class="lineup-kicker">Speakers</span>
-        <span class="lineup-count">{{ speakers.length }} confirmed</span>
+        <span class="lineup-kicker">Keynote speaker</span>
+        <span class="lineup-count">10:20 AM · Room 104</span>
       </div>
       <div class="grid grid-cols-1 gap-5 xs:grid-cols-2 lg:grid-cols-3 lg:gap-6">
         <button
@@ -329,12 +329,52 @@ onUnmounted(() => {
         </button>
       </div>
 
+      <!-- Government representatives -->
+      <div class="lineup-head mt-14 md:mt-20">
+        <span class="lineup-kicker">Opening ceremony</span>
+        <span class="lineup-count">9:50 AM · Room 104</span>
+      </div>
+      <div class="grid grid-cols-1 gap-5 xs:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <button
+          v-for="person in representatives"
+          :key="person.id"
+          type="button"
+          class="panelist"
+          @click="showBio(person, person.id === 'don-terry-veal' ? 'Opening speaker' : 'Government representative')"
+        >
+          <div class="panelist-photo">
+            <img :src="person.img" :alt="person.name" width="800" height="1000" loading="lazy" decoding="async" />
+            <div class="panelist-shade"></div>
+            <span class="panelist-focus">{{ person.focus }}</span>
+          </div>
+          <div class="panelist-meta">
+            <span class="panelist-name">{{ person.name }}</span>
+            <span class="panelist-role">{{ person.role }}</span>
+            <span class="panelist-org">{{ person.org }}</span>
+            <span class="panelist-cta">Read bio</span>
+          </div>
+        </button>
+      </div>
+
       <!-- Panel session -->
       <div class="lineup-head mt-14 md:mt-20">
-        <span class="lineup-kicker">Panel session</span>
-        <span class="lineup-count">{{ panelists.length }} voices</span>
+        <span class="lineup-kicker">Panel: “Reinventing Industries”</span>
+        <span class="lineup-count">12:10 PM · Room 104</span>
       </div>
-      <div class="grid grid-cols-1 gap-5 xs:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+      <div class="grid grid-cols-1 gap-5 xs:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <button type="button" class="panelist" @click="showBio(moderator, 'Moderator & MC')">
+          <div class="panelist-photo">
+            <img :src="moderator.img" :alt="moderator.name" width="800" height="1000" loading="lazy" decoding="async" />
+            <div class="panelist-shade"></div>
+            <span class="panelist-focus">{{ moderator.focus }}</span>
+          </div>
+          <div class="panelist-meta">
+            <span class="panelist-name">{{ moderator.name }}</span>
+            <span class="panelist-role">{{ moderator.role }}</span>
+            <span class="panelist-org">{{ moderator.org }}</span>
+            <span class="panelist-cta">Read bio</span>
+          </div>
+        </button>
         <button
           v-for="person in panelists"
           :key="person.id"
@@ -366,7 +406,7 @@ onUnmounted(() => {
       <!-- Workshops -->
       <div class="lineup-head mt-14 md:mt-20">
         <span class="lineup-kicker">Workshops</span>
-        <span class="lineup-count">{{ workshopHosts.length }} sessions</span>
+        <span class="lineup-count">1:45 PM · 3 parallel sessions</span>
       </div>
       <div class="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-6">
         <button
@@ -388,7 +428,7 @@ onUnmounted(() => {
           </div>
           <div class="host-meta">
             <span class="host-workshop">{{ host.workshop }}</span>
-            <span class="host-blurb">{{ host.workshopBlurb }}</span>
+            <span class="host-blurb">{{ host.workshopBlurb }}<template v-if="host.room"> · {{ host.room }}</template></span>
             <span class="host-by">
               <span class="host-name">{{ host.name }}</span>
               <span class="host-role">{{ host.role }}</span>
@@ -1180,6 +1220,10 @@ onUnmounted(() => {
 }
 .lineup-count {
   @apply rounded-full px-3 py-1 font-mono text-[10px] tracking-[0.12em] text-flux-violet;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60%;
   border: 1px solid rgba(61, 21, 82, 0.28);
   background: rgba(61, 21, 82, 0.06);
 }
