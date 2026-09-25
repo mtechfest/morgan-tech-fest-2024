@@ -308,6 +308,14 @@
   <link rel="stylesheet" href="/site-nav.css">
   <link rel="stylesheet" href="/site-footer.css">
   <style id="edition-theme">
+.page-header::before {
+  display: block; background: url('/flux-globe.webp') center / contain no-repeat;
+  top: 50%; bottom: auto; width: min(92vw, 560px); height: min(92vw, 560px); opacity: 0.9;
+  animation: fluxGlobe 60s linear infinite;
+}
+.page-header::after { background: radial-gradient(70% 60% at 50% 55%, rgba(var(--deep-rgb),0.35) 0%, rgba(var(--deep-rgb),0.9) 100%); }
+@keyframes fluxGlobe { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .page-header::before { animation: none; transform: translate(-50%, -50%); } }
 :root {
   --void: #150829;
   --blue: #241145;

@@ -1224,8 +1224,12 @@ onUnmounted(() => {
   position: absolute;
   inset: 7%;
   border-radius: 50%;
-  background: url('/flux-globe.webp') center / cover no-repeat;
-  opacity: 0.45;
+  /* Brand orb (no event artwork): navy core, blue rim, a warm orange highlight that drifts as it turns */
+  background:
+    radial-gradient(circle at 30% 28%, rgba(var(--accent-rgb), 0.38) 0%, rgba(var(--accent-rgb), 0) 38%),
+    radial-gradient(circle at 70% 75%, rgba(var(--plum-rgb), 0.55) 0%, rgba(var(--plum-rgb), 0) 45%),
+    radial-gradient(circle at 50% 50%, var(--blue) 0%, var(--deep) 70%, var(--void) 100%);
+  opacity: 0.95;
   will-change: transform;
   animation: spin360 80s linear infinite;
 }
