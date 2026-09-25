@@ -3,7 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import FAQItem from '@/components/FAQItem.vue'
 import SpeakerModal from '@/components/SpeakerModal.vue'
 import { schedule, partners, FaqQuestionsAnswers, eventInfo } from '@/data/home'
-import { speakers, representatives, moderator, panelists, workshopHosts } from '@/data/home/speakers'
+import { speakers, representatives, moderator, panelists, workshopHosts, judges } from '@/data/home/speakers'
 
 /* ── Speaker bios ────────────────────────────────────────────
    One modal instance; the cards just say who is open. */
@@ -57,6 +57,27 @@ const onVisibility = () => {
   else startTimer()
 }
 
+/* ── Judges slider ──────────────────────────────────────────
+   A native scroll-snap row (swipe on phones, trackpad on laptops); the arrows
+   just scroll it by one card and grey out at either end. */
+const judgeTrack = ref(null)
+const judgeAtStart = ref(true)
+const judgeAtEnd = ref(false)
+const updateJudgeEnds = () => {
+  const el = judgeTrack.value
+  if (!el) return
+  judgeAtStart.value = el.scrollLeft <= 4
+  judgeAtEnd.value = el.scrollLeft + el.clientWidth >= el.scrollWidth - 4
+}
+const slideJudges = (dir) => {
+  const el = judgeTrack.value
+  if (!el) return
+  const card = el.querySelector('.judge')
+  const step = card ? card.getBoundingClientRect().width + 20 : el.clientWidth * 0.8
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  el.scrollBy({ left: dir * step, behavior: reduce ? 'auto' : 'smooth' })
+}
+
 /* ── Provost video ── */
 const provostVideo = ref(null)
 const provostPlaying = ref(false)
@@ -78,6 +99,8 @@ let motionObserver = null
 
 onMounted(() => {
   startTimer()
+  updateJudgeEnds()
+  window.addEventListener('resize', updateJudgeEnds, { passive: true })
   document.addEventListener('visibilitychange', onVisibility)
 
   if ('IntersectionObserver' in window) {
@@ -98,6 +121,7 @@ onMounted(() => {
 onUnmounted(() => {
   stopTimer()
   document.removeEventListener('visibilitychange', onVisibility)
+  window.removeEventListener('resize', updateJudgeEnds)
   if (motionObserver) {
     motionObserver.disconnect()
     motionObserver = null
@@ -431,6 +455,30 @@ onUnmounted(() => {
             <span class="panelist-cta">Read bio</span>
           </div>
         </button>
+      </div>
+
+      <!-- Judges -->
+      <div class="lineup-head mt-14 md:mt-20">
+        <span class="lineup-kicker">Judges</span>
+        <span class="lineup-count">Tech Case &amp; Expo</span>
+      </div>
+      <div class="judges" role="region" aria-label="Judges" aria-roledescription="carousel">
+        <div ref="judgeTrack" class="judges-track" tabindex="0" @scroll.passive="updateJudgeEnds">
+          <figure v-for="judge in judges" :key="judge.id" class="judge">
+            <div class="judge-photo">
+              <img :src="judge.img" :alt="judge.name" width="320" height="400" loading="lazy" decoding="async" />
+            </div>
+            <figcaption class="judge-name">{{ judge.name }}</figcaption>
+          </figure>
+        </div>
+        <div class="judges-nav">
+          <button type="button" class="judges-arrow" aria-label="Previous judges" :disabled="judgeAtStart" @click="slideJudges(-1)">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6" /></svg>
+          </button>
+          <button type="button" class="judges-arrow" aria-label="Next judges" :disabled="judgeAtEnd" @click="slideJudges(1)">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6" /></svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -1252,6 +1300,74 @@ onUnmounted(() => {
 .panelist:hover .panelist-cta::after,
 .host:hover .panelist-cta::after {
   transform: translateX(3px);
+}
+
+/* Judges: a swipeable row of portrait cards, name plate underneath */
+.judges {
+  @apply relative;
+}
+.judges-track {
+  @apply flex gap-5 overflow-x-auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 2px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+.judges-track::-webkit-scrollbar {
+  display: none;
+}
+.judges-track:focus-visible {
+  outline: 2px solid #0dc6f4;
+  outline-offset: 6px;
+  border-radius: 20px;
+}
+.judge {
+  @apply m-0 flex-none overflow-hidden rounded-2xl;
+  width: 62%;
+  scroll-snap-align: start;
+  background: #fff;
+  border: 1.5px solid rgba(22, 7, 43, 0.08);
+}
+@media (min-width: 480px) {
+  .judge { width: calc((100% - 20px) / 2); }
+}
+@media (min-width: 768px) {
+  .judge { width: calc((100% - 40px) / 3); }
+}
+@media (min-width: 1024px) {
+  .judge { width: calc((100% - 80px) / 5); }
+}
+.judge-photo {
+  aspect-ratio: 4 / 5;
+  background: #241145;
+}
+.judge-photo img {
+  @apply h-full w-full object-cover;
+  object-position: center 20%;
+}
+.judge-name {
+  @apply px-4 py-3.5 font-urbanist text-[15px] font-bold leading-snug text-flux-ink;
+  border-top: 3px solid #0dc6f4;
+}
+.judges-nav {
+  @apply mt-5 flex justify-end gap-3;
+}
+.judges-arrow {
+  @apply inline-flex h-11 w-11 items-center justify-center rounded-full text-flux-ink transition-colors duration-200;
+  border: 1.5px solid rgba(22, 7, 43, 0.18);
+  background: #fff;
+}
+.judges-arrow:hover:not(:disabled) {
+  border-color: #0dc6f4;
+  color: #3d1552;
+}
+.judges-arrow:disabled {
+  @apply cursor-default opacity-35;
+}
+.judges-arrow:focus-visible {
+  outline: 2px solid #0dc6f4;
+  outline-offset: 3px;
 }
 
 /* Workshop host: wide card on the dark ground, square headshot at left */

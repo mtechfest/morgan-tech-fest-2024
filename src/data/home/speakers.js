@@ -205,3 +205,16 @@ export const workshopHosts = [
     ]
   }
 ]
+
+// Judges for the Tech Case Competition and Innovation Expo. Each person appears
+// once. Photos are 4:5 portraits in /public/speakers/judges/.
+export const judges = [
+  { id: 'radhouane-chouchane', name: 'Dr. Radhouane Chouchane', img: '/speakers/judges/radhouane-chouchane.webp' },
+  { id: 'roshan-puadel', name: 'Dr. Roshan Puadel', img: '/speakers/judges/roshan-puadel.webp' },
+  { id: 'fahmi-khalifa', name: 'Fahmi Khalifa, Ph.D.', img: '/speakers/judges/fahmi-khalifa.webp' },
+  { id: 'tolu-odumosu', name: 'Dr. Tolu Odumosu', img: '/speakers/judges/tolu-odumosu.webp' },
+  { id: 'kelechi-nwachukwu', name: 'Kelechi Nwachukwu', img: '/speakers/judges/kelechi-nwachukwu.webp' },
+  { id: 'og-ogunsemowo', name: 'Og Ògúnsémòwó', img: '/speakers/judges/og-ogunsemowo.webp' },
+  { id: 'femi-adeyeye', name: 'Femi Adeyeye', img: '/speakers/judges/femi-adeyeye.webp' },
+  { id: 'laila-henriksen', name: 'Laila Henriksen', img: '/speakers/judges/laila-henriksen.webp' }
+]
