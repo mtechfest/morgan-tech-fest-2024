@@ -19,7 +19,7 @@
 .site-logo { display: block; line-height: 0; }
 .site-logo img { width: 128px; height: auto; display: block; }
 
-.site-nav { display: none; width: 100%; max-width: 768px; align-items: center; justify-content: space-between; gap: 0; }
+.site-nav { display: none; width: 100%; max-width: 768px; align-items: center; justify-content: space-between; gap: 16px; }
 .site-nav-link {
   position: relative;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
@@ -94,4 +94,11 @@
 }
 @media (min-width: 1280px) {
   .site-nav-link { font-size: 13px; }
+}
+
+/* Eight menu items: tighten type between 1024px and 1279px so they never touch. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .site-header-inner { gap: 28px; }
+  .site-nav-link { font-size: 11px; letter-spacing: 0.08em; }
+  .site-register-btn { height: 44px; padding: 0 22px; font-size: 13px; }
 }

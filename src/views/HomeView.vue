@@ -1,10 +1,5 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import LinkedinIcon from '@/components/icons/IconLinkedin.vue'
-import TwitterIcon from '@/components/icons/IconTwitter.vue'
-import InstagramIcon from '@/components/icons/IconInstagram.vue'
-import GithubIcon from '@/components/icons/IconGithub.vue'
-import DiscordIcon from '@/components/icons/IconDiscord.vue'
 import FAQItem from '@/components/FAQItem.vue'
 import SpeakerModal from '@/components/SpeakerModal.vue'
 import { schedule, partners, FaqQuestionsAnswers, eventInfo } from '@/data/home'
@@ -610,9 +605,8 @@ onUnmounted(() => {
     </div>
   </div>
 
-  <!-- ===================== FAQ + FOOTER ===================== -->
+  <!-- ===================== FAQ ===================== -->
   <div class="section-dark px-5 pb-12 pt-4 xs:px-8 md:pb-20">
-    <!-- ===================== FAQ ===================== -->
     <div class="mx-auto max-w-6xl pt-8 md:pt-16" id="faq">
       <span class="section-label-light">Questions?</span>
       <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">FAQ</h2>
@@ -626,58 +620,6 @@ onUnmounted(() => {
         />
       </div>
     </div>
-
-    <!-- ===================== FOOTER ===================== -->
-    <div class="mx-auto mt-20 max-w-6xl border-t border-white/10 pt-10 md:mt-28">
-      <div class="flex flex-col items-center justify-between gap-y-6 sm:flex-row">
-        <p class="font-mono text-xs uppercase tracking-[0.1em] text-white/40">
-          Morgan TechFest &middot; Morgan State University
-        </p>
-        <div class="flex gap-x-4">
-          <a
-            href="https://www.linkedin.com/company/morgan-techfest/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            class="social-link"
-            ><LinkedinIcon
-          /></a>
-          <a
-            href="https://twitter.com/MorganTechFest"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="X"
-            class="social-link"
-            ><TwitterIcon
-          /></a>
-          <a
-            href="https://www.instagram.com/morgantechfest/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            class="social-link"
-            ><InstagramIcon
-          /></a>
-          <a
-            href="https://github.com/morgantechfest"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            class="social-link"
-            ><GithubIcon
-          /></a>
-          <a
-            href="https://www.discord.com/channels/morgantechfest"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Discord"
-            class="social-link"
-            ><DiscordIcon
-          /></a>
-        </div>
-      </div>
-    </div>
-    <div class="h-10"></div>
   </div>
 </template>
 
@@ -1130,10 +1072,6 @@ onUnmounted(() => {
 }
 
 /* ===== SOCIAL LINKS ===== */
-.social-link {
-  @apply block rounded-lg border border-white/10 px-2.5 py-2.5 transition-colors duration-200 hover:border-flux-cyan/50;
-}
-
 /* ===== PROVOST INVITATION ===== */
 .hero-watch {
   @apply mt-6 inline-flex items-center gap-x-3 font-urbanist text-sm font-semibold text-white/80 transition-colors duration-200 hover:text-white;

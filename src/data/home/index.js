@@ -15,13 +15,20 @@ export const eventInfo = {
 // `href` wins over `id`: items with an href are standalone pages, items
 // without one scroll to a section on this page.
 export const nav = [
+  { id: 'home', label: 'Home', href: '/' },
   { id: 'about', label: 'About', index: '01', href: '/about.html' },
   { id: 'techcase', label: 'Tech Case', href: '/tech-case.html' },
   { id: 'expo', label: 'Innovation Expo', href: '/innovation-expo.html' },
   { id: 'schedule', label: 'Schedule', index: '04', href: '/schedule.html' },
-  { id: 'transit', label: 'Transit', href: '/transit.html' },
-  { id: 'past', label: 'Past Events', href: '/highlights.html' },
+  { id: 'sponsors', label: 'Sponsors', href: '/sponsors.html' },
+  { id: 'team', label: 'Team', href: '/team.html' },
   { id: 'faq', label: 'FAQ', index: '06' }
+]
+
+// Secondary pages that moved out of the header menu into the footer.
+export const footerLinks = [
+  { label: 'Transit', href: '/transit.html' },
+  { label: 'Past Events', href: '/highlights.html' }
 ]
 
 // Headline program blocks, in the order they actually run on the day.

@@ -1,0 +1,82 @@
+/* Shared site footer. Linked from every static page and from index.html, so the
+   home page (src/components/PageFooter.vue) and the static pages share one
+   stylesheet. If you change the markup, change it in both places. */
+.site-footer {
+  position: relative;
+  color: rgba(255, 255, 255, 0.72);
+  background: #150829;
+  border-top: 1px solid rgba(13, 198, 244, 0.22);
+  font-family: 'Urbanist', sans-serif;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.site-footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 56px 24px 40px;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr;
+}
+.site-footer-logo { display: inline-block; line-height: 0; }
+.site-footer-logo img { width: 132px; height: auto; display: block; }
+.site-footer-tag {
+  margin: 16px 0 0;
+  max-width: 34ch;
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.62);
+}
+.site-footer-heading {
+  margin: 0 0 14px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+.site-footer-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.site-footer-link {
+  font-size: 17px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+  background-image: linear-gradient(#0dc6f4, #0dc6f4);
+  background-size: 0 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  padding-bottom: 2px;
+  transition: color 0.2s ease, background-size 0.2s ease;
+}
+.site-footer-link:hover,
+.site-footer-link[aria-current="page"] { color: #fff; background-size: 100% 1px; }
+.site-footer-socials { display: flex; flex-wrap: wrap; gap: 10px; }
+.site-footer-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.85);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.site-footer-social:hover { border-color: rgba(13, 198, 244, 0.6); color: #0dc6f4; }
+.site-footer-social svg { max-width: 20px; max-height: 20px; }
+.site-footer-social svg path { fill: currentColor; }
+.site-footer a:focus-visible { outline: 2px solid #0dc6f4; outline-offset: 3px; border-radius: 4px; }
+.site-footer-legal {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 18px 24px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.45);
+}
+@media (min-width: 720px) {
+  .site-footer-inner { grid-template-columns: 1.4fr 1fr 1fr; gap: 48px; padding-top: 64px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-footer-link, .site-footer-social { transition: none; }
+}
