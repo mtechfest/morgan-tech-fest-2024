@@ -97,7 +97,7 @@ onUnmounted(() => {
   display: grid;
   place-items: center;
   padding: 16px;
-  background: rgba(13, 4, 28, 0.9);
+  background: rgba(var(--void-rgb),0.9);
 }
 
 .bio-panel {
@@ -108,11 +108,11 @@ onUnmounted(() => {
   max-height: min(92vh, 860px);
   overflow: hidden;
   border-radius: 24px;
-  background: #1c0b39;
-  border: 1px solid rgba(13, 198, 244, 0.28);
+  background: var(--deep);
+  border: 1px solid rgba(var(--accent-rgb),0.28);
   box-shadow:
-    0 0 0 6px rgba(13, 198, 244, 0.05),
-    0 40px 90px rgba(5, 1, 14, 0.7);
+    0 0 0 6px rgba(var(--accent-rgb),0.05),
+    0 40px 90px rgba(var(--void-rgb),0.7);
   outline: none;
 }
 
@@ -133,13 +133,13 @@ onUnmounted(() => {
   height: 40px;
   border-radius: 999px;
   color: #fff;
-  background: rgba(21, 8, 41, 0.7);
+  background: rgba(var(--void-rgb),0.7);
   border: 1px solid rgba(255, 255, 255, 0.18);
   transition: border-color 0.2s, background 0.2s;
 }
 .bio-close:hover {
-  border-color: #0dc6f4;
-  background: rgba(13, 198, 244, 0.15);
+  border-color: var(--orange);
+  background: rgba(var(--accent-rgb),0.15);
 }
 .bio-close svg {
   width: 18px;
@@ -150,13 +150,13 @@ onUnmounted(() => {
 .bio-side {
   display: flex;
   flex-direction: column;
-  background: #150829;
-  border-bottom: 1px solid rgba(13, 198, 244, 0.18);
+  background: var(--void);
+  border-bottom: 1px solid rgba(var(--accent-rgb),0.18);
 }
 @media (min-width: 768px) {
   .bio-side {
     border-bottom: 0;
-    border-right: 1px solid rgba(13, 198, 244, 0.18);
+    border-right: 1px solid rgba(var(--accent-rgb),0.18);
     overflow-y: auto;
   }
 }
@@ -165,7 +165,7 @@ onUnmounted(() => {
   width: 100%;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  background: #241145;
+  background: var(--blue);
 }
 @media (max-width: 767px) {
   .bio-portrait {
@@ -229,9 +229,9 @@ onUnmounted(() => {
   margin-bottom: 26px;
   padding: 18px 20px;
   border-radius: 14px;
-  border: 1px solid rgba(13, 198, 244, 0.28);
-  border-left: 3px solid #0dc6f4;
-  background: rgba(13, 198, 244, 0.07);
+  border: 1px solid rgba(var(--accent-rgb),0.28);
+  border-left: 3px solid var(--orange);
+  background: rgba(var(--accent-rgb),0.07);
 }
 .bio-workshop-label {
   @apply font-mono text-[10px] uppercase tracking-[0.2em] text-flux-cyan;
@@ -260,7 +260,7 @@ onUnmounted(() => {
   max-width: 62ch;
 }
 .bio-highlights li::marker {
-  color: #0dc6f4;
+  color: var(--orange);
 }
 
 /* ── Motion ── */

@@ -10,11 +10,11 @@
   }
 
   .antd-custom-menu .ant-menu-submenu {
-    background: #241145 !important;
+    background: #0B2461 !important;
   }
 
   .antd-custom-menu .ant-menu-sub {
-    background: #241145 !important;
+    background: #0B2461 !important;
   }
 
   .antd-custom-menu .ant-menu-item {
@@ -26,12 +26,12 @@
   }
 
   .antd-custom-menu .ant-menu-item:hover {
-    color: #0dc6f4 !important;
+    color: #FC711B !important;
   }
 
   .antd-custom-menu .ant-menu-item-selected {
-    background-color: #3d1552 !important;
-    color: #0dc6f4 !important;
+    background-color: #1545A0 !important;
+    color: #FC711B !important;
   }
 }
 

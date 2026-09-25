@@ -4,18 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Morgan TechFest: Partner With Us</title>
-  <meta name="theme-color" content="#241145" />
+  <meta name="theme-color" content="#0B2461" />
   <meta name="description" content="Partner with Morgan TechFest: reach, results and what sponsors gain from supporting the student technology conference at Morgan State University." />
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" type="image/png" href="/icon-96.png" sizes="96x96" />
   <link rel="icon" type="image/png" href="/icon-192.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/theme.css" />
   <link rel="stylesheet" href="/page.css" />
   <link rel="stylesheet" href="/edition.css" />
   <style>
     :root {
-      --c1: #0DC6F4;  /* Morgan State */
+      --c1: var(--orange);  /* Morgan State */
       --c2: #A855D6;  /* Howard */
       --c3: #FF5A16;  /* Bowie State */
       --c4: #5B4A78;  /* U. of D.C. */
@@ -35,7 +36,7 @@
 
     .stat-cell {
       background: white;
-      border: 1px solid rgba(22, 7, 43, 0.08);
+      border: 1px solid rgba(var(--ink-rgb),0.08);
       border-radius: 14px;
       padding: 18px 20px;
     }
@@ -76,7 +77,7 @@
 
     .panel {
       background: white;
-      border: 1px solid rgba(22, 7, 43, 0.08);
+      border: 1px solid rgba(var(--ink-rgb),0.08);
       border-radius: 16px;
       padding: 24px;
     }
@@ -86,7 +87,7 @@
       font-size: 18px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(13, 198, 244, 0.95);
+      color: rgba(var(--accent-rgb),0.95);
     }
 
     .panel-title {
@@ -125,7 +126,7 @@
       font-family: 'JetBrains Mono', ui-monospace, monospace;
       font-size: 18px;
       letter-spacing: 0.14em;
-      fill: rgba(22, 7, 43, 0.45);
+      fill: rgba(var(--ink-rgb),0.45);
     }
 
     .legend { list-style: none; flex: 1; min-width: 190px; }
@@ -135,7 +136,7 @@
       align-items: center;
       gap: 8px;
       padding: 6px 0;
-      border-bottom: 1px solid rgba(22, 7, 43, 0.06);
+      border-bottom: 1px solid rgba(var(--ink-rgb),0.06);
       font-size: 18px;
     }
 
@@ -178,7 +179,7 @@
       flex: 1;
       height: 10px;
       border-radius: 100px;
-      background: rgba(22, 7, 43, 0.06);
+      background: rgba(var(--ink-rgb),0.06);
       overflow: hidden;
     }
 
@@ -186,7 +187,7 @@
       display: block;
       height: 100%;
       border-radius: 100px;
-      background: linear-gradient(90deg, var(--c1), #7BD9F7);
+      background: linear-gradient(90deg, var(--c1), var(--orange));
     }
 
     .bar-val {
@@ -250,7 +251,7 @@
       opacity: 0.65;
     }
 
-    .pill-up { background: rgba(13, 198, 244, 0.1); color: #0a7fa0; border: 1px solid rgba(13, 198, 244, 0.3); }
+    .pill-up { background: rgba(var(--accent-rgb),0.1); color: #0a7fa0; border: 1px solid rgba(var(--accent-rgb),0.3); }
     .pill-down { background: rgba(255, 90, 22, 0.08); color: #b53c0c; border: 1px solid rgba(255, 90, 22, 0.28); }
 
     /* ===== SPONSOR GRID ===== */
@@ -267,7 +268,7 @@
 
     .sponsor-cell {
       background: white;
-      border: 1px solid rgba(22, 7, 43, 0.08);
+      border: 1px solid rgba(var(--ink-rgb),0.08);
       border-radius: 14px;
       padding: 18px 12px 14px;
       text-align: center;
@@ -305,7 +306,7 @@
     .sources {
       margin-top: 40px;
       padding-top: 20px;
-      border-top: 1px solid rgba(22, 7, 43, 0.1);
+      border-top: 1px solid rgba(var(--ink-rgb),0.1);
       font-size: 18px;
       color: #111111;
       line-height: 1.7;
@@ -325,7 +326,7 @@
     /* ===== GEO BARS ===== */
     .bars.geo .bar-key { width: 46px; }
     .bars.geo .bar-val { width: 34px; }
-    .bars.geo .bar-fill { background: linear-gradient(90deg, var(--c1), #7BD9F7); }
+    .bars.geo .bar-fill { background: linear-gradient(90deg, var(--c1), var(--orange)); }
 
     .geo-foot {
       display: flex;
@@ -333,7 +334,7 @@
       flex-wrap: wrap;
       margin-top: 16px;
       padding-top: 14px;
-      border-top: 1px solid rgba(22, 7, 43, 0.08);
+      border-top: 1px solid rgba(var(--ink-rgb),0.08);
       font-family: 'JetBrains Mono', ui-monospace, monospace;
       font-size: 18px;
       color: #111111;
@@ -378,7 +379,7 @@
       white-space: nowrap;
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    .package-cta .pk-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(13,198,244,0.3); }
+    .package-cta .pk-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(var(--accent-rgb),0.3); }
   </style>
   <link rel="stylesheet" href="/site-nav.css">
   <link rel="stylesheet" href="/site-footer.css">

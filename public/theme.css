@@ -1,0 +1,22 @@
+/* Morgan TechFest colour tokens. Brand blue + orange by default;
+   each past-edition page overrides these with its own theme palette. */
+:root {
+  --void: #061430;
+  --blue: #0B2461;
+  --deep: #081A4A;
+  --blue-mid: #1545A0;
+  --plum: #1F56B8;
+  --orange: #FC711B;
+  --dark: #0A1A3D;
+  --void-rgb: 6,20,48;
+  --blue-rgb: 11,36,97;
+  --deep-rgb: 8,26,74;
+  --mid-rgb: 21,69,160;
+  --plum-rgb: 31,86,184;
+  --accent-rgb: 252,113,27;
+  --ink-rgb: 10,26,61;
+  --cream: #F3F6FC;
+  --tint: #E1E8F5;
+  --tint-2: #CEDAEE;
+  --ember: #FF5A16;
+}

@@ -4,8 +4,8 @@
 .site-footer {
   position: relative;
   color: rgba(255, 255, 255, 0.72);
-  background: #150829;
-  border-top: 1px solid rgba(13, 198, 244, 0.22);
+  background: var(--void);
+  border-top: 1px solid rgba(var(--accent-rgb),0.22);
   font-family: 'Urbanist', sans-serif;
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
@@ -41,7 +41,7 @@
   font-weight: 600;
   color: rgba(255, 255, 255, 0.78);
   text-decoration: none;
-  background-image: linear-gradient(#0dc6f4, #0dc6f4);
+  background-image: linear-gradient(var(--orange), var(--orange));
   background-size: 0 1px;
   background-position: 0 100%;
   background-repeat: no-repeat;
@@ -62,10 +62,10 @@
   color: rgba(255, 255, 255, 0.85);
   transition: border-color 0.2s ease, color 0.2s ease;
 }
-.site-footer-social:hover { border-color: rgba(13, 198, 244, 0.6); color: #0dc6f4; }
+.site-footer-social:hover { border-color: rgba(var(--accent-rgb),0.6); color: var(--orange); }
 .site-footer-social svg { max-width: 20px; max-height: 20px; }
 .site-footer-social svg path { fill: currentColor; }
-.site-footer a:focus-visible { outline: 2px solid #0dc6f4; outline-offset: 3px; border-radius: 4px; }
+.site-footer a:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; border-radius: 4px; }
 .site-footer-legal {
   margin: 0 auto;
   max-width: 1100px;

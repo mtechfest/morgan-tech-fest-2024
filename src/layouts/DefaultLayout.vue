@@ -16,7 +16,7 @@ import PageFooter from '@/components/PageFooter.vue'
 <style>
 html,
 body {
-  background-color: #150829;
+  background-color: var(--void);
 }
 
 .page-backdrop {
@@ -29,14 +29,14 @@ body {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-color: #150829;
+  background-color: var(--void);
   background-image:
     radial-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1.4px),
-    radial-gradient(55% 45% at 14% 12%, rgba(13, 198, 244, 0.12) 0%, transparent 62%),
-    radial-gradient(55% 50% at 86% 16%, rgba(124, 58, 237, 0.16) 0%, transparent 62%),
+    radial-gradient(55% 45% at 14% 12%, rgba(var(--accent-rgb),0.12) 0%, transparent 62%),
+    radial-gradient(55% 50% at 86% 16%, rgba(var(--plum-rgb),0.16) 0%, transparent 62%),
     radial-gradient(60% 55% at 78% 90%, rgba(252, 71, 11, 0.09) 0%, transparent 62%),
-    radial-gradient(50% 50% at 24% 82%, rgba(13, 198, 244, 0.09) 0%, transparent 62%),
-    linear-gradient(180deg, #1a0a33 0%, #150829 60%, #10061f 100%);
+    radial-gradient(50% 50% at 24% 82%, rgba(var(--accent-rgb),0.09) 0%, transparent 62%),
+    linear-gradient(180deg, var(--deep) 0%, var(--void) 60%, #10061f 100%);
   background-size: 36px 36px, 100% 100vh, 100% 100vh, 100% 100vh, 100% 100vh, 100% 100%;
   background-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
 }

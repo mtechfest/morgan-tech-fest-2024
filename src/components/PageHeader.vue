@@ -138,7 +138,7 @@ header {
 
 .header-bg {
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-  background: rgba(21, 8, 41, 0.92);
+  background: rgba(var(--void-rgb),0.92);
   transition: background 0.25s ease, border-color 0.25s ease;
 }
 
@@ -148,8 +148,8 @@ header {
 /* No backdrop-filter: blurring the header over the page on every scroll
    frame was the main cause of scroll jitter on macOS. */
 .is-pinned .header-bg {
-  background: rgba(21, 8, 41, 0.96);
-  border-bottom-color: rgba(13, 198, 244, 0.22);
+  background: rgba(var(--void-rgb),0.96);
+  border-bottom-color: rgba(var(--accent-rgb),0.22);
 }
 
 .nav-link {
@@ -183,7 +183,7 @@ header {
 /* ===== MOBILE NAV ===== */
 .mobile-nav {
   @apply flex flex-col border-b border-white/10 px-5 pb-4 pt-1;
-  background: rgba(21, 8, 41, 0.97);
+  background: rgba(var(--void-rgb),0.97);
   /* min-height:0 lets this flex child shrink below its content height so the
      cap above can bite; without it the list would push the header taller. */
   min-height: 0;

@@ -1,11 +1,11 @@
 :root {
-  --flux-void: #150829;
-  --flux-indigo: #241145;
-  --flux-violet: #3d1552;
-  --flux-plum: #4e1668;
-  --flux-cyan: #0dc6f4;
+  --flux-void: #061430;
+  --flux-indigo: #0B2461;
+  --flux-violet: #1545A0;
+  --flux-plum: #1F56B8;
+  --flux-cyan: #FC711B;
   --flux-ember: #ff5a16;
-  --flux-mist: #f4f0fa;
+  --flux-mist: #F3F6FC;
 }
 
 html {
