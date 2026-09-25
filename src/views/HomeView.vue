@@ -1,21 +1,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import FAQItem from '@/components/FAQItem.vue'
-import SpeakerModal from '@/components/SpeakerModal.vue'
-import { schedule, partners, FaqQuestionsAnswers, eventInfo } from '@/data/home'
-import { speakers, representatives, moderator, panelists, workshopHosts, judges } from '@/data/home/speakers'
-
-/* ── Speaker bios ────────────────────────────────────────────
-   One modal instance; the cards just say who is open. */
-const openSpeaker = ref(null)
-const openKicker = ref('Panelist')
-const showBio = (person, kicker) => {
-  openSpeaker.value = person
-  openKicker.value = kicker
-}
-const closeBio = () => {
-  openSpeaker.value = null
-}
+import { schedule, FaqQuestionsAnswers, eventInfo } from '@/data/home'
 
 /* ── Countdown ───────────────────────────────────────────────
    One interval, and it only runs while the tab is actually visible.
@@ -57,37 +43,6 @@ const onVisibility = () => {
   else startTimer()
 }
 
-/* ── Judges slider ──────────────────────────────────────────
-   A native scroll-snap row (swipe on phones, trackpad on laptops); the arrows
-   just scroll it by one card and grey out at either end. */
-const judgeTrack = ref(null)
-const judgeAtStart = ref(true)
-const judgeAtEnd = ref(false)
-const updateJudgeEnds = () => {
-  const el = judgeTrack.value
-  if (!el) return
-  judgeAtStart.value = el.scrollLeft <= 4
-  judgeAtEnd.value = el.scrollLeft + el.clientWidth >= el.scrollWidth - 4
-}
-const slideJudges = (dir) => {
-  const el = judgeTrack.value
-  if (!el) return
-  const card = el.querySelector('.judge')
-  const step = card ? card.getBoundingClientRect().width + 20 : el.clientWidth * 0.8
-  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  el.scrollBy({ left: dir * step, behavior: reduce ? 'auto' : 'smooth' })
-}
-
-/* ── Provost video ── */
-const provostVideo = ref(null)
-const provostPlaying = ref(false)
-const playProvost = () => {
-  const el = provostVideo.value
-  if (!el) return
-  document.getElementById('provost')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-  el.play().catch(() => {})
-}
-
 /* ── Off-screen animation pause ─────────────────────────────
    Infinite CSS animations keep the compositor awake even when the element is
    nowhere near the viewport. One observer parks them until they are back. */
@@ -99,8 +54,6 @@ let motionObserver = null
 
 onMounted(() => {
   startTimer()
-  updateJudgeEnds()
-  window.addEventListener('resize', updateJudgeEnds, { passive: true })
   document.addEventListener('visibilitychange', onVisibility)
 
   if ('IntersectionObserver' in window) {
@@ -121,7 +74,6 @@ onMounted(() => {
 onUnmounted(() => {
   stopTimer()
   document.removeEventListener('visibilitychange', onVisibility)
-  window.removeEventListener('resize', updateJudgeEnds)
   if (motionObserver) {
     motionObserver.disconnect()
     motionObserver = null
@@ -150,30 +102,21 @@ onUnmounted(() => {
             <span class="portal-num">{{ days }}</span>
             <span class="portal-unit">Days</span>
             <span class="portal-clock">{{ hours }}:{{ mins }}:{{ secs }}</span>
-            <span class="portal-date">September 19, 2026</span>
+            <span class="portal-date">{{ eventInfo.date }}</span>
           </div>
         </div>
 
         <!-- RIGHT: title, pill, CTAs -->
         <div class="text-center lg:text-left">
           <span class="hero-pill animate-rise-1">
-            <span class="pill-dot"></span> Registration Open
+            <span class="pill-dot"></span> Save the date
             <span class="pill-sep">&middot;</span> {{ eventInfo.date }}
           </span>
 
-          <h1 class="animate-rise-2 mt-5">
-            <span class="sr-only">Future Flux: Building the Intelligent World</span>
-            <img
-              src="/future-flux.webp"
-              alt=""
-              class="mx-auto w-[86%] max-w-[360px] sm:max-w-[440px] lg:mx-0 lg:max-w-[520px]"
-              width="1400"
-              height="815"
-              fetchpriority="high"
-            />
+          <h1 class="hero-theme animate-rise-2 mt-5">
+            <span class="hero-theme-kicker">Morgan TechFest {{ eventInfo.year }} &middot; Theme</span>
+            <span class="hero-theme-title">{{ eventInfo.theme }}</span>
           </h1>
-
-          <p class="tagline-band animate-rise-3">Building The Intelligent World</p>
 
           <p
             class="animate-rise-3 mt-6 flex items-center justify-center gap-x-3 font-bebas text-2xl tracking-wide text-white xs:gap-x-4 xs:text-3xl sm:text-4xl lg:justify-start"
@@ -194,8 +137,6 @@ onUnmounted(() => {
           <div class="animate-rise-4 mt-8 flex flex-col items-center gap-3 xs:flex-row xs:justify-center lg:justify-start">
             <a
               :href="eventInfo.registerUrl"
-              target="_blank"
-              rel="noopener noreferrer"
               class="cta-solid"
               >Register now</a
             >
@@ -205,58 +146,6 @@ onUnmounted(() => {
           <p class="mt-5 font-urbanist text-sm text-white/45">
             {{ eventInfo.venue }} &middot; {{ eventInfo.city }}
           </p>
-
-          <a href="#provost" class="hero-watch animate-rise-4" @click.prevent="playProvost">
-            <span class="hero-watch-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
-            Watch the Provost&rsquo;s invitation
-            <span class="hero-watch-len">0:49</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== PROVOST INVITATION ===================== -->
-  <section class="provost" id="provost">
-    <div class="mx-auto grid max-w-6xl gap-10 px-5 xs:px-8 lg:grid-cols-[1.25fr_1fr] lg:items-center lg:gap-14">
-      <div class="provost-frame">
-        <video
-          ref="provostVideo"
-          class="provost-video"
-          poster="/media/provost-invitation-poster.webp"
-          preload="metadata"
-          playsinline
-          controls
-          @play="provostPlaying = true"
-          @pause="provostPlaying = false"
-          @ended="provostPlaying = false"
-        >
-          <source src="/media/provost-invitation.mp4" type="video/mp4" />
-        </video>
-        <button
-          v-if="!provostPlaying"
-          type="button"
-          class="provost-play"
-          aria-label="Play the Provost's invitation"
-          @click="playProvost"
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
-        </button>
-      </div>
-      <div class="text-center lg:text-left">
-        <span class="section-label-light">A personal invitation</span>
-        <h2 class="mt-3 font-bebas text-5xl font-normal leading-none text-white xs:text-6xl sm:text-7xl">
-          From the Office of the Provost
-        </h2>
-        <p class="mx-auto mt-5 max-w-md font-urbanist text-base leading-relaxed text-white/70 sm:text-lg lg:mx-0">
-          Morgan State University&rsquo;s Provost welcomes students, researchers, and industry partners to
-          Future Flux, and explains why this year&rsquo;s TechFest matters.
-        </p>
-        <p class="provost-name">Dr. Hongtao Yu</p>
-        <p class="provost-title">Provost and Senior Vice President, Morgan State University</p>
-        <div class="mt-8 flex flex-col items-center gap-3 xs:flex-row xs:justify-center lg:justify-start">
-          <a :href="eventInfo.registerUrl" target="_blank" rel="noopener noreferrer" class="cta-solid">Accept the invitation</a>
-          <a href="#speakers" class="cta-outline">Meet the lineup</a>
         </div>
       </div>
     </div>
@@ -299,192 +188,6 @@ onUnmounted(() => {
     </div>
   </div>
 
-  <!-- ===================== SPEAKERS ===================== -->
-  <div class="bg-flux-mist px-5 pb-16 pt-14 xs:px-8 md:pb-24 md:pt-20" id="speakers">
-    <div class="mx-auto max-w-6xl">
-      <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-        <div>
-          <span class="section-label">The lineup</span>
-          <h2 class="mt-3 font-bebas text-5xl font-normal text-flux-ink xs:text-6xl sm:text-7xl">
-            Speakers, Panelists &amp; Workshop Hosts
-          </h2>
-        </div>
-        <p class="max-w-sm font-urbanist text-base text-flux-ink/55 sm:text-lg md:pb-2 md:text-right">
-          Builders, researchers, and founders joining us in Baltimore for Future Flux.
-        </p>
-      </div>
-
-      <!-- Speakers -->
-      <div class="lineup-head">
-        <span class="lineup-kicker">Keynote speaker</span>
-        <span class="lineup-count">10:20 AM · Room 104</span>
-      </div>
-      <div class="grid grid-cols-1 gap-5 xs:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-        <button
-          v-for="person in speakers"
-          :key="person.id"
-          type="button"
-          class="panelist"
-          @click="showBio(person, 'Speaker')"
-        >
-          <div class="panelist-photo">
-            <img
-              :src="person.img"
-              :alt="person.name"
-              width="800"
-              height="1000"
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="panelist-shade"></div>
-            <span class="panelist-focus">{{ person.focus }}</span>
-          </div>
-          <div class="panelist-meta">
-            <span class="panelist-name">{{ person.name }}</span>
-            <span class="panelist-role">{{ person.role }}</span>
-            <span class="panelist-org">{{ person.org }}</span>
-            <span class="panelist-cta">Read bio</span>
-          </div>
-        </button>
-      </div>
-
-      <!-- Government representatives -->
-      <div class="lineup-head mt-14 md:mt-20">
-        <span class="lineup-kicker">Opening ceremony</span>
-        <span class="lineup-count">9:50 AM · Room 104</span>
-      </div>
-      <div class="grid grid-cols-1 gap-5 xs:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-        <button
-          v-for="person in representatives"
-          :key="person.id"
-          type="button"
-          class="panelist"
-          @click="showBio(person, person.id === 'don-terry-veal' ? 'Opening speaker' : 'Government representative')"
-        >
-          <div class="panelist-photo">
-            <img :src="person.img" :alt="person.name" width="800" height="1000" loading="lazy" decoding="async" />
-            <div class="panelist-shade"></div>
-            <span class="panelist-focus">{{ person.focus }}</span>
-          </div>
-          <div class="panelist-meta">
-            <span class="panelist-name">{{ person.name }}</span>
-            <span class="panelist-role">{{ person.role }}</span>
-            <span class="panelist-org">{{ person.org }}</span>
-            <span class="panelist-cta">Read bio</span>
-          </div>
-        </button>
-      </div>
-
-      <!-- Panel session -->
-      <div class="lineup-head mt-14 md:mt-20">
-        <span class="lineup-kicker">Panel: “Reinventing Industries”</span>
-        <span class="lineup-count">12:10 PM · Room 104</span>
-      </div>
-      <div class="grid grid-cols-1 gap-5 xs:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-        <button type="button" class="panelist" @click="showBio(moderator, 'Moderator & MC')">
-          <div class="panelist-photo">
-            <img :src="moderator.img" :alt="moderator.name" width="800" height="1000" loading="lazy" decoding="async" />
-            <div class="panelist-shade"></div>
-            <span class="panelist-focus">{{ moderator.focus }}</span>
-          </div>
-          <div class="panelist-meta">
-            <span class="panelist-name">{{ moderator.name }}</span>
-            <span class="panelist-role">{{ moderator.role }}</span>
-            <span class="panelist-org">{{ moderator.org }}</span>
-            <span class="panelist-cta">Read bio</span>
-          </div>
-        </button>
-        <button
-          v-for="person in panelists"
-          :key="person.id"
-          type="button"
-          class="panelist"
-          @click="showBio(person, 'Panelist')"
-        >
-          <div class="panelist-photo">
-            <img
-              :src="person.img"
-              :alt="person.name"
-              width="800"
-              height="1000"
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="panelist-shade"></div>
-            <span class="panelist-focus">{{ person.focus }}</span>
-          </div>
-          <div class="panelist-meta">
-            <span class="panelist-name">{{ person.name }}</span>
-            <span class="panelist-role">{{ person.role }}</span>
-            <span class="panelist-org">{{ person.org }}</span>
-            <span class="panelist-cta">Read bio</span>
-          </div>
-        </button>
-      </div>
-
-      <!-- Workshops -->
-      <div class="lineup-head mt-14 md:mt-20">
-        <span class="lineup-kicker">Workshops</span>
-        <span class="lineup-count">1:45 PM · 3 parallel sessions</span>
-      </div>
-      <div class="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-6">
-        <button
-          v-for="host in workshopHosts"
-          :key="host.id"
-          type="button"
-          class="host"
-          @click="showBio(host, 'Workshop host')"
-        >
-          <div class="host-photo">
-            <img
-              :src="host.thumb"
-              :alt="host.name"
-              width="480"
-              height="480"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="host-meta">
-            <span class="host-workshop">{{ host.workshop }}</span>
-            <span class="host-blurb">{{ host.workshopBlurb }}<template v-if="host.room"> · {{ host.room }}</template></span>
-            <span class="host-by">
-              <span class="host-name">{{ host.name }}</span>
-              <span class="host-role">{{ host.role }}</span>
-            </span>
-            <span class="panelist-cta">Read bio</span>
-          </div>
-        </button>
-      </div>
-
-      <!-- Judges -->
-      <div class="lineup-head mt-14 md:mt-20">
-        <span class="lineup-kicker">Judges</span>
-        <span class="lineup-count">Tech Case &amp; Expo</span>
-      </div>
-      <div class="judges" role="region" aria-label="Judges" aria-roledescription="carousel">
-        <div ref="judgeTrack" class="judges-track" tabindex="0" @scroll.passive="updateJudgeEnds">
-          <figure v-for="judge in judges" :key="judge.id" class="judge">
-            <div class="judge-photo">
-              <img :src="judge.img" :alt="judge.name" width="320" height="400" loading="lazy" decoding="async" />
-            </div>
-            <figcaption class="judge-name">{{ judge.name }}</figcaption>
-          </figure>
-        </div>
-        <div class="judges-nav">
-          <button type="button" class="judges-arrow" aria-label="Previous judges" :disabled="judgeAtStart" @click="slideJudges(-1)">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6" /></svg>
-          </button>
-          <button type="button" class="judges-arrow" aria-label="Next judges" :disabled="judgeAtEnd" @click="slideJudges(1)">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6" /></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <SpeakerModal :speaker="openSpeaker" :kicker="openKicker" @close="closeBio" />
-
   <!-- ===================== CORE COMPONENTS ===================== -->
   <div class="section-dark px-5 pb-16 pt-16 xs:px-8 md:pb-24 md:pt-24" id="components">
     <div class="mx-auto max-w-6xl">
@@ -498,8 +201,8 @@ onUnmounted(() => {
           <h3 class="comp-title">Tech Case Competition</h3>
           <p class="comp-subtitle">Team solution sprint</p>
           <p class="comp-text">
-            2026 case: AI for Small Business. Teams of 2&ndash;4 map a real small-business
-            workflow and pitch an AI-enabled redesign it could actually adopt. $3,000 prize pool.
+            Student teams take on a real-world case, work out where technology can make a practical difference,
+            and pitch their solution to faculty and industry judges.
           </p>
           <span class="comp-more">See details &rarr;</span>
         </a>
@@ -543,26 +246,24 @@ onUnmounted(() => {
     </div>
   </div>
 
-  <!-- ===================== PARTNERS ===================== -->
-  <div class="bg-flux-mist px-5 pb-16 pt-16 xs:px-8 md:pb-24 md:pt-24" id="partners">
-    <div class="mx-auto max-w-6xl">
-      <span class="section-label">Backed by</span>
-      <h2 class="mt-3 font-bebas text-5xl font-normal text-flux-ink xs:text-6xl sm:text-7xl">
-        Sponsors &amp; Partners
-      </h2>
-      <p class="mt-3 max-w-xl font-urbanist text-base text-flux-ink/55 sm:text-lg">
-        The organisations making Future Flux possible through funding, speakers, judges, prizes,
-        and venue.
-      </p>
-
-      <div class="partner-grid mt-10 md:mt-14">
-        <div v-for="item in partners" :key="item.name" class="partner-plate" :title="item.name">
-          <img :src="item.img" :alt="item.name" width="600" height="360" loading="lazy" decoding="async" />
-        </div>
+  <!-- ===================== PARTNER WITH US ===================== -->
+  <div class="section-dark px-5 pb-4 pt-16 xs:px-8 md:pt-24" id="partner">
+    <div class="partner-band mx-auto max-w-6xl">
+      <div>
+        <span class="section-label-light">Partner with us</span>
+        <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">Sponsor Morgan TechFest</h2>
+        <p class="mt-3 max-w-xl font-urbanist text-base text-white/60 sm:text-lg">
+          Meet the next generation of technology talent. See our reach, what we have achieved, and what sponsors gain.
+        </p>
       </div>
-
-      <div class="mt-10 flex justify-center md:mt-14">
-        <a href="/sponsors.html" class="cta-btn-dark">Sponsors &amp; reach &rarr;</a>
+      <ul class="partner-stats">
+        <li><b>4</b><span>editions since 2022</span></li>
+        <li><b>40+</b><span>partner organisations</span></li>
+        <li><b>$10K</b><span>in cash prizes awarded</span></li>
+      </ul>
+      <div class="flex flex-col gap-3 xs:flex-row">
+        <a href="/sponsors.html" class="cta-solid">Become a sponsor</a>
+        <a href="/sponsors.html#contact" class="cta-outline">Get in touch</a>
       </div>
     </div>
   </div>
@@ -570,7 +271,7 @@ onUnmounted(() => {
   <!-- ===================== HIGHLIGHTS (entry point) ===================== -->
   <div class="section-dark px-5 pb-12 pt-16 xs:px-8 md:pb-20 md:pt-24" id="highlights">
     <div class="mx-auto max-w-6xl">
-      <span class="section-label-light">2022 &ndash; 2024</span>
+      <span class="section-label-light">2022 &ndash; 2026</span>
       <h2 class="mt-3 font-bebas text-5xl font-normal text-white xs:text-6xl sm:text-7xl">
         Past Events
       </h2>
@@ -589,7 +290,7 @@ onUnmounted(() => {
             decoding="async"
           />
           <div class="recap-hero-shade"></div>
-          <span class="recap-chip">2024 &middot; GBSM, Baltimore</span>
+          <span class="recap-chip">2024 &middot; Morgan State, Baltimore</span>
           <div class="recap-stat"><b>175</b><span>attendees</span></div>
           <div class="recap-hero-foot">
             <span class="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-flux-cyan">The recap</span>
@@ -601,54 +302,40 @@ onUnmounted(() => {
         <!-- Entry index -->
         <div class="flex flex-col gap-3">
 
-          <a href="/highlights.html#awards" class="recap-idx">
+          <a href="/highlights.html" class="recap-idx">
             <span class="recap-idx-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4zM7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
             </span>
             <span class="min-w-0 flex-1">
-              <span class="recap-idx-h">Award Winners</span>
-              <span class="recap-idx-d">Innovation, technical depth, and real-world impact, recognised at the Award Ceremony.</span>
+              <span class="recap-idx-h">Past Events</span>
+              <span class="recap-idx-d">Every edition from 2022 to 2026: schedules, speakers, winners, documents and photos.</span>
             </span>
             <span class="recap-idx-arrow" aria-hidden="true">&rarr;</span>
           </a>
 
-          <a href="/media.html#gallery" class="recap-idx">
-            <span class="recap-idx-thumb">
-              <img
-                src="https://res.cloudinary.com/ojay-dev/image/upload/v1693912317/MorganTechFest/gallery/_PAG05472_b2x7ra.png"
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
+          <a href="/media.html" class="recap-idx">
+            <span class="recap-idx-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h13v14H6a2 2 0 0 1-2-2V5z"/><path d="M17 9h3v8a2 2 0 0 1-2 2"/><path d="M8 9h5M8 13h5M8 17h3"/></svg>
             </span>
             <span class="min-w-0 flex-1">
-              <span class="recap-idx-h">Photo Album</span>
-              <span class="recap-idx-d">The full gallery from the last edition, on one page.</span>
+              <span class="recap-idx-h">Media</span>
+              <span class="recap-idx-d">Press coverage of Morgan TechFest, from Forbes to Technical.ly.</span>
             </span>
             <span class="recap-idx-arrow" aria-hidden="true">&rarr;</span>
           </a>
 
-          <a href="/highlights.html#writeups" class="recap-idx">
+          <a href="/team.html" class="recap-idx">
             <span class="recap-idx-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 10h16M4 15h10M4 20h7"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.5A5 5 0 0 1 21 19"/></svg>
             </span>
             <span class="min-w-0 flex-1">
-              <span class="recap-idx-h">Write-ups</span>
-              <span class="recap-idx-d">Read the Medium recaps and stories from previous years.</span>
+              <span class="recap-idx-h">Team</span>
+              <span class="recap-idx-d">The students, directors and faculty advisors behind every edition.</span>
             </span>
             <span class="recap-idx-arrow" aria-hidden="true">&rarr;</span>
           </a>
 
         </div>
-      </div>
-
-      <!-- Proof strip -->
-      <div class="recap-proof">
-        <span class="recap-proof-label">Past sponsors &amp; partners</span>
-        <ul class="recap-proof-logos">
-          <li><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" loading="lazy" decoding="async" /></li>
-          <li><img src="/LFG_color.jpg" alt="Lincoln Financial" loading="lazy" decoding="async" /></li>
-        </ul>
       </div>
     </div>
   </div>
@@ -747,6 +434,33 @@ onUnmounted(() => {
   @apply text-white/65;
   text-shadow: 0 2px 14px rgba(20, 6, 40, 0.9);
 }
+
+/* Theme title while the next edition's theme is being finalised */
+.hero-theme { display: flex; flex-direction: column; gap: 10px; }
+.hero-theme-kicker {
+  font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: #0dc6f4;
+}
+.hero-theme-title {
+  font-family: 'Bebas Neue', sans-serif; font-weight: 400; line-height: 0.9;
+  font-size: clamp(72px, 13vw, 150px); letter-spacing: 0.01em;
+  background: linear-gradient(180deg, #ffffff 0%, #d9ecff 60%, #9fdcf5 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 6px 0 rgba(13, 40, 80, 0.85)) drop-shadow(0 18px 40px rgba(13, 198, 244, 0.25));
+}
+
+/* Partner-with-us band on the home page */
+.partner-band {
+  display: grid; gap: 28px; padding: 32px 28px; border-radius: 24px;
+  background: linear-gradient(150deg, rgba(61, 21, 82, 0.9), rgba(26, 10, 51, 0.9));
+  border: 1px solid rgba(13, 198, 244, 0.22);
+}
+@media (min-width: 900px) { .partner-band { grid-template-columns: 1.3fr 1fr; align-items: center; padding: 40px 44px; } }
+.partner-stats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.partner-stats li { padding: 14px 12px; border-radius: 16px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); }
+.partner-stats b { display: block; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 40px; line-height: 1; color: #0dc6f4; }
+.partner-stats span { display: block; margin-top: 4px; font-family: 'Urbanist', sans-serif; font-size: 13px; line-height: 1.35; color: rgba(255, 255, 255, 0.7); }
+@media (min-width: 900px) { .partner-band > div:last-child { grid-column: 1 / -1; } }
 
 .tagline-band {
   @apply mt-4 inline-block font-urbanist text-sm font-medium tracking-wide text-white xs:text-base sm:mt-5 sm:text-xl;

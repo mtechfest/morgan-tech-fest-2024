@@ -4,27 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Morgan TechFest: Schedule</title>
+  <meta name="description" content="How a day at Morgan TechFest runs, with the full schedule from every past edition." />
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" type="image/png" href="/icon-96.png" sizes="96x96" />
   <link rel="icon" type="image/png" href="/icon-192.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/page.css" />
+  <link rel="stylesheet" href="/edition.css" />
   <link rel="stylesheet" href="/site-nav.css">
   <link rel="stylesheet" href="/site-footer.css">
-  <style>
-    .program-box { margin-top:56px; display:grid; gap:24px; grid-template-columns:1fr; padding:26px; border-radius:22px; background:linear-gradient(160deg,#241145,#3d1552); border:1px solid rgba(13,198,244,0.3); box-shadow:0 24px 60px rgba(22,7,43,0.22); }
-    @media(min-width:720px){ .program-box{grid-template-columns:200px 1fr; gap:32px; padding:32px;} }
-    .program-cover { display:block; border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.14); box-shadow:0 16px 40px rgba(5,1,14,0.5); transition:transform .25s ease; max-width:220px; margin:0 auto; }
-    .program-cover:hover { transform:translateY(-3px); }
-    .program-cover img { display:block; width:100%; height:auto; }
-    .program-body h3 { margin-top:10px; font-family:'Bebas Neue',sans-serif; font-size:clamp(32px,4vw,44px); line-height:1; color:#fff; }
-    .program-body p { margin-top:12px; font-family:'Urbanist',sans-serif; font-size:17px; line-height:1.55; color:rgba(255,255,255,0.75); max-width:60ch; }
-    .program-actions { margin-top:22px; display:flex; flex-wrap:wrap; gap:12px; }
-    .program-actions .btn-primary { display:inline-flex; align-items:center; height:46px; padding:0 24px; border-radius:100px; background:linear-gradient(180deg,#ff7a1a 25%,#fc470b 100%); color:#fff; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; box-shadow:0 8px 24px rgba(252,71,11,0.28); }
-    .program-actions .btn-ghost { display:inline-flex; align-items:center; height:46px; padding:0 22px; border-radius:100px; border:1.5px solid rgba(255,255,255,0.3); color:#fff; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; }
-    .program-actions .btn-ghost:hover { border-color:#0dc6f4; }
-  </style>
 </head>
 <body>
 
@@ -44,12 +33,11 @@
           <a class="site-nav-link" href="/tech-case.html">Tech Case</a>
           <a class="site-nav-link" href="/innovation-expo.html">Innovation Expo</a>
           <a class="site-nav-link active" href="/schedule.html" aria-current="page">Schedule</a>
-          <a class="site-nav-link" href="/sponsors.html">Sponsors</a>
           <a class="site-nav-link" href="/team.html">Team</a>
           <a class="site-nav-link" href="/#faq">FAQ</a>
         </nav>
         <div class="site-header-right">
-          <a class="site-register-btn" href="https://form.jotform.com/262001088004038" target="_blank" rel="noopener noreferrer">Register now</a>
+          <a class="site-register-btn" href="/register.html">Register now</a>
         </div>
       </div>
     </div>
@@ -59,7 +47,6 @@
       <a class="site-mobile-nav-link" href="/tech-case.html">Tech Case</a>
       <a class="site-mobile-nav-link" href="/innovation-expo.html">Innovation Expo</a>
       <a class="site-mobile-nav-link active" href="/schedule.html" aria-current="page">Schedule</a>
-      <a class="site-mobile-nav-link" href="/sponsors.html">Sponsors</a>
       <a class="site-mobile-nav-link" href="/team.html">Team</a>
       <a class="site-mobile-nav-link" href="/#faq">FAQ</a>
     </nav>
@@ -69,118 +56,50 @@
   <!-- HEADER -->
   <div class="page-header">
     <div class="header-content animate-in">
-      <p class="eyebrow">Future Flux &middot; September 19, 2026</p>
+      <p class="eyebrow">Morgan TechFest &middot; The day</p>
       <h1>Order of <span>Program</span></h1>
-      <p class="subtitle">A full-day experience integrating innovation, competition, and industry engagement at the Earl G. Graves School of Business &amp; Management, Morgan State University.</p>
+      <p class="subtitle">A full day of innovation, competition, and industry engagement at Morgan State University.</p>
     </div>
   </div>
 
   <!-- MAIN -->
   <div class="main">
 
-    <!-- EVENT DAY SCHEDULE -->
-    <div class="section-block animate-in delay-1">
-      <span class="section-tag">Event Day</span>
-      <h2 class="section-title">Schedule</h2>
+    <div class="section-block animate-in">
+      <span class="section-tag">How the day runs</span>
+      <h2 class="section-title">The Shape of the Day</h2>
+      <p class="section-desc">Times, rooms and speakers change with each edition, but the day follows the same arc.</p>
+      <ol class="program">
+        <li><b>Welcome &amp; Kickoff</b><small>Breakfast and registration, the opening ceremony, and a keynote.</small></li>
+        <li><b>Expo &amp; Insights</b><small>Innovation Expo presentations and an industry panel.</small></li>
+        <li><b>Learning &amp; Competition</b><small>Hands-on workshops and the Tech Case Competition finals.</small></li>
+        <li><b>Recognition &amp; Celebration</b><small>The Award Ceremony and closing remarks.</small></li>
+        <li><b>Networking</b><small>Time to meet speakers, judges, recruiters and fellow students.</small></li>
+      </ol>
+      <div class="note-box" style="margin-top: 28px;">The schedule for the next edition is published on this page when it is confirmed.</div>
     </div>
 
-    <div class="timeline animate-in delay-3">
-
-      <div class="timeline-session">
-        <div class="timeline-session-title">Morning: Welcome &amp; Kickoff</div>
-        <div class="timeline-item">
-          <span class="timeline-time">9:00 – 9:50 AM</span>
-          <span class="timeline-event">Breakfast &amp; Registration</span>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-time">9:50 – 10:20 AM</span>
-          <span class="timeline-event">Opening Ceremony
-            <span class="timeline-detail">Room 104 · Auditorium, Lower Level</span>
-            <span class="timeline-detail">Office of the President · Office of the Governor of Maryland · Office of the Mayor of Baltimore</span></span>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-time">10:20 – 10:50 AM</span>
-          <span class="timeline-event">Keynote Presentation
-            <span class="timeline-detail">Ms. Alexis Robinson, Principal Program Manager, Amazon</span>
-            <span class="timeline-detail">Room 104 · Auditorium, Lower Level</span></span>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-time">10:50 – 11:10 AM</span>
-          <span class="timeline-event">Program &amp; Competition Overview
-            <span class="timeline-detail">Room 104 · Auditorium, Lower Level</span></span>
-        </div>
+    <div class="section-block animate-in delay-1" style="margin-top: 64px;" id="past-schedules">
+      <span class="section-tag">Previous editions</span>
+      <h2 class="section-title">Past Schedules</h2>
+      <div class="ed-grid">
+        <a class="ed-card" href="/past/2022.html#schedule">
+          <div class="ed-card-art"><img src="/past/2022-flyer.webp" alt="" width="1200" height="1196" loading="lazy" decoding="async" /><span class="ed-card-year">2022</span></div>
+          <div class="ed-card-body"><span class="ed-card-theme">One-day program of talks and an industry panel</span><span class="ed-card-meta">October 18, 2022</span><span class="ed-card-go">View the 2022 schedule &rarr;</span></div>
+        </a>
+        <a class="ed-card" href="/past/2023.html#schedule">
+          <div class="ed-card-art"><img src="/past/2023-flyer.webp" alt="" width="1200" height="1200" loading="lazy" decoding="async" /><span class="ed-card-year">2023</span></div>
+          <div class="ed-card-body"><span class="ed-card-theme">Two days: research symposium, panels, workshops and job fair</span><span class="ed-card-meta">November 17&ndash;18, 2023</span><span class="ed-card-go">View the 2023 schedule &rarr;</span></div>
+        </a>
+        <a class="ed-card" href="/past/2024.html#schedule">
+          <div class="ed-card-art"><img src="/past/2024-flyer.webp" alt="" width="864" height="1080" loading="lazy" decoding="async" /><span class="ed-card-year">2024</span></div>
+          <div class="ed-card-body"><span class="ed-card-theme">Keynote, panels, Innovation Expo, mentor match and awards</span><span class="ed-card-meta">September 28, 2024</span><span class="ed-card-go">View the 2024 schedule &rarr;</span></div>
+        </a>
+        <a class="ed-card" href="/past/2026.html#schedule">
+          <div class="ed-card-art"><img src="/future-flux.webp" alt="" width="1400" height="815" loading="lazy" decoding="async" /><span class="ed-card-year">2026</span></div>
+          <div class="ed-card-body"><span class="ed-card-theme">Full-day schedule with the Tech Case finals and the official program</span><span class="ed-card-meta">September 19, 2026</span><span class="ed-card-go">View the 2026 schedule &rarr;</span></div>
+        </a>
       </div>
-
-      <div class="timeline-session">
-        <div class="timeline-session-title">Midday: Expo &amp; Insights</div>
-        <div class="timeline-item">
-          <span class="timeline-time">11:10 AM – 12:10 PM</span>
-          <span class="timeline-event">Innovation Expo Presentations
-            <span class="timeline-detail">Second Floor</span></span>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-time">12:10 – 12:45 PM</span>
-          <span class="timeline-event">Panel Discussion: “Reinventing Industries”
-            <span class="timeline-detail">Moderated by Ms. Juliana Talabi</span>
-            <span class="timeline-detail">Panelists: Nuel Adeyeye, Dr. Jamell Dacon, Eyitayo Ogunmola</span>
-            <span class="timeline-detail">Room 104 · Auditorium, Lower Level</span></span>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-time">12:45 – 1:45 PM</span>
-          <span class="timeline-event">Lunch
-            <span class="timeline-detail">Atrium</span></span>
-        </div>
-      </div>
-
-      <div class="timeline-session">
-        <div class="timeline-session-title">Afternoon: Learning &amp; Competition</div>
-        <div class="timeline-item">
-          <span class="timeline-time">1:45 – 2:45 PM</span>
-          <span class="timeline-event">Workshop Sessions
-            <span class="timeline-detail">Build Like a Full-Stack Product Manager on Lovable · Room 110</span>
-            <span class="timeline-detail">How to Land a Six-Figure Career in Tech · Room 112</span>
-            <span class="timeline-detail">Kiro · Room 105</span></span>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-time">2:45 – 3:45 PM</span>
-          <span class="timeline-event">Tech Case Competition Presentations
-            <span class="timeline-detail">Room 104 · Auditorium, Lower Level</span></span>
-        </div>
-      </div>
-
-      <div class="timeline-session">
-        <div class="timeline-session-title">Closing: Recognition &amp; Celebration</div>
-        <div class="timeline-item">
-          <span class="timeline-time">3:45 – 4:45 PM</span>
-          <span class="timeline-event">Award Ceremony &amp; Closing Remarks
-            <span class="timeline-detail">Room 104 · Auditorium, Lower Level</span></span>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-time">4:45 – 6:00 PM</span>
-          <span class="timeline-event">Refreshments &amp; Informal Networking
-            <span class="timeline-detail">Atrium</span></span>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="program-box animate-in delay-4">
-      <a class="program-cover" href="/program/Morgan-TechFest-2026-Program.pdf" target="_blank" rel="noopener">
-        <img src="/program/cover.webp" alt="Morgan TechFest 2026 program cover" width="510" height="660" loading="lazy">
-      </a>
-      <div class="program-body">
-        <span class="section-tag">Event program</span>
-        <h3>Future Flux: The Official Program</h3>
-        <p>The full 12-page conference program: a note from the President, our journey since 2022, distinguished guests and university leadership, the agenda, speakers and facilitators, Tech Case and Innovation Expo judges, and our partners.</p>
-        <div class="program-actions">
-          <a class="btn-primary" href="/program/Morgan-TechFest-2026-Program.pdf" target="_blank" rel="noopener">View the program</a>
-          <a class="btn-ghost" href="/program/Morgan-TechFest-2026-Program.pdf" download="Morgan-TechFest-2026-Program.pdf">Download PDF &middot; 2 MB</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="note-box animate-in delay-4" style="margin-top: 32px;">
-      <strong>Final event-day schedule.</strong> All sessions take place at the Earl G. Graves School of Business &amp; Management, Morgan State University. Check in on the 2nd floor.
     </div>
 
   </div>

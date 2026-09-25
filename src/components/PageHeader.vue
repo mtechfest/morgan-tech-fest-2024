@@ -89,8 +89,6 @@ onUnmounted(() => {
         <div class="flex items-center gap-x-3">
           <a
             :href="eventInfo.registerUrl"
-            target="_blank"
-            rel="noopener noreferrer"
             class="register-btn"
             >Register now</a
           >

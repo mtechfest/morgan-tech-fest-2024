@@ -1,14 +1,13 @@
 // ── Event details: single source of truth for the hero + countdown ──
 export const eventInfo = {
-  theme: 'Future Flux',
-  tagline: 'Building The Intelligent World',
-  iso: '2026-09-19T09:00:00',
-  stamp: '2026-09-19 09:00 ET',
-  date: 'September 19, 2026',
-  venue: 'Earl G. Graves School of Business & Management',
+  year: '2027',
+  theme: 'Coming Soon',
+  iso: '2027-09-18T09:00:00',
+  stamp: '2027-09-18 09:00 ET',
+  date: 'September 18, 2027',
+  venue: 'University Student Center',
   city: 'Morgan State University, Baltimore, MD',
-  registerUrl: 'https://form.jotform.com/262001088004038',
-  domains: ['AI', 'Cybersecurity', 'Robotics', 'Data Science']
+  registerUrl: '/register.html'
 }
 
 // Nav is data, so the desktop bar and the mobile disclosure cannot drift apart.
@@ -20,7 +19,6 @@ export const nav = [
   { id: 'techcase', label: 'Tech Case', href: '/tech-case.html' },
   { id: 'expo', label: 'Innovation Expo', href: '/innovation-expo.html' },
   { id: 'schedule', label: 'Schedule', index: '04', href: '/schedule.html' },
-  { id: 'sponsors', label: 'Sponsors', href: '/sponsors.html' },
   { id: 'team', label: 'Team', href: '/team.html' },
   { id: 'faq', label: 'FAQ', index: '06' }
 ]
@@ -152,8 +150,8 @@ export const partners = [
 
 export const FaqQuestionsAnswers = [
   {
-    question: 'What is the 2026 theme?',
-    answer: 'Future Flux: Building The Intelligent World. The 2026 edition runs across four areas shaping that world: AI, Cybersecurity, Robotics, and Data Science.'
+    question: `What is the ${eventInfo.year} theme?`,
+    answer: `The theme for Morgan TechFest ${eventInfo.year} is coming soon. It will be announced here and on our social channels.`
   },
   {
     question: 'What is Morgan TechFest?',
@@ -164,8 +162,8 @@ export const FaqQuestionsAnswers = [
     answer: 'Morgan TechFest is open to students from Morgan State University and other institutions. We encourage inter-university collaboration and diverse perspectives.'
   },
   {
-    question: 'What is the 2026 Tech Case?',
-    answer: 'AI for Small Business: The Workflow Adoption Challenge. Teams of 2–4 pick one of three composite cases (an independent consumer business, a specialty-crop farm, or a nurse-led home-health agency), map how the work happens today, and pitch an AI-enabled redesign the business could adopt without a technical team. A $3,000 prize pool is split $1,200 / $1,000 / $800.'
+    question: 'What is the Tech Case Competition?',
+    answer: 'Student teams take on a real-world case, work out where technology can make a practical difference, and pitch their solution to faculty and industry judges. The case, format, and prizes for each edition are published on the Tech Case page when the competition opens.'
   },
   {
     question: 'What can I showcase at the Innovation Expo?',
@@ -177,10 +175,10 @@ export const FaqQuestionsAnswers = [
   },
   {
     question: 'Where is it held?',
-    answer: 'The Earl G. Graves School of Business & Management at Morgan State University, Baltimore, MD. It is an in-person event held on September 19, 2026.'
+    answer: `The ${eventInfo.venue} at ${eventInfo.city}. It is an in-person event on ${eventInfo.date}.`
   },
   {
     question: 'How do I register?',
-    answer: 'Click the Register Now button at the top of this page and fill out the form.'
+    answer: 'Registration for Morgan TechFest 2027 opens soon. Once it does, the Register Now button at the top of this page will take you straight to the form.'
   }
 ]

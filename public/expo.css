@@ -1,0 +1,41 @@
+/* Innovation Expo pieces reused on the 2026 edition page (expo-only classes). */
+.track-grid { margin-top:22px; display:grid; gap:18px; grid-template-columns:1fr; }
+@media(min-width:760px) {
+  .track-grid{grid-template-columns:repeat(2,1fr);}
+}
+.track { padding:26px 26px 28px; border-radius:18px; color:#fff; }
+.track-research { background:linear-gradient(160deg,#241145,#3d1552); }
+.track-tech { background:linear-gradient(160deg,#c2410c,#fc470b); }
+.track h3 { font-family:'Bebas Neue',sans-serif; font-size:clamp(30px,3.5vw,38px); line-height:1; }
+.track p { margin-top:12px; font-family:'Urbanist',sans-serif; font-size:17px; line-height:1.55; color:rgba(255,255,255,0.88); }
+.track h5 { margin-top:18px; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; font-weight:700; color:rgba(255,255,255,0.7); }
+.track ul { margin-top:8px; padding-left:20px; display:grid; gap:5px; font-family:'Urbanist',sans-serif; font-size:16px; line-height:1.45; color:rgba(255,255,255,0.92); }
+.track .cats { margin-top:10px; display:flex; flex-wrap:wrap; gap:8px; padding:0; list-style:none; }
+.track .cats li { padding:6px 12px; border-radius:100px; background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.28); font-size:14px; font-weight:600; }
+.track a { color:#fff; text-decoration:underline; text-underline-offset:3px; }
+.xdays { margin-top:18px; display:grid; gap:12px; grid-template-columns:1fr; }
+@media(min-width:640px) {
+  .xdays{grid-template-columns:repeat(4,1fr);}
+}
+.xday { padding:18px 18px 20px; border-radius:14px; background:#fff; border:1px solid rgba(22,7,43,0.08); box-shadow:0 6px 16px rgba(22,7,43,0.05); }
+.xday b { display:block; font-family:'Bebas Neue',sans-serif; font-size:30px; line-height:1; color:var(--dark); }
+.xday span { display:block; margin-top:6px; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--orange); font-weight:700; }
+.xday p { margin-top:8px; font-family:'Urbanist',sans-serif; font-size:15px; line-height:1.45; color:#333; }
+.tips { margin-top:18px; display:grid; gap:14px; grid-template-columns:1fr; }
+@media(min-width:640px) {
+  .tips{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:960px) {
+  .tips{grid-template-columns:repeat(4,1fr);}
+}
+.tip { padding:20px; border-radius:14px; background:#fff; border:1px solid rgba(22,7,43,0.08); }
+.tip h4 { font-family:'JetBrains Mono',ui-monospace,monospace; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:var(--orange); font-weight:700; }
+.tip p { margin-top:8px; font-family:'Urbanist',sans-serif; font-size:16px; line-height:1.5; color:#111; }
+.faq { margin-top:16px; display:grid; gap:10px; }
+.faq details { border-radius:12px; background:#fff; border:1px solid rgba(22,7,43,0.08); padding:0 18px; }
+.faq summary { cursor:pointer; padding:14px 0; font-family:'Urbanist',sans-serif; font-size:17px; font-weight:700; color:var(--dark); list-style:none; display:flex; justify-content:space-between; gap:12px; }
+.faq summary::-webkit-details-marker { display:none; }
+.faq summary::after { content:'+'; color:var(--orange); font-family:'JetBrains Mono',monospace; font-size:20px; }
+.faq details[open] summary::after { content:'\2212'; }
+.faq details p { padding:0 0 16px; font-family:'Urbanist',sans-serif; font-size:16px; line-height:1.5; color:#111; }
+.faq a { color:var(--dark); text-decoration:underline; text-underline-offset:3px; }

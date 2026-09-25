@@ -110,3 +110,37 @@
 @media (prefers-reduced-motion: reduce) {
   .ed-card, .ed-card-art img, .photo-grid img { transition: none; }
 }
+
+/* ===== EVENT PROGRAM (PDF) BOX, used on the 2026 edition page ===== */
+.program-box { margin-top:56px; display:grid; gap:24px; grid-template-columns:1fr; padding:26px; border-radius:22px; background:linear-gradient(160deg,#241145,#3d1552); border:1px solid rgba(13,198,244,0.3); box-shadow:0 24px 60px rgba(22,7,43,0.22); }
+@media(min-width:720px){ .program-box{grid-template-columns:200px 1fr; gap:32px; padding:32px;} }
+.program-cover { display:block; border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.14); box-shadow:0 16px 40px rgba(5,1,14,0.5); transition:transform .25s ease; max-width:220px; margin:0 auto; }
+.program-cover:hover { transform:translateY(-3px); }
+.program-cover img { display:block; width:100%; height:auto; }
+.program-body h3 { margin-top:10px; font-family:'Bebas Neue',sans-serif; font-size:clamp(32px,4vw,44px); line-height:1; color:#fff; }
+.program-body p { margin-top:12px; font-family:'Urbanist',sans-serif; font-size:17px; line-height:1.55; color:rgba(255,255,255,0.75); max-width:60ch; }
+.program-actions { margin-top:22px; display:flex; flex-wrap:wrap; gap:12px; }
+.program-actions .btn-primary { display:inline-flex; align-items:center; height:46px; padding:0 24px; border-radius:100px; background:linear-gradient(180deg,#ff7a1a 25%,#fc470b 100%); color:#fff; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; box-shadow:0 8px 24px rgba(252,71,11,0.28); }
+.program-actions .btn-ghost { display:inline-flex; align-items:center; height:46px; padding:0 22px; border-radius:100px; border:1.5px solid rgba(255,255,255,0.3); color:#fff; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; }
+.program-actions .btn-ghost:hover { border-color:#0dc6f4; }
+
+/* ===== EVENT DOCUMENTS ===== */
+.doc-grid { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 700px) { .doc-grid { grid-template-columns: repeat(2, 1fr); } }
+.doc-card { display: flex; gap: 16px; align-items: flex-start; padding: 18px 20px; border-radius: 16px; background: #fff; border: 1px solid rgba(22, 7, 43, 0.08); box-shadow: 0 10px 26px rgba(22, 7, 43, 0.06); }
+.doc-type {
+  flex: none; display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 60px; border-radius: 10px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #fff; background: var(--blue-mid);
+}
+.doc-type.is-img { background: var(--blue); }
+.doc-type.is-ppt { background: #c4491f; }
+.doc-body { min-width: 0; }
+.doc-title { display: block; font-family: 'Urbanist', sans-serif; font-size: 18px; font-weight: 700; line-height: 1.3; color: var(--dark); }
+.doc-desc { display: block; margin-top: 4px; font-family: 'Urbanist', sans-serif; font-size: 15px; line-height: 1.45; color: #555; }
+.doc-meta { display: block; margin-top: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #777; }
+.doc-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 10px; }
+.doc-actions a { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-mid); text-decoration: none; border-bottom: 1.5px solid rgba(61, 21, 82, 0.25); padding-bottom: 2px; }
+.doc-actions a:hover { color: var(--dark); border-bottom-color: var(--orange); }
+.doc-actions a:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+.team-link { margin-top: 22px; font-family: 'Urbanist', sans-serif; font-size: 16px; color: #444; }
+.inline-link { color: var(--dark); text-decoration: underline; text-underline-offset: 3px; }
