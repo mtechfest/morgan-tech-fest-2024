@@ -294,7 +294,7 @@ onUnmounted(() => {
         </div>
       </div>
       <div class="mt-8 text-center">
-        <a href="/highlights.html#news" class="cta-outline">Read the coverage &rarr;</a>
+        <a href="/media.html#news" class="cta-outline">Read the coverage &rarr;</a>
       </div>
     </div>
   </div>
@@ -612,7 +612,7 @@ onUnmounted(() => {
             <span class="recap-idx-arrow" aria-hidden="true">&rarr;</span>
           </a>
 
-          <a href="/highlights.html#gallery" class="recap-idx">
+          <a href="/media.html#gallery" class="recap-idx">
             <span class="recap-idx-thumb">
               <img
                 src="https://res.cloudinary.com/ojay-dev/image/upload/v1693912317/MorganTechFest/gallery/_PAG05472_b2x7ra.png"

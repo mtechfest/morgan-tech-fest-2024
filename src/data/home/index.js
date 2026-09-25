@@ -28,8 +28,15 @@ export const nav = [
 // Secondary pages that moved out of the header menu into the footer.
 export const footerLinks = [
   { label: 'Transit', href: '/transit.html' },
-  { label: 'Past Events', href: '/highlights.html' }
+  { label: 'Past Events', href: '/highlights.html' },
+  { label: 'Media', href: '/media.html' }
 ]
+
+// Quick links to each past edition's page, shown in the footer.
+export const pastEditions = ['2022', '2023', '2024', '2026'].map((year) => ({
+  label: year,
+  href: `/past/${year}.html`
+}))
 
 // Headline program blocks, in the order they actually run on the day.
 // The SH-0n ids are a sequence, so the order here must match the timeline on

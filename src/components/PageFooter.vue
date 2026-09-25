@@ -7,7 +7,7 @@ import TwitterIcon from '@/components/icons/IconTwitter.vue'
 import InstagramIcon from '@/components/icons/IconInstagram.vue'
 import GithubIcon from '@/components/icons/IconGithub.vue'
 import DiscordIcon from '@/components/icons/IconDiscord.vue'
-import { footerLinks } from '@/data/home'
+import { footerLinks, pastEditions } from '@/data/home'
 
 const socials = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/company/morgan-techfest/', icon: LinkedinIcon },
@@ -33,6 +33,14 @@ const year = new Date().getFullYear()
         <h2 class="site-footer-heading">More from TechFest</h2>
         <ul class="site-footer-list">
           <li v-for="link in footerLinks" :key="link.href">
+            <a class="site-footer-link" :href="link.href">{{ link.label }}</a>
+          </li>
+        </ul>
+      </nav>
+      <nav class="site-footer-nav site-footer-editions" aria-label="Past editions">
+        <h2 class="site-footer-heading">Past Editions</h2>
+        <ul class="site-footer-list site-footer-years">
+          <li v-for="link in pastEditions" :key="link.href">
             <a class="site-footer-link" :href="link.href">{{ link.label }}</a>
           </li>
         </ul>
