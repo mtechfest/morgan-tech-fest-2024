@@ -174,3 +174,11 @@
 .fold-wide > .fold-body > .section-block:first-child { margin-top: 8px !important; }
 @media print { .fold > .fold-body { display: block !important; } }
 @media (prefers-reduced-motion: reduce) { .fold-chev { transition: none; } }
+
+/* ===== COMMUNITY VIDEO ===== */
+.community-video { margin: 24px 0 0; }
+.community-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 16px; background: var(--void); box-shadow: 0 14px 36px rgba(var(--ink-rgb), 0.18); }
+.community-video figcaption { margin-top: 8px; font-family: 'Urbanist', sans-serif; font-size: 14px; color: #555; }
+.community-video + .photo-grid { margin-top: 16px; }
+.album-link { align-items: center; margin-top: 24px; }
+.album-note { font-family: 'Urbanist', sans-serif; font-size: 14px; color: #666; }
