@@ -1,0 +1,42 @@
+@import './base.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .antd-custom-menu .ant-menu-submenu-title {
+    display: none !important;
+  }
+
+  .antd-custom-menu .ant-menu-submenu {
+    background: #0B2461 !important;
+  }
+
+  .antd-custom-menu .ant-menu-sub {
+    background: #0B2461 !important;
+  }
+
+  .antd-custom-menu .ant-menu-item {
+    @apply p-0 py-2 font-urbanist text-lg font-medium text-white;
+    color: white !important;
+    padding-left: 0px !important;
+    text-align: center;
+    margin-bottom: 16px !important;
+  }
+
+  .antd-custom-menu .ant-menu-item:hover {
+    color: #FC711B !important;
+  }
+
+  .antd-custom-menu .ant-menu-item-selected {
+    background-color: #1545A0 !important;
+    color: #FC711B !important;
+  }
+}
+
+/* Positioning context for the absolutely-placed page backdrop */
+#app {
+  position: relative;
+  min-height: 100vh;
+}
