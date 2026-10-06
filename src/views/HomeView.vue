@@ -1,7 +1,21 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import FAQItem from '@/components/FAQItem.vue'
-import { schedule, FaqQuestionsAnswers, eventInfo } from '@/data/home'
+import SpeakerModal from '@/components/SpeakerModal.vue'
+import { schedule, partners, FaqQuestionsAnswers, eventInfo } from '@/data/home'
+import { speakers, representatives, moderator, panelists, workshopHosts, judges } from '@/data/home/speakers'
+
+/* ── Speaker bios ────────────────────────────────────────────
+   One modal instance; the cards just say who is open. */
+const openSpeaker = ref(null)
+const openKicker = ref('Panelist')
+const showBio = (person, kicker) => {
+  openSpeaker.value = person
+  openKicker.value = kicker
+}
+const closeBio = () => {
+  openSpeaker.value = null
+}
 
 /* ── Countdown ───────────────────────────────────────────────
    One interval, and it only runs while the tab is actually visible.
@@ -43,6 +57,37 @@ const onVisibility = () => {
   else startTimer()
 }
 
+/* ── Judges slider ──────────────────────────────────────────
+   A native scroll-snap row (swipe on phones, trackpad on laptops); the arrows
+   just scroll it by one card and grey out at either end. */
+const judgeTrack = ref(null)
+const judgeAtStart = ref(true)
+const judgeAtEnd = ref(false)
+const updateJudgeEnds = () => {
+  const el = judgeTrack.value
+  if (!el) return
+  judgeAtStart.value = el.scrollLeft <= 4
+  judgeAtEnd.value = el.scrollLeft + el.clientWidth >= el.scrollWidth - 4
+}
+const slideJudges = (dir) => {
+  const el = judgeTrack.value
+  if (!el) return
+  const card = el.querySelector('.judge')
+  const step = card ? card.getBoundingClientRect().width + 20 : el.clientWidth * 0.8
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  el.scrollBy({ left: dir * step, behavior: reduce ? 'auto' : 'smooth' })
+}
+
+/* ── Provost video ── */
+const provostVideo = ref(null)
+const provostPlaying = ref(false)
+const playProvost = () => {
+  const el = provostVideo.value
+  if (!el) return
+  document.getElementById('provost')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  el.play().catch(() => {})
+}
+
 /* ── Off-screen animation pause ─────────────────────────────
    Infinite CSS animations keep the compositor awake even when the element is
    nowhere near the viewport. One observer parks them until they are back. */
@@ -54,6 +99,8 @@ let motionObserver = null
 
 onMounted(() => {
   startTimer()
+  updateJudgeEnds()
+  window.addEventListener('resize', updateJudgeEnds, { passive: true })
   document.addEventListener('visibilitychange', onVisibility)
 
   if ('IntersectionObserver' in window) {
@@ -74,6 +121,7 @@ onMounted(() => {
 onUnmounted(() => {
   stopTimer()
   document.removeEventListener('visibilitychange', onVisibility)
+  window.removeEventListener('resize', updateJudgeEnds)
   if (motionObserver) {
     motionObserver.disconnect()
     motionObserver = null
@@ -94,29 +142,39 @@ onUnmounted(() => {
     >
       <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,400px)_1fr] lg:gap-16">
 
-        <!-- LEFT: glowing globe portal + countdown -->
+        <!-- LEFT: countdown to the next edition -->
         <div ref="portal" class="hero-portal animate-rise-2" :class="{ 'is-idle': !portalLive }">
           <div class="hero-portal-globe" aria-hidden="true"></div>
           <div class="hero-portal-inner">
-            <span class="portal-label">Doors open in</span>
+            <span class="portal-label">TechFest {{ eventInfo.year }} in</span>
             <span class="portal-num">{{ days }}</span>
             <span class="portal-unit">Days</span>
             <span class="portal-clock">{{ hours }}:{{ mins }}:{{ secs }}</span>
             <span class="portal-date">{{ eventInfo.date }}</span>
+            <span class="portal-soon">Theme coming soon</span>
           </div>
         </div>
 
-        <!-- RIGHT: title, pill, CTAs -->
+        <!-- RIGHT: Future Flux recap, then what is next -->
         <div class="text-center lg:text-left">
           <span class="hero-pill animate-rise-1">
-            <span class="pill-dot"></span> Save the date
-            <span class="pill-sep">&middot;</span> {{ eventInfo.date }}
+            <span class="pill-dot"></span> Thank you for Future Flux
+            <span class="pill-sep">&middot;</span> September 19, 2026
           </span>
 
-          <h1 class="hero-theme animate-rise-2 mt-5">
-            <span class="hero-theme-kicker">Morgan TechFest {{ eventInfo.year }} &middot; Theme</span>
-            <span class="hero-theme-title">{{ eventInfo.theme }}</span>
+          <h1 class="animate-rise-2 mt-5">
+            <span class="sr-only">Future Flux: Building the Intelligent World</span>
+            <img
+              src="/future-flux.webp"
+              alt=""
+              class="mx-auto w-[86%] max-w-[360px] sm:max-w-[440px] lg:mx-0 lg:max-w-[520px]"
+              width="1400"
+              height="815"
+              fetchpriority="high"
+            />
           </h1>
+
+          <p class="tagline-band animate-rise-3">Building The Intelligent World</p>
 
           <p
             class="animate-rise-3 mt-6 flex items-center justify-center gap-x-3 font-bebas text-2xl tracking-wide text-white xs:gap-x-4 xs:text-3xl sm:text-4xl lg:justify-start"
@@ -131,21 +189,70 @@ onUnmounted(() => {
           <p
             class="hero-intro animate-rise-3 mx-auto mt-4 max-w-md font-urbanist text-base leading-relaxed sm:text-lg lg:mx-0"
           >
-            Empowering the next generation of technology leaders.
+            Thank you to everyone who joined us for Future Flux. Morgan TechFest {{ eventInfo.year }} is coming soon.
           </p>
 
           <div class="animate-rise-4 mt-8 flex flex-col items-center gap-3 xs:flex-row xs:justify-center lg:justify-start">
-            <a
-              :href="eventInfo.registerUrl"
-              class="cta-solid"
-              >Register now</a
-            >
-            <a href="/schedule.html" class="cta-outline">View schedule</a>
+            <a :href="eventInfo.registerUrl" class="cta-solid">Register now</a>
+            <a href="/past/2026.html" class="cta-outline">Relive Future Flux</a>
           </div>
 
-          <p class="mt-5 font-urbanist text-sm text-white/45">
-            {{ eventInfo.venue }} &middot; {{ eventInfo.city }}
+          <p class="hero-next animate-rise-4">
+            <span class="hero-next-label">Next</span>
+            Morgan TechFest {{ eventInfo.year }} &middot; {{ eventInfo.date }} &middot; {{ eventInfo.venue }} &middot; Theme coming soon
           </p>
+
+          <a href="#provost" class="hero-watch animate-rise-4" @click.prevent="playProvost">
+            <span class="hero-watch-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
+            Watch the Provost&rsquo;s invitation
+            <span class="hero-watch-len">0:49</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROVOST INVITATION ===================== -->
+  <section class="provost" id="provost">
+    <div class="mx-auto grid max-w-6xl gap-10 px-5 xs:px-8 lg:grid-cols-[1.25fr_1fr] lg:items-center lg:gap-14">
+      <div class="provost-frame">
+        <video
+          ref="provostVideo"
+          class="provost-video"
+          poster="/media/provost-invitation-poster.webp"
+          preload="metadata"
+          playsinline
+          controls
+          @play="provostPlaying = true"
+          @pause="provostPlaying = false"
+          @ended="provostPlaying = false"
+        >
+          <source src="/media/provost-invitation.mp4" type="video/mp4" />
+        </video>
+        <button
+          v-if="!provostPlaying"
+          type="button"
+          class="provost-play"
+          aria-label="Play the Provost's invitation"
+          @click="playProvost"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+        </button>
+      </div>
+      <div class="text-center lg:text-left">
+        <span class="section-label-light">A personal invitation</span>
+        <h2 class="mt-3 font-bebas text-5xl font-normal leading-none text-white xs:text-6xl sm:text-7xl">
+          From the Office of the Provost
+        </h2>
+        <p class="mx-auto mt-5 max-w-md font-urbanist text-base leading-relaxed text-white/70 sm:text-lg lg:mx-0">
+          Morgan State University&rsquo;s Provost welcomed students, researchers, and industry partners to
+          Future Flux 2026, and explained why TechFest matters.
+        </p>
+        <p class="provost-name">Dr. Hongtao Yu</p>
+        <p class="provost-title">Provost and Senior Vice President, Morgan State University</p>
+        <div class="mt-8 flex flex-col items-center gap-3 xs:flex-row xs:justify-center lg:justify-start">
+          <a href="/past/2026.html" class="cta-solid">Relive Future Flux</a>
+          <a href="#speakers" class="cta-outline">Meet the lineup</a>
         </div>
       </div>
     </div>
@@ -187,6 +294,192 @@ onUnmounted(() => {
       </div>
     </div>
   </div>
+
+  <!-- ===================== SPEAKERS ===================== -->
+  <div class="bg-flux-mist px-5 pb-16 pt-14 xs:px-8 md:pb-24 md:pt-20" id="speakers">
+    <div class="mx-auto max-w-6xl">
+      <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div>
+          <span class="section-label">Future Flux 2026 lineup</span>
+          <h2 class="mt-3 font-bebas text-5xl font-normal text-flux-ink xs:text-6xl sm:text-7xl">
+            Speakers, Panelists &amp; Workshop Hosts
+          </h2>
+        </div>
+        <p class="max-w-sm font-urbanist text-base text-flux-ink/55 sm:text-lg md:pb-2 md:text-right">
+          Builders, researchers, and founders who joined us in Baltimore for Future Flux.
+        </p>
+      </div>
+
+      <!-- Speakers -->
+      <div class="lineup-head">
+        <span class="lineup-kicker">Keynote speaker</span>
+        <span class="lineup-count">10:20 AM · Room 104</span>
+      </div>
+      <div class="grid grid-cols-1 gap-5 xs:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+        <button
+          v-for="person in speakers"
+          :key="person.id"
+          type="button"
+          class="panelist"
+          @click="showBio(person, 'Speaker')"
+        >
+          <div class="panelist-photo">
+            <img
+              :src="person.img"
+              :alt="person.name"
+              width="800"
+              height="1000"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="panelist-shade"></div>
+            <span class="panelist-focus">{{ person.focus }}</span>
+          </div>
+          <div class="panelist-meta">
+            <span class="panelist-name">{{ person.name }}</span>
+            <span class="panelist-role">{{ person.role }}</span>
+            <span class="panelist-org">{{ person.org }}</span>
+            <span class="panelist-cta">Read bio</span>
+          </div>
+        </button>
+      </div>
+
+      <!-- Government representatives -->
+      <div class="lineup-head mt-14 md:mt-20">
+        <span class="lineup-kicker">Opening ceremony</span>
+        <span class="lineup-count">9:50 AM · Room 104</span>
+      </div>
+      <div class="grid grid-cols-1 gap-5 xs:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <button
+          v-for="person in representatives"
+          :key="person.id"
+          type="button"
+          class="panelist"
+          @click="showBio(person, person.id === 'don-terry-veal' ? 'Opening speaker' : 'Government representative')"
+        >
+          <div class="panelist-photo">
+            <img :src="person.img" :alt="person.name" width="800" height="1000" loading="lazy" decoding="async" />
+            <div class="panelist-shade"></div>
+            <span class="panelist-focus">{{ person.focus }}</span>
+          </div>
+          <div class="panelist-meta">
+            <span class="panelist-name">{{ person.name }}</span>
+            <span class="panelist-role">{{ person.role }}</span>
+            <span class="panelist-org">{{ person.org }}</span>
+            <span class="panelist-cta">Read bio</span>
+          </div>
+        </button>
+      </div>
+
+      <!-- Panel session -->
+      <div class="lineup-head mt-14 md:mt-20">
+        <span class="lineup-kicker">Panel: “Reinventing Industries”</span>
+        <span class="lineup-count">12:10 PM · Room 104</span>
+      </div>
+      <div class="grid grid-cols-1 gap-5 xs:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <button type="button" class="panelist" @click="showBio(moderator, 'Moderator & MC')">
+          <div class="panelist-photo">
+            <img :src="moderator.img" :alt="moderator.name" width="800" height="1000" loading="lazy" decoding="async" />
+            <div class="panelist-shade"></div>
+            <span class="panelist-focus">{{ moderator.focus }}</span>
+          </div>
+          <div class="panelist-meta">
+            <span class="panelist-name">{{ moderator.name }}</span>
+            <span class="panelist-role">{{ moderator.role }}</span>
+            <span class="panelist-org">{{ moderator.org }}</span>
+            <span class="panelist-cta">Read bio</span>
+          </div>
+        </button>
+        <button
+          v-for="person in panelists"
+          :key="person.id"
+          type="button"
+          class="panelist"
+          @click="showBio(person, 'Panelist')"
+        >
+          <div class="panelist-photo">
+            <img
+              :src="person.img"
+              :alt="person.name"
+              width="800"
+              height="1000"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="panelist-shade"></div>
+            <span class="panelist-focus">{{ person.focus }}</span>
+          </div>
+          <div class="panelist-meta">
+            <span class="panelist-name">{{ person.name }}</span>
+            <span class="panelist-role">{{ person.role }}</span>
+            <span class="panelist-org">{{ person.org }}</span>
+            <span class="panelist-cta">Read bio</span>
+          </div>
+        </button>
+      </div>
+
+      <!-- Workshops -->
+      <div class="lineup-head mt-14 md:mt-20">
+        <span class="lineup-kicker">Workshops</span>
+        <span class="lineup-count">1:45 PM · 3 parallel sessions</span>
+      </div>
+      <div class="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-6">
+        <button
+          v-for="host in workshopHosts"
+          :key="host.id"
+          type="button"
+          class="host"
+          @click="showBio(host, 'Workshop host')"
+        >
+          <div class="host-photo">
+            <img
+              :src="host.thumb"
+              :alt="host.name"
+              width="480"
+              height="480"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="host-meta">
+            <span class="host-workshop">{{ host.workshop }}</span>
+            <span class="host-blurb">{{ host.workshopBlurb }}<template v-if="host.room"> · {{ host.room }}</template></span>
+            <span class="host-by">
+              <span class="host-name">{{ host.name }}</span>
+              <span class="host-role">{{ host.role }}</span>
+            </span>
+            <span class="panelist-cta">Read bio</span>
+          </div>
+        </button>
+      </div>
+
+      <!-- Judges -->
+      <div class="lineup-head mt-14 md:mt-20">
+        <span class="lineup-kicker">Judges</span>
+        <span class="lineup-count">Tech Case &amp; Expo</span>
+      </div>
+      <div class="judges" role="region" aria-label="Judges" aria-roledescription="carousel">
+        <div ref="judgeTrack" class="judges-track" tabindex="0" @scroll.passive="updateJudgeEnds">
+          <figure v-for="judge in judges" :key="judge.id" class="judge">
+            <div class="judge-photo">
+              <img :src="judge.img" :alt="judge.name" width="320" height="400" loading="lazy" decoding="async" />
+            </div>
+            <figcaption class="judge-name">{{ judge.name }}</figcaption>
+          </figure>
+        </div>
+        <div class="judges-nav">
+          <button type="button" class="judges-arrow" aria-label="Previous judges" :disabled="judgeAtStart" @click="slideJudges(-1)">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6" /></svg>
+          </button>
+          <button type="button" class="judges-arrow" aria-label="Next judges" :disabled="judgeAtEnd" @click="slideJudges(1)">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6" /></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <SpeakerModal :speaker="openSpeaker" :kicker="openKicker" @close="closeBio" />
 
   <!-- ===================== CORE COMPONENTS ===================== -->
   <div class="section-dark px-5 pb-16 pt-16 xs:px-8 md:pb-24 md:pt-24" id="components">
@@ -242,6 +535,30 @@ onUnmounted(() => {
         <a href="/schedule.html" target="_blank" rel="noopener noreferrer" class="cta-btn"
           >Check full schedule</a
         >
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== PARTNERS ===================== -->
+  <div class="bg-flux-mist px-5 pb-16 pt-16 xs:px-8 md:pb-24 md:pt-24" id="partners">
+    <div class="mx-auto max-w-6xl">
+      <span class="section-label">Future Flux 2026</span>
+      <h2 class="mt-3 font-bebas text-5xl font-normal text-flux-ink xs:text-6xl sm:text-7xl">
+        Sponsors &amp; Partners
+      </h2>
+      <p class="mt-3 max-w-xl font-urbanist text-base text-flux-ink/55 sm:text-lg">
+        The organisations who made Future Flux possible through funding, speakers, judges, prizes,
+        and venue.
+      </p>
+
+      <div class="partner-grid mt-10 md:mt-14">
+        <div v-for="item in partners" :key="item.name" class="partner-plate" :title="item.name">
+          <img :src="item.img" :alt="item.name" width="600" height="360" loading="lazy" decoding="async" />
+        </div>
+      </div>
+
+      <div class="mt-10 flex justify-center md:mt-14">
+        <a href="/sponsors.html" class="cta-btn-dark">Become a sponsor &rarr;</a>
       </div>
     </div>
   </div>
@@ -461,6 +778,18 @@ onUnmounted(() => {
 .partner-stats b { display: block; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 40px; line-height: 1; color: var(--orange); }
 .partner-stats span { display: block; margin-top: 4px; font-family: 'Urbanist', sans-serif; font-size: 13px; line-height: 1.35; color: rgba(255, 255, 255, 0.7); }
 @media (min-width: 900px) { .partner-band > div:last-child { grid-column: 1 / -1; } }
+
+/* Hero: the "next edition" line and the countdown's theme note */
+.portal-soon {
+  @apply mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/60;
+}
+.hero-next {
+  @apply mx-auto mt-5 max-w-md font-urbanist text-sm leading-relaxed text-white/60 lg:mx-0;
+}
+.hero-next-label {
+  @apply mr-2 inline-block rounded-full px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-white;
+  background: rgba(var(--accent-rgb), 0.9);
+}
 
 .tagline-band {
   @apply mt-4 inline-block font-urbanist text-sm font-medium tracking-wide text-white xs:text-base sm:mt-5 sm:text-xl;

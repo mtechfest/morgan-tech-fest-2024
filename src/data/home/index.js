@@ -19,14 +19,13 @@ export const nav = [
   { id: 'techcase', label: 'Tech Case', href: '/tech-case.html' },
   { id: 'expo', label: 'Innovation Expo', href: '/innovation-expo.html' },
   { id: 'schedule', label: 'Schedule', index: '04', href: '/schedule.html' },
-  { id: 'team', label: 'Team', href: '/team.html' },
   { id: 'faq', label: 'FAQ', index: '06' }
 ]
 
 // Secondary pages that moved out of the header menu into the footer.
 export const footerLinks = [
+  { label: 'Team', href: '/team.html' },
   { label: 'Transit', href: '/transit.html' },
-  { label: 'Past Events', href: '/highlights.html' },
   { label: 'Media', href: '/media.html' }
 ]
 
@@ -159,7 +158,7 @@ export const FaqQuestionsAnswers = [
   },
   {
     question: 'Who can participate?',
-    answer: 'Morgan TechFest is open to students from Morgan State University and other institutions. We encourage inter-university collaboration and diverse perspectives.'
+    answer: 'Morgan TechFest is open to students from every major, at Morgan State University and other institutions. All schools are invited, and we encourage inter-university collaboration and diverse perspectives.'
   },
   {
     question: 'What is the Tech Case Competition?',
@@ -168,6 +167,18 @@ export const FaqQuestionsAnswers = [
   {
     question: 'What can I showcase at the Innovation Expo?',
     answer: 'You can showcase research projects, engineering prototypes, and AI/technology solutions. Participants compete for awards and recognition.'
+  },
+  {
+    question: 'What do I need to present at the Innovation Expo?',
+    answer: 'Research entries present a printed poster. Technology entries present a slide plus a live or pre-recorded demo. Exact formats and deadlines are published with each Expo.'
+  },
+  {
+    question: 'Do Innovation Expo participants receive a certificate?',
+    answer: 'Yes. Everyone who participates in the Innovation Expo receives a certificate of participation.'
+  },
+  {
+    question: 'Can I bring guests to the Innovation Expo?',
+    answer: 'Yes. Guests are welcome, the more the merrier.'
   },
   {
     question: 'Is it free?',
@@ -180,5 +191,9 @@ export const FaqQuestionsAnswers = [
   {
     question: 'How do I register?',
     answer: 'Registration for Morgan TechFest 2027 opens soon. Once it does, the Register Now button at the top of this page will take you straight to the form.'
+  },
+  {
+    question: 'Who do I contact with questions?',
+    answer: 'Email us at morgantechfest@gmail.com.'
   }
 ]

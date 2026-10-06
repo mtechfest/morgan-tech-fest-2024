@@ -527,6 +527,7 @@
     /* ===== ABOUT LAYOUT ===== */
     .about-layout { display: grid; gap: 32px; margin-top: 28px; grid-template-columns: 1fr; align-items: center; }
     @media (min-width: 900px) { .about-layout { grid-template-columns: 1.05fr 1fr; gap: 44px; } }
+    .about-team-link { margin-top: 18px; font-family: 'Urbanist', sans-serif; font-size: 17px; line-height: 1.55; color: #333; }
     .about-lead { font-family: 'Urbanist', sans-serif; font-size: clamp(19px, 2.4vw, 24px); line-height: 1.5; color: var(--dark); }
     .about-text { margin-top: 16px; font-family: 'Urbanist', sans-serif; font-size: 18px; line-height: 1.7; color: #111111; }
     .about-video { position: relative; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; border: 1px solid rgba(var(--ink-rgb),0.08); box-shadow: 0 16px 40px rgba(var(--ink-rgb),0.16); }
@@ -581,7 +582,6 @@
           <a class="site-nav-link" href="/tech-case.html">Tech Case</a>
           <a class="site-nav-link" href="/innovation-expo.html">Innovation Expo</a>
           <a class="site-nav-link" href="/schedule.html">Schedule</a>
-          <a class="site-nav-link" href="/team.html">Team</a>
           <a class="site-nav-link" href="/#faq">FAQ</a>
         </nav>
         <div class="site-header-right">
@@ -595,7 +595,6 @@
       <a class="site-mobile-nav-link" href="/tech-case.html">Tech Case</a>
       <a class="site-mobile-nav-link" href="/innovation-expo.html">Innovation Expo</a>
       <a class="site-mobile-nav-link" href="/schedule.html">Schedule</a>
-      <a class="site-mobile-nav-link" href="/team.html">Team</a>
       <a class="site-mobile-nav-link" href="/#faq">FAQ</a>
     </nav>
   </header>
@@ -619,6 +618,8 @@
       <div class="about-layout">
         <div class="about-copy">
           <p class="about-lead">Morgan TechFest is an annual technology innovation platform hosted by Morgan State University, bringing together students, faculty, and the broader academic community to solve real-world technology problems, showcase cutting-edge research, and foster meaningful innovation and collaboration.</p>
+          <p class="about-team-link">Morgan TechFest is planned and run by students, with guidance from faculty advisors.</p>
+          <a class="back-link" href="/team.html">Meet the team &rarr;</a>
         </div>
         <div class="about-video">
           <iframe src="https://www.youtube-nocookie.com/embed/MLX3J9nk0cI?si=Fe_QZEDKo3kaM7Qe" title="Morgan TechFest" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -639,8 +640,8 @@
       <nav class="site-footer-nav" aria-label="Footer">
         <h2 class="site-footer-heading">More from TechFest</h2>
         <ul class="site-footer-list">
+          <li><a class="site-footer-link" href="/team.html">Team</a></li>
           <li><a class="site-footer-link" href="/transit.html">Transit</a></li>
-          <li><a class="site-footer-link" href="/highlights.html">Past Events</a></li>
           <li><a class="site-footer-link" href="/media.html">Media</a></li>
         </ul>
       </nav>
