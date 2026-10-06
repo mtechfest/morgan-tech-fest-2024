@@ -71,7 +71,7 @@ onUnmounted(() => {
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" /></svg>
           </button>
           <RouterLink to="/" @click="goHome">
-            <img alt="Morgan TechFest" src="@/assets/logo.svg" class="w-24 flex-shrink-0 sm:w-32" />
+            <img alt="Morgan TechFest" src="@/assets/logo.svg" width="155" height="55" class="h-auto w-24 flex-shrink-0 sm:w-32" />
           </RouterLink>
         </div>
 

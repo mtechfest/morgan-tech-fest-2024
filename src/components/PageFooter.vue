@@ -24,7 +24,7 @@ const year = new Date().getFullYear()
   <footer class="site-footer">
     <div class="site-footer-inner">
       <div class="site-footer-brand">
-        <a class="site-footer-logo" href="/"><img src="/logo.svg" alt="Morgan TechFest" /></a>
+        <a class="site-footer-logo" href="/"><img src="/logo.svg" alt="Morgan TechFest" width="155" height="55" /></a>
         <p class="site-footer-tag">
           The annual student technology innovation conference at Morgan State University, Baltimore.
         </p>

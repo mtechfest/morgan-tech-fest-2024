@@ -258,6 +258,32 @@ onUnmounted(() => {
     </div>
   </section>
 
+  <!-- ===================== MAYOR OF BALTIMORE ===================== -->
+  <section class="mayor" id="mayor">
+    <div class="mx-auto grid max-w-6xl gap-10 px-5 xs:px-8 lg:grid-cols-[1fr_minmax(0,504px)] lg:items-center lg:gap-14">
+      <div class="text-center lg:text-left">
+        <span class="section-label-light">City of Baltimore</span>
+        <h2 class="mt-3 font-bebas text-5xl font-normal leading-none text-white xs:text-6xl sm:text-7xl">
+          A Message from the Mayor of Baltimore
+        </h2>
+        <p class="mx-auto mt-5 max-w-md font-urbanist text-base leading-relaxed text-white/70 sm:text-lg lg:mx-0">
+          A video message from the Mayor of Baltimore for the Morgan TechFest community.
+        </p>
+        <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7510522449290219520/" target="_blank" rel="noopener noreferrer" class="mayor-link">Watch on LinkedIn &rarr;</a>
+      </div>
+      <div class="mayor-frame">
+        <iframe
+          src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7510522449290219520?compact=1"
+          title="Video message from the Mayor of Baltimore (LinkedIn post)"
+          width="504"
+          height="399"
+          loading="lazy"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== IN THE NEWS ===================== -->
   <div class="section-dark px-5 py-12 xs:px-8 md:py-16">
     <div class="mx-auto max-w-4xl text-center">
@@ -789,6 +815,29 @@ onUnmounted(() => {
 .hero-next-label {
   @apply mr-2 inline-block rounded-full px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-white;
   background: rgba(var(--accent-rgb), 0.9);
+}
+
+/* Mayor of Baltimore: LinkedIn post embed. The frame reserves its size up front
+   so nothing jumps while LinkedIn loads, and the iframe only loads when near view. */
+.mayor {
+  @apply py-16 md:py-24;
+  background: linear-gradient(180deg, var(--deep) 0%, var(--blue) 100%);
+}
+.mayor-frame {
+  @apply mx-auto w-full overflow-hidden rounded-2xl;
+  max-width: 504px;
+  height: 399px;
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(var(--void-rgb), 0.5);
+}
+.mayor-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.mayor-link {
+  @apply mt-6 inline-flex items-center font-mono text-xs font-bold uppercase tracking-[0.12em] text-white underline decoration-flux-cyan underline-offset-4 transition-colors duration-200 hover:text-flux-cyan;
 }
 
 .tagline-band {
